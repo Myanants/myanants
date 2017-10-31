@@ -28,10 +28,11 @@
 					
 					<td class="right">
 						<?php foreach ($data['SubService'] as $key => $value) { ?>
-							<?php echo $key.'.'.$value['name'].' ( '.$value['myan_name'].' ) <br/>' ; ?>
+							<?php $no = $key+1; ?>
+							<a href="<?php echo '/admin/service/addquestion/'.$data['Service']['id']; ?>"><?php echo $no.'.'.$value['name'].' ( '.$value['myan_name'].' ) <br/>' ?></a>
 							<?php if (!empty($value['text'])) { ?>
-								<div class="col-md-10 text-style">								
-										<?php echo $value['text'].' ( '.$value['myan_text'].')' ; ?>
+								<div class="col-md-10 text-style">
+									<?php echo $value['text'].' ( '.$value['myan_text'].')' ; ?>
 								</div><br/>
 							<?php } ?>
 						<br/>

@@ -15,6 +15,8 @@ class AdminSubServicesController extends AdminAppController {
 		$services = $this->Service->find('list',array('fields' => 'name'));
 		$this->set(compact('services'));
 
+debug($this->request->data);
+
 		if ($this->request->is(array('post', 'put'))) {
 
 			try {
@@ -25,6 +27,11 @@ class AdminSubServicesController extends AdminAppController {
 				if (!$this->SubService->save($this->request->data)) {
 					throw new Exception('ERROR COULD NOT ADD Tag');
 				}
+
+				// $this->Question->create();
+				// if (!$this->Question->save($this->request->data)) {
+				// 	throw new Exception('ERROR COULD NOT ADD Tag');
+				// }
 
 				$this->TransactionManager->commit($transaction);
 				// $this->redirect(array('Controller' => 'AdminServicesController','action' => 'index'));

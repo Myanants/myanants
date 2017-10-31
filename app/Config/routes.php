@@ -36,6 +36,7 @@
 	Router::connect('/admin/service/:action/*',array('controller' => 'adminservices'));
 	Router::connect('/admin/serviceprovider/:action/*',array('controller' => 'adminserviceproviders'));
 	Router::connect('/admin/subservice/:action/*',array('controller' => 'adminsubservices'));
+	Router::connect('/admin/service/addquestion/*',array('controller' => 'adminservices', 'action' => 'addquestion'));
 
 
 /**
