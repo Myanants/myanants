@@ -24,11 +24,11 @@
  * its action called 'display', and we pass a param to select the view file
  * to use (in this case, /app/View/Pages/home.ctp)...
  */
-	Router::connect('/', array('controller' => 'posts', 'action' => 'visitors'));
+	Router::connect('/', array('controller' => 'adminusers', 'action' => 'login'));
 /**
  * ...and connect the rest of 'Pages' controller's URLs.
  */
-	Router::connect('/logreg/*', array('controller' => 'posts', 'action' => 'visitors'));
+	// Router::connect('/logreg/*', array('controller' => 'posts', 'action' => 'visitors'));
 
 	Router::connect('/admin/login',array('controller' => 'adminusers', 'action' => 'login'));
 	Router::connect('/admin/customer',array('controller' => 'admincustomers', 'action' => 'index'));
@@ -37,6 +37,7 @@
 	Router::connect('/admin/serviceprovider/:action/*',array('controller' => 'adminserviceproviders'));
 	Router::connect('/admin/subservice/:action/*',array('controller' => 'adminsubservices'));
 	Router::connect('/admin/service/addquestion/*',array('controller' => 'adminservices', 'action' => 'addquestion'));
+	Router::connect('/admin/subservice/form/*',array('controller' => 'adminservices', 'action' => 'form'));
 
 
 /**

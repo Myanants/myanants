@@ -2102,22 +2102,22 @@ class RouterTest extends CakeTestCase {
  * @return void
  */
 	public function testUrlWritingWithPrefixes() {
-		Router::connect('/customer/:controller/:action/*', array('prefix' => 'customer', 'customer' => true));
+		Router::connect('/company/:controller/:action/*', array('prefix' => 'company', 'company' => true));
 		Router::connect('/login', array('controller' => 'users', 'action' => 'login'));
 
-		$result = Router::url(array('controller' => 'users', 'action' => 'login', 'customer' => true));
-		$expected = '/customer/users/login';
+		$result = Router::url(array('controller' => 'users', 'action' => 'login', 'company' => true));
+		$expected = '/company/users/login';
 		$this->assertEquals($expected, $result);
 
-		$result = Router::url(array('controller' => 'users', 'action' => 'customer_login', 'customer' => true));
-		$expected = '/customer/users/login';
+		$result = Router::url(array('controller' => 'users', 'action' => 'company_login', 'company' => true));
+		$expected = '/company/users/login';
 		$this->assertEquals($expected, $result);
 
 		$request = new CakeRequest();
 		Router::setRequestInfo(
 			$request->addParams(array(
 				'plugin' => null, 'controller' => 'users', 'action' => 'login',
-				'customer' => true
+				'company' => true
 			))->addPaths(array(
 				'base' => '/',
 				'here' => '/',
@@ -2125,7 +2125,7 @@ class RouterTest extends CakeTestCase {
 			))
 		);
 
-		$result = Router::url(array('controller' => 'users', 'action' => 'login', 'customer' => false));
+		$result = Router::url(array('controller' => 'users', 'action' => 'login', 'company' => false));
 		$expected = '/login';
 		$this->assertEquals($expected, $result);
 	}

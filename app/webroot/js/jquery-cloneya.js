@@ -137,11 +137,11 @@
 
 				console.log(time);
 				// Assign
-				var select1 = "data[Question][0][name1]";
-				var select2 = "data[Question]["+time+"][name1]";
+				var select1 = "data[Question][0][Ename]";
+				var select2 = "data[Question]["+time+"][Ename]";
 
-				var select3 = "data[Question][0][name2]";
-				var select4 = "data[Question]["+time+"][name2]";
+				var select3 = "data[Question][0][Mname]";
+				var select4 = "data[Question]["+time+"][Mname]";
 
 				// Replace
 				var Ename = document.getElementById( "Ename");

@@ -126,17 +126,17 @@
 					<p class="name">
 	                    
 	                	<?php
-							echo $this->Form->input('Question.0.name1', array(
+							echo $this->Form->input('Question.0.Ename', array(
 								'type' => 'text',
 								'label' => false,
 								'class' => 'form-control',
-								'style' => 'margin-bottom: 2%;    width: 49%;',
+								'style' => 'margin-bottom: 2%;width: 49%;',
 								'placeholder' => 'Enter Question (English)',
 								'id' => 'Ename'
 							));
 						?>
 						<?php
-							echo $this->Form->input('Question.0.name2', array(
+							echo $this->Form->input('Question.0.Mname', array(
 								'type' => 'text',
 								'label' => false,
 								'class' => 'form-control',
@@ -211,7 +211,4 @@
    		$('#simple-clone').cloneya();
    	});
 
-   	$(document).on('click', '.delete', function(){
-   		$('#simple-clone').cloneya();
-   	});
 </script>

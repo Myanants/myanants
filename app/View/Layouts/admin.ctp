@@ -8,7 +8,7 @@
 		<!-- ========== Title ========== -->
 		<title><?php echo 'MyanAnts | We Connect Service Providers'; ?></title>
 		<!-- ========== CSS ========== -->
-		<?php echo $this->Html->css('//cdn.datatables.net/t/bs-3.3.6/jqc-1.12.0,dt-1.10.11/datatables.min.css'); ?>
+		<?php //echo $this->Html->css('//cdn.datatables.net/t/bs-3.3.6/jqc-1.12.0,dt-1.10.11/datatables.min.css'); ?>
 		<?php echo $this->Html->css('bootstrap.min'); ?>
 		<?php echo $this->Html->css('font-awesome.min'); ?>
 		<?php echo $this->Html->css('nprogress'); ?>
@@ -24,9 +24,7 @@
 		<?php echo $this->Html->script('select2.min'); ?>
 		<?php echo $this->Html->script('datatables.min') ?>
 		<?php echo $this->Html->script('datatable'); ?>
-		<?php //echo $this->Html->script('//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js'); ?>
 		<?php echo $this->Html->script('jquery-cloneya'); ?>
-		<?php //echo $this->Html->script('jquery-cloneya.min'); ?>
 	</head>
 	<body class="nav-md">
 		<div class="container body">

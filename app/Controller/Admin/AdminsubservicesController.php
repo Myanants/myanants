@@ -2,7 +2,7 @@
 App::uses('AdminAppController', 'Controller');
 class AdminSubServicesController extends AdminAppController {
 	public $components = array('RequestHandler');
-	public $uses = array('SubService','Service','TransactionManager');
+	public $uses = array('SubService','Service','Question','TransactionManager');
 
 	public function beforeFilter(){
 		parent::beforeFilter();
@@ -15,26 +15,19 @@ class AdminSubServicesController extends AdminAppController {
 		$services = $this->Service->find('list',array('fields' => 'name'));
 		$this->set(compact('services'));
 
-debug($this->request->data);
 
 		if ($this->request->is(array('post', 'put'))) {
 
 			try {
 				$transaction = $this->TransactionManager->begin();
-
-				// save to the database
+				
 				$this->SubService->create();
-				if (!$this->SubService->save($this->request->data)) {
+				if (!$this->SubService->saveAssociated($this->request->data)) {
 					throw new Exception('ERROR COULD NOT ADD Tag');
 				}
 
-				// $this->Question->create();
-				// if (!$this->Question->save($this->request->data)) {
-				// 	throw new Exception('ERROR COULD NOT ADD Tag');
-				// }
-
 				$this->TransactionManager->commit($transaction);
-				// $this->redirect(array('Controller' => 'AdminServicesController','action' => 'index'));
+				$this->redirect(array('Controller' => 'AdminSubServicesController','action' => 'form'));
 
 			} catch (Exception $e) {
 				$this->log('File : ' . $e->getFile() . ' Line : ' . $e->getLine(), LOG_ERR);
@@ -45,6 +38,11 @@ debug($this->request->data);
 	}
 
 
+	public function form() {
+
+	}
+
+	
 	public function delete($id = null) {
 		try {
 			$transaction = $this->TransactionManager->begin();
