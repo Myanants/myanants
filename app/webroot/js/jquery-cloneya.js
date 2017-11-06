@@ -108,20 +108,43 @@
 	CloneYa.prototype = {
 		init: function () {
 			
+			/******************** Add Question ***********************/
+			if (document.getElementById( "Ename")) {
 
-			var select1 = "data[Question][9999999][Ename]";
-			var select2 = "data[Question][9999999][Mname]";
+				var select1 = "data[Question][9999999][Ename]";
+				var select2 = "data[Question][9999999][Mname]";
+				var select_service = "data[Question][9999999][service_id]";
 
-			// Replace
-			// if(document.getElementById("Ename")) {
-
+				// Replace
 				var originEname = document.getElementById( "Ename") ;
 				var originMname = document.getElementById( "Mname") ;
+				var originservice_id = document.getElementById( "service_id") ;
+
+				var selected = $( "#myselect" ).val();
+
 
 				originEname.setAttribute("name", select1);
 				originMname.setAttribute("name", select2);
-			// }
+				originservice_id.setAttribute("name", select_service);
+				originservice_id.setAttribute("value", selected);
+			}
+			/******************** Add Question ***********************/
 
+			
+
+			/************************ Add Answer **********************/
+			if (document.getElementById( "en_answer")) {
+				var select3 = "data[Question][8888888][en_answer]";
+				var select4 = "data[Question][8888888][mm_answer]";
+
+				// Replace
+				var en_answer = document.getElementById( "en_answer") ;
+				var mm_answer = document.getElementById( "mm_answer") ;
+
+				en_answer.setAttribute("name", select3);
+				mm_answer.setAttribute("name", select4);
+			}
+			/************************ Add Answer **********************/
 
 			var $this = this;
 
@@ -139,7 +162,7 @@
 			$this.$elem.on('click.' + name, $this.config.cloneThis + '>' + $this.config.cloneButton, function (event) {
 				event.preventDefault();
 				event.stopPropagation();
-
+var selected = $("#myselect" ).val() ;
 
 			/**********************************************************************************
 			 * 
@@ -155,21 +178,49 @@
 				// Current time
 				var time = new Date().getTime();
 
+
+				/************************ Add Question **********************/
+				
+
 				// Assign
 				var select1 = "data[Question]["+time+"][Ename]";
 				var select2 = "data[Question]["+time+"][Mname]";
+				var select_service = "data[Question]["+time+"][service_id]";
 
 
 				// Replace
 				if(document.getElementById("Ename")) {
 					var Ename = document.getElementById( "Ename");
 					var Mname = document.getElementById( "Mname");
+					var service_id = document.getElementById( "service_id");
+
+					
 					Ename.setAttribute("name", select1);
 					Mname.setAttribute("name", select2);
+					service_id.setAttribute("name", select_service);
+					service_id.setAttribute("value", selected);
+
+				}	
+
+				/*****************************************************************************/
+
+
+				/************************ Add Answer **********************/
+
+				// Assign
+				var select3 = "data[Question]["+time+"][en_answer]";
+				var select4 = "data[Question]["+time+"][mm_answer]";
+
+				// Replace
+				if(document.getElementById("en_answer")) {
+					var en_answer = document.getElementById( "en_answer");
+					var mm_answer = document.getElementById( "mm_answer");
+					en_answer.setAttribute("name", select3);
+					mm_answer.setAttribute("name", select4);
 
 				}	
 				
-			/*****************************************************************************/
+				/*****************************************************************************/
 
 				
 			});

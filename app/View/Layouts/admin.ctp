@@ -95,9 +95,12 @@
 
 									<li><a><i class="fa fa-cogs"></i> <?php echo "Question"?> <span class="fa fa-chevron-down"></span></a>
 										<ul class="nav child_menu">
-											<li>
-												<?php echo $this->Html->link('Question List', array('controller' => 'adminsubservices', 'action' => 'add_question')); ?>
-											</li>
+											<!-- <li>
+												<?php echo $this->Html->link('Question List', array('controller' => 'adminsubservices', 'action' => 'add_answer')); ?>
+											</li> -->
+										<!-- 	<li>
+												<?php echo $this->Html->link('Question Add', array('controller' => 'adminsubservices', 'action' => 'add_answer')); ?>
+											</li> -->
 											<li>
 												<?php echo $this->Html->link('Question Setting', array('controller' => 'adminsubservices', 'action' => 'form')); ?>
 											</li>

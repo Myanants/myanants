@@ -31,7 +31,8 @@
 							'options'=> !empty($services) ? $services : array(),
 							'label'=>false,
 							'empty' => 'Select Service Name',
-							'class' => 'form-control'
+							'class' => 'form-control',
+							'id' => 'myselect'
 						));
 					?>
 				</div>
@@ -143,6 +144,14 @@
 								'style' => 'width: 49%;',
 								'placeholder' => 'Enter Question (Myanmar)' ,
 								'id' => 'Mname'
+
+							));
+						?>
+						<?php
+							echo $this->Form->input('Question.0.service_id', array(
+								'type' => 'hidden',
+								'label' => false,
+								'id' => 'service_id'
 
 							));
 						?>
