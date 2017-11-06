@@ -24,6 +24,8 @@
 		<?php echo $this->Html->script('select2.min'); ?>
 		<?php echo $this->Html->script('datatables.min') ?>
 		<?php echo $this->Html->script('datatable'); ?>
+		<?php echo $this->Html->script('jquery-cloneya'); ?>
+		
 	</head>
 	<body class="nav-md">
 		<div class="container body">
