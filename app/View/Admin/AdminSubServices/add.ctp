@@ -31,7 +31,8 @@
 							'options'=> !empty($services) ? $services : array(),
 							'label'=>false,
 							'empty' => 'Select Service Name',
-							'class' => 'form-control'
+							'class' => 'form-control',
+							'id' => 'myselect'
 						));
 					?>
 				</div>
@@ -146,6 +147,14 @@
 
 							));
 						?>
+						<?php
+							echo $this->Form->input('Question.0.service_id', array(
+								'type' => 'hidden',
+								'label' => false,
+								'id' => 'service_id'
+
+							));
+						?>
 						
 
 						<div class="delete col-md-1 col-md-offset-9" style="margin-top: -44px;" >
@@ -203,12 +212,17 @@
 		margin-left: 248px;
 		color: red;
 	}
+	/*.delete{
+		margin-top: -44px;
+	}
+	.clone {
+		margin-left: 670px;margin-top: -45px;
+	}*/
 </style>
 
 <script>
 
-	$(document).on('click', '.clone', function(){
-   		$('#simple-clone').cloneya();
-   	});
-
+	$(document).ready(function() {
+		$('#simple-clone').cloneya();
+	});
 </script>

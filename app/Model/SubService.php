@@ -6,6 +6,13 @@ class SubService extends AppModel {
 		'Question'
 	);
 	
+	public $belongsTo = array(
+        'Service' => array(
+            'className' => 'Service',
+            'foreignKey' => 'service_id'
+        )
+    );
+
 	public $validate = array(
 		'service_id' => array(
 			'notBlank' => array(
