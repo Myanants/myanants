@@ -107,6 +107,21 @@
 
 	CloneYa.prototype = {
 		init: function () {
+			
+
+			var select1 = "data[Question][9999999][Ename]";
+			var select2 = "data[Question][9999999][Mname]";
+
+			// Replace
+			// if(document.getElementById("Ename")) {
+
+				var originEname = document.getElementById( "Ename") ;
+				var originMname = document.getElementById( "Mname") ;
+
+				originEname.setAttribute("name", select1);
+				originMname.setAttribute("name", select2);
+			// }
+
 
 			var $this = this;
 
@@ -131,29 +146,32 @@
 			 * Data must not be overwrite
 			 *
 			*********************************************************************************/
-
-				// Current time
-				var time = new Date().getTime();
-
-				console.log(time);
-				// Assign
-				var select1 = "data[Question][0][Ename]";
-				var select2 = "data[Question]["+time+"][Ename]";
-
-				var select3 = "data[Question][0][Mname]";
-				var select4 = "data[Question]["+time+"][Mname]";
-
-				// Replace
-				var Ename = document.getElementById( "Ename");
-				Ename.setAttribute("name", select2);
-				Mname.setAttribute("name", select4);
-
-			/*****************************************************************************/
-
 				var toClone = $(this).closest($this.config.cloneThis);
 
 				// this is just a wrapper for the custom clone event
 				$this.$elem.triggerAll('clone_clone clone.' + name, [toClone]);
+
+				
+				// Current time
+				var time = new Date().getTime();
+
+				// Assign
+				var select1 = "data[Question]["+time+"][Ename]";
+				var select2 = "data[Question]["+time+"][Mname]";
+
+
+				// Replace
+				if(document.getElementById("Ename")) {
+					var Ename = document.getElementById( "Ename");
+					var Mname = document.getElementById( "Mname");
+					Ename.setAttribute("name", select1);
+					Mname.setAttribute("name", select2);
+
+				}	
+				
+			/*****************************************************************************/
+
+				
 			});
 
 
