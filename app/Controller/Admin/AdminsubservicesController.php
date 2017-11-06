@@ -27,7 +27,7 @@ class AdminSubServicesController extends AdminAppController {
 				}
 
 				$this->TransactionManager->commit($transaction);
-				$this->redirect(array('Controller' => 'AdminSubServicesController','action' => 'form'));
+				$this->redirect(array('action' => 'form'));
 
 			} catch (Exception $e) {
 				$this->log('File : ' . $e->getFile() . ' Line : ' . $e->getLine(), LOG_ERR);
@@ -38,8 +38,16 @@ class AdminSubServicesController extends AdminAppController {
 	}
 
 
-	public function form() {
+	public function edit_question($id = null) {
 
+		$subService = $this->SubService->findById($id);
+	
+		$this->set(compact('subService'));
+	}
+
+	public function form() {
+		$services = $this->Service->find('all');
+		$this->set(compact('services'));
 	}
 
 	

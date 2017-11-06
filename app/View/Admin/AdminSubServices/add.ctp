@@ -147,6 +147,7 @@
 							));
 						?>
 						
+						
 
 						<div class="delete col-md-1 col-md-offset-9" style="margin-top: -44px;" >
 							<span class="btn btn-primary">
@@ -203,12 +204,17 @@
 		margin-left: 248px;
 		color: red;
 	}
+	/*.delete{
+		margin-top: -44px;
+	}
+	.clone {
+		margin-left: 670px;margin-top: -45px;
+	}*/
 </style>
 
 <script>
 
-	$(document).on('click', '.clone', function(){
-   		$('#simple-clone').cloneya();
-   	});
-
+	$(document).ready(function() {
+		$('#simple-clone').cloneya();
+	});
 </script>

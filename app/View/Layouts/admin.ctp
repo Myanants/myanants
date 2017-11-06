@@ -8,6 +8,7 @@
 		<!-- ========== Title ========== -->
 		<title><?php echo 'MyanAnts | We Connect Service Providers'; ?></title>
 		<!-- ========== CSS ========== -->
+		
 		<?php echo $this->Html->css('//cdn.datatables.net/t/bs-3.3.6/jqc-1.12.0,dt-1.10.11/datatables.min.css'); ?>
 		<?php echo $this->Html->css('bootstrap.min'); ?>
 		<?php echo $this->Html->css('font-awesome.min'); ?>
@@ -25,6 +26,7 @@
 		<?php echo $this->Html->script('datatables.min') ?>
 		<?php echo $this->Html->script('datatable'); ?>
 		<?php echo $this->Html->script('jquery-cloneya'); ?>
+	
 		
 	</head>
 	<body class="nav-md">
@@ -64,7 +66,6 @@
 									<li><a><i class="fa fa-building-o"></i> <?php echo "Service"?> <span class="fa fa-chevron-down"></span></a>
 										<ul class="nav child_menu">
 											<li>
-										
 												<?php echo $this->Html->link('Service List', array('controller' => 'adminservices', 'action' => 'index')); ?>
 											</li>
 											<li>
@@ -73,6 +74,7 @@
 											<li>
 												<?php echo $this->Html->link('Sub Service Add', array('controller' => 'adminsubservices', 'action' => 'add')); ?>
 											</li>
+
 										</ul>
 									</li>
 
@@ -91,10 +93,13 @@
 									</li> -->
 
 
-									<li><a><i class="fa fa-cogs"></i> <?php echo "Form Setting"?> <span class="fa fa-chevron-down"></span></a>
+									<li><a><i class="fa fa-cogs"></i> <?php echo "Question"?> <span class="fa fa-chevron-down"></span></a>
 										<ul class="nav child_menu">
 											<li>
-												<?php echo $this->Html->link('Form', array('controller' => 'adminsubservices', 'action' => 'index')); ?>
+												<?php echo $this->Html->link('Question List', array('controller' => 'adminsubservices', 'action' => 'add_question')); ?>
+											</li>
+											<li>
+												<?php echo $this->Html->link('Question Setting', array('controller' => 'adminsubservices', 'action' => 'form')); ?>
 											</li>
 											
 										</ul>
@@ -156,6 +161,9 @@
 			</div>
 		</div>
 		<!-- jQuery -->
+		<?php //echo $this->Html->script('https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js'); ?>
+		<?php echo $this->Html->script('https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js'); ?>
+
 		<?php echo $this->Html->script('fastclick'); ?>
 		<?php echo $this->Html->script('nprogress'); ?>
 		<?php echo $this->Html->script('custom'); ?>
