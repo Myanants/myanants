@@ -89,7 +89,7 @@ class AdminServicesController extends AdminAppController {
 	}
 
 	public function addquestion($id) {
-debug($id);
+
 	}
 
 	public function delete($id = null) {
