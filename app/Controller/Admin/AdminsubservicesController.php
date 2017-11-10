@@ -86,7 +86,9 @@ class AdminSubServicesController extends AdminAppController {
 				$eAnswer .= $value['en_answer'].'@@';
 				$mAnswer .= $value['mm_answer'].'@@';
 			}
-
+			$eAnswer = rtrim($eAnswer,"@@");
+			$mAnswer = rtrim($mAnswer,"@@");
+			
 			unset($this->request->data['Question']);
 			$this->request->data['Question']['en_answer'] = $eAnswer ;
 			$this->request->data['Question']['mm_answer'] = $mAnswer ;

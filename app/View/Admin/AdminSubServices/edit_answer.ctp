@@ -15,11 +15,11 @@
 						<?php
 
 							$mmstr = $value['mm_answer'];
-							$mmstr = rtrim($mmstr,"@@");
+							// $mmstr = rtrim($mmstr,"@@");
 							$mm = explode('@@', $mmstr);
 
 							$enstr = $value['en_answer'];
-							$enstr = rtrim($enstr,"@@");
+							// $enstr = rtrim($enstr,"@@");
 							$en = explode('@@', $enstr);
 							
 							$combined = array_combine($mm, $en);
@@ -148,7 +148,7 @@
 				data:{ data : myArray , id : id},
 				dataType: "json",
 				success : function(response){
-					alert("Ajax Success");
+					console.log("Ajax Success");
 				},
 				error: function(){}
 			});
