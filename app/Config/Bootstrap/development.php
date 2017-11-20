@@ -114,12 +114,12 @@ App::build(array(
 	'Controller' => array(
 		ROOT.DS.APP_DIR.DS.'Controller'.DS.'Admin'.DS,
 		// ROOT.DS.APP_DIR.DS.'Controller'.DS.'Master'.DS,
-		// ROOT.DS.APP_DIR.DS.'Controller'.DS.'User'.DS,
+		ROOT.DS.APP_DIR.DS.'Controller'.DS.'User'.DS,
 	),
 	'View' => array(
 		ROOT.DS.APP_DIR.DS.'View'.DS.'Admin'.DS,
 		// ROOT.DS.APP_DIR.DS.'View'.DS.'Master'.DS,
-		// ROOT.DS.APP_DIR.DS.'View'.DS.'User'.DS,
+		ROOT.DS.APP_DIR.DS.'View'.DS.'User'.DS,
 	),
 	'Vendor' => array(ROOT.DS.'vendors'.DS),
 ));
