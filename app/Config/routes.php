@@ -24,7 +24,7 @@
  * its action called 'display', and we pass a param to select the view file
  * to use (in this case, /app/View/Pages/home.ctp)...
  */
-	Router::connect('/', array('controller' => 'adminusers', 'action' => 'login'));
+	// Router::connect('/', array('controller' => 'adminusers', 'action' => 'login'));
 /**
  * ...and connect the rest of 'Pages' controller's URLs.
  */
@@ -37,6 +37,13 @@
 	Router::connect('/admin/serviceprovider/:action/*',array('controller' => 'adminserviceproviders'));
 	Router::connect('/admin/subservice/:action/*',array('controller' => 'adminsubservices'));
 
+	Router::connect('/',array('controller' => 'users', 'action' => 'index'));
+	Router::connect('/user/index',array('controller' => 'users', 'action' => 'index'));
+	Router::connect('/user/login',array('controller' => 'users', 'action' => 'login'));
+	Router::connect('/user/facebooklogin',array('controller' => 'users', 'action' => 'facebookLogin'));
+	Router::connect('/user/facebook/fallback', array('controller' => 'users', 'action' => 'fbcallback'));
+	Router::connect('/user/register', array('controller' => 'users', 'action' => 'add'));
+	Router::connect('/user/logout',array('controller' => 'users', 'action' => 'logout'));
 
 /**
  * Load all plugin routes. See the CakePlugin documentation on
