@@ -65,7 +65,21 @@
 						<li class="active nav-item sr-only"><a class="scrollto" href="#promo">Home</a></li>
 						<li class="nav-item"><a class="scrollto" href="#about">LOGIN</a></li>
 						<li class="nav-item"><a class="scrollto" href="#features">REGISTER</a></li>
-						<li class="nav-item"><a class="scrollto" href="#docs">MYANMAR</a></li>
+						<li class="nav-item">
+							<a class="scrollto" href="#docs">
+								<p>
+									<?php echo $this->html->link('English', array('language'=>'eng')); ?>
+								</p>
+							</a>
+						</li>
+						<li class="nav-item">
+							<a class="scrollto" href="#docs">
+								<p>
+									<?php echo $this->html->link('Myanmar', array('language'=>'mya')); ?>
+								</p>
+							</a>
+						</li>
+
 					</ul><!--//nav-->
 				</div><!--//navabr-collapse-->
 			</nav><!--//main-nav-->
@@ -81,6 +95,7 @@
 				<br/>Whatever you need , MyanAnts  is here ! !
 				<br/>Please choose from our popular services below.
 			</p>
+
 			<div class="btns">
 				<a class="btn btn-cta-primary" href="http://themes.3rdwavemedia.com/website-templates/devaid-free-bootstrap-theme-developers/" target="_blank">
 					Air Conditioner Maintenance
@@ -118,8 +133,13 @@
 	<!-- ******ABOUT****** --> 
 	<section id="about" class="about section">
 		<div class="container">
-			<h2 class="title text-center">What is devAid?</h2>
-			<p class="intro text-center">Explain your project in detail. Ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate.</p>
+			<h2 class="title text-center">What is MyanAnts?</h2>
+			<p class="intro text-center">
+
+				<?php echo __('Myanants'); ?>
+				<?php echo __('hello1'); ?>
+
+			</p>
 			<div class="row">
 				<div class="item col-md-4 col-sm-6 col-xs-12">
 					<div class="icon-holder">

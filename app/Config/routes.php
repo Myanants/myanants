@@ -45,6 +45,10 @@
 	Router::connect('/user/register', array('controller' => 'users', 'action' => 'add'));
 	Router::connect('/user/logout',array('controller' => 'users', 'action' => 'logout'));
 
+
+	Router::connect('/:language/:controller/:action/*', array(), array('language' => '[a-z]{3}'));
+
+
 /**
  * Load all plugin routes. See the CakePlugin documentation on
  * how to customize the loading of plugin routes.

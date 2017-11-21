@@ -38,26 +38,30 @@ class UserAppController extends AppController {
 		'Cookie'
 	);
 
-	// public function beforeFilter() {
-	// 	// $this->layout = 'users';
-	// 	AuthComponent::$sessionKey = 'Auth.users';
-	// 	if(in_array($this->params['controller'],array('users'))){
-	// 		$this->Auth->allow('remind');
-	// 	}
-	// 	$this->Cookie->name = 'rememberMe';
-	// 	$this->Cookie->secure = false; // i.e. only sent if using secure HTTP
-	// 	$this->Cookie->key = 'qSI232qs*&sXOw!adre@34SAv!@*(XSL#$%)asGb$@11~_+!@#HKis~#^';
-	// 	$this->Cookie->httpOnly = true;
-	// 	$this->Cookie->type('rijndael');
-	// 	$this->set('LoginedUser', $this->Auth->user());
-	// 	$this->Auth->allow('privacy_policy','term_condition','add','registration_success','employer_success','remind','index','contactus','job_search','employer_add','help','receipt','detail','request_password_change', 'top_com_info');
-
-	// }
 	public function isAuthorized($user) {
 		if ($this->Auth->loggedIn() && $this->Session->check('Auth.users')) {
 			return true;
 		}
 		return false;
 	}
+
+
+	function beforeFilter() {
+        $this->_setLanguage();
+    }
+
+    function _setLanguage() {
+
+        if ($this->Cookie->read('lang') && !$this->Session->check('Config.language')) {
+            $this->Session->write('Config.language', $this->Cookie->read('lang'));
+            $this->log("if");
+        } else if (isset($this->params['language']) && ($this->params['language'] !=  $this->Session->read('Config.language'))) {
+
+            $this->Session->write('Config.language', $this->params['language']);
+            $this->Cookie->write('lang', $this->params['language'], false, '20 days');
+            $this->log("else");
+
+        }
+    }
 
 }
