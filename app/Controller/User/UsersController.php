@@ -75,6 +75,10 @@ class UsersController extends UserAppController {
 
 
 	public function fbcallback() {
+		// disable auto render view
+		$this->autoRender = false;
+
+
 		$fb = new Facebook\Facebook([
 			'app_id' => '1038913562917167',
 			'app_secret' => 'c0df3e628a09c24f972985ad47dee466',
@@ -82,6 +86,13 @@ class UsersController extends UserAppController {
 		]);
 
 		$helper = $fb->getRedirectLoginHelper();
+		$accessToken = $helper->getAccessToken();
+
+debug($accessToken);
+
+		if (isset($_GET['state'])) {
+			debug($_GET['state']);
+		}
 
 		try {
 			$accessToken = $helper->getAccessToken();
@@ -102,6 +113,7 @@ class UsersController extends UserAppController {
 				echo "Error Code: " . $helper->getErrorCode() . "\n";
 				echo "Error Reason: " . $helper->getErrorReason() . "\n";
 				echo "Error Description: " . $helper->getErrorDescription() . "\n";
+				var_dump($helper->getError());
 			} else {
 				header('HTTP/1.0 400 Bad Request');
 				echo 'Bad request';
@@ -123,24 +135,26 @@ class UsersController extends UserAppController {
 
 		// Validation (these will throw FacebookSDKException's when they fail)
 		$tokenMetadata->validateAppId('1038913562917167'); // Replace {app-id} with your app id
+		
 		// If you know the user ID this access token belongs to, you can validate it here
 		//$tokenMetadata->validateUserId('123');
 		$tokenMetadata->validateExpiration();
 
 		if (! $accessToken->isLongLived()) {
-		// Exchanges a short-lived access token for a long-lived one
-		try {
-		$accessToken = $oAuth2Client->getLongLivedAccessToken($accessToken);
-		} catch (Facebook\Exceptions\FacebookSDKException $e) {
-		echo "<p>Error getting long-lived access token: " . $helper->getMessage() . "</p>\n\n";
-		exit;
-		}
+			// Exchanges a short-lived access token for a long-lived one
+			try {
+				$accessToken = $oAuth2Client->getLongLivedAccessToken($accessToken);
+			} catch (Facebook\Exceptions\FacebookSDKException $e) {
+				echo "<p>Error getting long-lived access token: " . $helper->getMessage() . "</p>\n\n";
+				exit;
+			}
 
-		echo '<h3>Long-lived</h3>';
-		var_dump($accessToken->getValue());
+			var_dump($accessToken->getValue());
 		}
 
 		$_SESSION['fb_access_token'] = (string) $accessToken;
+debug($_SESSION['fb_access_token'] );
+$this->log($_SESSION['fb_access_token'] );
 
 		// User is logged in with a long-lived access token.
 		// You can redirect them to a members-only page.

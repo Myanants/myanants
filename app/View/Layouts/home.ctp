@@ -101,7 +101,6 @@
 			<p class="hidden-sm hidden-xs intro">
 				<?php echo __('Are you looking for Aircon Servicing , Home Cleaning , Plumbing ,Electrical and Wiring Fixing ?'); ?> <br/>
 				<?php echo __('Whatever you need , MyanAnts is here ! !'); ?> <br/>
-
 			</p>
 
 			<div class="btns">
