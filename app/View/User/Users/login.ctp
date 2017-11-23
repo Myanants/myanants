@@ -16,10 +16,10 @@
 				<div class="form-group" >
 					<div class="col-md-10 col-md-offset-1 ">
 						<label>User Name</label>
-						<?php if($email): ?>
-							<?php echo $this->Form->input('email', array( 'value'=> $email, 'placeholder' => 'email', 'autofocus' => true, 'autocomplete' => 'off','label' => false,'type'=>'text', 'class' => 'form-control')); ?>
-						<?php else: ?>
-							<?php echo $this->Form->input('email', array('placeholder' => 'email', 'autofocus' => true, 'autocomplete' => 'off','label' => false,'type'=>'text', 'class' => 'form-control')); ?>
+						<?php if ($name) : ?>
+							<?php echo $this->Form->input('name', array( 'class' => 'form-control', 'placeholder' => 'User name', 'autofocus' => true, 'autocomplete' => 'off','label' => false,'value'=> $name)); ?>
+						<?php else : ?>
+							<?php echo $this->Form->input('name', array( 'class' => 'form-control', 'placeholder' => 'User name', 'autofocus' => true, 'autocomplete' => 'off','label' => false)); ?>
 						<?php endif; ?>
 					</div>
 				</div>

@@ -1,8 +1,0 @@
-msgid "hello"
-msgstr "Hello jp"
-
-msgid "hello1"
-msgstr "Hello jp11111111"
-
-msgid "hello2"
-msgstr "Hello jp22222222"

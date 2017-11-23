@@ -3,7 +3,6 @@ session_start();
 App::uses('BlowfishPasswordHasher', 'Controller/Component/Auth');
 class UserAppController extends AppController {
 	protected $_mergeParent = 'UserAppController';
-	public $is_mobile = false;
 	public $layouts = array('desktop', 'mobile');
 	public $components = array(
 		'Session',
@@ -24,10 +23,10 @@ class UserAppController extends AppController {
 			'authenticate' => array(
 				'Form' => array(
 					'fields' => array(
-						'username' => 'email',
+						'username' => 'name',
 						'password' => 'password',
 					),
-					'userModel' => 'User',
+					'userModel' => 'Customer',
 					'passwordHasher' => 'Blowfish',
 				)
 			),
@@ -37,18 +36,31 @@ class UserAppController extends AppController {
 		),
 		'Cookie'
 	);
+	
 
-	public function isAuthorized($user) {
+	function beforeFilter() {
+        $this->_setLanguage();
+		AuthComponent::$sessionKey = 'Auth.users';
+		if(in_array($this->params['controller'],array('users'))){
+			$this->Auth->allow('remind');
+		}
+		$this->Cookie->name = 'rememberMe';
+		$this->Cookie->secure = false; // i.e. only sent if using secure HTTP
+		$this->Cookie->key = 'qSI232qs*&sXOw!adre@34SAv!@*(XSL#$%)asGb$@11~_+!@#HKis~#^';
+		$this->Cookie->httpOnly = true;
+		$this->Cookie->type('rijndael');
+		$this->set('LoginedUser', $this->Auth->user());
+		$this->Auth->allow('add','registration_success','employer_success','remind','index','fbcallback','facebookLogin');
+
+    }
+
+    public function isAuthorized($user) {
 		if ($this->Auth->loggedIn() && $this->Session->check('Auth.users')) {
 			return true;
 		}
 		return false;
 	}
 
-
-	function beforeFilter() {
-        $this->_setLanguage();
-    }
 
     function _setLanguage() {
 
