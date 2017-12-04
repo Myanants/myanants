@@ -215,7 +215,7 @@ pre code {
 
 .promo .btns .btn {
     margin-right: 15px;
-    font-size: 10px;
+    font-size: 15px;
     padding: 8px 30px;
 }
 
@@ -654,3 +654,8 @@ pre code {
       margin-top:8%;
     }
 /*}*/
+
+
+.error-message {
+  color: red;
+}

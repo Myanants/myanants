@@ -129,8 +129,19 @@
 										<?php elseif ($value['Customer']['deactivate'] == true): ?>
 											<?php echo $this->Html->link('Activate', array('controller' => 'admincustomers', 'action' => 'approved', h($value['Customer']['id'])), array('onclick' => 'return confirm(" Do you want to activate?")', 'class' => 'btn btn-white btn-sm','style' => 'width:75px;')); ?>
 										<?php endif; ?>
+										<div class="col-md-5 ">
+										<?php //echo $this->Html->link('Service Request', array('controller' => 'admincustomers', 'action' => 'addRequest', h($value['Customer']['id'])), array('class' =>'btn btn-royal-blue btn-sm')); 
+											echo $this->Form->input('service_id', array(
+												'type' => 'select',
+												'options'=> !empty($service) ? $service : array(),
+												'label'=>false,
+												'empty' => 'Service Request',
+												'class' => 'form-control',
+												'id' => h($value['Customer']['id'])
+											));
 
-										<?php echo $this->Html->link('Service Request', array('controller' => 'admincustomers', 'action' => 'addRequest', h($value['Customer']['id'])), array('class' =>'btn btn-royal-blue btn-sm')); ?>
+
+										?></div>
 
 										<?php echo $this->Html->link('Delete', array('controller' => 'admincustomers', 'action' => 'delete', h($value['Customer']['id'])), array('confirm' => "Would you like to delete this company?", 'class' =>'btn btn-royal-blue btn-sm')); ?>
 									</td>
@@ -172,3 +183,10 @@
 		</div>
 	</div>
 </div>
+
+<script type="text/javascript">
+	$('select').on('change', function() {
+		location.replace("http://myanants.com/admin/customer/addRequest/"+this.id+"&"+this.value);
+		console.log(this.id);
+	})
+</script>

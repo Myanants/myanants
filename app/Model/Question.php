@@ -5,6 +5,10 @@ class Question extends AppModel {
         'SubService' => array(
             'className' => 'SubService',
             'foreignKey' => 'sub_service_id'
+        ),
+        'Service' => array(
+            'className' => 'Service',
+            'foreignKey' => 'service_id'
         )
     );
 }

@@ -17,12 +17,7 @@
 
 <?php echo $this->fetch('content'); ?>
 
-
-* Above URL will expire 1 hour after issue.
-* Customers who do not remember this email
-It is possible that other customers mistakenly entered your email address and the email was erroneously delivered. Sorry to trouble you, but please disregard this mail.
-
 ------------------------------------
-SMARTALOTE
-http://smartalote.com
+MYANANTS
+http://myanants.com
 ------------------------------------

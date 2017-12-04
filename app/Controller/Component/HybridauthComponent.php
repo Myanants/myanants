@@ -25,7 +25,7 @@ class HybridauthComponent extends Component {
         $this->hybridauth = new Hybrid_Auth( $config );
     }
 
-	/**
+    /**
      * process the
      *
      * @return string
@@ -33,7 +33,7 @@ class HybridauthComponent extends Component {
     public function processEndpoint(){
         App::import('Vendor', 'hybridauth/Hybrid/Endpoint');
 
-		if( !$this->hybridauth ) $this->init ();
+        if( !$this->hybridauth ) $this->init ();
         Hybrid_Endpoint::process();
     }
 
@@ -128,38 +128,38 @@ class HybridauthComponent extends Component {
         }
     }
 
-	/**
+    /**
      * creates a social profile array based on the hybridauth profile object
      *
      *
      * @param string $provider the provider given from hybridauth
      * @return boolean wether you have been logged in or not
      */
-	protected function normalizeSocialProfile($provider){
-		// convert our object to an array
-		$incomingProfile = (Array)$this->adapter->getUserProfile();
+    protected function normalizeSocialProfile($provider){
+        // convert our object to an array
+        $incomingProfile = (Array)$this->adapter->getUserProfile();
 
-		// populate our social profile
-		$socialProfile['SocialProfile']['social_network_name'] = $provider;
-		$socialProfile['SocialProfile']['social_network_id'] = $incomingProfile['identifier'];
+        // populate our social profile
+        $socialProfile['SocialProfile']['social_network_name'] = $provider;
+        $socialProfile['SocialProfile']['social_network_id'] = $incomingProfile['identifier'];
         $socialProfile['SocialProfile']['email'] = $incomingProfile['emailVerified'];
-		$socialProfile['SocialProfile']['first_name'] = $incomingProfile['firstName'];
-		$socialProfile['SocialProfile']['last_name'] = $incomingProfile['lastName'];
-		$socialProfile['SocialProfile']['link'] = $incomingProfile['profileURL'];
-		$socialProfile['SocialProfile']['picture'] = $incomingProfile['photoURL'];
-		$socialProfile['SocialProfile']['created'] = date('Y-m-d h:i:s');
-		$socialProfile['SocialProfile']['modified'] = date('Y-m-d h:i:s');
+        $socialProfile['SocialProfile']['first_name'] = $incomingProfile['firstName'];
+        $socialProfile['SocialProfile']['last_name'] = $incomingProfile['lastName'];
+        $socialProfile['SocialProfile']['link'] = $incomingProfile['profileURL'];
+        $socialProfile['SocialProfile']['picture'] = $incomingProfile['photoURL'];
+        $socialProfile['SocialProfile']['created'] = date('Y-m-d h:i:s');
+        $socialProfile['SocialProfile']['modified'] = date('Y-m-d h:i:s');
 
-		// twitter does not provide email so we need to build someting
-		if($provider == 'Twitter'){
-			$names = explode(' ', $socialProfile['SocialProfile']['first_name']);
-			$socialProfile['SocialProfile']['first_name'] = $names[0];
-			$socialProfile['SocialProfile']['last_name'] = (count($names)>1 ? end($names) : '');
-			$socialProfile['SocialProfile']['display_name'] = $socialProfile['SocialProfile']['first_name'] .'_'. $socialProfile['SocialProfile']['last_name'];
-			$socialProfile['SocialProfile']['email'] = $socialProfile['SocialProfile']['display_name'] .'@Twitter.com';
-		}
+        // twitter does not provide email so we need to build someting
+        if($provider == 'Twitter'){
+            $names = explode(' ', $socialProfile['SocialProfile']['first_name']);
+            $socialProfile['SocialProfile']['first_name'] = $names[0];
+            $socialProfile['SocialProfile']['last_name'] = (count($names)>1 ? end($names) : '');
+            $socialProfile['SocialProfile']['display_name'] = $socialProfile['SocialProfile']['first_name'] .'_'. $socialProfile['SocialProfile']['last_name'];
+            $socialProfile['SocialProfile']['email'] = $socialProfile['SocialProfile']['display_name'] .'@Twitter.com';
+        }
 
-		return $socialProfile;
+        return $socialProfile;
     }
 
 }

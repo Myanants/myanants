@@ -443,7 +443,7 @@ p.error,
 p.error,
 .error-message {
 	clear: both;
-	color: #fff;
+	color: #ff0000;
 	background: #c43c35;
 	border: 1px solid rgba(0, 0, 0, 0.5);
 	background-repeat: repeat-x;

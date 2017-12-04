@@ -8,51 +8,50 @@
 
 			<table>
 				<tbody>
-					
-					<?php foreach ($sub_services as $key => $value): ?>
+					<?php foreach ($temp as $key => $value): ?>
 						<tr>
 							<td style="padding-bottom: 10px;">
-								
 								<h2>
 									<?php
-										$name = explode('@@', $service_name[$value['SubService']['service_id']]);
-										echo $name[0].' : '.$name[1] .' ( '.$name[2] .' ) ';
-									?>
+									$head = explode('@@', $service_name[$key]); ?>
+
+									<label> <?php echo $head[0].' : '.$head[1].' [ '.$head[2].' ] '; ?> </label>
 								</h2>
 								
 							</td>
 						</tr>
-						<tr>
-							<table class="table table-bordered">
-								<tr>
-									<th colspan=2>
-										<?php echo $value['SubService']['name'].' ( '.$value['SubService']['myan_name'] . ' )'; ?>
-
-										<div class="buttons" style="float: right;">
-											<?php echo $this->Html->link('Sort Question', array('controller' => 'adminsubservices', 'action' => 'edit_answer', h($value['SubService']['id'])), array('class' =>'btn btn-success btn-sm')); ?>
-										</div>
-									</th>
-								</tr>
-
-								<?php foreach ($value['Question'] as $subKey => $subValue): ?>
+						<?php foreach ($value as $vkey => $vvalue) : ?>
+							<tr>
+								<table class="table table-bordered">
 									<tr>
-										<td>
-											<?php
-												echo $subValue['Ename'].' ( '.$subValue['Mname'].' )';
-											?>
-										</td>
-										<td>
+										<th colspan=2>
+											<?php echo $vvalue['SubService']['name'].' [ '.$vvalue['SubService']['myan_name'] .' ] '; ?>
+
 											<div class="buttons" style="float: right;">
-												<?php echo $this->Html->link('Edit Answer', array('controller' => 'adminsubservices', 'action' => 'edit_answer', h($subValue['id'])), array('class' =>'btn btn-success btn-sm')); ?>
+												<?php echo $this->Html->link('Sort Question', array('controller' => 'adminsubservices', 'action' => 'edit_answer', h($vvalue['SubService']['id'])), array('class' =>'btn btn-success btn-sm')); ?>
 											</div>
-											<div class="buttons" style="float: right;">
-												<?php echo $this->Html->link('Add Answer', array('controller' => 'adminsubservices', 'action' => 'add_answer', h($subValue['id'])), array('class' =>'btn btn-orange btn-sm')); ?>
-											</div>
-										</td>
+										</th>
 									</tr>
-								<?php endforeach; ?>
-							</table>
-						</tr>
+									<?php foreach ($vvalue['Question'] as $subKey => $subValue): ?>
+										<tr>
+											<td>
+												<?php
+													echo $subValue['Ename'].' ( '.$subValue['Mname'].' )';
+												?>
+											</td>
+											<td>
+												<div class="buttons" style="float: right;">
+													<?php echo $this->Html->link('Edit Answer', array('controller' => 'adminsubservices', 'action' => 'edit_answer', h($subValue['id'])), array('class' =>'btn btn-success btn-sm')); ?>
+												</div>
+												<div class="buttons" style="float: right;">
+													<?php echo $this->Html->link('Add Answer', array('controller' => 'adminsubservices', 'action' => 'add_answer', h($subValue['id'])), array('class' =>'btn btn-orange btn-sm')); ?>
+												</div>
+											</td>
+										</tr>
+									<?php endforeach; ?>
+								</table>
+							</tr>
+						<?php endforeach; ?>
 					<?php endforeach; ?>
 				</tbody>
 			</table>

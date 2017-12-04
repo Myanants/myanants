@@ -75,8 +75,7 @@
 							'class' => 'form-control col-md-7 col-xs-12',
 							'autocomplete' => 'off' ,
 							'placeholder' => '',
-							'maxlength' => '100',
-							'required' => false
+							'maxlength' => '100'
 						));
 					?>
 				</div>

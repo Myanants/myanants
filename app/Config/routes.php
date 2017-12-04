@@ -37,6 +37,8 @@
 	Router::connect('/admin/service/:action/*',array('controller' => 'adminservices'));
 	Router::connect('/admin/serviceprovider/:action/*',array('controller' => 'adminserviceproviders'));
 	Router::connect('/admin/subservice/:action/*',array('controller' => 'adminsubservices'));
+	Router::connect('/admin/question/:action/*',array('controller' => 'adminquestions'));
+	Router::connect('/admin/servicerequest/:action/*',array('controller' => 'adminservicerequests'));
 
 	Router::connect('/',array('controller' => 'users', 'action' => 'index'));
 	Router::connect('/user/index',array('controller' => 'users', 'action' => 'index'));
@@ -46,6 +48,10 @@
 	Router::connect('/user/fbcallback', array('controller' => 'users', 'action' => 'fbcallback'));
 	Router::connect('/user/register', array('controller' => 'users', 'action' => 'add'));
 	Router::connect('/user/logout',array('controller' => 'users', 'action' => 'logout'));
+
+
+	// Router::connect('/servicerequest/add/*',array('controller' => 'servicerequests', 'action' => 'add'));
+	Router::connect('/servicerequest/:action/*',array('controller' => 'servicerequests'));
 
 
 	Router::connect('/:language/:controller/:action/*', array(), array('language' => '[a-z]{3}'));

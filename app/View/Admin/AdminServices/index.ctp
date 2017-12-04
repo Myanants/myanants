@@ -93,6 +93,8 @@
 									</td>
 
 									<td>
+										<?php echo $this->Html->link('Add Question', array('controller' => 'adminquestions', 'action' => 'add',h($value['Service']['id'])), array( 'class' => 'btn btn-blue btn-sm')); ?>
+
 										<?php echo $this->Html->link('Browse', array('controller' => 'adminservices', 'action' => 'browse',h($value['Service']['id'])), array( 'class' => 'btn btn-blue btn-sm')); ?>
 
 										<?php echo $this->Html->link('Delete', array('controller' => 'adminservices', 'action' => 'delete', h($value['Service']['id'])), array('confirm' => "Would you like to delete this service?", 'class' =>'btn btn-royal-blue btn-sm')); ?>
