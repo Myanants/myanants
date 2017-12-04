@@ -3,7 +3,7 @@
 		<h2>Sub Service Register</h2>
 		<div class="clearfix"></div>
 	</div>
-	<div class="x_content">
+	<div class="x_content demo-wrap"  id="simple-clone">
 		<br />
 		<?php
 			echo $this->Form->create('SubService', array(
@@ -31,7 +31,8 @@
 							'options'=> !empty($services) ? $services : array(),
 							'label'=>false,
 							'empty' => 'Select Service Name',
-							'class' => 'form-control'
+							'class' => 'form-control',
+							'id' => 'myselect'
 						));
 					?>
 				</div>
@@ -113,6 +114,65 @@
 				</div>
 			</div>
 
+			<div class="col-md-12">			
+				<?php
+					echo $this->Form->label('question', 'Questions', array(
+						'class' => 'control-label col-md-3 col-sm-3 col-xs-12'
+					));
+				?>
+			</div>
+
+			<center>
+				<div class="toclone form-group" style="border-bottom: none;">
+					<p class="name">
+	                    
+	                	<?php
+							echo $this->Form->input('Question.0.Ename', array(
+								'type' => 'text',
+								'label' => false,
+								'class' => 'form-control',
+								'style' => 'margin-bottom: 2%;width: 49%;',
+								'placeholder' => 'Enter Question (English)',
+								'id' => 'Ename'
+							));
+						?>
+						<?php
+							echo $this->Form->input('Question.0.Mname', array(
+								'type' => 'text',
+								'label' => false,
+								'class' => 'form-control',
+								'style' => 'width: 49%;',
+								'placeholder' => 'Enter Question (Myanmar)' ,
+								'id' => 'Mname'
+
+							));
+						?>
+						<?php
+							echo $this->Form->input('Question.0.service_id', array(
+								'type' => 'hidden',
+								'label' => false,
+								'id' => 'service_id'
+
+							));
+						?>
+						
+						
+
+						<div class="delete col-md-1 col-md-offset-9" style="margin-top: -44px;" >
+							<span class="btn btn-primary">
+								<i class="fa fa-minus" ></i>
+							</span>
+						</div>
+
+						<div class="clone" style="margin-left: 670px;margin-top: -45px;">
+							<span class="btn btn-primary">
+								<i class="fa fa-plus" ></i>
+							</span>
+						</div>
+					</p>
+				</div>
+			</center>
+
 			<div class="ln_solid"></div>
 			<div class="form-group">
 				<div class="col-md-6 col-sm-6 col-xs-12 col-md-offset-3">
@@ -153,4 +213,17 @@
 		margin-left: 248px;
 		color: red;
 	}
+	/*.delete{
+		margin-top: -44px;
+	}
+	.clone {
+		margin-left: 670px;margin-top: -45px;
+	}*/
 </style>
+
+<script>
+
+	$(document).ready(function() {
+		$('#simple-clone').cloneya();
+	});
+</script>

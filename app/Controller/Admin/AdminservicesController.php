@@ -88,6 +88,10 @@ class AdminServicesController extends AdminAppController {
 		$this->set(compact('data','services'));
 	}
 
+	public function addquestion($id) {
+
+	}
+
 	public function delete($id = null) {
 		try {
 			$transaction = $this->TransactionManager->begin();

@@ -24,18 +24,35 @@
  * its action called 'display', and we pass a param to select the view file
  * to use (in this case, /app/View/Pages/home.ctp)...
  */
-	Router::connect('/', array('controller' => 'posts', 'action' => 'visitors'));
+	// Router::connect('/', array('controller' => 'adminusers', 'action' => 'login'));
 /**
  * ...and connect the rest of 'Pages' controller's URLs.
  */
-	Router::connect('/logreg/*', array('controller' => 'posts', 'action' => 'visitors'));
+	// Router::connect('myanant.com', array('default' => 'myanant.com/mya/user/index'));
 
+	Router::connect('/admin',array('controller' => 'adminusers', 'action' => 'login'));
 	Router::connect('/admin/login',array('controller' => 'adminusers', 'action' => 'login'));
 	Router::connect('/admin/customer',array('controller' => 'admincustomers', 'action' => 'index'));
 	Router::connect('/admin/customer/:action/*',array('controller' => 'admincustomers'));
 	Router::connect('/admin/service/:action/*',array('controller' => 'adminservices'));
 	Router::connect('/admin/serviceprovider/:action/*',array('controller' => 'adminserviceproviders'));
 	Router::connect('/admin/subservice/:action/*',array('controller' => 'adminsubservices'));
+
+	Router::connect('/',array('controller' => 'users', 'action' => 'index'));
+	Router::connect('/user/index',array('controller' => 'users', 'action' => 'index'));
+	Router::connect('/user/login',array('controller' => 'users', 'action' => 'login'));
+	Router::connect('/user/facebooklogin',array('controller' => 'users', 'action' => 'facebookLogin'));
+	Router::connect('/user/facebook/fallback', array('controller' => 'users', 'action' => 'fbcallback'));
+	Router::connect('/user/fbcallback', array('controller' => 'users', 'action' => 'fbcallback'));
+	Router::connect('/user/register', array('controller' => 'users', 'action' => 'add'));
+	Router::connect('/user/logout',array('controller' => 'users', 'action' => 'logout'));
+
+
+	Router::connect('/servicerequest/add/*',array('controller' => 'servicerequests', 'action' => 'add'));
+	Router::connect('/servicerequest/:action/*',array('controller' => 'servicerequests'));
+
+
+	Router::connect('/:language/:controller/:action/*', array(), array('language' => '[a-z]{3}'));
 
 
 /**

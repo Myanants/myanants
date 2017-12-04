@@ -2,7 +2,7 @@
 App::uses('AdminAppController', 'Controller');
 class AdminCustomersController extends AdminAppController {
 	public $components = array('RequestHandler');
-	public $uses = array('Customer','Service','TransactionManager');
+	public $uses = array('Customer','Service','SubService','TransactionManager');
 
 	public function beforeFilter(){
 		parent::beforeFilter();
@@ -85,6 +85,30 @@ class AdminCustomersController extends AdminAppController {
 		}
 	}
 
+	public function addRequest($id) {
+		$user = $this->Customer->findById($id);
+		$service = $this->Service->findById($user['Service']['id']);
+// debug($service);
+		$this->set(compact('service'));
+	
+
+	debug($this->request->data);
+	}
+
+
+	public function ajaxTest() {
+		$this->autoRender = FALSE;
+		if ($this->request->is('ajax')) {
+			if ($this->request->data) {
+				$subservice = $this->SubService->findById($this->request->data['checkval']);
+// $this->log($subservice);
+				$question = $subservice['Question'] ;
+				return json_encode($question);
+			}
+		}
+
+	}
+
 	public function browse($id) {
 		if (!$id) {
 			$this->Session->setFlash('Enter Customer ID。', "error");
@@ -100,11 +124,7 @@ class AdminCustomersController extends AdminAppController {
 	}
 
 	public function edit($id) {
-	}
-
-	public function addRequest($id) {
-
-	}
+	}	
 
 	public function delete($id = null) {
 		try {

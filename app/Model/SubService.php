@@ -1,6 +1,18 @@
 <?php
 App::uses('BlowfishPasswordHasher', 'Controller/Component/Auth');
 class SubService extends AppModel {
+
+	public $hasMany = array (
+		'Question'
+	);
+	
+	public $belongsTo = array(
+        'Service' => array(
+            'className' => 'Service',
+            'foreignKey' => 'service_id'
+        )
+    );
+
 	public $validate = array(
 		'service_id' => array(
 			'notBlank' => array(

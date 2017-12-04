@@ -1,0 +1,8 @@
+msgid "hello"
+msgstr "Hello en"
+
+msgid "hello1"
+msgstr "Hello en11111111"
+
+msgid "hello2"
+msgstr "Hello en22222222"
