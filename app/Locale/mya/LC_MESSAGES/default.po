@@ -42,7 +42,7 @@ msgid "Cleaning Service"
 msgstr "အိမ္သန္႔ရွင္းေရး၀န္ေဆာင္မႈ"
 
 msgid "Other Services"
-msgstr "ပိုက္လုိင္းမ်ား၀န္ေဆာင္မႈ"
+msgstr "အၿခား၀န္ေဆာင္မွုမ်ား"
 
 msgid "What is MyanAnts?"
 msgstr "Myanants ဆုိတာ ဘာလဲ"
@@ -53,3 +53,5 @@ msgstr "အဲယားကြန္း ၀န္ေဆာင္မႈလား ?
 msgid "Whatever you need , MyanAnts is here ! !"
 msgstr "ဘာ၀န္ေဆာင္မွဳပဲလိုလို MyanAnts  ရွိပါတယ္။"
 
+msgid "Sign Up"
+msgstr "မွတ္ပံုတင္မည္"

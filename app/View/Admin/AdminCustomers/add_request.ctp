@@ -1,159 +1,157 @@
-<div class="x_panel">
-	<div class="x_title">
-		<h2>Customer's Service Request</h2>
-		<div class="clearfix"></div>
-	</div>
-	<div class="x_content">
+<section>
+<div class="container">
+	<div id="signupbox" class="login_box mainbox col-md-9 col-md-offset-2 col-sm-8 col-sm-offset-2">
+		<div class="sub_box" >
 
-		<?php echo $service['Service']['name'].' '.$service['Service']['myan_name']; ?>
-		<br />
-		<?php
-			echo $this->Form->create('ServiceRequest', array(
-				'type' => 'file',
-				'class' => 'form-horizontal form-label-left',
-				'inputDefaults' => array(
-					'label' => false,
-					'div' => false
-				),
-				'id' => 'demo-form2',
-				'autocomplete' => 'off'
-			));
-		?>
+			<div class="Utitle" >
+				<center>
+					<h3 class="hidden-sm hidden-xs">
+						<?php echo $service['Service']['name']; ?>
+					</h3>
+				</center>
+				<center>
+					<h4 class="hidden-lg hidden-md">
+						<?php echo $service['Service']['name']; ?>
+					</h4>
+				</center>
+			</div>
 
-
-			<div class="form-group">
-				<div class="panel panel-default" id="check">
-					<div class="panel-body">
-
-
-						<h3>Please select one option</h3>
-						<?php foreach ($service['SubService'] as $key => $value) : ?>
-							<div class="radio">
-								<label>
-									<input type='radio' name='sub_service' class="sub_service" value="<?php echo $value['id']; ?>">
-									<?php echo $value['name']; ?>
-								</label>
-							</div>
-						<?php endforeach; ?>
-
-						<div class="subdiv">
-							
-						</div>
-						
-
+			<div class="panel-body" >
+				<?php 
+					echo $this->Form->create('ServiceRequest', array(
+						'type' => 'file',
+						'class' => 'form-horizontal form-label-left',
+						'inputDefaults' => array(
+							'label' => false,
+							'div' => false
+						),
+						'id' => 'demo-form2',
+						'autocomplete' => 'off'
+					));
+				?>
+				<?php echo $this->Session->flash(); ?>
+		
+				<div class="form-group" ></div>
+				<div class="form-group" >
+					<div class="col-md-10 col-md-offset-1 ">
+						<!-- <label>What type of Service ?</label> -->
+						<?php
+							echo $this->Form->input('sub_service_id', array(
+								'type' => 'select',
+								'options'=> !empty($serviceName) ? $serviceName : array(),
+								'label'=>false,
+								'empty' => 'What do you need for..',
+								'class' => 'form-control'
+							));
+						?>
 					</div>
 				</div>
-			</div>
 
-			
+				<?php foreach ($question as $key => $value)  : ?>
+					<?php $questionId = $value['Question']['id']; ?>
+					<div class="form-group" >
+						<div class="col-md-10 col-md-offset-1 ">
+							<label>
+								<?php echo $value['Question']['Ename']; ?>
+							</label>
+							<?php
 
-			<div class="form-group">
-				<div class="col-md-6 col-sm-6 col-xs-12 col-md-offset-3">
-					<?php echo $this->Html->link('Cancel', array('type' => 'reset','controller' => 'admincustomers', 'action' => 'index'), array('onclick' => 'return confirm(" Do you want to cancel?")', 'class' => 'btn btn-gray btn-sm')); ?>
-					<?php echo $this->Form->button('Save', array('type' => 'submit', 'class' => 'btn btn-orange btn-sm')); ?>
+								if ($value['Question']['type'] == 'text') {
+									echo $this->Form->input($questionId, array(
+										'type' => 'text',
+										'label'=>false,
+										'class' => 'form-control'
+									));
+
+								} elseif ($value['Question']['type'] == 'check') {
+									$string = rtrim($value['Question']['en_answer'],"@@");
+									$answer = explode('@@', $string);
+									$chkValue = array();
+									foreach ($answer as $key => $value) { 
+										$chkValue[$value] = $value;										
+									} ?>
+
+									<?php echo $this->Form->input($questionId, array(
+											'type' => 'select',
+											'multiple' => 'checkbox',
+											'label' => false,
+											'class' => 'multiple-chb',
+											'options' => $chkValue,
+											'required' => false
+										));
+
+										?>
+									
+								<?php } elseif ($value['Question']['type'] == 'radio') { ?>
+									<?php
+										$string = rtrim($value['Question']['en_answer'],"@@");
+										$answer = explode('@@', $string);
+									?>
+									<div>
+										<?php foreach ($answer as $key => $value) : ?>
+											<label class="radio-inline">
+												<input type="radio" name="<?php echo 'data[ServiceRequest]['.$questionId.']'; ?>" value = "<?php echo $value; ?>" > 
+												<?php echo $value; ?>
+											</label>
+										<?php endforeach; ?>
+									</div>
+
+								<?php }	?>
+						</div>
+					</div>
+
+				<?php endforeach; ?>
+				
+				<div class="form-group btn-submit">
+					<div class="col-md-10 col-md-offset-1 hidden-xs hidden-sm">
+						<?php echo $this->Form->button('Request', array('class'=>'btn btn-info btn-md btn-block','type'=>'submit')); ?>
+					</div>
 				</div>
-			</div>
 
-		<?php echo $this->Form->end(); ?>
+				<div class="form-group btn-submit">
+					<div class="col-md-10 col-md-offset-1 hidden-lg hidden-md">
+						<?php echo $this->Form->button('Submit', array('class'=>'btn btn-info btn-sm btn-block','type'=>'submit','style'=>'width:100%;')); ?>
+					</div>
+				</div>
+				
+				<?php echo $this->Form->end(); ?>
+			</div>
+		</div>
 	</div>
 </div>
+</section>
 
 <style type="text/css">
-	.error, .required{
+	.btn-facebook{
+		color:#fff;
+		background-color:#3b5998;
+		border-color:rgba(0,0,0,0.2);
+	}
+	.btn-facebook:hover,.btn-facebook:focus,.btn-facebook:active,.btn-facebook.active,.open .dropdown-toggle.btn-facebook {
+		color:#fff;
+		background-color:#30487b;
+		border-color:rgba(0,0,0,0.2)}
+	button.btn {
+		margin:0px;
+		transition: all 0.5s;
+	}
+	.message {
 		color: red;
+		padding-left: 9%;
 	}
-	.form-group {
-		padding-bottom: 10px;
-		border-bottom: 1px solid #D9DEE4;
-	}
-	.form-group.no-line {
-		border-bottom: none;
-	}
-	.logo-space{
-		margin-left: -65px;
-		border:none;
-		color:red;
-	}
-	.logo-space-before{
-		margin-left: -14px;
-		border:none;
-		color:red;
-	}
-	.space{
-		padding-left: 65px;
-	}
-	.Message {
-		margin-left: 248px;
+
+	
+	/********************** Custom radio buttons *****************/
+
+
+
+
+	/**********************************************************
+
+	/*---------- mobile -----------*/
+	@media screen and (max-width: 768px) and (max-width: 992px) {
+	.message {
 		color: red;
+		padding-left: 0%;
 	}
 </style>
-
-<script type="text/javascript">
-
-	$(document).ready(function() {
-
-		$(".subdiv").hide();
-		$(".sub_service").change(function () {
-			var checkval = $('.sub_service:checked').val();
-
-			$.ajax({
-				url: "/admincustomers/ajaxTest",
-				type: "POST",
-				data:{ checkval : checkval},
-				dataType: "html",
-				success : function(response){
-
-					var obj = JSON.parse(response);
-
-					// console.log(obj.length);
-
-					for (var i = 0; i < obj.length; i++) {
-						if (obj[i]['type'] == 'check') {
-							var string = obj[i]['en_answer'] ;
-							var array = string.split('@@');
-console.log(array);
-
-
-
-							// var assigndiv = '<div><label>'+obj[i]['Ename']+'</label><br/><input type= "text" id=" '+ obj[i] + ' " /></div>' ;
-							// $('.subdiv').append(assigndiv);
-console.log("check");
-						}
-
-						if (obj[i]['type'] == 'text') {
-
-							var assigndiv = '<div><label>'+obj[i]['Ename']+'</label><br/><input type= "text" id=" '+ obj[i] + ' " /></div>' ;
-							$('.subdiv').append(assigndiv);
-							// console.log("text");
-						}
-
-
-					}
-
-					// $(document).find('.contact-info').show();
-					// var address = obj.SubHeadhunter.location + '<br/>' + obj.SubHeadhunter.region;
-					// $("#address").append(address);
-
-					// var representative_postion = obj.SubHeadhunter.representative_postion;
-					// $("#representative-postion").append(representative_postion);
-					// var number_of_employee = obj.SubHeadhunter.number_of_employee;
-					// $("#number-of-employee").append(number_of_employee);
-
-					// $("#sub_headhunter_id").attr("value",obj.SubHeadhunter.id);
-
-
-
-
-					console.log("Ajax Success");
-				},
-				error: function(){}
-			});
-
-			$('.subdiv').show();
-
-		});
-
-
-	});
-	
-</script>

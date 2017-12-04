@@ -85,7 +85,7 @@
  */
 	Configure::write('App.encoding', 'UTF-8');
 
-	Configure::write('Config.language', 'mya');
+	Configure::write('Config.language', 'eng');
 
 
 /**

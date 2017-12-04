@@ -95,9 +95,9 @@
 
 									<li><a><i class="fa fa-cogs"></i> <?php echo "Question"?> <span class="fa fa-chevron-down"></span></a>
 										<ul class="nav child_menu">
-											<!-- <li>
-												<?php echo $this->Html->link('Question List', array('controller' => 'adminsubservices', 'action' => 'add_answer')); ?>
-											</li> -->
+											<li>
+												<?php echo $this->Html->link('Question List', array('controller' => 'adminquestions', 'action' => 'index')); ?>
+											</li>
 										<!-- 	<li>
 												<?php echo $this->Html->link('Question Add', array('controller' => 'adminsubservices', 'action' => 'add_answer')); ?>
 											</li> -->
@@ -111,10 +111,7 @@
 									<li><a><i class="fa fa-bar-chart"></i> <?php echo "Record"?> <span class="fa fa-chevron-down"></span></a>
 										<ul class="nav child_menu">
 											<li>
-												<?php echo $this->Html->link('Record', array('controller' => '', 'action' => 'index')); ?>
-											</li>
-											<li>
-												<?php echo $this->Html->link('Record Add', array('controller' => '', 'action' => 'add')); ?>
+												<?php echo $this->Html->link('Record', array('controller' => 'adminservicerequests', 'action' => 'index')); ?>
 											</li>
 										</ul>
 									</li>

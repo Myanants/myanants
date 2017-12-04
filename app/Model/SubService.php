@@ -28,13 +28,13 @@ class SubService extends AppModel {
 				'required' => true
 			)
 		),
-		'myan_name' => array(
-			'notBlank' => array(
-				'rule' => 'notBlank',
-				'message' => ' Please fill myan_name !',
-				'required' => true
-			)
-		)
+		// 'myan_name' => array(
+		// 	'notBlank' => array(
+		// 		'rule' => 'notBlank',
+		// 		'message' => ' Please fill myan_name !',
+		// 		'required' => false
+		// 	)
+		// )
 	);
 
 }

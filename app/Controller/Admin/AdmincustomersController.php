@@ -2,7 +2,7 @@
 App::uses('AdminAppController', 'Controller');
 class AdminCustomersController extends AdminAppController {
 	public $components = array('RequestHandler');
-	public $uses = array('Customer','Service','SubService','TransactionManager');
+	public $uses = array('Customer','Service','SubService','Question','ServiceRequest','TransactionManager');
 
 	public function beforeFilter(){
 		parent::beforeFilter();
@@ -14,7 +14,9 @@ class AdminCustomersController extends AdminAppController {
 		$keyword = (!empty($this->params->query['keyword'])) ? trim($this->params->query['keyword']) : '';
 		$condition = array();
 
-	
+		$service = $this->Service->find('list',array(
+			'fields' => array(
+				'id','name')));
 		$condition = array(
 			array(
 				'Customer.deleted ' => 0
@@ -35,7 +37,7 @@ class AdminCustomersController extends AdminAppController {
 			'conditions' => $condition
 		);
 		$pag = $this->paginate('Customer');
-		$this->set(compact('pag','limit'));
+		$this->set(compact('pag','limit','service'));
 	}
 
 	public function add() {
@@ -86,44 +88,139 @@ class AdminCustomersController extends AdminAppController {
 	}
 
 	public function addRequest($id) {
-		$user = $this->Customer->findById($id);
-		$service = $this->Service->findById($user['Service']['id']);
-// debug($service);
-		$this->set(compact('service'));
-	
 
-	debug($this->request->data);
-	}
+		$postdata = explode('&', $id) ;
+		$customerid = $postdata[0] ;
+		$id = $postdata[1] ;
 
+		$serviceName = array();
+		$checkString = '' ;
+		$data = array();
+		$answer = '' ;
 
-	public function ajaxTest() {
-		$this->autoRender = FALSE;
-		if ($this->request->is('ajax')) {
-			if ($this->request->data) {
-				$subservice = $this->SubService->findById($this->request->data['checkval']);
-// $this->log($subservice);
-				$question = $subservice['Question'] ;
-				return json_encode($question);
-			}
+		$service = $this->Service->findById($id);
+		foreach ($service['SubService'] as $key => $value) {
+			$serviceName[$value['id']] = $value['name'];
 		}
 
+		$question = $this->Question->find('all',array(
+			'conditions' => array(
+				'Question.service_id' => $id)));
+
+		$lastrequestID = $this->ServiceRequest->find('first',array('order' => array('ServiceRequest.id' => 'DESC'),'fields' => 'service_request_id'));
+
+
+		if (!empty($lastrequestID['ServiceRequest']['service_request_id'])) {
+			$temp = substr($lastrequestID['ServiceRequest']['service_request_id'], 3);
+			$num = $temp+1;
+			$RequestID = str_pad($num, 6, '0', STR_PAD_LEFT);
+		} else {
+			$num = 1;
+			$RequestID = str_pad($num, 6, '0', STR_PAD_LEFT);
+		}
+		$prefix = 'SR-';
+		$RequestCode = $prefix.$RequestID;
+
+
+		$this->set(compact('serviceName','id','question','service'));
+
+		if ($this->request->is(array('post', 'put'))) {
+			try {
+				$transaction = $this->TransactionManager->begin();
+				$sub_service_id = $this->request->data['ServiceRequest']['sub_service_id'] ;
+
+				unset($this->request->data['ServiceRequest']['sub_service_id']);
+
+				foreach ($this->request->data['ServiceRequest'] as $key => $value) {
+					$tempString = '' ;
+					if (is_array($value)) {						
+						foreach ($value as $innerkey => $innervalue) {
+							$tempString .= $innervalue.'$$' ;
+						}
+						$tempString = substr($tempString, 0, -2);
+					} else {
+						$tempString .=  $value;
+					}
+					$answer .= $key.'/'.$tempString.'###' ;
+
+					unset($this->request->data['ServiceRequest'][$key]);
+				}
+
+				$answer = substr($answer, 0, -3);
+
+				$this->request->data['ServiceRequest']['answer'] = $answer ;
+				$this->request->data['ServiceRequest']['service_id'] = $id ;							
+				$this->request->data['ServiceRequest']['sub_service_id'] = $sub_service_id ;							
+				$this->request->data['ServiceRequest']['service_request_id'] = $RequestCode;
+				$this->request->data['ServiceRequest']['customer_id'] = $customerid;
+
+				// save to the database
+				$this->ServiceRequest->create();
+
+				if(!$this->ServiceRequest->save($this->request->data)) {
+					throw new Exception("ERROR OCCUR DURING REGISTER OF USER INFORMATION");
+				}
+
+				$this->TransactionManager->commit($transaction);
+
+				$this->redirect(array('action' => 'index'));
+
+			} catch (Exception $e) {
+				$this->log('File : ' . $e->getFile() . ' Line : ' . $e->getLine(), LOG_ERR);
+				$this->log($e->getMessage(), LOG_ERR);
+				$this->TransactionManager->rollback($transaction);
+			}
+		}
 	}
 
 	public function browse($id) {
+		$main_service = array();
+		$sub_service = array();
 		if (!$id) {
 			$this->Session->setFlash('Enter Customer ID。', "error");
 			$this->redirect(array('action' => 'index'));
 		}
 
-		// Service Names
-		$services = $this->Service->find('list',array('fields' => 'name'));
-
 		$data = $this->Customer->findByid($id);
 
-		$this->set(compact('data','services'));
+		$question = $this->Question->find('list',array(
+			'fields' => array(
+				'id','Ename')));
+
+		$service = $this->Service->find('all');
+
+		foreach ($service as $key => $value) {
+			$main_service[$value['Service']['id']] = $value['Service']['name'] ;
+			foreach ($value['SubService'] as $subkey => $subvalue) {
+				$sub_service[$subvalue['id']] = $subvalue['name'] ;
+			}
+		}
+		$this->set(compact('data','question','main_service','sub_service'));
 	}
 
 	public function edit($id) {
+		$main_service = array();
+		$sub_service = array();
+		if (!$id) {
+			$this->Session->setFlash('Enter Customer ID。', "error");
+			$this->redirect(array('action' => 'index'));
+		}
+
+		$data = $this->Customer->findByid($id);
+
+		$question = $this->Question->find('list',array(
+			'fields' => array(
+				'id','Ename')));
+
+		$service = $this->Service->find('all');
+
+		foreach ($service as $key => $value) {
+			$main_service[$value['Service']['id']] = $value['Service']['name'] ;
+			foreach ($value['SubService'] as $subkey => $subvalue) {
+				$sub_service[$subvalue['id']] = $subvalue['name'] ;
+			}
+		}
+		$this->set(compact('data','question','main_service','sub_service'));
 	}	
 
 	public function delete($id = null) {

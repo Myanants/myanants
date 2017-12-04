@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	<title>Free Bootstrap Theme for Developers</title>
+	<title>Myanants | We Connect Service Providers</title>
 	<!-- Meta -->
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -38,16 +38,16 @@
 		<div class="container">            
 			<div class="hidden-sm hidden-xs col-md-3" style="margin-top: -3%;margin-bottom: -1%;">        
 				<h1>
-					<a class="scrollto" href="http://myanant.com/">
-						<img src='http://myanant.com/img/mm.png' class="logoimg" />
+					<a href="http://myanants.com/">
+						<img src='http://myanants.com/img/mm.png' class="logoimg" />
 					</a>
 				</h1><!--//logo-->
 			</div>    
 
 			<div class="hidden-md hidden-lg col-md-3" style="margin-top: -3%;margin-bottom: -1%;">        
 				<h1 class="logo pull-left">
-					<a class="scrollto" href="http://myanant.com/">
-						<img src='http://myanant.com/img/mm.png' class="logoimg" />
+					<a class="scrollto" href="http://myanants.com/">
+						<img src='http://myanants.com/img/mm.png' class="logoimg" />
 					</a>
 				</h1><!--//logo-->
 			</div>
@@ -63,7 +63,11 @@
 				</div><!--//navbar-header-->            
 				<div class="navbar-collapse collapse" id="navbar-collapse">
 					<ul class="nav navbar-nav">
-						<li class="active nav-item sr-only"><a class="scrollto" href="#promo">Home</a></li>
+						<li class="nav-item">
+							<a href="tel:09961868686">
+								<img src='http://myanants.com/img/phone-icon.png' class="img-responsive phone-icon-sm" />
+							</a>
+						</li>
 						<li class="nav-item">
 							<?php if(empty($user_id)) : ?>
 								<?php echo $this->Html->link("LOGIN", array('controller' => 'users', 'action' => 'login')) ;?>
@@ -80,10 +84,10 @@
 						<li class="nav-item">
 							<?php
 								$currentUrl = Router::url($this->here, true);
-								if (strpos($currentUrl, '/mya/') !== false || $currentUrl == 'http://myanant.com/') {
-									echo $this->html->link('English', array('language'=>'eng'));
+								if (strpos($currentUrl, '/mya/') !== false || $currentUrl == 'http://myanants.com/') {
+									echo $this->Html->link('English', array('language'=>'eng'));
 								} elseif (strpos($currentUrl, '/eng/') !== false) {
-									echo $this->html->link('ျမန္မာ', array('language'=>'mya'));
+									echo $this->Html->link('ျမန္မာ', array('language'=>'mya'));
 								}
 							?>	
 						</li>
@@ -104,22 +108,20 @@
 			</p>
 
 			<div class="btns">
-				<a class="btn btn-cta-primary" href="http://themes.3rdwavemedia.com/website-templates/devaid-free-bootstrap-theme-developers/" target="_blank">
-					<?php echo __('Air Conditioner Maintenance'); ?>
-				</a>
-				<a class="btn btn-cta-primary" href="http://themes.3rdwavemedia.com/website-templates/devaid-free-bootstrap-theme-developers/" target="_blank">
-					<?php echo __('Cleaning Service'); ?>
-				</a>
-				<a class="btn btn-cta-primary" href="http://themes.3rdwavemedia.com/website-templates/devaid-free-bootstrap-theme-developers/" target="_blank">
-					<?php echo __('Electrical and Wiring'); ?>
-				</a>
-				<a class="btn btn-cta-primary" href="http://themes.3rdwavemedia.com/website-templates/devaid-free-bootstrap-theme-developers/" target="_blank">
-					<?php echo __('Other Services'); ?>
-				</a>
 
-				<!-- <a class="btn btn-cta-primary" href="http://themes.3rdwavemedia.com/website-templates/devaid-free-bootstrap-theme-developers/" target="_blank">
-					<?php echo __('Call Now'); ?>
-				</a> -->
+
+				<?php echo $this->Html->link(__('Air Conditioner Maintenance'), array('controller' => 'servicerequest', 'action' => 'add','1'),array('class' => 'btn btn-cta-primary' )) ;?>
+
+				<?php echo $this->Html->link(__('Cleaning Service'), array('controller' => 'servicerequest', 'action' => 'add','2'),array('class' => 'btn btn-cta-primary' )) ;?>
+
+				<?php echo $this->Html->link(__('Electrical and Wiring'), array('controller' => 'servicerequest', 'action' => 'add','3'),array('class' => 'btn btn-cta-primary' )) ;?>
+
+				<?php echo $this->Html->link(__('Other Services'), array('controller' => 'servicerequest', 'action' => 'add','4'),array('class' => 'btn btn-cta-primary' )) ;?>
+
+
+				<a class="hidden-lg hidden-md btn btn-cta-primary" href="tel:09961868686" target="_blank">
+					<center><img src='http://myanants.com/img/phone-icon.png' class="img-responsive phone-icon-sm" /></center>
+				</a>
 			</div>
 
 			<ul class="meta list-inline">
@@ -253,6 +255,6 @@
 
 <script type="text/javascript">
 	$('select').on('change', function() {
-		location.replace("http://myanant.com/"+this.value+"/users/index");
+		location.replace("http://myanants.com/"+this.value+"/users/index");
 	})
 </script>

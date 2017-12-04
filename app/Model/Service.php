@@ -3,7 +3,7 @@ App::uses('BlowfishPasswordHasher', 'Controller/Component/Auth');
 class Service extends AppModel {
 
 	public $hasMany = array (
-		'SubService','Customer'
+		'SubService','Question','ServiceRequest'
 	);
 
 	public $validate = array(
