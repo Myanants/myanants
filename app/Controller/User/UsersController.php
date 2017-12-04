@@ -14,6 +14,53 @@ class UsersController extends UserAppController {
 		$this->Auth->allow('login','index','add','facebookLogin', 'fbcallback', 'logout', 'activate');
 	}
 
+	public function add(){
+		$this->layout = 'user';
+
+		if ($this->request->is(array('post', 'put'))) {
+
+			$lastcustomerID = $this->Customer->find('first',array('order' => array('id' => 'DESC'),'fields' => 'customer_id'));
+
+			if (!empty($lastcustomerID['Customer']['customer_id'])) {
+				$temp = substr($lastcustomerID['Customer']['customer_id'], 2);
+				$num = $temp+1;
+				$CompanyID = str_pad($num, 6, '0', STR_PAD_LEFT);
+			} else {
+				$num = 1;
+				$CompanyID = str_pad($num, 6, '0', STR_PAD_LEFT);
+			}
+			$prefix = 'C-';
+			$UserCode = $prefix.$CompanyID;
+
+			$data = $this->request->data;
+
+
+			try {
+				$transaction = $this->TransactionManager->begin();
+				
+				$data['Customer']['customer_id'] = $UserCode;
+				$data['Customer']['deactivate'] = 0;
+
+				// save to the database
+				$this->Customer->create();
+
+				if(!$this->Customer->save($data, array('deep' => true))) {
+					throw new Exception("ERROR OCCUR DURING REGISTER OF USER INFORMATION");
+				}
+
+				$this->TransactionManager->commit($transaction);
+
+				$this->redirect(array('controller'=>'users','action' => 'login'));
+
+			} catch (Exception $e) {
+				$this->log('File : ' . $e->getFile() . ' Line : ' . $e->getLine(), LOG_ERR);
+				$this->log($e->getMessage(), LOG_ERR);
+				$this->TransactionManager->rollback($transaction);
+			}
+
+		}
+	}
+
 
 	public function login() {
 		$this->layout = 'user';
@@ -88,7 +135,7 @@ class UsersController extends UserAppController {
 		$helper = $fb->getRedirectLoginHelper();
 		$accessToken = $helper->getAccessToken();
 
-debug($accessToken);
+		debug($accessToken);
 
 		if (isset($_GET['state'])) {
 			debug($_GET['state']);
@@ -153,8 +200,8 @@ debug($accessToken);
 		}
 
 		$_SESSION['fb_access_token'] = (string) $accessToken;
-debug($_SESSION['fb_access_token'] );
-$this->log($_SESSION['fb_access_token'] );
+		debug($_SESSION['fb_access_token'] );
+		$this->log($_SESSION['fb_access_token'] );
 
 		// User is logged in with a long-lived access token.
 		// You can redirect them to a members-only page.

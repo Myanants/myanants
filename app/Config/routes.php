@@ -48,6 +48,10 @@
 	Router::connect('/user/logout',array('controller' => 'users', 'action' => 'logout'));
 
 
+	Router::connect('/servicerequest/add/*',array('controller' => 'servicerequests', 'action' => 'add'));
+	Router::connect('/servicerequest/:action/*',array('controller' => 'servicerequests'));
+
+
 	Router::connect('/:language/:controller/:action/*', array(), array('language' => '[a-z]{3}'));
 
 

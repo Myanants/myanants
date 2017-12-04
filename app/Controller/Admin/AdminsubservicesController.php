@@ -178,13 +178,34 @@ class AdminSubServicesController extends AdminAppController {
 	public function form() {
 		$services = $this->Service->find('all');
 		$service_name = array();
+		$name = array();
+		$keys = array();
+		$temp = array();
 		foreach ($services as $key => $value) {
-			$service_name[$key+1] = $value['Service']['service_id'].'@@'.$value['Service']['name'].'@@'.$value['Service']['myan_name'];
+			
+			$service_name[$value['Service']['id']] = $value['Service']['service_id'].'@@'.$value['Service']['name'].'@@'.$value['Service']['myan_name'];
+		}
+// debug($service_name);
+		foreach ($service_name as $key => $value) {
+			$name[$key] = explode('@@', $value);
+			$keys[$key] = $name[$key][0];
 		}
 
 
 		$sub_services = $this->SubService->find('all');
-		$this->set(compact('services','sub_services','service_name'));
+		foreach ($keys as $k => $v) {
+			foreach ($sub_services as $skey => $svalue) {
+				// debug($value);
+				if ($k == $svalue['Service']['id'] ) {
+					$temp[$k][$skey] = $svalue ;
+				}
+				
+			}
+
+		}
+
+// debug($temp);
+		$this->set(compact('services','sub_services','service_name','temp'));
 	}
 
 	

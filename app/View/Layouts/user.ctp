@@ -37,7 +37,7 @@
 		<div class="container">            
 			<div class="hidden-sm hidden-xs col-md-3" style="margin-top: -3%;margin-bottom: -1%;">        
 				<h1>
-					<a class="scrollto" href="http://myanant.com/">
+					<a href="http://myanant.com/">
 						<img src='http://myanant.com/img/mm.png' class="logoimg" />
 					</a>
 				</h1><!--//logo-->

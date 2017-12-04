@@ -2,9 +2,9 @@
 App::uses('BlowfishPasswordHasher', 'Controller/Component/Auth');
 class Customer extends AppModel {
 
-	public $hasMany = array (
-		'ServiceRequest'
-	);
+	// public $hasMany = array (
+	// 	'ServiceRequest'
+	// );
 
 	public $belongsTo = array(
         'Service' => array(
@@ -25,7 +25,7 @@ class Customer extends AppModel {
 			'notBlank' => array(
 				'rule' => 'notBlank',
 				'message' => 'Please fill email address !',
-				'required' => true,
+				'allowEmpty' => true
 			),
 			'email' => array(
 				'rule' => array('email'),
