@@ -77,7 +77,7 @@
 						</li>
 						<li class="nav-item">
 							<?php if(empty($user_id)) : ?>
-								<?php echo $this->Html->link("REGISTER", array('controller' => 'users', 'action' => 'add')) ;?>
+								<?php echo $this->Html->link("ADD", array('controller' => 'users', 'action' => 'add')) ;?>
 							<?php endif; ?>
 						</li>
 
@@ -112,7 +112,7 @@
 
 				<?php echo $this->Html->link(__('Air Conditioner Maintenance'), array('controller' => 'servicerequest', 'action' => 'add','1'),array('class' => 'btn btn-cta-primary' )) ;?>
 
-				<?php echo $this->Html->link(__('Cleaning Service'), array('controller' => 'servicerequest', 'action' => 'add','2'),array('class' => 'btn btn-cta-primary' )) ;?>
+				<?php echo $this->Html->link(__('Cleaning'), array('controller' => 'servicerequest', 'action' => 'add','2'),array('class' => 'btn btn-cta-primary' )) ;?>
 
 				<?php echo $this->Html->link(__('Electrical and Wiring'), array('controller' => 'servicerequest', 'action' => 'add','3'),array('class' => 'btn btn-cta-primary' )) ;?>
 
