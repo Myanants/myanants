@@ -1,0 +1,129 @@
+2017-12-08 20:02:55 Error: [MissingControllerException] Controller class FontsController could not be found.
+Exception Attributes: array (
+  'class' => 'FontsController',
+  'plugin' => NULL,
+)
+Request URL: /fonts/fontawesome-webfont.woff2?v=4.6.3
+Stack Trace:
+#0 /vagrant/app/webroot/index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2017-12-08 20:03:29 Error: [MissingControllerException] Controller class FontsController could not be found.
+Exception Attributes: array (
+  'class' => 'FontsController',
+  'plugin' => NULL,
+)
+Request URL: /fonts/fontawesome-webfont.woff2?v=4.6.3
+Stack Trace:
+#0 /vagrant/app/webroot/index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2017-12-08 20:05:17 Error: [MissingControllerException] Controller class FontsController could not be found.
+Exception Attributes: array (
+  'class' => 'FontsController',
+  'plugin' => NULL,
+)
+Request URL: /fonts/fontawesome-webfont.woff2?v=4.6.3
+Stack Trace:
+#0 /vagrant/app/webroot/index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2017-12-08 20:05:49 Error: [MissingViewException] View file "AdminServiceProviders/edit.ctp" is missing.
+Exception Attributes: array (
+  'file' => 'AdminServiceProviders/edit.ctp',
+)
+Request URL: /admin/serviceprovider/edit/1
+Stack Trace:
+#0 /vagrant/lib/Cake/View/View.php(470): View->_getViewFileName(NULL)
+#1 /vagrant/lib/Cake/Controller/Controller.php(960): View->render(NULL, NULL)
+#2 /vagrant/lib/Cake/Routing/Dispatcher.php(200): Controller->render()
+#3 /vagrant/lib/Cake/Routing/Dispatcher.php(167): Dispatcher->_invoke(Object(AdminServiceProvidersController), Object(CakeRequest))
+#4 /vagrant/app/webroot/index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#5 {main}
+2017-12-08 20:05:51 Error: [MissingControllerException] Controller class ImgController could not be found.
+Exception Attributes: array (
+  'class' => 'ImgController',
+  'plugin' => NULL,
+)
+Request URL: /img/cake.power.gif
+Stack Trace:
+#0 /vagrant/app/webroot/index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2017-12-08 20:05:51 Error: [MissingControllerException] Controller class ImgController could not be found.
+Exception Attributes: array (
+  'class' => 'ImgController',
+  'plugin' => NULL,
+)
+Request URL: /img/cake.icon.png
+Stack Trace:
+#0 /vagrant/app/webroot/index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2017-12-08 20:07:11 Error: [MissingControllerException] Controller class FontsController could not be found.
+Exception Attributes: array (
+  'class' => 'FontsController',
+  'plugin' => NULL,
+)
+Request URL: /fonts/fontawesome-webfont.woff2?v=4.6.3
+Stack Trace:
+#0 /vagrant/app/webroot/index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2017-12-08 20:07:59 Error: [MissingControllerException] Controller class FontsController could not be found.
+Exception Attributes: array (
+  'class' => 'FontsController',
+  'plugin' => NULL,
+)
+Request URL: /fonts/fontawesome-webfont.woff2?v=4.6.3
+Stack Trace:
+#0 /vagrant/app/webroot/index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2017-12-08 20:08:47 Error: [MissingControllerException] Controller class FontsController could not be found.
+Exception Attributes: array (
+  'class' => 'FontsController',
+  'plugin' => NULL,
+)
+Request URL: /fonts/fontawesome-webfont.woff2?v=4.6.3
+Stack Trace:
+#0 /vagrant/app/webroot/index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2017-12-08 20:08:59 Error: [MissingControllerException] Controller class FontsController could not be found.
+Exception Attributes: array (
+  'class' => 'FontsController',
+  'plugin' => NULL,
+)
+Request URL: /fonts/fontawesome-webfont.woff2?v=4.6.3
+Stack Trace:
+#0 /vagrant/app/webroot/index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2017-12-08 20:09:52 Error: [MissingControllerException] Controller class FontsController could not be found.
+Exception Attributes: array (
+  'class' => 'FontsController',
+  'plugin' => NULL,
+)
+Request URL: /fonts/fontawesome-webfont.woff2?v=4.6.3
+Stack Trace:
+#0 /vagrant/app/webroot/index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2017-12-08 20:10:52 Error: [MissingControllerException] Controller class FontsController could not be found.
+Exception Attributes: array (
+  'class' => 'FontsController',
+  'plugin' => NULL,
+)
+Request URL: /fonts/fontawesome-webfont.woff2?v=4.6.3
+Stack Trace:
+#0 /vagrant/app/webroot/index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2017-12-08 20:11:35 Error: [MissingControllerException] Controller class FontsController could not be found.
+Exception Attributes: array (
+  'class' => 'FontsController',
+  'plugin' => NULL,
+)
+Request URL: /fonts/fontawesome-webfont.woff2?v=4.6.3
+Stack Trace:
+#0 /vagrant/app/webroot/index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2017-12-08 20:14:46 Error: [MissingControllerException] Controller class FontsController could not be found.
+Exception Attributes: array (
+  'class' => 'FontsController',
+  'plugin' => NULL,
+)
+Request URL: /fonts/fontawesome-webfont.woff2?v=4.6.3
+Stack Trace:
+#0 /vagrant/app/webroot/index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
