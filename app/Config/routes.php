@@ -50,11 +50,7 @@
 	Router::connect('/user/logout',array('controller' => 'users', 'action' => 'logout'));
 
 
-<<<<<<< HEAD
-	// Router::connect('/servicerequest/add/*',array('controller' => 'servicerequests', 'action' => 'add'));
-=======
 	Router::connect('/servicerequest/add/*',array('controller' => 'servicerequests', 'action' => 'add'));
->>>>>>> da32c9c8a6bc18d05bea29809752ddf6cdf658b4
 	Router::connect('/servicerequest/:action/*',array('controller' => 'servicerequests'));
 
 
