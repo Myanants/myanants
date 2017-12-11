@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	<title>Myanants | We Connect Service Providers</title>
+	<title>Free Bootstrap Theme for Developers</title>
 	<!-- Meta -->
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -38,16 +38,16 @@
 		<div class="container">            
 			<div class="hidden-sm hidden-xs col-md-3" style="margin-top: -3%;margin-bottom: -1%;">        
 				<h1>
-					<a href="http://myanants.com/">
-						<img src='http://myanants.com/img/mm.png' class="logoimg" />
+					<a href="http://myanant.com/">
+						<img src='http://myanant.com/img/mm.png' class="logoimg" />
 					</a>
 				</h1><!--//logo-->
 			</div>    
 
 			<div class="hidden-md hidden-lg col-md-3" style="margin-top: -3%;margin-bottom: -1%;">        
 				<h1 class="logo pull-left">
-					<a class="scrollto" href="http://myanants.com/">
-						<img src='http://myanants.com/img/mm.png' class="logoimg" />
+					<a class="scrollto" href="http://myanant.com/">
+						<img src='http://myanant.com/img/mm.png' class="logoimg" />
 					</a>
 				</h1><!--//logo-->
 			</div>
@@ -65,7 +65,7 @@
 					<ul class="nav navbar-nav">
 						<li class="nav-item">
 							<a href="tel:09961868686">
-								<img src='http://myanants.com/img/phone-icon.png' class="img-responsive phone-icon-sm" />
+								<img src='http://myanant.com/img/phone-icon.png' class="img-responsive phone-icon-sm" />
 							</a>
 						</li>
 						<li class="nav-item">
@@ -77,14 +77,14 @@
 						</li>
 						<li class="nav-item">
 							<?php if(empty($user_id)) : ?>
-								<?php echo $this->Html->link("ADD", array('controller' => 'users', 'action' => 'add')) ;?>
+								<?php echo $this->Html->link("REGISTER", array('controller' => 'users', 'action' => 'add')) ;?>
 							<?php endif; ?>
 						</li>
 
 						<li class="nav-item">
 							<?php
 								$currentUrl = Router::url($this->here, true);
-								if (strpos($currentUrl, '/mya/') !== false || $currentUrl == 'http://myanants.com/') {
+								if (strpos($currentUrl, '/mya/') !== false || $currentUrl == 'http://myanant.com/') {
 									echo $this->Html->link('English', array('language'=>'eng'));
 								} elseif (strpos($currentUrl, '/eng/') !== false) {
 									echo $this->Html->link('ျမန္မာ', array('language'=>'mya'));
@@ -112,15 +112,15 @@
 
 				<?php echo $this->Html->link(__('Air Conditioner Maintenance'), array('controller' => 'servicerequest', 'action' => 'add','1'),array('class' => 'btn btn-cta-primary' )) ;?>
 
-				<?php echo $this->Html->link(__('Cleaning'), array('controller' => 'servicerequest', 'action' => 'add','2'),array('class' => 'btn btn-cta-primary' )) ;?>
+				<?php echo $this->Html->link(__('Cleaning Service'), array('controller' => 'servicerequest', 'action' => 'add','2'),array('class' => 'btn btn-cta-primary' )) ;?>
 
-				<?php echo $this->Html->link(__('Electrical'), array('controller' => 'servicerequest', 'action' => 'add','3'),array('class' => 'btn btn-cta-primary' )) ;?>
+				<?php echo $this->Html->link(__('Electrical and Wiring'), array('controller' => 'servicerequest', 'action' => 'add','3'),array('class' => 'btn btn-cta-primary' )) ;?>
 
-				<?php echo $this->Html->link(__('Others'), array('controller' => 'servicerequest', 'action' => 'add','4'),array('class' => 'btn btn-cta-primary' )) ;?>
+				<?php echo $this->Html->link(__('Other Services'), array('controller' => 'servicerequest', 'action' => 'add','4'),array('class' => 'btn btn-cta-primary' )) ;?>
 
 
 				<a class="hidden-lg hidden-md btn btn-cta-primary" href="tel:09961868686" target="_blank">
-					<center><img src='http://myanants.com/img/phone-icon.png' class="img-responsive phone-icon-sm" /></center>
+					<center><img src='http://myanant.com/img/phone-icon.png' class="img-responsive phone-icon-sm" /></center>
 				</a>
 			</div>
 
@@ -255,6 +255,6 @@
 
 <script type="text/javascript">
 	$('select').on('change', function() {
-		location.replace("http://myanants.com/"+this.value+"/users/index");
+		location.replace("http://myanant.com/"+this.value+"/users/index");
 	})
 </script>

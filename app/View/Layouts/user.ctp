@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	<title>Myanants | We Connect Service Providers</title>
+	<title>Free Bootstrap Theme for Developers</title>
 	<!-- Meta -->
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -21,8 +21,7 @@
 </head> 
 
 <body data-spy="scroll">
-	<?php $user_id = AuthComponent::user('id'); ?>
-
+	
 	<!---//Facebook button code-->
 	<div id="fb-root"></div>
 	<script>(function(d, s, id) {
@@ -38,16 +37,16 @@
 		<div class="container">            
 			<div class="hidden-sm hidden-xs col-md-3" style="margin-top: -3%;margin-bottom: -1%;">        
 				<h1>
-					<a href="http://myanants.com/">
-						<img src='http://myanants.com/img/mm.png' class="logoimg" />
+					<a href="http://myanant.com/">
+						<img src='http://myanant.com/img/mm.png' class="logoimg" />
 					</a>
 				</h1><!--//logo-->
 			</div>    
 
 			<div class="hidden-md hidden-lg col-md-3" style="margin-top: -3%;margin-bottom: -1%;">        
 				<h1 class="logo pull-left">
-					<a class="scrollto" href="http://myanants.com/">
-						<img src='http://myanants.com/img/mm.png' class="logoimg" />
+					<a class="scrollto" href="http://myanant.com/">
+						<img src='http://myanant.com/img/mm.png' class="logoimg" />
 					</a>
 				</h1><!--//logo-->
 			</div>
@@ -80,7 +79,7 @@
 						<li class="nav-item">
 							<?php
 								$currentUrl = Router::url($this->here, true);
-								if (strpos($currentUrl, '/mya/') !== false || $currentUrl == 'http://myanants.com/') {
+								if (strpos($currentUrl, '/mya/') !== false || $currentUrl == 'http://myanant.com/') {
 									echo $this->html->link('English', array('language'=>'eng'));
 								} elseif (strpos($currentUrl, '/eng/') !== false) {
 									echo $this->html->link('ျမန္မာ', array('language'=>'mya'));
@@ -97,7 +96,7 @@
 	<!-- ================Content Part==============================-->
 	<?php echo $this->fetch('content'); ?>
 	<!-- ================Footer==============================-->
-	
+	<?php $user_id = AuthComponent::user('id'); ?>
 			
 	<!-- ******CONTACT****** --> 
 	<section id="contact" class="contact section has-pattern">
@@ -132,8 +131,8 @@
 </body>
 </html> 
 
-<!-- <script type="text/javascript">
+<script type="text/javascript">
 	$('select').on('change', function() {
-		location.replace("http://myanants.com/"+this.value+"/users/index");
+		location.replace("http://myanant.com/"+this.value+"/users/index");
 	})
-</script> -->
+</script>
