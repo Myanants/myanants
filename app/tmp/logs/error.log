@@ -127,3 +127,4 @@ Request URL: /fonts/fontawesome-webfont.woff2?v=4.6.3
 Stack Trace:
 #0 /vagrant/app/webroot/index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
 #1 {main}
+2017-12-11 19:16:32 Error: if
