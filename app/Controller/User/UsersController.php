@@ -6,7 +6,7 @@ App::import('Vendor', 'facebook', array('file' => 'facebook'. DS . 'graph-sdk' .
 
 class UsersController extends UserAppController {
 	public $components = array('RequestHandler', 'Security');
-	public $uses = array('Customer','TransactionManager');
+	public $uses = array('Customer','ServiceRequest','SubService','Question','TransactionManager');
 	// private $key = "Qb2KFqy7Amf5VMu4Jt8Cg0Dce1OGsj9HSah6Lir3";
 
 	public function beforeFilter() {
@@ -61,7 +61,6 @@ class UsersController extends UserAppController {
 		}
 	}
 
-
 	public function login() {
 		$this->layout = 'user';
 		if ($this->Session->check('Auth.users')) {
@@ -115,11 +114,10 @@ class UsersController extends UserAppController {
 		$helper = $fb->getRedirectLoginHelper();
 
 		$permissions = ['email']; // Optional permissions
-		$loginUrl = $helper->getLoginUrl('http://myanants.com/user/fbcallback', $permissions);
+		$loginUrl = $helper->getLoginUrl('/user/fbcallback', $permissions);
 		$this->redirect($loginUrl);
 
 	}
-
 
 	public function fbcallback() {
 		// disable auto render view
@@ -208,9 +206,45 @@ class UsersController extends UserAppController {
 		//header('Location: https://example.com/members.php');
 	}
 
-
 	public function index() {
 		$this->layout = 'home';
+	}
+
+	public function profile() {
+		$this->layout = 'user';
+		// debug($this->Auth->user());
+		if (!empty($this->Auth->user('id'))) {
+			$customer_id = $this->Auth->user('id') ;
+			$request = $this->ServiceRequest->find('all',array(
+					'conditions' => array(
+						'ServiceRequest.customer_id' => $customer_id
+					),
+					'order' => array('ServiceRequest.modified' => 'DESC')
+					));
+			// debug($request);
+
+		}
+		$this->set(Compact('request','customer_id'));
+	}
+
+	public function detail($id = null) {
+		$this->layout = 'user';
+		if (!empty($this->Auth->user('id'))) {
+			$customer_id = $this->Auth->user('id') ;
+			$request = $this->ServiceRequest->findById($id);
+
+			$sub_service = $this->SubService->find('list',array(
+				'fields' => array(
+					'id' ,'name')));
+
+			$question = $this->Question->find('list',array(
+				'fields' => array(
+					'id' ,'Ename')));
+
+
+			$this->log($request);
+		}
+		$this->set(Compact('request','customer_id','sub_service','question'));
 	}
 
 }

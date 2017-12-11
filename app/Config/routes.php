@@ -48,6 +48,8 @@
 	Router::connect('/user/fbcallback', array('controller' => 'users', 'action' => 'fbcallback'));
 	Router::connect('/user/register', array('controller' => 'users', 'action' => 'add'));
 	Router::connect('/user/logout',array('controller' => 'users', 'action' => 'logout'));
+	Router::connect('/user/profile',array('controller' => 'users', 'action' => 'profile'));
+	Router::connect('/user/detail/*',array('controller' => 'users', 'action' => 'detail'));
 
 
 	// Router::connect('/servicerequest/add/*',array('controller' => 'servicerequests', 'action' => 'add'));

@@ -186,7 +186,7 @@
 
 <script type="text/javascript">
 	$('select').on('change', function() {
-		location.replace("http://myanants.com/admin/customer/addRequest/"+this.id+"&"+this.value);
+		location.replace("http://testing.com/admin/customer/addRequest/"+this.id+"&"+this.value);
 		console.log(this.id);
 	})
 </script>

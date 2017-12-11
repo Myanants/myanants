@@ -38,16 +38,16 @@
 		<div class="container">            
 			<div class="hidden-sm hidden-xs col-md-3" style="margin-top: -3%;margin-bottom: -1%;">        
 				<h1>
-					<a href="http://myanants.com/">
-						<img src='http://myanants.com/img/mm.png' class="logoimg" />
+					<a href="http://testing.com/">
+						<img src='http://testing.com/img/mm.png' class="logoimg" />
 					</a>
 				</h1><!--//logo-->
 			</div>    
 
 			<div class="hidden-md hidden-lg col-md-3" style="margin-top: -3%;margin-bottom: -1%;">        
 				<h1 class="logo pull-left">
-					<a class="scrollto" href="http://myanants.com/">
-						<img src='http://myanants.com/img/mm.png' class="logoimg" />
+					<a class="scrollto" href="http://testing.com/">
+						<img src='http://testing.com/img/mm.png' class="logoimg" />
 					</a>
 				</h1><!--//logo-->
 			</div>
@@ -62,8 +62,18 @@
 					</button><!--//nav-toggle-->
 				</div><!--//navbar-header-->            
 				<div class="navbar-collapse collapse" id="navbar-collapse">
-					<ul class="nav navbar-nav">
-						<li class="active nav-item sr-only"><a class="scrollto" href="#promo">Home</a></li>
+					<ul class="nav navbar-nav">					
+						
+						<li class="nav-item">
+							<a href="tel:09961868686">
+								<img src='http://testing.com/img/phone-icon.png' class="img-responsive phone-icon-sm" />
+							</a>
+						</li>
+
+						<li class="nav-item">
+							<?php echo $this->Html->link("Service Request", array('controller' => 'users', 'action' => 'index')) ;?>
+						</li>
+
 						<li class="nav-item">
 							<?php if(empty($user_id)) : ?>
 								<?php echo $this->Html->link("LOGIN", array('controller' => 'users', 'action' => 'login')) ;?>
@@ -71,6 +81,7 @@
 								<?php echo $this->Html->link("LOGOUT", array('controller' => 'users', 'action' => 'logout')) ;?>
 							<?php endif; ?>
 						</li>
+
 						<li class="nav-item">
 							<?php if(empty($user_id)) : ?>
 								<?php echo $this->Html->link("REGISTER", array('controller' => 'users', 'action' => 'add')) ;?>
@@ -80,10 +91,10 @@
 						<li class="nav-item">
 							<?php
 								$currentUrl = Router::url($this->here, true);
-								if (strpos($currentUrl, '/mya/') !== false || $currentUrl == 'http://myanants.com/') {
-									echo $this->html->link('English', array('language'=>'eng'));
-								} elseif (strpos($currentUrl, '/eng/') !== false) {
-									echo $this->html->link('ျမန္မာ', array('language'=>'mya'));
+								if (strpos($currentUrl, '/mya/') !== false || $currentUrl == 'http://testing.com/') {
+									echo $this->Html->link('English', array('language'=>'eng'));
+								} else {
+									echo $this->Html->link('ျမန္မာ', array('language'=>'mya'));
 								}
 							?>	
 						</li>
@@ -132,8 +143,17 @@
 </body>
 </html> 
 
+<style type="text/css">
+	.docs {
+		padding-bottom: 23px;
+		padding-top: 100px;
+		/* padding: 80px 0; */
+		background: #f5f5f5;
+	}
+
+</style>
 <!-- <script type="text/javascript">
 	$('select').on('change', function() {
-		location.replace("http://myanants.com/"+this.value+"/users/index");
+		location.replace("http://testing.com/"+this.value+"/users/index");
 	})
 </script> -->

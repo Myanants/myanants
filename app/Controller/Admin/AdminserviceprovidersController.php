@@ -93,7 +93,18 @@ class AdminServiceProvidersController extends AdminAppController {
 		$this->set(compact('data'));
 	}
 
-	public function edit($id) {
+	public function edit($id=null) {
+		if (!$id) {
+			$this->Session->setFlash('Enter ServiceProvider ID。', "error");
+			$this->redirect(array('action' => 'index'));
+		}
+		$data = $this->ServiceProvider->findByid($id);
+
+		if (!$this->request->data) {
+			$this->request->data = $data;
+		}
+		
+		$this->set(compact('data'));
 	}
 
 	public function delete($id = null) {
