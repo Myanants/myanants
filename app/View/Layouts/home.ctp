@@ -2,28 +2,26 @@
 <html lang="en">
 <head>
 	<title>Free Bootstrap Theme for Developers</title>
-	<!-- Meta -->
-	<meta charset="utf-8">
-	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<meta name="description" content="">
-	<meta name="author" content="">    
+	
+	<?php echo $this->Html->charset(); ?>
+	<!--[if IE]><meta http-equiv="x-ua-compatible" content="IE=9" /><![endif]-->
+	<?php echo $this->Html->meta(array('name' => 'viewport', 'content' => 'width=device-width, initial-scale=1')); ?>
+	<?php //echo $this->Html->meta(array('http-equiv '=>'X-UA-Compatible','content'=>'IE=edge'))?>
+	<?php echo $this->Html->meta(array('name '=>'description','content'=>'Your Description Here'))?>
+	<?php echo $this->Html->meta(array('name '=>'keywords','content'=>'bootstrap themes, portfolio, responsive theme'))?>
+	<?php echo $this->Html->meta(array('name '=>'author','content'=>'ThemeForces.Com'))?>
+	<?php //echo $this->fetch('meta'); ?>
+
 	<link rel="shortcut icon" href="favicon.ico">  
 
 	<link href='http://fonts.googleapis.com/css?family=Lato:300,400,300italic,400italic' rel='stylesheet' type='text/css'>
 	<link href='http://fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
 
-	<link href='http://myanants.com/staging/css/home/bootstrap.min' rel='stylesheet' type='text/css'>	
-	<link href='http://myanants.com/staging/css/home/font-awesome/css/font-awesome' rel='stylesheet' type='text/css'>	
-	<link href='http://myanants.com/staging/css/home/prism' rel='stylesheet' type='text/css'>	
-	<link href='http://myanants.com/staging/css/styles' rel='stylesheet' type='text/css'>	
-	<link href='http://myanants.com/staging/css/mobile' rel='stylesheet' type='text/css'>	
-
-	<?php //echo $this->Html->css('home/bootstrap.min'); ?>
-	<?php //echo $this->Html->css('home/font-awesome/css/font-awesome'); ?>
-	<?php //echo $this->Html->css('home/prism'); ?>
-	<?php //echo $this->Html->css('styles'); ?>
-	<?php //echo $this->Html->css('mobile'); ?>
+	<?php echo $this->Html->css('http://myanants.com/staging/app/webroot/css/home/bootstrap.min'); ?>
+	<?php echo $this->Html->css('http://myanants.com/staging/app/webroot/css/home/font-awesome/css/font-awesome'); ?>
+	<?php echo $this->Html->css('http://myanants.com/staging/app/webroot/css/home/prism'); ?>
+	<?php echo $this->Html->css('http://myanants.com/staging/app/webroot/css/styles'); ?>
+	<?php echo $this->Html->css('http://myanants.com/staging/app/webroot/css/mobile'); ?>
 </head> 
 
 <body data-spy="scroll">
@@ -250,12 +248,12 @@
 		</div><!--//container-->
 	</footer><!--//footer-->
 	 
-	<?php echo $this->Html->script('home/jquery-1.11.3.min'); ?>   
-	<?php echo $this->Html->script('home/jquery.easing.1.3'); ?>   
-	<?php echo $this->Html->script('home/bootstrap/js/bootstrap.min'); ?>   
-	<?php echo $this->Html->script('home/jquery-scrollTo/jquery.scrollTo.min'); ?>   
-	<?php echo $this->Html->script('home/prism/prism'); ?>   
-	<?php echo $this->Html->script('home/main'); ?>   
+	<?php echo $this->Html->script('http://myanants.com/staging/app/webroot/js/home/jquery-1.11.3.min'); ?>   
+	<?php echo $this->Html->script('http://myanants.com/staging/app/webroot/js/home/jquery.easing.1.3'); ?>   
+	<?php echo $this->Html->script('http://myanants.com/staging/app/webroot/js/home/bootstrap/js/bootstrap.min'); ?>   
+	<?php echo $this->Html->script('http://myanants.com/staging/app/webroot/js/home/jquery-scrollTo/jquery.scrollTo.min'); ?>   
+	<?php echo $this->Html->script('http://myanants.com/staging/app/webroot/js/home/prism/prism'); ?>   
+	<?php echo $this->Html->script('http://myanants.com/staging/app/webroot/js/home/main'); ?>   
 </body>
 </html> 
 
