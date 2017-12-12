@@ -115,7 +115,7 @@ class UsersController extends UserAppController {
 		$helper = $fb->getRedirectLoginHelper();
 
 		$permissions = ['email']; // Optional permissions
-		$loginUrl = $helper->getLoginUrl('http://myanants.com/user/fbcallback', $permissions);
+		$loginUrl = $helper->getLoginUrl('http://myanants.com/staging/user/fbcallback', $permissions);
 		$this->redirect($loginUrl);
 
 	}

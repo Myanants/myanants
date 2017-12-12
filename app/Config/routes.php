@@ -28,7 +28,6 @@
 /**
  * ...and connect the rest of 'Pages' controller's URLs.
  */
-	// Router::connect('myanant.com', array('default' => 'myanant.com/mya/user/index'));
 
 	Router::connect('/admin',array('controller' => 'adminusers', 'action' => 'login'));
 	Router::connect('/admin/login',array('controller' => 'adminusers', 'action' => 'login'));

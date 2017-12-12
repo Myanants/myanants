@@ -38,16 +38,16 @@
 		<div class="container">            
 			<div class="hidden-sm hidden-xs col-md-3" style="margin-top: -3%;margin-bottom: -1%;">        
 				<h1>
-					<a href="http://myanant.com/">
-						<img src='http://myanant.com/img/mm.png' class="logoimg" />
+					<a href="http://myanants.com/staging">
+						<img src='http://myanants.com/staging/img/mm.png' class="logoimg" />
 					</a>
 				</h1><!--//logo-->
 			</div>    
 
 			<div class="hidden-md hidden-lg col-md-3" style="margin-top: -3%;margin-bottom: -1%;">        
 				<h1 class="logo pull-left">
-					<a class="scrollto" href="http://myanant.com/">
-						<img src='http://myanant.com/img/mm.png' class="logoimg" />
+					<a class="scrollto" href="http://myanants.com/staging">
+						<img src='http://myanants.com/staging/img/mm.png' class="logoimg" />
 					</a>
 				</h1><!--//logo-->
 			</div>
@@ -65,7 +65,7 @@
 					<ul class="nav navbar-nav">
 						<li class="nav-item">
 							<a href="tel:09961868686">
-								<img src='http://myanant.com/img/phone-icon.png' class="img-responsive phone-icon-sm" />
+								<img src='http://myanants.com/staging/img/phone-icon.png' class="img-responsive phone-icon-sm" />
 							</a>
 						</li>
 						<li class="nav-item">
@@ -84,7 +84,7 @@
 						<li class="nav-item">
 							<?php
 								$currentUrl = Router::url($this->here, true);
-								if (strpos($currentUrl, '/mya/') !== false || $currentUrl == 'http://myanant.com/') {
+								if (strpos($currentUrl, '/mya/') !== false || $currentUrl == 'http://myanants.com/staging') {
 									echo $this->Html->link('English', array('language'=>'eng'));
 								} elseif (strpos($currentUrl, '/eng/') !== false) {
 									echo $this->Html->link('ျမန္မာ', array('language'=>'mya'));
@@ -120,7 +120,7 @@
 
 
 				<a class="hidden-lg hidden-md btn btn-cta-primary" href="tel:09961868686" target="_blank">
-					<center><img src='http://myanant.com/img/phone-icon.png' class="img-responsive phone-icon-sm" /></center>
+					<center><img src='http://myanants.com/staging/img/phone-icon.png' class="img-responsive phone-icon-sm" /></center>
 				</a>
 			</div>
 
@@ -255,6 +255,6 @@
 
 <script type="text/javascript">
 	$('select').on('change', function() {
-		location.replace("http://myanant.com/"+this.value+"/users/index");
+		location.replace("http://myanants.com/staging"+this.value+"/users/index");
 	})
 </script>
