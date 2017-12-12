@@ -11,13 +11,19 @@
 	<link rel="shortcut icon" href="favicon.ico">  
 
 	<link href='http://fonts.googleapis.com/css?family=Lato:300,400,300italic,400italic' rel='stylesheet' type='text/css'>
-	<link href='http://fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>	
+	<link href='http://fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
 
-	<?php echo $this->Html->css('home/bootstrap.min'); ?>
-	<?php echo $this->Html->css('home/font-awesome/css/font-awesome'); ?>
-	<?php echo $this->Html->css('home/prism'); ?>
-	<?php echo $this->Html->css('styles'); ?>
-	<?php echo $this->Html->css('mobile'); ?>
+	<link href='http://myanants.com/staging/css/home/bootstrap.min' rel='stylesheet' type='text/css'>	
+	<link href='http://myanants.com/staging/css/home/font-awesome/css/font-awesome' rel='stylesheet' type='text/css'>	
+	<link href='http://myanants.com/staging/css/home/prism' rel='stylesheet' type='text/css'>	
+	<link href='http://myanants.com/staging/css/styles' rel='stylesheet' type='text/css'>	
+	<link href='http://myanants.com/staging/css/mobile' rel='stylesheet' type='text/css'>	
+
+	<?php //echo $this->Html->css('home/bootstrap.min'); ?>
+	<?php //echo $this->Html->css('home/font-awesome/css/font-awesome'); ?>
+	<?php //echo $this->Html->css('home/prism'); ?>
+	<?php //echo $this->Html->css('styles'); ?>
+	<?php //echo $this->Html->css('mobile'); ?>
 </head> 
 
 <body data-spy="scroll">
