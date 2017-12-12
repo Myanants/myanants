@@ -13,9 +13,9 @@
 	<link href='http://fonts.googleapis.com/css?family=Lato:300,400,300italic,400italic' rel='stylesheet' type='text/css'>
 	<link href='http://fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>	
 
-	<?php echo $this->Html->css('home/bootstrap/css/bootstrap.min'); ?>
+	<?php echo $this->Html->css('home/bootstrap.min'); ?>
 	<?php echo $this->Html->css('home/font-awesome/css/font-awesome'); ?>
-	<?php echo $this->Html->css('home/prism/prism'); ?>
+	<?php echo $this->Html->css('home/prism'); ?>
 	<?php echo $this->Html->css('styles'); ?>
 	<?php echo $this->Html->css('mobile'); ?>
 </head> 
