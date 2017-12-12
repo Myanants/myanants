@@ -17,11 +17,11 @@
 	<link href='http://fonts.googleapis.com/css?family=Lato:300,400,300italic,400italic' rel='stylesheet' type='text/css'>
 	<link href='http://fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
 
-	<?php echo $this->Html->css('http://myanants.com/staging/app/webroot/css/home/bootstrap.min'); ?>
+	<?php echo $this->Html->css('http://myanants.com/staging/app/webroot/css/home/bootstrap/css/bootstrap.min.css'); ?>
 	<?php echo $this->Html->css('http://myanants.com/staging/app/webroot/css/home/font-awesome/css/font-awesome'); ?>
-	<?php echo $this->Html->css('http://myanants.com/staging/app/webroot/css/home/prism'); ?>
-	<?php echo $this->Html->css('http://myanants.com/staging/app/webroot/css/styles'); ?>
-	<?php echo $this->Html->css('http://myanants.com/staging/app/webroot/css/mobile'); ?>
+	<?php echo $this->Html->css('http://myanants.com/staging/app/webroot/css/home/prism/prism.css'); ?>
+	<?php echo $this->Html->css('http://myanants.com/staging/app/webroot/css/styles.css'); ?>
+	<?php echo $this->Html->css('http://myanants.com/staging/app/webroot/css/mobile.css'); ?>
 </head> 
 
 <body data-spy="scroll">
@@ -248,12 +248,12 @@
 		</div><!--//container-->
 	</footer><!--//footer-->
 	 
-	<?php echo $this->Html->script('http://myanants.com/staging/app/webroot/js/home/jquery-1.11.3.min'); ?>   
-	<?php echo $this->Html->script('http://myanants.com/staging/app/webroot/js/home/jquery.easing.1.3'); ?>   
-	<?php echo $this->Html->script('http://myanants.com/staging/app/webroot/js/home/bootstrap/js/bootstrap.min'); ?>   
-	<?php echo $this->Html->script('http://myanants.com/staging/app/webroot/js/home/jquery-scrollTo/jquery.scrollTo.min'); ?>   
-	<?php echo $this->Html->script('http://myanants.com/staging/app/webroot/js/home/prism/prism'); ?>   
-	<?php echo $this->Html->script('http://myanants.com/staging/app/webroot/js/home/main'); ?>   
+	<?php echo $this->Html->script('http://myanants.com/staging/app/webroot/js/home/jquery-1.11.3.min.js'); ?>   
+	<?php echo $this->Html->script('http://myanants.com/staging/app/webroot/js/home/jquery.easing.1.3.js'); ?>   
+	<?php echo $this->Html->script('http://myanants.com/staging/app/webroot/js/home/bootstrap/js/bootstrap.min.js'); ?>   
+	<?php echo $this->Html->script('http://myanants.com/staging/app/webroot/js/home/jquery-scrollTo/jquery.scrollTo.min.js'); ?>   
+	<?php echo $this->Html->script('http://myanants.com/staging/app/webroot/js/home/prism/prism.js'); ?>   
+	<?php echo $this->Html->script('http://myanants.com/staging/app/webroot/js/home/main.js'); ?>   
 </body>
 </html> 
 
