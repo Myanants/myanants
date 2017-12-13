@@ -17,11 +17,11 @@
 	<link href='http://fonts.googleapis.com/css?family=Lato:300,400,300italic,400italic' rel='stylesheet' type='text/css'>
 	<link href='http://fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
 
-	<?php echo $this->Html->css('http://myanants.com/staging/app/webroot/css/home/bootstrap/css/bootstrap.min.css'); ?>
-	<?php echo $this->Html->css('http://myanants.com/staging/app/webroot/css/home/font-awesome/css/font-awesome'); ?>
-	<?php echo $this->Html->css('http://myanants.com/staging/app/webroot/css/home/prism/prism.css'); ?>
-	<?php echo $this->Html->css('http://myanants.com/staging/app/webroot/css/styles.css'); ?>
-	<?php echo $this->Html->css('http://myanants.com/staging/app/webroot/css/mobile.css'); ?>
+	<?php echo $this->Html->css('/app/webroot/css/home/bootstrap/css/bootstrap.min.css'); ?>
+	<?php echo $this->Html->css('/app/webroot/css/home/font-awesome/css/font-awesome'); ?>
+	<?php echo $this->Html->css('/app/webroot/css/home/prism/prism.css'); ?>
+	<?php echo $this->Html->css('/app/webroot/css/styles.css'); ?>
+	<?php echo $this->Html->css('/app/webroot/css/mobile.css'); ?>
 </head> 
 
 <body data-spy="scroll">
@@ -43,7 +43,7 @@
 			<div class="hidden-sm hidden-xs col-md-3" style="margin-top: -3%;margin-bottom: -1%;">        
 				<h1>
 					<a href="http://myanants.com/staging">
-						<img src='http://myanants.com/staging/app/webroot/img/mm.png' class="logoimg" />
+						<img src='/app/webroot/img/mm.png' class="logoimg" />
 					</a>
 				</h1><!--//logo-->
 			</div>    
@@ -51,7 +51,7 @@
 			<div class="hidden-md hidden-lg col-md-3" style="margin-top: -3%;margin-bottom: -1%;">        
 				<h1 class="logo pull-left">
 					<a class="scrollto" href="http://myanants.com/staging">
-						<img src='http://myanants.com/staging/app/webroot/img/mm.png' class="logoimg" />
+						<img src='/app/webroot/img/mm.png' class="logoimg" />
 					</a>
 				</h1><!--//logo-->
 			</div>
@@ -69,7 +69,7 @@
 					<ul class="nav navbar-nav">
 						<li class="nav-item">
 							<a href="tel:09961868686">
-								<img src='http://myanants.com/staging/app/webroot/img/phone-icon.png' class="img-responsive phone-icon-sm" />
+								<img src='/app/webroot/img/phone-icon.png' class="img-responsive phone-icon-sm" />
 							</a>
 						</li>
 						<li class="nav-item">
@@ -88,8 +88,9 @@
 						<li class="nav-item">
 							<?php
 								$currentUrl = Router::url($this->here, true);
-								debug($currentUrl);
-								if (strpos($currentUrl, '/mya/') !== false || $currentUrl == 'http://myanants.com/staging') {
+								// debug($currentUrl);
+								if (strpos($currentUrl, '/mya/') !== false || 
+									$currentUrl == 'http://myanants.com/staging') {
 									echo $this->Html->link('English', array('language'=>'eng'));
 								} elseif (strpos($currentUrl, '/eng/') !== false) {
 									echo $this->Html->link('ျမန္မာ', array('language'=>'mya'));
@@ -117,7 +118,7 @@
 
 				<?php echo $this->Html->link(__('Air Conditioner Maintenance'), array('controller' => 'servicerequest', 'action' => 'add','1'),array('class' => 'btn btn-cta-primary' )) ;?>
 
-				<?php echo $this->Html->link(__('Cleaning'), array('controller' => 'servicerequest', 'action' => 'add','2'),array('class' => 'btn btn-cta-primary' )) ;?>
+				<?php echo $this->Html->link(__('Cleaning Services'), array('controller' => 'servicerequest', 'action' => 'add','2'),array('class' => 'btn btn-cta-primary' )) ;?>
 
 				<?php echo $this->Html->link(__('Electrical and Wiring'), array('controller' => 'servicerequest', 'action' => 'add','3'),array('class' => 'btn btn-cta-primary' )) ;?>
 
@@ -125,7 +126,7 @@
 
 
 				<a class="hidden-lg hidden-md btn btn-cta-primary" href="tel:09961868686" target="_blank">
-					<center><img src='http://myanants.com/staging/app/webroot/img/phone-icon.png' class="img-responsive phone-icon-sm" /></center>
+					<center><img src='/app/webroot/img/phone-icon.png' class="img-responsive phone-icon-sm" /></center>
 				</a>
 			</div>
 
@@ -249,12 +250,12 @@
 		</div><!--//container-->
 	</footer><!--//footer-->
 	 
-	<?php echo $this->Html->script('http://myanants.com/staging/app/webroot/js/home/jquery-1.11.3.min.js'); ?>   
-	<?php echo $this->Html->script('http://myanants.com/staging/app/webroot/js/home/jquery.easing.1.3.js'); ?>   
-	<?php echo $this->Html->script('http://myanants.com/staging/app/webroot/js/home/bootstrap/js/bootstrap.min.js'); ?>   
-	<?php echo $this->Html->script('http://myanants.com/staging/app/webroot/js/home/jquery-scrollTo/jquery.scrollTo.min.js'); ?>   
-	<?php echo $this->Html->script('http://myanants.com/staging/app/webroot/js/home/prism/prism.js'); ?>   
-	<?php echo $this->Html->script('http://myanants.com/staging/app/webroot/js/home/main.js'); ?>   
+	<?php echo $this->Html->script('/app/webroot/js/home/jquery-1.11.3.min.js'); ?>   
+	<?php echo $this->Html->script('/app/webroot/js/home/jquery.easing.1.3.js'); ?>   
+	<?php echo $this->Html->script('/app/webroot/js/home/bootstrap/js/bootstrap.min.js'); ?>   
+	<?php echo $this->Html->script('/app/webroot/js/home/jquery-scrollTo/jquery.scrollTo.min.js'); ?>   
+	<?php echo $this->Html->script('/app/webroot/js/home/prism/prism.js'); ?>   
+	<?php echo $this->Html->script('/app/webroot/js/home/main.js'); ?>   
 </body>
 </html> 
 
