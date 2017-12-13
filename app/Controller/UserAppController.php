@@ -1,12 +1,12 @@
 <?php
 session_start();
-//App::uses('BlowfishPasswordHasher', 'Controller/Component/Auth');
+App::uses('BlowfishPasswordHasher', 'Controller/Component/Auth');
 class UserAppController extends AppController {
 	protected $_mergeParent = 'UserAppController';
 	public $layouts = array('desktop', 'mobile');
 	public $components = array(
 		'Session',
-		'DebugKit.Toolbar',
+		// 'DebugKit.Toolbar',
 		'Auth' => array(
 			'loginAction' => array(
 				'controller' => 'users',
