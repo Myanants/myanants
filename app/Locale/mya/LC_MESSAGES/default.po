@@ -38,7 +38,7 @@ msgstr "အဲကြန္းျပဳျပင္ထိန္းသိမ္း
 msgid "Electrical and Wiring"
 msgstr "မီးႏွင့္၀ါယာျပဳျပင္မႈ"
 
-msgid "Cleaning Service"
+msgid "Cleaning Services"
 msgstr "အိမ္သန္႔ရွင္းေရး၀န္ေဆာင္မႈ"
 
 msgid "Other Services"

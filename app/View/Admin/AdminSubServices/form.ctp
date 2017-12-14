@@ -28,7 +28,7 @@
 											<?php echo $vvalue['SubService']['name'].' [ '.$vvalue['SubService']['myan_name'] .' ] '; ?>
 
 											<div class="buttons" style="float: right;">
-												<?php echo $this->Html->link('Sort Question', array('controller' => 'adminsubservices', 'action' => 'edit_answer', h($vvalue['SubService']['id'])), array('class' =>'btn btn-success btn-sm')); ?>
+												<?php echo $this->Html->link('Sort Question', array('controller' => 'admin_sub_services', 'action' => 'edit_answer', h($vvalue['SubService']['id'])), array('class' =>'btn btn-success btn-sm')); ?>
 											</div>
 										</th>
 									</tr>
@@ -41,10 +41,10 @@
 											</td>
 											<td>
 												<div class="buttons" style="float: right;">
-													<?php echo $this->Html->link('Edit Answer', array('controller' => 'adminsubservices', 'action' => 'edit_answer', h($subValue['id'])), array('class' =>'btn btn-success btn-sm')); ?>
+													<?php echo $this->Html->link('Edit Answer', array('controller' => 'admin_sub_services', 'action' => 'edit_answer', h($subValue['id'])), array('class' =>'btn btn-success btn-sm')); ?>
 												</div>
 												<div class="buttons" style="float: right;">
-													<?php echo $this->Html->link('Add Answer', array('controller' => 'adminsubservices', 'action' => 'add_answer', h($subValue['id'])), array('class' =>'btn btn-orange btn-sm')); ?>
+													<?php echo $this->Html->link('Add Answer', array('controller' => 'admin_sub_services', 'action' => 'add_answer', h($subValue['id'])), array('class' =>'btn btn-orange btn-sm')); ?>
 												</div>
 											</td>
 										</tr>

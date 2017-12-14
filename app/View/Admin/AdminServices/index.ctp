@@ -24,7 +24,7 @@
 					</div>
 					<div class="col-md-10">
 						<div class="search-box sbox">
-							<?php echo $this->Form->create('Service', array('type' => 'get', 'url' => array('controller' => 'adminservices', 'action' => 'index'), 'class' => 'search-box-form', 'InputDefaults' => array('label' => false, 'div' => false))); ?>
+							<?php echo $this->Form->create('Service', array('type' => 'get', 'url' => array('controller' => 'admin_services', 'action' => 'index'), 'class' => 'search-box-form', 'InputDefaults' => array('label' => false, 'div' => false))); ?>
 								<div class="input-group">
 									<?php if (!empty($this->params->query['keyword'])) : ?>
 										<?php echo $this->Form->input('keyword', array('label' => false, 'id' => 'search','class' => 'form-control', 'autocomplete' => 'off', 'placeholder' => 'Search for...', 'value' => $this->params->query['keyword'], 'required' => false)); ?>
@@ -39,7 +39,7 @@
 							<?php echo $this->Form->end(); ?>
 						</div>
 
-						<?php echo $this->Html->link('Register', array('controller' => 'adminservices', 'action' => 'add'), array('class' =>'btn btn-orange pull-right' ));
+						<?php echo $this->Html->link('Register', array('controller' => 'admin_services', 'action' => 'add'), array('class' =>'btn btn-orange pull-right' ));
 						?>
 					</div>
 				</div>
@@ -93,11 +93,11 @@
 									</td>
 
 									<td>
-										<?php echo $this->Html->link('Add Question', array('controller' => 'adminquestions', 'action' => 'add',h($value['Service']['id'])), array( 'class' => 'btn btn-blue btn-sm')); ?>
+										<?php echo $this->Html->link('Add Question', array('controller' => 'admin_questions', 'action' => 'add',h($value['Service']['id'])), array( 'class' => 'btn btn-blue btn-sm')); ?>
 
-										<?php echo $this->Html->link('Browse', array('controller' => 'adminservices', 'action' => 'browse',h($value['Service']['id'])), array( 'class' => 'btn btn-blue btn-sm')); ?>
+										<?php echo $this->Html->link('Browse', array('controller' => 'admin_services', 'action' => 'browse',h($value['Service']['id'])), array( 'class' => 'btn btn-blue btn-sm')); ?>
 
-										<?php echo $this->Html->link('Delete', array('controller' => 'adminservices', 'action' => 'delete', h($value['Service']['id'])), array('confirm' => "Would you like to delete this service?", 'class' =>'btn btn-royal-blue btn-sm')); ?>
+										<?php echo $this->Html->link('Delete', array('controller' => 'admin_services', 'action' => 'delete', h($value['Service']['id'])), array('confirm' => "Would you like to delete this service?", 'class' =>'btn btn-royal-blue btn-sm')); ?>
 									</td>
 								</tr>
 							<?php endforeach; ?>

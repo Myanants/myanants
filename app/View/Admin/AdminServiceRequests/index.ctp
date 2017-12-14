@@ -24,7 +24,7 @@
 					</div>
 					<div class="col-md-10">
 						<div class="search-box sbox">
-							<?php echo $this->Form->create('ServiceRequest', array('type' => 'get', 'url' => array('controller' => 'adminservicerequests', 'action' => 'index'), 'class' => 'search-box-form', 'InputDefaults' => array('label' => false, 'div' => false))); ?>
+							<?php echo $this->Form->create('ServiceRequest', array('type' => 'get', 'url' => array('controller' => 'admin_service_requests', 'action' => 'index'), 'class' => 'search-box-form', 'InputDefaults' => array('label' => false, 'div' => false))); ?>
 								<div class="input-group">
 									<?php if (!empty($this->params->query['keyword'])) : ?>
 										<?php echo $this->Form->input('keyword', array('label' => false, 'id' => 'search','class' => 'form-control', 'autocomplete' => 'off', 'placeholder' => 'Search for...', 'value' => $this->params->query['keyword'], 'required' => false)); ?>
@@ -109,11 +109,11 @@
 
 									<td>
 										
-										<?php echo $this->Html->link('Status', array('controller' => 'adminservicerequests', 'action' => 'browse',h($value['ServiceRequest']['id'])), array( 'class' => 'btn btn-blue btn-sm')); ?>
+										<?php echo $this->Html->link('Status', array('controller' => 'admin_service_requests', 'action' => 'browse',h($value['ServiceRequest']['id'])), array( 'class' => 'btn btn-blue btn-sm')); ?>
 
-										<?php echo $this->Html->link('Browse', array('controller' => 'adminservicerequests', 'action' => 'browse',h($value['ServiceRequest']['id'])), array( 'class' => 'btn btn-blue btn-sm')); ?>
+										<?php echo $this->Html->link('Browse', array('controller' => 'admin_service_requests', 'action' => 'browse',h($value['ServiceRequest']['id'])), array( 'class' => 'btn btn-blue btn-sm')); ?>
 
-										<?php echo $this->Html->link('Delete', array('controller' => 'adminservicerequests', 'action' => 'delete', h($value['ServiceRequest']['id'])), array('confirm' => "Would you like to delete this service?", 'class' =>'btn btn-royal-blue btn-sm')); ?>
+										<?php echo $this->Html->link('Delete', array('controller' => 'admin_service_requests', 'action' => 'delete', h($value['ServiceRequest']['id'])), array('confirm' => "Would you like to delete this service?", 'class' =>'btn btn-royal-blue btn-sm')); ?>
 									</td>
 								</tr>
 							<?php endforeach; ?>

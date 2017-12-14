@@ -44,7 +44,7 @@
 						</div>
 
 						<div class="search-box sbox">
-							<?php echo $this->Form->create('Customer', array('type' => 'get', 'url' => array('controller' => 'admincustomers', 'action' => 'index'), 'class' => 'search-box-form', 'InputDefaults' => array('label' => false, 'div' => false))); ?>
+							<?php echo $this->Form->create('Customer', array('type' => 'get', 'url' => array('controller' => 'admin_customers', 'action' => 'index'), 'class' => 'search-box-form', 'InputDefaults' => array('label' => false, 'div' => false))); ?>
 								<div class="input-group">
 									<?php if (!empty($this->params->query['keyword'])) : ?>
 										<?php echo $this->Form->input('keyword', array('label' => false, 'id' => 'search','class' => 'form-control', 'autocomplete' => 'off', 'placeholder' => 'Search for...', 'value' => $this->params->query['keyword'], 'required' => false)); ?>
@@ -59,7 +59,7 @@
 							<?php echo $this->Form->end(); ?>
 						</div>
 
-						<?php echo $this->Html->link('Register', array('controller' => 'admincustomers', 'action' => 'add'), array('class' =>'btn btn-orange pull-right' ));
+						<?php echo $this->Html->link('Register', array('controller' => 'admin_customers', 'action' => 'add'), array('class' =>'btn btn-orange pull-right' ));
 						?>
 					</div>
 				</div>
@@ -122,15 +122,15 @@
 									</td>
 
 									<td>
-										<?php echo $this->Html->link('Browse', array('controller' => 'admincustomers', 'action' => 'browse',h($value['Customer']['id'])), array( 'class' => 'btn btn-blue btn-sm')); ?>
+										<?php echo $this->Html->link('Browse', array('controller' => 'admin_customers', 'action' => 'browse',h($value['Customer']['id'])), array( 'class' => 'btn btn-blue btn-sm')); ?>
 
 										<?php if ($value['Customer']['deactivate'] == false): ?>
-											<?php echo $this->Html->link('Deactivate', array('controller' => 'admincustomers', 'action' => 'approved', h($value['Customer']['id'])), array('onclick' => 'return confirm(" Do you want to deactivate?")', 'class' => 'btn btn-gray btn-sm','style' => 'width:75px;')); ?>
+											<?php echo $this->Html->link('Deactivate', array('controller' => 'admin_customers', 'action' => 'approved', h($value['Customer']['id'])), array('onclick' => 'return confirm(" Do you want to deactivate?")', 'class' => 'btn btn-gray btn-sm','style' => 'width:75px;')); ?>
 										<?php elseif ($value['Customer']['deactivate'] == true): ?>
-											<?php echo $this->Html->link('Activate', array('controller' => 'admincustomers', 'action' => 'approved', h($value['Customer']['id'])), array('onclick' => 'return confirm(" Do you want to activate?")', 'class' => 'btn btn-white btn-sm','style' => 'width:75px;')); ?>
+											<?php echo $this->Html->link('Activate', array('controller' => 'admin_customers', 'action' => 'approved', h($value['Customer']['id'])), array('onclick' => 'return confirm(" Do you want to activate?")', 'class' => 'btn btn-white btn-sm','style' => 'width:75px;')); ?>
 										<?php endif; ?>
 										<div class="col-md-5 ">
-										<?php //echo $this->Html->link('Service Request', array('controller' => 'admincustomers', 'action' => 'addRequest', h($value['Customer']['id'])), array('class' =>'btn btn-royal-blue btn-sm')); 
+										<?php //echo $this->Html->link('Service Request', array('controller' => 'admin_customers', 'action' => 'addRequest', h($value['Customer']['id'])), array('class' =>'btn btn-royal-blue btn-sm')); 
 											echo $this->Form->input('service_id', array(
 												'type' => 'select',
 												'options'=> !empty($service) ? $service : array(),
@@ -143,7 +143,7 @@
 
 										?></div>
 
-										<?php echo $this->Html->link('Delete', array('controller' => 'admincustomers', 'action' => 'delete', h($value['Customer']['id'])), array('confirm' => "Would you like to delete this company?", 'class' =>'btn btn-royal-blue btn-sm')); ?>
+										<?php echo $this->Html->link('Delete', array('controller' => 'admin_customers', 'action' => 'delete', h($value['Customer']['id'])), array('confirm' => "Would you like to delete this company?", 'class' =>'btn btn-royal-blue btn-sm')); ?>
 									</td>
 								</tr>
 							<?php endforeach; ?>

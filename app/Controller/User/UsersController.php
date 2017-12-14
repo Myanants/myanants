@@ -6,11 +6,18 @@ App::import('Vendor', 'facebook', array('file' => 'facebook'. DS . 'graph-sdk' .
 
 class UsersController extends UserAppController {
 	public $components = array('RequestHandler', 'Security');
-	public $uses = array('Customer','TransactionManager');
+	public $uses = array('Customer','ServiceRequest','SubService','Question','TransactionManager');
+	
 	// private $key = "Qb2KFqy7Amf5VMu4Jt8Cg0Dce1OGsj9HSah6Lir3";
 
 	public function beforeFilter() {
 		parent::beforeFilter();
+
+		$this->Security->blackHoleCallback = 'blackhole';
+
+		$this->Security->validatePost = false;
+		$this->Security->csrfCheck = false;    
+
 		$this->Auth->allow('login','index','add','facebookLogin', 'fbcallback', 'logout', 'activate');
 	}
 
@@ -68,7 +75,7 @@ class UsersController extends UserAppController {
 			$this->redirect(array('controller' => 'users', 'action' => 'index'));
 		}
 		if ($this->request->is('post')) {
-			debug($this->request->data);
+			// debug($this->request->data);
 			$auth = $this->Customer->find('first', array(
 				'conditions' => array(
 					'Customer.name' => $this->request->data['Customer']['name'])
@@ -135,10 +142,10 @@ class UsersController extends UserAppController {
 		$helper = $fb->getRedirectLoginHelper();
 		$accessToken = $helper->getAccessToken();
 
-		debug($accessToken);
+		// debug($accessToken);
 
 		if (isset($_GET['state'])) {
-			debug($_GET['state']);
+			// debug($_GET['state']);
 		}
 
 		try {
@@ -200,7 +207,7 @@ class UsersController extends UserAppController {
 		}
 
 		$_SESSION['fb_access_token'] = (string) $accessToken;
-		debug($_SESSION['fb_access_token'] );
+		// debug($_SESSION['fb_access_token'] );
 		$this->log($_SESSION['fb_access_token'] );
 
 		// User is logged in with a long-lived access token.
@@ -213,4 +220,40 @@ class UsersController extends UserAppController {
 		$this->layout = 'home';
 	}
 
+	public function profile() {
+		$this->layout = 'user';
+		// debug($this->Auth->user());
+		if (!empty($this->Auth->user('id'))) {
+			$customer_id = $this->Auth->user('id') ;
+			$request = $this->ServiceRequest->find('all',array(
+					'conditions' => array(
+						'ServiceRequest.customer_id' => $customer_id
+					),
+					'order' => array('ServiceRequest.modified' => 'DESC')
+					));
+			// debug($request);
+
+		}
+		$this->set(Compact('request','customer_id'));
+	}
+
+	public function detail($id = null) {
+		$this->layout = 'user';
+		if (!empty($this->Auth->user('id'))) {
+			$customer_id = $this->Auth->user('id') ;
+			$request = $this->ServiceRequest->findById($id);
+
+			$sub_service = $this->SubService->find('list',array(
+				'fields' => array(
+					'id' ,'name')));
+
+			$question = $this->Question->find('list',array(
+				'fields' => array(
+					'id' ,'Ename')));
+
+
+			// $this->log($request);
+		}
+		$this->set(Compact('request','customer_id','sub_service','question'));
+	}
 }

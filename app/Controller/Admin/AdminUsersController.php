@@ -1,7 +1,7 @@
 <?php
 App::uses('CakeEmail', 'Network/Email');
 App::uses('AdminAppController', 'Controller');
-class AdminusersController extends AdminAppController {
+class AdminUsersController extends AdminAppController {
 	public $components = array('RequestHandler');
 	public $uses = array('AdminUser');
 
@@ -12,7 +12,7 @@ class AdminusersController extends AdminAppController {
 
 	public function login() {
 		if ($this->Session->check('Auth.admins')) {
-			$this->redirect(array('controller' => 'admincustomers', 'action' => 'index'));
+			$this->redirect(array('controller' => 'admin_customers', 'action' => 'index'));
 		}
 		if ($this->request->is('post')) {
 			$auth = $this->AdminUser->find('first', array(
@@ -25,7 +25,7 @@ class AdminusersController extends AdminAppController {
 						unset($this->request->data['AdminUser']['remember_me']);
 						$this->Cookie->write('admin_rememberMe', $this->request->data['AdminUser'], true, '2 weeks');
 					}
-					$this->redirect(array('controller' => 'admincustomers', 'action' => 'index'));
+					$this->redirect(array('controller' => 'admin_customers', 'action' => 'index'));
 
 				} else {
 					$this->Session->setFlash('Please refill name and password');

@@ -6,7 +6,7 @@ class UserAppController extends AppController {
 	public $layouts = array('desktop', 'mobile');
 	public $components = array(
 		'Session',
-		// 'DebugKit.Toolbar',
+		'DebugKit.Toolbar',
 		'Auth' => array(
 			'loginAction' => array(
 				'controller' => 'users',

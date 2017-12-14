@@ -44,7 +44,7 @@
 						</div>
 
 						<div class="search-box sbox">
-							<?php echo $this->Form->create('ServiceProvider', array('type' => 'get', 'url' => array('controller' => 'adminserviceproviders', 'action' => 'index'), 'class' => 'search-box-form', 'InputDefaults' => array('label' => false, 'div' => false))); ?>
+							<?php echo $this->Form->create('ServiceProvider', array('type' => 'get', 'url' => array('controller' => 'admin_service_providers', 'action' => 'index'), 'class' => 'search-box-form', 'InputDefaults' => array('label' => false, 'div' => false))); ?>
 								<div class="input-group">
 									<?php if (!empty($this->params->query['keyword'])) : ?>
 										<?php echo $this->Form->input('keyword', array('label' => false, 'id' => 'search','class' => 'form-control', 'autocomplete' => 'off', 'placeholder' => 'Search for...', 'value' => $this->params->query['keyword'], 'required' => false)); ?>
@@ -59,7 +59,7 @@
 							<?php echo $this->Form->end(); ?>
 						</div>
 
-						<?php echo $this->Html->link('Register', array('controller' => 'adminserviceproviders', 'action' => 'add'), array('class' =>'btn btn-orange pull-right' ));
+						<?php echo $this->Html->link('Register', array('controller' => 'admin_service_providers', 'action' => 'add'), array('class' =>'btn btn-orange pull-right' ));
 						?>
 					</div>
 				</div>
@@ -144,15 +144,15 @@
 									</td>
 
 									<td>
-										<?php echo $this->Html->link('Browse', array('controller' => 'adminserviceproviders', 'action' => 'browse',h($value['ServiceProvider']['id'])), array( 'class' => 'btn btn-blue btn-sm')); ?>
+										<?php echo $this->Html->link('Browse', array('controller' => 'admin_service_providers', 'action' => 'browse',h($value['ServiceProvider']['id'])), array( 'class' => 'btn btn-blue btn-sm')); ?>
 
 										<?php if ($value['ServiceProvider']['deactivate'] == false): ?>
-											<?php echo $this->Html->link('Deactivate', array('controller' => 'adminserviceproviders', 'action' => 'approved', h($value['ServiceProvider']['id'])), array('onclick' => 'return confirm(" Do you want to deactivate?")', 'class' => 'btn btn-gray btn-sm','style' => 'width:75px;')); ?>
+											<?php echo $this->Html->link('Deactivate', array('controller' => 'admin_service_providers', 'action' => 'approved', h($value['ServiceProvider']['id'])), array('onclick' => 'return confirm(" Do you want to deactivate?")', 'class' => 'btn btn-gray btn-sm','style' => 'width:75px;')); ?>
 										<?php elseif ($value['ServiceProvider']['deactivate'] == true): ?>
-											<?php echo $this->Html->link('Activate', array('controller' => 'adminserviceproviders', 'action' => 'approved', h($value['ServiceProvider']['id'])), array('onclick' => 'return confirm(" Do you want to activate?")', 'class' => 'btn btn-white btn-sm','style' => 'width:75px;')); ?>
+											<?php echo $this->Html->link('Activate', array('controller' => 'admin_service_providers', 'action' => 'approved', h($value['ServiceProvider']['id'])), array('onclick' => 'return confirm(" Do you want to activate?")', 'class' => 'btn btn-white btn-sm','style' => 'width:75px;')); ?>
 										<?php endif; ?>
 
-										<?php echo $this->Html->link('Delete', array('controller' => 'adminserviceproviders', 'action' => 'delete', h($value['ServiceProvider']['id'])), array('confirm' => "Would you like to delete this service provider?", 'class' =>'btn btn-royal-blue btn-sm')); ?>
+										<?php echo $this->Html->link('Delete', array('controller' => 'admin_service_providers', 'action' => 'delete', h($value['ServiceProvider']['id'])), array('confirm' => "Would you like to delete this service provider?", 'class' =>'btn btn-royal-blue btn-sm')); ?>
 									</td>
 								</tr>
 							<?php endforeach; ?>

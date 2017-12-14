@@ -1,15 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	<title>Free Bootstrap Theme for Developers</title>
+	<title>MyanAnts | We Connect Service Providers</title>
 	
 	<?php echo $this->Html->charset(); ?>
 	<!--[if IE]><meta http-equiv="x-ua-compatible" content="IE=9" /><![endif]-->
 	<?php echo $this->Html->meta(array('name' => 'viewport', 'content' => 'width=device-width, initial-scale=1')); ?>
 	<?php //echo $this->Html->meta(array('http-equiv '=>'X-UA-Compatible','content'=>'IE=edge'))?>
-	<?php echo $this->Html->meta(array('name '=>'description','content'=>'Your Description Here'))?>
-	<?php echo $this->Html->meta(array('name '=>'keywords','content'=>'bootstrap themes, portfolio, responsive theme'))?>
-	<?php echo $this->Html->meta(array('name '=>'author','content'=>'ThemeForces.Com'))?>
+	<?php echo $this->Html->meta(array('name '=>'description','content'=>'MyanAnts is the No.1 Leading Home Service Provider in Yangon.It will provide services like AC Installation,Cleaning,Electrical and Plumbing.There’s more in MyanAnts which is available in Yangon.As foreign people are finding help for their homes,we have every services that you wanted.'))?>
+	<?php echo $this->Html->meta(array('name '=>'keywords','content'=>'Home service provider, Home service provider in Yangon, No.1 & leading Home service provider, services, cleaning, electrical, plumbing'))?>
+	<?php echo $this->Html->meta(array('name '=>'author','content'=>'myanants.com'))?>
 	<?php //echo $this->fetch('meta'); ?>
 
 	<link rel="shortcut icon" href="favicon.ico">  
@@ -87,10 +87,9 @@
 
 						<li class="nav-item">
 							<?php
-								$currentUrl = Router::url($this->here, true);
-								// debug($currentUrl);
+								$currentUrl = $this->Html->url(null, true);
 								if (strpos($currentUrl, '/mya/') !== false || 
-									$currentUrl == 'http://myanants.com/staging') {
+									$currentUrl == 'http://myanants.com/staging/') {
 									echo $this->Html->link('English', array('language'=>'eng'));
 								} elseif (strpos($currentUrl, '/eng/') !== false) {
 									echo $this->Html->link('ျမန္မာ', array('language'=>'mya'));
@@ -116,13 +115,13 @@
 			<div class="btns">
 
 
-				<?php echo $this->Html->link(__('Air Conditioner Maintenance'), array('controller' => 'servicerequest', 'action' => 'add','1'),array('class' => 'btn btn-cta-primary' )) ;?>
+				<?php echo $this->Html->link(__('Air Conditioner Maintenance'), array('controller' => 'service_requests', 'action' => 'add','1'),array('class' => 'btn btn-cta-primary' )) ;?>
 
-				<?php echo $this->Html->link(__('Cleaning Services'), array('controller' => 'servicerequest', 'action' => 'add','2'),array('class' => 'btn btn-cta-primary' )) ;?>
+				<?php echo $this->Html->link(__('Cleaning Services'), array('controller' => 'service_requests', 'action' => 'add','2'),array('class' => 'btn btn-cta-primary' )) ;?>
 
-				<?php echo $this->Html->link(__('Electrical and Wiring'), array('controller' => 'servicerequest', 'action' => 'add','3'),array('class' => 'btn btn-cta-primary' )) ;?>
+				<?php echo $this->Html->link(__('Electrical and Wiring'), array('controller' => 'service_requests', 'action' => 'add','3'),array('class' => 'btn btn-cta-primary' )) ;?>
 
-				<?php echo $this->Html->link(__('Other Services'), array('controller' => 'servicerequest', 'action' => 'add','4'),array('class' => 'btn btn-cta-primary' )) ;?>
+				<?php echo $this->Html->link(__('Other Services'), array('controller' => 'service_requests', 'action' => 'add','4'),array('class' => 'btn btn-cta-primary' )) ;?>
 
 
 				<a class="hidden-lg hidden-md btn btn-cta-primary" href="tel:09961868686" target="_blank">
@@ -236,7 +235,7 @@
 					<ul class="social-icons list-inline">
 						<li><a href="https://www.facebook.com/MyanAnts/" target="_blank"><i class="fa fa-facebook"></i></a></li>
 						<li><a href="https://www.linkedin.com/company/13391896/"><i class="fa fa-linkedin"></i></a></li>
-						<li><a href="http://instagram.com/"><i class="fa fa-instagram"></i></a></li>              
+						<li><a href="https://www.instagram.com/myanants/"><i class="fa fa-instagram"></i></a></li>              
 					</ul>
 				</div><!--//info-->
 			</div><!--//contact-inner-->

@@ -44,7 +44,7 @@
 						</div> -->
 
 						<div class="search-box sbox">
-							<?php echo $this->Form->create('Question', array('type' => 'get', 'url' => array('controller' => 'adminquestions', 'action' => 'index'), 'class' => 'search-box-form', 'InputDefaults' => array('label' => false, 'div' => false))); ?>
+							<?php echo $this->Form->create('Question', array('type' => 'get', 'url' => array('controller' => 'admin_questions', 'action' => 'index'), 'class' => 'search-box-form', 'InputDefaults' => array('label' => false, 'div' => false))); ?>
 								<div class="input-group">
 									<?php if (!empty($this->params->query['keyword'])) : ?>
 										<?php echo $this->Form->input('keyword', array('label' => false, 'id' => 'search','class' => 'form-control', 'autocomplete' => 'off', 'placeholder' => 'Search for...', 'value' => $this->params->query['keyword'], 'required' => false)); ?>
@@ -100,11 +100,11 @@
 									</td>
 
 									<td>
-										<?php echo $this->Html->link('Browse', array('controller' => 'adminquestions', 'action' => 'browse',h($value['Question']['id'])), array( 'class' => 'btn btn-blue btn-sm')); ?>
+										<?php echo $this->Html->link('Browse', array('controller' => 'admin_questions', 'action' => 'browse',h($value['Question']['id'])), array( 'class' => 'btn btn-blue btn-sm')); ?>
 										
-										<?php echo $this->Html->link('Add Answer', array('controller' => 'adminquestions', 'action' => 'addAnswer', h($value['Question']['id'])), array('class' =>'btn btn-orange btn-sm')); ?>
+										<?php echo $this->Html->link('Add Answer', array('controller' => 'admin_questions', 'action' => 'addAnswer', h($value['Question']['id'])), array('class' =>'btn btn-orange btn-sm')); ?>
 
-										<?php echo $this->Html->link('Delete', array('controller' => 'adminquestions', 'action' => 'delete', h($value['Question']['id'])), array('confirm' => "Would you like to delete this company?", 'class' =>'btn btn-royal-blue btn-sm')); ?>
+										<?php echo $this->Html->link('Delete', array('controller' => 'admin_questions', 'action' => 'delete', h($value['Question']['id'])), array('confirm' => "Would you like to delete this company?", 'class' =>'btn btn-royal-blue btn-sm')); ?>
 									</td>
 								</tr>
 							<?php endforeach; ?>

@@ -29,7 +29,7 @@
 						<?php echo $this->Form->button('Login', array('class' => 'btn btn-default submit')); ?>
 					</div>
 					<p class="current_limit">
-						<?php echo $this->Html->link("Click here if you forgot your password", array('controller' => 'adminusers', 'action' => 'remind'),array( 'label' => false)); ?>
+						<?php echo $this->Html->link("Click here if you forgot your password", array('controller' => 'admin_users', 'action' => 'remind'),array( 'label' => false)); ?>
 					</p>
 
 					<div class="clearfix"></div>

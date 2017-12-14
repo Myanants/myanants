@@ -8,15 +8,15 @@ class AdminAppController extends AppController {
 		'DebugKit.Toolbar',
 		'Auth' => array(
 			'loginAction' => array(
-				'controller' => 'adminusers',
+				'controller' => 'admin_users',
 				'action' => 'login'
 			),
 			'loginRedirect' => array(
-				'controller' => 'admincustomers',
+				'controller' => 'admin_customers',
 				'action' => 'index'
 			),
 			'logoutRedirect' => array(
-				'controller' => 'adminusers',
+				'controller' => 'admin_users',
 				'action' => 'login'
 			),
 			'authenticate' => array(
@@ -39,7 +39,7 @@ class AdminAppController extends AppController {
 	public function beforeFilter() {
 		$this->layout = 'admin';
 		AuthComponent::$sessionKey = 'Auth.admins';
-		if(in_array($this->params['controller'],array('adminusers'))){
+		if(in_array($this->params['controller'],array('admin_users'))){
 			$this->Auth->allow('remind');
 		}
 		$this->Cookie->name = 'admin_rememberMe';

@@ -2,11 +2,23 @@
 <html lang="en">
 	<head>
 		<?php echo $this->Html->charset(); ?>
-			<?php echo $this->Html->meta(null, null, array('name' => 'viewport', 'content' => 'width=device-width, initial-scale=1')); ?>
+		<?php echo $this->Html->meta(null, null, array('name' => 'viewport', 'content' => 'width=device-width, initial-scale=1')); ?>
 		<?php echo $this->Html->meta(array('http-equiv '=>'X-UA-Compatible','content'=>'IE=edge'))?>
 		<?php echo $this->fetch('meta'); ?>
 		<!-- ========== Title ========== -->
 		<title><?php echo 'MyanAnts | We Connect Service Providers'; ?></title>
+	
+		<?php echo $this->Html->charset(); ?>
+		<!--[if IE]><meta http-equiv="x-ua-compatible" content="IE=9" /><![endif]-->
+		<?php echo $this->Html->meta(array('name' => 'viewport', 'content' => 'width=device-width, initial-scale=1')); ?>
+		<?php //echo $this->Html->meta(array('http-equiv '=>'X-UA-Compatible','content'=>'IE=edge'))?>
+		<?php echo $this->Html->meta(array('name '=>'description','content'=>'MyanAnts is the No.1 Leading Home Service Provider in Yangon.It will provide services like AC Installation,Cleaning,Electrical and Plumbing.There’s more in MyanAnts which is available in Yangon.As foreign people are finding help for their homes,we have every services that you wanted.'))?>
+		<?php echo $this->Html->meta(array('name '=>'keywords','content'=>'Home service provider, Home service provider in Yangon, No.1 & leading Home service provider, services, cleaning, electrical, plumbing'))?>
+		<?php echo $this->Html->meta(array('name '=>'author','content'=>'myanants.com'))?>
+		<?php //echo $this->fetch('meta'); ?>
+		<link rel="shortcut icon" href="favicon.ico">
+
+
 		<!-- ========== CSS ========== -->
 		
 		<?php echo $this->Html->css('//cdn.datatables.net/t/bs-3.3.6/jqc-1.12.0,dt-1.10.11/datatables.min.css'); ?>
@@ -48,31 +60,31 @@
 									<li><a><i class="fa fa-users"></i> <?php echo "Customer " ; ?><span class="fa fa-chevron-down"></span></a>
 										<ul class="nav child_menu">
 											<li>
-												<?php echo $this->Html->link('Customer List', array('controller' => 'admincustomers', 'action' => 'index')); ?>
+												<?php echo $this->Html->link('Customer List', array('controller' => 'admin_customers', 'action' => 'index')); ?>
 											</li>
 											<li>
-												<?php echo $this->Html->link('Customer Add', array('controller' => 'admincustomers', 'action' => 'add')); ?>
+												<?php echo $this->Html->link('Customer Add', array('controller' => 'admin_customers', 'action' => 'add')); ?>
 											</li>
 										</ul>
 									</li>
 																		
 									<li><a><i class="fa fa-edit"></i> <?php echo "Service Provider" ; ?> <span class="fa fa-chevron-down"></span></a>
 										<ul class="nav child_menu">
-											<li><?php echo $this->Html->link('Service Provider List', array('controller' => 'adminserviceproviders', 'action' => 'index')); ?></a></li>
-											<li><?php echo $this->Html->link('Service Provider Add', array('controller' => 'adminserviceproviders', 'action' => 'add')); ?></a></li>
+											<li><?php echo $this->Html->link('Service Provider List', array('controller' => 'admin_service_providers', 'action' => 'index')); ?></a></li>
+											<li><?php echo $this->Html->link('Service Provider Add', array('controller' => 'admin_service_providers', 'action' => 'add')); ?></a></li>
 										</ul>
 									</li>
 
 									<li><a><i class="fa fa-building-o"></i> <?php echo "Service"?> <span class="fa fa-chevron-down"></span></a>
 										<ul class="nav child_menu">
 											<li>
-												<?php echo $this->Html->link('Service List', array('controller' => 'adminservices', 'action' => 'index')); ?>
+												<?php echo $this->Html->link('Service List', array('controller' => 'admin_services', 'action' => 'index')); ?>
 											</li>
 											<li>
-												<?php echo $this->Html->link('Service Add', array('controller' => 'adminservices', 'action' => 'add')); ?>
+												<?php echo $this->Html->link('Service Add', array('controller' => 'admin_services', 'action' => 'add')); ?>
 											</li>
 											<li>
-												<?php echo $this->Html->link('Sub Service Add', array('controller' => 'adminsubservices', 'action' => 'add')); ?>
+												<?php echo $this->Html->link('Sub Service Add', array('controller' => 'admin_sub_services', 'action' => 'add')); ?>
 											</li>
 
 										</ul>
@@ -84,10 +96,10 @@
 										<ul class="nav child_menu">
 											<li>
 										
-												<?php echo $this->Html->link('Service Request List', array('controller' => 'adminservicerequests', 'action' => 'index')); ?>
+												<?php echo $this->Html->link('Service Request List', array('controller' => 'admin_service_requests', 'action' => 'index')); ?>
 											</li>
 											<li>
-												<?php echo $this->Html->link('Service Request Add', array('controller' => 'adminservicerequests', 'action' => 'add')); ?>
+												<?php echo $this->Html->link('Service Request Add', array('controller' => 'admin_service_requests', 'action' => 'add')); ?>
 											</li>
 										</ul>
 									</li> -->
@@ -96,13 +108,13 @@
 									<li><a><i class="fa fa-cogs"></i> <?php echo "Question"?> <span class="fa fa-chevron-down"></span></a>
 										<ul class="nav child_menu">
 											<li>
-												<?php echo $this->Html->link('Question List', array('controller' => 'adminquestions', 'action' => 'index')); ?>
+												<?php echo $this->Html->link('Question List', array('controller' => 'admin_questions', 'action' => 'index')); ?>
 											</li>
 										<!-- 	<li>
-												<?php echo $this->Html->link('Question Add', array('controller' => 'adminsubservices', 'action' => 'add_answer')); ?>
+												<?php echo $this->Html->link('Question Add', array('controller' => 'admin_sub_services', 'action' => 'add_answer')); ?>
 											</li> -->
 											<li>
-												<?php echo $this->Html->link('Question Setting', array('controller' => 'adminsubservices', 'action' => 'form')); ?>
+												<?php echo $this->Html->link('Question Setting', array('controller' => 'admin_sub_services', 'action' => 'form')); ?>
 											</li>
 											
 										</ul>
@@ -111,7 +123,7 @@
 									<li><a><i class="fa fa-bar-chart"></i> <?php echo "Record"?> <span class="fa fa-chevron-down"></span></a>
 										<ul class="nav child_menu">
 											<li>
-												<?php echo $this->Html->link('Record', array('controller' => 'adminservicerequests', 'action' => 'index')); ?>
+												<?php echo $this->Html->link('Record', array('controller' => 'admin_service_requests', 'action' => 'index')); ?>
 											</li>
 										</ul>
 									</li>

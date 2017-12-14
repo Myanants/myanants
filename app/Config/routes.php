@@ -29,15 +29,15 @@
  * ...and connect the rest of 'Pages' controller's URLs.
  */
 
-	Router::connect('/admin',array('controller' => 'adminusers', 'action' => 'login'));
-	Router::connect('/admin/login',array('controller' => 'adminusers', 'action' => 'login'));
-	Router::connect('/admin/customer',array('controller' => 'admincustomers', 'action' => 'index'));
-	Router::connect('/admin/customer/:action/*',array('controller' => 'admincustomers'));
-	Router::connect('/admin/service/:action/*',array('controller' => 'adminservices'));
-	Router::connect('/admin/serviceprovider/:action/*',array('controller' => 'adminserviceproviders'));
-	Router::connect('/admin/subservice/:action/*',array('controller' => 'adminsubservices'));
-	Router::connect('/admin/question/:action/*',array('controller' => 'adminquestions'));
-	Router::connect('/admin/servicerequest/:action/*',array('controller' => 'adminservicerequests'));
+	Router::connect('/admin',array('controller' => 'admin_users', 'action' => 'login'));
+	Router::connect('/admin/login',array('controller' => 'admin_users', 'action' => 'login'));
+	Router::connect('/admin/customer',array('controller' => 'admin_customers', 'action' => 'index'));
+	Router::connect('/admin/customer/:action/*',array('controller' => 'admin_customers'));
+	Router::connect('/admin/service/:action/*',array('controller' => 'admin_services'));
+	Router::connect('/admin/serviceprovider/:action/*',array('controller' => 'admin_service_providers'));
+	Router::connect('/admin/subservice/:action/*',array('controller' => 'admin_sub_services'));
+	Router::connect('/admin/question/:action/*',array('controller' => 'admin_questions'));
+	Router::connect('/admin/servicerequest/:action/*',array('controller' => 'admin_service_requests'));
 
 	Router::connect('/',array('controller' => 'users', 'action' => 'index'));
 	Router::connect('/user/index',array('controller' => 'users', 'action' => 'index'));
@@ -48,9 +48,10 @@
 	Router::connect('/user/register', array('controller' => 'users', 'action' => 'add'));
 	Router::connect('/user/logout',array('controller' => 'users', 'action' => 'logout'));
 
-
-	Router::connect('/servicerequest/add/*',array('controller' => 'servicerequests', 'action' => 'add'));
-	Router::connect('/servicerequest/:action/*',array('controller' => 'servicerequests'));
+	Router::connect('/user/profile',array('controller' => 'users', 'action' => 'profile'));
+	Router::connect('/user/detail/*',array('controller' => 'users', 'action' => 'detail'));
+	
+	Router::connect('/servicerequest/:action/*',array('controller' => 'service_requests'));
 
 
 	Router::connect('/:language/:controller/:action/*', array(), array('language' => '[a-z]{3}'));
