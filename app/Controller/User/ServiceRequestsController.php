@@ -120,6 +120,8 @@ class ServiceRequestsController extends UserAppController {
 				$this->request->data['ServiceRequest']['service_request_id'] = $RequestCode;
 				$this->request->data['ServiceRequest']['customer_id'] = $customerid;
 				
+
+				$allInfo = $this->request->data ;
 				// save to the database 
 				$this->ServiceRequest->create();
 
@@ -127,39 +129,96 @@ class ServiceRequestsController extends UserAppController {
 					throw new Exception("ERROR OCCUR DURING REGISTER OF USER INFORMATION");
 				}
 
+				if (!empty($this->Auth->user('email'))) {
+					$user_mail = $this->Auth->user('email') ;
 
-				// Mail Send to Admin
-				$defaults = array(
-					'to' => 'myothandarkhaing.myanants@gmail.com' ,
+					// Mail Send to Customer
+					$defaults = array(
+						'to' => $user_mail ,
+						'from' => 'info@myanants.com',
+						'subject' => "[MyanAnts]",
+						'template' => 'user_service_request',
+						'emailFormat' => CakeEmail::MESSAGE_TEXT,
+						'layout' => 'default'
+					);
+
+					$options = array();
+					$options = array_merge($defaults, $options);
+
+					$Email = $this->_getMailInstance();
+					$Email->to($user_mail);
+					$Email->from($options['from']);
+					$Email->emailFormat($options['emailFormat']);
+					$Email->subject($options['subject']);
+					$Email->template($options['template']);
+					// $Email->layout($options['layout']);
+					// $Email->viewVars(array(
+					// 	'model' => $this->modelClass));
+
+					// $Email->send();
+					$Email->send();
+
+				}
+
+
+				/******************* Mail Send to Admin **************************/
+
+// 				$main_service = array();
+// 				$sub_service = array();
+// 				$question = $this->Question->find('list',array(
+// 					'fields' => array(
+// 					'id','Ename')));
+
+// 				$service = $this->Service->find('all');
+
+// 				foreach ($service as $key => $value) {
+// 					$main_service[$value['Service']['id']] = $value['Service']['name'] ;
+// 					foreach ($value['SubService'] as $subkey => $subvalue) {
+// 						$sub_service[$subvalue['id']] = $subvalue['name'] ;
+// 					}
+// 				}
+
+// $this->log($main_service);
+// $this->log($sub_service);
+
+// 				$pairQandA = explode('###', $allInfo['ServiceRequest']['answer']) ;
+// 1/test ###2/Ans2###3/ans1$$ans2
+
+// 1/test 
+// 2/Ans2
+// 3/ans1$$ans2
+// 				foreach ($pairQandA as $pairkey => $pairvalue) {
+// 					$pos = strpos($pairvalue, '$$');
+// 					if ($pos) {
+// 						$QnA = explode('$$', $pairvalue) ;
+						
+// 					} else {
+
+// 					}
+// 				}
+
+
+				$admin_defaults = array(
+					'to' => 'myothandarkhaing18@gmail.com' ,
 					'from' => 'info@myanants.com',
-					'subject' => "[MyanAnts]",
-					'template' => 'user_service_request',
+					'subject' => $allInfo['ServiceRequest']['answer'],
+					'template' => 'service_request_alert',
 					'emailFormat' => CakeEmail::MESSAGE_TEXT,
 					'layout' => 'default'
 				);
 
-				$options = array();
-				$options = array_merge($defaults, $options);
+				$admin_options = array();
+				$admin_options = array_merge($admin_defaults, $admin_options);
 
-				$Email = $this->_getMailInstance();
-				$Email->to('myothandarkhaing.myanants@gmail.com');
-				$Email->from($options['from']);
-				$Email->emailFormat($options['emailFormat']);
-				$Email->subject($options['subject']);
-				$Email->template($options['template']);
-				// $Email->layout($options['layout']);
-				// $Email->viewVars(array(
-				// 	'model' => $this->modelClass));
+				$AdminEmail = $this->_getMailInstance();
+				$AdminEmail->to('myothandarkhaing18@gmail.com');
+				$AdminEmail->from($admin_options['from']);
+				$AdminEmail->emailFormat($admin_options['emailFormat']);
+				$AdminEmail->subject($admin_options['subject']);
+				$AdminEmail->template($admin_options['template']);
+				$AdminEmail->send();
 
-				// $Email->send();
-		        $result = $Email->send();
-if ($Email->send() ) {
-    $this->log('Success');
-    $this->log($result);
-} else {
-   $this->log("Fail");
-}
-
+				/******************* Mail Send to Admin **************************/
 
 				$this->TransactionManager->commit($transaction);
 
