@@ -32,6 +32,8 @@
 	  fjs.parentNode.insertBefore(js, fjs);
 	}(document, 'script', 'facebook-jssdk'));</script>
 	
+
+	<?php $user_id = AuthComponent::user('id'); ?>
 	<!-- ******HEADER****** --> 
 	<header id="header" class="header">  
 		<div class="container">            
@@ -62,7 +64,11 @@
 				</div><!--//navbar-header-->            
 				<div class="navbar-collapse collapse" id="navbar-collapse">
 					<ul class="nav navbar-nav">
-						<li class="active nav-item sr-only"><a class="scrollto" href="#promo">Home</a></li>
+						<li class="nav-item">
+							<a href="tel:09961868686">
+								<img src='/staging/app/webroot/img/phone-icon.png' class="img-responsive phone-icon-sm" />
+							</a>
+						</li>
 						<li class="nav-item">
 							<?php if(empty($user_id)) : ?>
 								<?php echo $this->Html->link("LOGIN", array('controller' => 'users', 'action' => 'login')) ;?>
@@ -78,12 +84,13 @@
 
 						<li class="nav-item">
 							<?php
-								$currentUrl = Router::url($this->here, true);
-								if (strpos($currentUrl, '/mya/') !== false || $currentUrl == 'http://myanants.com/staging') {
-									echo $this->html->link('English', array('language'=>'eng'));
-								} elseif (strpos($currentUrl, '/eng/') !== false) {
-									echo $this->html->link('ျမန္မာ', array('language'=>'mya'));
+
+								if ($this->Session->read('Config.language') == 'mya') {
+									echo $this->Html->link('English', array('language'=>'eng'));
+								} elseif($this->Session->read('Config.language') == 'eng') {
+									echo $this->Html->link('ျမန္မာ', array('language'=>'mya'));
 								}
+
 							?>	
 						</li>
 
@@ -96,8 +103,6 @@
 	<!-- ================Content Part==============================-->
 	<?php echo $this->fetch('content'); ?>
 	<!-- ================Footer==============================-->
-	<?php $user_id = AuthComponent::user('id'); ?>
-			
 	<!-- ******CONTACT****** --> 
 	<section id="contact" class="contact section has-pattern">
 		<div class="container">

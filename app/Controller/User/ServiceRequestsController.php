@@ -190,22 +190,26 @@ class ServiceRequestsController extends UserAppController {
 						foreach ($ans as $anskey => $ansvalue) {
 							$ansstring .= $ansvalue.'<br/>';
 						}
-						$string .= $question[$tmpArr[0]].'<br/>'.$ansstring.'<br/><br/>';
+						$string .= $question[$tmpArr[0]].'<br/>'.$ansstring.'###';
 					
 
 					} else {
 						$tmpArr = explode('/', $pairvalue);
 						// $tmpArr[0] // Question
 						// $tmpArr[1] // Answer
-						$string .= $question[$tmpArr[0]].'<br/>'.$tmpArr[1].'<br/><br/>';
+						$string .= $question[$tmpArr[0]].'<br/>'.$tmpArr[1].'###';
 
 					}
 				}
 
+				$this->Session->write('mainService', $main_service[$id]);
+				$this->Session->write('subService', $sub_service[$sub_service_id]);
+				$this->Session->write('emailContent', $string);
+
 				$admin_defaults = array(
 					'to' => 'myothandarkhaing18@gmail.com' ,
 					'from' => 'info@myanants.com',
-					'subject' => $string,
+					'subject' => 'Service Request Alert from Customer',
 					'template' => 'service_request_alert',
 					'emailFormat' => CakeEmail::MESSAGE_TEXT,
 					'layout' => 'default'
@@ -221,17 +225,17 @@ class ServiceRequestsController extends UserAppController {
 				$AdminEmail->subject($admin_options['subject']);
 				$AdminEmail->template($admin_options['template']);
 				// $AdminEmail->send();
-if ($AdminEmail->send()) {
-	$this->log("sent");
-}else{
-	$this->log("not sent");
+				if ($AdminEmail->send()) {
+					$this->log("sent");
+				}else{
+					$this->log("not sent");
 
-}
+				}
 				/******************* Mail Send to Admin **************************/
 
 				$this->TransactionManager->commit($transaction);
 
-				// $this->redirect(array('controller'=>'users','action' => 'index'));
+				$this->redirect(array('controller'=>'users','action' => 'index'));
 
 			} catch (Exception $e) {
 				$this->log('File : ' . $e->getFile() . ' Line : ' . $e->getLine(), LOG_ERR);
