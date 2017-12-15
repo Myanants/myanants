@@ -163,45 +163,49 @@ class ServiceRequestsController extends UserAppController {
 
 				/******************* Mail Send to Admin **************************/
 
-// 				$main_service = array();
-// 				$sub_service = array();
-// 				$question = $this->Question->find('list',array(
-// 					'fields' => array(
-// 					'id','Ename')));
+				$main_service = array();
+				$sub_service = array();
+				$question = $this->Question->find('list',array(
+					'fields' => array(
+					'id','Ename')));
 
-// 				$service = $this->Service->find('all');
+				$service = $this->Service->find('all');
 
-// 				foreach ($service as $key => $value) {
-// 					$main_service[$value['Service']['id']] = $value['Service']['name'] ;
-// 					foreach ($value['SubService'] as $subkey => $subvalue) {
-// 						$sub_service[$subvalue['id']] = $subvalue['name'] ;
-// 					}
-// 				}
+				foreach ($service as $key => $value) {
+					$main_service[$value['Service']['id']] = $value['Service']['name'] ;
+					foreach ($value['SubService'] as $subkey => $subvalue) {
+						$sub_service[$subvalue['id']] = $subvalue['name'] ;
+					}
+				}
 
-// $this->log($main_service);
-// $this->log($sub_service);
+				$pairQandA = explode('###', $allInfo['ServiceRequest']['answer']) ;
 
-// 				$pairQandA = explode('###', $allInfo['ServiceRequest']['answer']) ;
-// 1/test ###2/Ans2###3/ans1$$ans2
+				$string = '' ;
+				$ansstring = '' ;
+				foreach ($pairQandA as $pairkey => $pairvalue) {
+					$pos = strpos($pairvalue, '$$');
+					if ($pos) {
+						$tmpArr = explode('/', $pairvalue);
+						$ans = explode('$$', $tmpArr[1]) ;
+						foreach ($ans as $anskey => $ansvalue) {
+							$ansstring .= $ansvalue.'<br/>';
+						}
+						$string .= $question[$tmpArr[0]].'<br/>'.$ansstring.'<br/><br/>';
+					
 
-// 1/test 
-// 2/Ans2
-// 3/ans1$$ans2
-// 				foreach ($pairQandA as $pairkey => $pairvalue) {
-// 					$pos = strpos($pairvalue, '$$');
-// 					if ($pos) {
-// 						$QnA = explode('$$', $pairvalue) ;
-						
-// 					} else {
+					} else {
+						$tmpArr = explode('/', $pairvalue);
+						// $tmpArr[0] // Question
+						// $tmpArr[1] // Answer
+						$string .= $question[$tmpArr[0]].'<br/>'.$tmpArr[1].'<br/><br/>';
 
-// 					}
-// 				}
-
+					}
+				}
 
 				$admin_defaults = array(
 					'to' => 'myothandarkhaing18@gmail.com' ,
 					'from' => 'info@myanants.com',
-					'subject' => $allInfo['ServiceRequest']['answer'],
+					'subject' => $string,
 					'template' => 'service_request_alert',
 					'emailFormat' => CakeEmail::MESSAGE_TEXT,
 					'layout' => 'default'
@@ -216,13 +220,18 @@ class ServiceRequestsController extends UserAppController {
 				$AdminEmail->emailFormat($admin_options['emailFormat']);
 				$AdminEmail->subject($admin_options['subject']);
 				$AdminEmail->template($admin_options['template']);
-				$AdminEmail->send();
+				// $AdminEmail->send();
+if ($AdminEmail->send()) {
+	$this->log("sent");
+}else{
+	$this->log("not sent");
 
+}
 				/******************* Mail Send to Admin **************************/
 
 				$this->TransactionManager->commit($transaction);
 
-				$this->redirect(array('controller'=>'users','action' => 'index'));
+				// $this->redirect(array('controller'=>'users','action' => 'index'));
 
 			} catch (Exception $e) {
 				$this->log('File : ' . $e->getFile() . ' Line : ' . $e->getLine(), LOG_ERR);
