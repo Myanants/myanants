@@ -40,6 +40,12 @@
 	Router::connect('/admin/servicerequest/:action/*',array('controller' => 'admin_service_requests'));
 	Router::connect('/admin/report/:action/*',array('controller' => 'admin_reports'));
 
+
+	Router::connect('/master',array('controller' => 'master_users', 'action' => 'index'));
+	Router::connect('/master/login',array('controller' => 'master_users', 'action' => 'login'));
+	Router::connect('/masterusers/:action/*',array('controller' => 'master_users'));
+
+
 	Router::connect('/',array('controller' => 'users', 'action' => 'index'));
 	Router::connect('/user/index',array('controller' => 'users', 'action' => 'index'));
 	Router::connect('/user/login',array('controller' => 'users', 'action' => 'login'));

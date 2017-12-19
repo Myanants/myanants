@@ -43,7 +43,7 @@ class AdminServiceProvidersController extends AdminAppController {
 		$lastServiceProviderID = $this->ServiceProvider->find('first',array('order' => array('id' => 'DESC'),'fields' => 'service_provider_id'));
 
 		if (!empty($lastServiceProviderID['ServiceProvider']['service_provider_id'])) {
-			$temp = substr($lastServiceProviderID['ServiceProvider']['service_provider_id'], 2);
+			$temp = substr($lastServiceProviderID['ServiceProvider']['service_provider_id'], 3);
 			$num = $temp+1;
 			$CompanyID = str_pad($num, 6, '0', STR_PAD_LEFT);
 		} else {

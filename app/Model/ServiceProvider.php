@@ -13,7 +13,7 @@ class ServiceProvider extends AppModel {
 			'notBlank' => array(
 				'rule' => 'notBlank',
 				'message' => 'Please fill email address !',
-				'required' => true,
+				'required' => false,
 			),
 			'email' => array(
 				'rule' => array('email'),

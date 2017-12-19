@@ -1,16 +1,34 @@
 <section>
 <div class="container">
-	<div id="signupbox" class="login_box mainbox col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2 ">
+	<div class="signupbox mainbox col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2 ">
 		<div class="sub_box" >
 
-			<div class="Utitle" >
+			<!-- <div class="Utitle" >
 				<center><h2 class="hidden-sm hidden-xs">Sign Up</h2></center>
 				<center><h3 class="hidden-lg hidden-md">Sign Up</h3></center>
+			</div> -->
+
+			<div class="hidden-sm hidden-xs col-md-3" style="margin-top: -6%;margin-bottom: -1%;width: 100%;padding-left: 32%;">        
+				<h1 class="logo pull-left">
+					<a class="scrollto" href="http://myanants.com/staging">
+						<img src='http://myanants.com/staging/img/colorant.png' class="logoimg" />
+					</a>
+				</h1><!--//logo-->
 			</div>
+
+
+			<div class="hidden-md hidden-lg col-md-3" style="margin-top: -8%;padding-left: 22%;">
+				<h1 class="logo pull-left" style="    margin-bottom: -8%;">
+					<a class="scrollto" href="http://myanants.com/staging">
+						<img src='http://myanants.com/staging/img/colorant.png' class="logoimg" style="width: 65%;" />
+					</a>
+				</h1><!--//logo-->
+			</div>
+
 
 			<div class="panel-body" >
 				<?php 
-					echo $this->Form->create('Customer', array(
+					echo $this->Form->create('ServiceProvider', array(
 						'type' => 'file',
 						'class' => 'form-horizontal form-label-left',
 						'inputDefaults' => array(
@@ -35,11 +53,11 @@
 				<div class="form-group" >
 					<div class="col-md-10 col-md-offset-1 ">
 						<label>Phone Number</label>
-						<?php echo $this->Form->input('phone_number', array( 'class' => 'form-control', 'placeholder' => 'Phone Number', 'autofocus' => true, 'autocomplete' => 'off','label' => false)); ?>
+						<?php echo $this->Form->input('phone', array( 'class' => 'form-control', 'placeholder' => 'Phone Number', 'autofocus' => true, 'autocomplete' => 'off','label' => false)); ?>
 					</div>
 				</div>
 
-				<div class="form-group" ></div>
+				<!-- <div class="form-group" ></div>
 				<div class="form-group" >
 					<div class="col-md-10 col-md-offset-1 ">
 						<label>Email</label>
@@ -53,13 +71,13 @@
 						<label>Address</label>
 						<?php echo $this->Form->input('address', array( 'class' => 'form-control', 'placeholder' => 'Address', 'autofocus' => true, 'autocomplete' => 'off','label' => false)); ?>
 					</div>
-				</div>
+				</div> -->
 
 				<div class="form-group" ></div>
 				<div class="form-group">
 					<div class="col-md-10 col-md-offset-1">
 						<label>Password</label>
-						<?php echo $this->Form->input('password', array('placeholder' => 'password', 'autocomplete' => 'off','label' => false,'type'=>'password', 'class' => 'form-control')); ?>
+						<?php echo $this->Form->input('password', array('placeholder' => 'Password', 'autocomplete' => 'off','label' => false,'type'=>'password', 'class' => 'form-control')); ?>
 					</div>
 				</div>
 
@@ -86,18 +104,18 @@
 				<div class="form-group" >
 					<div class="col-md-10  col-md-offset-1 hidden-xs hidden-sm">
 						<?php
-						echo $this->Html->link($this->Html->image('facebook-login.jpg', array('style' => 'border-radius: 5px;width:100%;')), array('controller' => 'users', 'action'=>'facebookLogin'),
+						echo $this->Html->link($this->Html->image('facebook-login.jpg', array('style' => 'border-radius: 5px;width:100%;')), array('controller' => 'master_users', 'action'=>'facebookLogin'),
 							array( 'escape' => false)); ?>
 					</div>
 					<div class="col-md-10 col-md-offset-1 hidden-lg hidden-md">
 						<?php
-					echo $this->Html->link($this->Html->image('facebook-login.jpg', array('style' => 'border-radius: 3px;width:100%')), array('controller' => 'users', 'action'=>'facebookLogin'),
+					echo $this->Html->link($this->Html->image('facebook-login.jpg', array('style' => 'border-radius: 3px;width:100%')), array('controller' => 'master_users', 'action'=>'facebookLogin'),
 							array( 'escape' => false)); ?>
 					</div>
 				</div>
 				<div class="form-group">
 					<div class="col-md-8 col-md-offset-1 col-sm-8  col-xs-10 ">
-						You have an Account? <?php echo $this->Html->link("Login Now!", array('controller' => 'users', 'action' => 'login'),array( 'label' => false,'target' =>'_blank','style' => 'color: #0000ff;')); ?>
+						You have an Account? <?php echo $this->Html->link("Login Now!", array('controller' => 'master_users', 'action' => 'login'),array( 'label' => false,'target' =>'_blank','style' => 'color: #0000ff;')); ?>
 					</div>
 				</div>
 				<?php echo $this->Form->end(); ?>
@@ -126,10 +144,15 @@
 		padding-left: 9%;
 	}
 
+	.signupbox {
+		margin-top: 2%;
+	}
+
 	/*---------- mobile -----------*/
 	@media screen and (max-width: 768px) and (max-width: 992px) {
 	.message {
 		color: red;
 		padding-left: 0%;
 	}
+	
 </style>
