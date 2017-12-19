@@ -127,6 +127,14 @@
 											</li>
 										</ul>
 									</li>
+
+									<li><a><i class="fa fa-bar-chart"></i> <?php echo "Daily Report"?> <span class="fa fa-chevron-down"></span></a>
+										<ul class="nav child_menu">
+											<li>
+												<?php echo $this->Html->link('Daily Report', array('controller' => 'admin_reports', 'action' => 'index')); ?>
+											</li>
+										</ul>
+									</li>
 									
 								</ul>
 							</div>

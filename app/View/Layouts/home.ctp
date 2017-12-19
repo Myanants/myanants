@@ -87,11 +87,9 @@
 
 						<li class="nav-item">
 							<?php
-								$currentUrl = $this->Html->url(null, true);
-								if (strpos($currentUrl, '/mya/') !== false || 
-									$currentUrl == 'http://myanants.com/staging/') {
+								if ($this->Session->read('Config.language') == 'mya') {
 									echo $this->Html->link('English', array('language'=>'eng'));
-								} elseif (strpos($currentUrl, '/eng/') !== false) {
+								} elseif($this->Session->read('Config.language') == 'eng') {
 									echo $this->Html->link('ျမန္မာ', array('language'=>'mya'));
 								}
 							?>	

@@ -38,6 +38,7 @@
 	Router::connect('/admin/subservice/:action/*',array('controller' => 'admin_sub_services'));
 	Router::connect('/admin/question/:action/*',array('controller' => 'admin_questions'));
 	Router::connect('/admin/servicerequest/:action/*',array('controller' => 'admin_service_requests'));
+	Router::connect('/admin/report/:action/*',array('controller' => 'admin_reports'));
 
 	Router::connect('/',array('controller' => 'users', 'action' => 'index'));
 	Router::connect('/user/index',array('controller' => 'users', 'action' => 'index'));
