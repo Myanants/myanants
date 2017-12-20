@@ -65,6 +65,22 @@ class AdminServiceProvidersController extends AdminAppController {
 				$this->request->data['ServiceProvider']['service_provider_id'] = $UserCode;
 				$this->request->data['ServiceProvider']['deactivate'] = 0;
 
+
+				// validate the upload file.
+				if (!empty($this->request->data['ServiceProvider']['image']['name'])) {
+					$tmpName = $this->request->data['ServiceProvider']['image']['tmp_name'];
+					$name = $this->request->data['ServiceProvider']['image']['name'];
+					unset($this->request->data['ServiceProvider']['image']);
+
+					move_uploaded_file($tmpName, WWW_ROOT . '/img/' . $name);
+					$this->request->data['ServiceProvider']['image'] = $name;
+
+				} elseif (array_key_exists('image', $this->request->data['ServiceProvider'])) {
+					$name = $this->request->data['ServiceProvider']['image'];
+					unset($this->request->data['ServiceProvider']['image']);
+					$this->request->data['ServiceProvider']['image'] = $name;
+
+				}
 				
 				// save to the database
 				$this->ServiceProvider->create();
@@ -76,6 +92,7 @@ class AdminServiceProvidersController extends AdminAppController {
 				$this->redirect(array('action' => 'index'));
 
 			} catch (Exception $e) {
+				$this->set(compact('image'));
 				$this->log('File : ' . $e->getFile() . ' Line : ' . $e->getLine(), LOG_ERR);
 				$this->log($e->getMessage(), LOG_ERR);
 				$this->TransactionManager->rollback($transaction);

@@ -56,11 +56,16 @@ a.btn:focus {
 }
 a.btn-cta-primary,
 .btn-cta-primary {
-  background: #074f66;
+  border: 1px solid #fff;
+    color: #fff;
+    font-weight: 600;
+    text-transform: uppercase;
+    background-color: rgba(0,0,0,0.3);
+  /*background: #074f66;
   border: 1px solid #074f66;
   color: #fff;
   font-weight: 600;
-  text-transform: uppercase;
+  text-transform: uppercase;*/
 }
 a.btn-cta-primary:hover,
 .btn-cta-primary:hover {
@@ -94,13 +99,15 @@ pre code {
 /* ======= Header ======= */
 .header {
   padding: 10px 0;
-  background: #17baef;
+  background: linear-gradient(to right, #00cc99 0%, #cc00cc 100%);
+  /*background: #17baef;*/
   color: #fff;
   position: fixed;
   width: 100%;
 }
 .header.navbar-fixed-top {
-  background: lightblue;
+  /*background: lightblue;*/
+  background: linear-gradient(to right, #00cc99 0%, #cc00cc 100%);
   z-index: 9999;
   -webkit-box-shadow: 0 0 4px rgba(0, 0, 0, 0.4);
   -moz-box-shadow: 0 0 4px rgba(0, 0, 0, 0.4);
@@ -110,7 +117,8 @@ pre code {
   color: #17baef;
 }
 .header.navbar-fixed-top .main-nav .nav .nav-item a {
-  color: #666;
+  /*color: #666;*/
+  color: #fff;
 }
 .header .logo {
     width: 60%;
@@ -192,7 +200,8 @@ pre code {
 }
 /* ======= Promo Section ======= */
 .promo {
-  background: #17baef;
+  background: linear-gradient(to right, #00cc99 0%, #cc00cc 100%);
+  /*background: #17baef;*/
   color: #fff;
   padding-top: 150px;
 }
@@ -239,7 +248,8 @@ pre code {
   color: #074f66;
 }
 .promo .social-media {
-  background: #0c86ae;
+  /*background: #0c86ae;*/
+  background: #0d7586;
   padding: 10px 0;
   margin: 0 auto;
 }
@@ -433,7 +443,8 @@ pre code {
 /* ======= Contact Section ======= */
 .contact {
   padding: 80px 0;
-  background: #17baef;
+  /*background: #17baef;*/
+  background: #00CCA9;
   color: #fff;
 }
 .contact .contact-inner {
@@ -521,7 +532,8 @@ pre code {
   color: #0c86ae;
 }
 .contact .info .sub-title {
-  color: #0e98c5;
+  /*color: #0e98c5;*/
+  color: #fff;
   margin-bottom: 30px;
   margin-top: 0;
 }
@@ -570,7 +582,8 @@ pre code {
 /* ======= Footer ======= */
 .footer {
   padding: 15px 0;
-  background: #042a36;
+  background: linear-gradient(to right, #00cc99 0%, #cc00cc 100%);
+  /*background: #042a36;*/
   color: #fff;
 }
 .footer .copyright {

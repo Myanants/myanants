@@ -30,7 +30,8 @@
 		margin-bottom:40px;
 	}
 	.promo {
-		background: #17baef;
+		background: linear-gradient(to right, #00cc99 0%, #cc00cc 100%);
+		/*background: #17baef;*/
 		color: #fff;
 		padding-top: 110px;
 	}

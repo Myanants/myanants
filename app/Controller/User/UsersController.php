@@ -6,7 +6,7 @@ App::import('Vendor', 'facebook', array('file' => 'facebook'. DS . 'graph-sdk' .
 
 class UsersController extends UserAppController {
 	public $components = array('RequestHandler', 'Security');
-	public $uses = array('Customer','ServiceRequest','SubService','Question','TransactionManager');
+	public $uses = array('Customer','ServiceRequest','SubService','ServiceProvider','Question','TransactionManager');
 	
 	// private $key = "Qb2KFqy7Amf5VMu4Jt8Cg0Dce1OGsj9HSah6Lir3";
 
@@ -67,7 +67,6 @@ class UsersController extends UserAppController {
 
 		}
 	}
-
 
 	public function login() {
 		$this->layout = 'user';
@@ -256,4 +255,5 @@ class UsersController extends UserAppController {
 		}
 		$this->set(Compact('request','customer_id','sub_service','question'));
 	}
+
 }

@@ -48,7 +48,14 @@ class OptionCommonComponent extends Component {
 		10 => 'OCT',
 		11 => 'NOV',
 		12 => 'DEC'
-		);
+	);
+
+	public $townships = array(
+		1 => 'Yangon',
+		2 => 'Yankin',
+		3 => 'KyoutMyoung',
+		4 => 'ThaKaTa'
+	);
 
 	public function year() { //upto current year
 		$tmp_year = array();

@@ -39,6 +39,7 @@
 	Router::connect('/admin/question/:action/*',array('controller' => 'admin_questions'));
 	Router::connect('/admin/servicerequest/:action/*',array('controller' => 'admin_service_requests'));
 	Router::connect('/admin/report/:action/*',array('controller' => 'admin_reports'));
+	Router::connect('/admin/cleaner/:action/*',array('controller' => 'admin_cleaners'));
 
 
 	Router::connect('/master',array('controller' => 'master_users', 'action' => 'index'));
@@ -57,6 +58,7 @@
 
 	Router::connect('/user/profile',array('controller' => 'users', 'action' => 'profile'));
 	Router::connect('/user/detail/*',array('controller' => 'users', 'action' => 'detail'));
+	Router::connect('/user/serviceprovider',array('controller' => 'users', 'action' => 'spindex'));
 	
 	Router::connect('/servicerequest/:action/*',array('controller' => 'service_requests'));
 

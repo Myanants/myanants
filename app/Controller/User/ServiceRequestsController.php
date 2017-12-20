@@ -4,11 +4,14 @@ App::uses('CakeEmail', 'Network/Email');
 App::uses('UserAppController', 'Controller');
 
 class ServiceRequestsController extends UserAppController {
-	public $components = array('RequestHandler');
+	public $components = array('RequestHandler','OptionCommon');
 	public $uses = array('Customer','Service','Question','SubService','ServiceRequest','TransactionManager');
 	
 	public function add($id = null){
 		$this->layout = 'user';
+
+		$townships = $this->OptionCommon->townships;
+
 		$serviceName = array();
 		$checkString = '' ;
 		$data = array();
@@ -36,7 +39,7 @@ class ServiceRequestsController extends UserAppController {
 		$prefix = 'SR-';
 		$RequestCode = $prefix.$RequestID;
 
-		$this->set(compact('serviceName','id','question','service'));
+		$this->set(compact('serviceName','id','question','service','townships'));
 
 		if ($this->request->is(array('post', 'put'))) {
 			try {

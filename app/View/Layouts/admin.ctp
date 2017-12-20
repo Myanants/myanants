@@ -75,6 +75,13 @@
 										</ul>
 									</li>
 
+									<li><a><i class="fa fa-edit"></i> <?php echo "Freelancer Cleaner" ; ?> <span class="fa fa-chevron-down"></span></a>
+										<ul class="nav child_menu">
+											<li><?php echo $this->Html->link('Freelancer Cleaner List', array('controller' => 'admin_cleaners', 'action' => 'index')); ?></a></li>
+											<li><?php echo $this->Html->link('Freelancer Cleaner Add', array('controller' => 'admin_cleaners', 'action' => 'add')); ?></a></li>
+										</ul>
+									</li>
+
 									<li><a><i class="fa fa-building-o"></i> <?php echo "Service"?> <span class="fa fa-chevron-down"></span></a>
 										<ul class="nav child_menu">
 											<li>

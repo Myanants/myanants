@@ -133,6 +133,22 @@
 							?>
 						</div>
 					</div>
+					<div class="form-group" >
+						<div class="col-md-10 col-md-offset-1 ">
+							<label>
+								Your Township
+							</label>
+							<?php
+								echo $this->Form->input('township', array(
+									'type' => 'select',
+									'options'=> !empty($townships) ? $townships : array(),
+									'label'=>false,
+									'empty' => 'Where do you live in ..',
+									'class' => 'form-control'
+								));
+							?>
+						</div>
+					</div>
 
 				<?php endif; ?>
 				

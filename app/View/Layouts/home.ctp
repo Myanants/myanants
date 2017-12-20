@@ -95,8 +95,12 @@
 							?>	
 						</li>
 
-						<li class="nav-item" style="    background: cornflowerblue;">
+						<li class="nav-item" style="background: #cc00cc;">
 							<?php echo $this->Html->link("Service Provider", array('controller' => 'master_users', 'action' => 'index')) ;?>
+						</li>
+
+						<li class="nav-item" style="background: #cc00cc;">
+							<?php echo $this->Html->link("Freelance Cleaner", array('controller' => 'cleaners', 'action' => 'index')) ;?>
 						</li>
 
 					</ul><!--//nav-->
