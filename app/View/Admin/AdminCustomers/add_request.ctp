@@ -96,7 +96,15 @@
 										<?php endforeach; ?>
 									</div>
 
-								<?php }	?>
+								<?php } elseif ($value['Question']['type'] == 'datetime') {
+										echo $this->Form->input($questionId, array(
+											'type' => 'text',
+											'label'=>false,
+											'class' => 'form-control'
+										));
+
+									}
+								?>
 						</div>
 					</div>
 

@@ -79,8 +79,12 @@ class MasterUsersController extends MasterAppController {
 			$this->redirect(array('controller' => 'master_users', 'action' => 'index'));
 		}
 		if ($this->request->is('post')) {
-			$auth = $this->ServiceProvider->find('first', array('conditions' => array(
-			'name' => $this->request->data['ServiceProvider']['name'])));
+			$auth = $this->ServiceProvider->find('first', array(
+				'conditions' => array(
+					'name' => $this->request->data['ServiceProvider']['name'],
+					'deleted' => 0)
+			));
+
 			if(!empty($auth)){
 				if ($auth['ServiceProvider']['deactivate'] != 1) {
 					if ($this->Auth->login()) {
@@ -101,10 +105,10 @@ class MasterUsersController extends MasterAppController {
 						$this->Session->setFlash('Please refill name and password');
 					}
 				} else {
-					$this->Session->setFlash('Can not log in!');
+					$this->Session->setFlash('Your account is deactivated .you can not log in!');
 				}
 			} else {
-				$this->Session->setFlash('Your name address is not registered');
+				$this->Session->setFlash('Your name is not registered');
 			}
 		}
 		$cookies = $this->Cookie->read('rememberMe');

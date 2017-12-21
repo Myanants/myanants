@@ -1,10 +1,10 @@
 <div class="x_panel">
 	<div class="x_title">
-		<h2>Service Provider Edit</h2>
+		<h2>Service Provider Register</h2>
 		<div class="clearfix"></div>
 	</div>
 	<div class="x_content">
-		<br/>
+		<br />
 		<?php
 			echo $this->Form->create('ServiceProvider', array(
 				'type' => 'file',
@@ -20,81 +20,21 @@
 
 			<div class="form-group">
 				<?php
-					echo $this->Form->label('id', 'Service Provider ID', array(
+					echo $this->Form->label('service_provider_id', 'Service Provider ID', array(
 						'class' => 'control-label col-md-3 col-sm-3 col-xs-12'
 					));
 				?>
 				<div class="col-md-6 col-sm-6 col-xs-12">
 					<?php
-						echo $this->Form->input('id', array(
+						echo $this->Form->input('service_provider_id', array(
 							'type' => 'text',
 							'label' => false,
 							'class' => 'form-control col-md-7 col-xs-12',
 							'autocomplete' => 'off' ,
 							'placeholder' => '',
-							'value' => $data['ServiceProvider']['service_provider_id'],
 							'disabled' => true
 						));
 					?>
-				</div>
-			</div>
-
-
-			<div class="form-group">
-				<?php
-					echo $this->Form->label('name', 'Name<span class="required">*</span>', array(
-						'class' => 'control-label col-md-3 col-sm-3 col-xs-12'
-					));
-				?>
-				<div class="col-md-6 col-sm-6 col-xs-12">
-					<?php
-						echo $this->Form->input('name', array(
-							'type' => 'text',
-							'label' => false,
-							'class' => 'form-control col-md-7 col-xs-12',
-							'autocomplete' => 'off' ,
-							'placeholder' => '',
-							'maxlength' => '100'
-						));
-					?>
-				</div>
-			</div>
-
-
-
-			<div class="form-group" style="border-bottom: none; ">
-				<?php
-					echo $this->Form->label('email', 'Email Address', array(
-						'class' => 'control-label col-md-3 col-sm-3 col-xs-12'
-					));
-				?>
-				<div class="col-md-6 col-sm-6 col-xs-6">
-					<?php
-						echo $this->Form->input('email', array(
-							'type' => 'text',
-							'label' => false,
-							'class' => 'form-control col-md-7 col-xs-12',
-							'autocomplete' => 'off' ,
-							'placeholder' => '',
-							'maxlength' => '100',
-							'required' => false
-						));
-					?>
-				</div>
-			</div>
-
-			<div class="form-group">
-				<?php echo $this->Form->label('nirc', 'NIRC<span class="required">*</span>', array('class' => 'control-label col-md-3 col-sm-3 col-xs-12')); ?>
-				<div class="col-md-6 col-sm-6 col-xs-12">
-					<?php echo $this->Form->input('nirc', array('type' => 'text', 'label' => false, 'class' => 'form-control col-md-7 col-xs-12', 'autocomplete' => 'off' , 'placeholder' => '','maxlength' => '3000')); ?>
-				</div>
-			</div>
-
-
-			<div class="form-group">
-				<?php echo $this->Form->label('teammember', 'Team Member<span class="required">*</span>', array('class' => 'control-label col-md-3 col-sm-3 col-xs-12')); ?>
-				<div class="col-md-6 col-sm-6 col-xs-12">
-					<?php echo $this->Form->input('teammember', array('type' => 'text', 'label' => false, 'class' => 'form-control col-md-7 col-xs-12', 'autocomplete' => 'off' , 'placeholder' => '','maxlength' => '3000')); ?>
 				</div>
 			</div>
 
@@ -113,6 +53,48 @@
 							'autocomplete' => 'off' ,
 							'placeholder' => '',
 							'maxlength' => '100'
+						));
+					?>
+				</div>
+			</div>
+
+
+			<div class="form-group">
+				<?php
+					echo $this->Form->label('name', 'Contact person<span class="required">*</span>', array(
+						'class' => 'control-label col-md-3 col-sm-3 col-xs-12'
+					));
+				?>
+				<div class="col-md-6 col-sm-6 col-xs-12">
+					<?php
+						echo $this->Form->input('name', array(
+							'type' => 'text',
+							'label' => false,
+							'class' => 'form-control col-md-7 col-xs-12',
+							'autocomplete' => 'off' ,
+							'placeholder' => '',
+							'maxlength' => '100'
+						));
+					?>
+				</div>
+			</div>
+
+			<div class="form-group" style="border-bottom: none; ">
+				<?php
+					echo $this->Form->label('email', 'Email Address', array(
+						'class' => 'control-label col-md-3 col-sm-3 col-xs-12'
+					));
+				?>
+				<div class="col-md-6 col-sm-6 col-xs-6">
+					<?php
+						echo $this->Form->input('email', array(
+							'type' => 'text',
+							'label' => false,
+							'class' => 'form-control col-md-7 col-xs-12',
+							'autocomplete' => 'off' ,
+							'placeholder' => '',
+							'maxlength' => '100',
+							'required' => false
 						));
 					?>
 				</div>
@@ -141,50 +123,176 @@
 			</div>
 
 			<div class="form-group">
-				<?php echo $this->Form->label('business_summary', 'Business Summary<span class="required">*</span>', array('class' => 'control-label col-md-3 col-sm-3 col-xs-12')); ?>
+				<?php echo $this->Form->label('nirc', 'NIRC', array('class' => 'control-label col-md-3 col-sm-3 col-xs-12')); ?>
+				<div class="col-md-6 col-sm-6 col-xs-12">
+					<?php echo $this->Form->input('nirc', array('type' => 'text', 'label' => false, 'class' => 'form-control col-md-7 col-xs-12', 'autocomplete' => 'off' , 'placeholder' => '','maxlength' => '3000')); ?>
+				</div>
+			</div>
+
+			<div class="form-group">
+				<?php echo $this->Form->label('teammember', 'Number of team member<span class="required">*</span>', array('class' => 'control-label col-md-3 col-sm-3 col-xs-12')); ?>
+				<div class="col-md-6 col-sm-6 col-xs-12">
+					<?php
+						$member = array();
+						for ($i= 1; $i <= 30 ; $i++) { 
+							$member[$i] = $i;
+						}
+						echo $this->Form->input('teammember', array(
+							'type' => 'select',
+							'options'=> !empty($member) ? $member : array(),
+							'label'=>false,
+							'empty' => 'Select number of team member..',
+							'class' => 'form-control'
+						));
+					?>
+				</div>
+			</div>
+			
+
+			<div class="form-group">
+				<?php echo $this->Form->label('business_summary', 'Business Summary', array('class' => 'control-label col-md-3 col-sm-3 col-xs-12')); ?>
 				<div class="col-md-6 col-sm-6 col-xs-12">
 					<?php echo $this->Form->input('business_summary', array('type' => 'textarea', 'label' => false, 'class' => 'form-control col-md-7 col-xs-12', 'autocomplete' => 'off' , 'placeholder' => '','maxlength' => '3000')); ?>
 				</div>
 			</div>
 
 			<div class="form-group">
-				<?php echo $this->Form->label('legal', 'Legal<span class="required">*</span>', array('class' => 'control-label col-md-3 col-sm-3 col-xs-12')); ?>
+				<?php echo $this->Form->label('legal', 'Legal', array('class' => 'control-label col-md-3 col-sm-3 col-xs-12')); ?>
 				<div class="col-md-6 col-sm-6 col-xs-12">
-					<?php echo $this->Form->input('legal', array('type' => 'text', 'label' => false, 'class' => 'form-control col-md-7 col-xs-12', 'autocomplete' => 'off' , 'placeholder' => '','maxlength' => '3000')); ?>
+					<input type="radio" name="data[ServiceProvider][legal]" value="0" checked="checked" > No &nbsp;&nbsp;&nbsp;&nbsp; <input type="radio" name="data[ServiceProvider][legal]" value="1" > Yes 
 				</div>
 			</div>
 
 			<div class="form-group">
-				<?php echo $this->Form->label('business_type', 'Business Type<span class="required">*</span>', array('class' => 'control-label col-md-3 col-sm-3 col-xs-12')); ?>
+				<?php echo $this->Form->label('business_type', 'Category<span class="required">*</span>', array('class' => 'control-label col-md-3 col-sm-3 col-xs-12')); ?>
 				<div class="col-md-6 col-sm-6 col-xs-12">
 					<?php echo $this->Form->input('business_type', array('type' => 'text', 'label' => false, 'class' => 'form-control col-md-7 col-xs-12', 'autocomplete' => 'off' , 'placeholder' => '','maxlength' => '3000')); ?>
 				</div>
 			</div>
 
 			<div class="form-group">
-				<?php echo $this->Form->label('where_hear', 'Where Hear<span class="required">*</span>', array('class' => 'control-label col-md-3 col-sm-3 col-xs-12')); ?>
+				<?php echo $this->Form->label('prefer_location', 'Prefer Location', array('class' => 'control-label col-md-3 col-sm-3 col-xs-12')); ?>
 				<div class="col-md-6 col-sm-6 col-xs-12">
-					<?php echo $this->Form->input('where_hear', array('type' => 'text', 'label' => false, 'class' => 'form-control col-md-7 col-xs-12', 'autocomplete' => 'off' , 'placeholder' => '','maxlength' => '3000')); ?>
+					<?php echo $this->Form->input('prefer_location', array('type' => 'text', 'label' => false, 'class' => 'form-control col-md-7 col-xs-12', 'autocomplete' => 'off' , 'placeholder' => '','maxlength' => '3000')); ?>
+				</div>
+			</div>
+
+			
+			<div class = "form-group">
+				<?php echo $this->Form->label('image', 'Team Photo <span class="required">*</span>
+						', array('class' => 'control-label col-md-3 col-sm-3 col-xs-12')); ?>
+				<div class = "col-md-6 col-sm-6 col-xs-12">
+					<?php if (!empty($image)) : ?>
+						<!-- <div class = "resize-img"  style="width: 200px; height: 200px; border: thick solid #666666; overflow: hidden; position: relative;">
+							<?php echo $this->Form->input('image',array('type' => 'hidden', 'label' => false,'value' => $image, 'id' => 'img-hidden-val')); ?>
+							<?php echo $this->Html->image($image, array('alt' => 'story image', 'id' => 'previewHolder', "style" => "position: absolute;",'class' => 'preview')); ?>
+						</div> -->
+
+						<div class="resize-img" style="width: 200px; height: 200px; border: thick solid #666666; overflow: hidden; position: relative;">
+							<?php
+								echo $this->Form->input('image',array(
+									'type' => 'hidden',
+									'label' => false,
+									'value' => $image,
+									'id' => 'img-hidden-val'
+								));
+							?>
+							<?php
+								echo $this->Html->image($image, array(
+									'alt' => 'story image',
+									'id' => 'previewHolder',
+									"style" => "position: absolute;",
+									"class" => "preview"
+								));
+							?>
+						</div>
+
+
+						<br/>
+						<label for = "file-7" class="btn btn-default"><span></span> <strong><svg xmlns="http://www.w3.org/2000/svg" width="20" height="17" viewBox="0 0 20 17"><path d="M10 0l-5.2 4.9h3.3v5.1h3.8v-5.1h3.3l-5.2-4.9zm9.3 11.5l-3.2-2.1h-2l3.4 2.6h-3.5c-.1 0-.2.1-.2.1l-.8 2.3h-6l-.8-2.2c-.1-.1-.1-.2-.2-.2h-3.6l3.4-2.6h-2l-3.2 2.1c-.4.3-.7 1-.6 1.5l.6 3.1c.1.5.7.9 1.2.9h16.3c.6 0 1.1-.4 1.3-.9l.6-3.1c.1-.5-.2-1.2-.7-1.5z"/></svg> Choose a file&hellip;</strong></label>
+						<span id = "img-name"><?php echo $image; ?></span>
+
+					<?php else : ?>
+						<div class = "resize-img" style="width: 200px; height: 200px; border: thick solid #666666; overflow: hidden; position: relative;">
+							<?php if ($sp_info['ServiceProvider']['image']) : ?>
+								<?php echo $this->Form->input('cologo',array('type' => 'hidden', 'label' => false,'value' => $sp_info['ServiceProvider']['image'])); ?>
+								<?php echo $this->Html->image($sp_info['ServiceProvider']['image'], array('alt' => 'story image', 'id' => 'previewHolder', 'class' => 'preview')); ?>
+							<?php else: ?>
+								<img id = "previewHolder" alt = "Uploaded Image Preview Holder" style="position: absolute;" class = "preview" />
+							<?php endif; ?>
+						</div>
+						<div class="clearfix"></div>
+						<label for="file-7" class="btn btn-default">
+							<span></span>
+							<strong>
+								<svg xmlns="http://www.w3.org/2000/svg" width="20" height="17" viewBox="0 0 20 17">
+									<path d="M10 0l-5.2 4.9h3.3v5.1h3.8v-5.1h3.3l-5.2-4.9zm9.3 11.5l-3.2-2.1h-2l3.4 2.6h-3.5c-.1 0-.2.1-.2.1l-.8 2.3h-6l-.8-2.2c-.1-.1-.1-.2-.2-.2h-3.6l3.4-2.6h-2l-3.2 2.1c-.4.3-.7 1-.6 1.5l.6 3.1c.1.5.7.9 1.2.9h16.3c.6 0 1.1-.4 1.3-.9l.6-3.1c.1-.5-.2-1.2-.7-1.5z"/>
+								</svg> Choose a file&hellip;
+							</strong>
+						</label>
+						<span id="img-name"></span>
+
+
+					<?php endif; ?>
+						<?php
+							echo $this->Form->input('image',array(
+								'type'=>'file',
+								'label' => false,
+								'id' => 'file-7',
+								'style' => 'display:none',
+								'required' => false
+							));
+						?>
+				</div>
+			</div>
+
+
+			<div class="form-group">
+				<?php echo $this->Form->label('pricing', 'Pricing<span class="required">*</span>', array('class' => 'control-label col-md-3 col-sm-3 col-xs-12')); ?>
+				<div class="col-md-6 col-sm-6 col-xs-12">
+					<?php echo $this->Form->input('pricing', array('type' => 'textarea', 'label' => false, 'class' => 'form-control col-md-7 col-xs-12', 'autocomplete' => 'off' , 'placeholder' => '','maxlength' => '3000')); ?>
 				</div>
 			</div>
 
 			<div class="form-group">
 				<?php echo $this->Form->label('experience', 'Experience<span class="required">*</span>', array('class' => 'control-label col-md-3 col-sm-3 col-xs-12')); ?>
 				<div class="col-md-6 col-sm-6 col-xs-12">
-					<?php echo $this->Form->input('experience', array('type' => 'text', 'label' => false, 'class' => 'form-control col-md-7 col-xs-12', 'autocomplete' => 'off' , 'placeholder' => '','maxlength' => '3000')); ?>
+					<?php 
+						echo $this->Form->input('experience', array(
+							'type' => 'select',
+							'options'=> !empty($experience) ? $experience : array(),
+							'label'=>false,
+							'empty' => 'Select experience',
+							'class' => 'form-control'
+						));
+					?>
 				</div>
 			</div>
 
+			<div class="form-group">
+				<?php echo $this->Form->label('townships', 'Township<span class="required">*</span>', array('class' => 'control-label col-md-3 col-sm-3 col-xs-12')); ?>
+				<div class="col-md-6 col-sm-6 col-xs-12">
+					<?php 
+						echo $this->Form->input('townships', array(
+							'type' => 'select',
+							'options'=> !empty($townships) ? $townships : array(),
+							'label'=>false,
+							'empty' => 'Select township',
+							'class' => 'form-control'
+						));
+					?>
+				</div>
+			</div>
 
 			<div class="form-group">
 				<?php
-					echo $this->Form->label('password', 'Password<span class="required">*</span>', array(
+					echo $this->Form->label('password_update', 'Password<span class="required">*</span>', array(
 						'class' => 'control-label col-md-3 col-sm-3 col-xs-12'
 					));
 				?>
 				<div class="col-md-6 col-sm-6 col-xs-12">
 					<?php
-						echo $this->Form->input('password', array(
+						echo $this->Form->input('password_update', array(
 							'type' => 'password',
 							'label' => false,
 							'class' => 'form-control col-md-7 col-xs-5',
@@ -202,14 +310,14 @@
 
 			<div class="form-group">
 				<?php
-					echo $this->Form->label('confirm_password', 'Confirm Password<span class="error">*</span>', array(
+					echo $this->Form->label('confirm_password_update', 'Confirm Password<span class="error">*</span>', array(
 						'class' => 'control-label col-md-3 col-sm-3 col-xs-12'
 					));
 				?>
 				<div class="col-md-6 col-sm-6 col-xs-12">
 					<span class="error">
 						<?php
-							echo $this->Form->input('confirm_password', array(
+							echo $this->Form->input('confirm_password_update', array(
 								'type' => 'password',
 								'label' => false,
 								'class' => 'form-control col-md-7 col-xs-5',
@@ -263,4 +371,164 @@
 		margin-left: 248px;
 		color: red;
 	}
+
+	/*.resize-img , .preview {
+		border: 2px solid gray;
+		width: 300px;
+		height: 209px;
+		overflow: hidden;
+	}
+
+	.resize-img img {
+		width: 397px;
+		height: 281px;
+		margin: -75px 0 0 -100px;
+	}*/
 </style>
+
+
+
+
+<script type="text/javascript">
+$("#file-7").on("change", function(evt){
+	readURL(this);
+});
+
+function readURL(input) {
+
+	// Set the file name
+	var file = input.files[0].name;
+
+console.log(file);
+	if($('#img-name').text() != ""){
+		$('#img-name').text(file);
+		$('#img-hidden-val').attr('value', file);
+	} else {
+		$('#img-name').text(file);
+		$('#img-hidden-val').attr('value', file);
+	}
+	$(".resize-img").removeAttr('style');
+
+	// Set the image for preview before upload
+	if (input.files && input.files[0]) {
+
+		var reader = new FileReader();
+		var targetleft = 0;
+		var targettop = 0;
+		var t_width = 0;
+		var t_height = 0;
+		reader.onload = function(e) {
+
+			var image = new Image();
+			image.src = e.target.result;
+
+console.log(image.src);
+			image.onload = function() {
+				var w = this.width;
+				var h = this.height;
+				var tw = 200;
+				var th = 200;
+				// compute the new size and offsets
+				var result = ScaleImage(w, h, tw, th, true);
+				// adjust the image coordinates and size
+				t_width = result.width;
+				t_height = result.height;
+				targetleft = result.targetleft;
+				targettop = result.targettop;
+				$('#previewHolder').css("width", result.width);
+				$('#previewHolder').css('height', result.height);
+				$('#previewHolder').attr('src', image.src);
+				$('#previewHolder').css("left", targetleft);
+				$('#previewHolder').css("top", targettop);
+				$('#previewHolder').attr("width", t_width);
+				$('#previewHolder').attr("height", t_height);
+
+			};
+			$('#previewHolder').parent().attr('class' ,'resize-img').attr('style', 'width: 210px; height: 210px; border: thick solid #666666; overflow: hidden; position: relative;');
+			$('#previewHolder').removeClass('hide');
+		}
+		reader.readAsDataURL(input.files[0]);
+	}
+}
+
+$(document).ready(function() {
+	OnImageLoad();
+	//Validation
+	// $("#imageSubmit").on('click', function(){
+	// 	var error = 0;
+	// 	var val = [];
+
+	// 	var company = $('#companyName').val();
+	// 	var companyDisable = $('#companyName').prop('disabled');
+	// 	var address = $('#address').val();
+	// 	var image = $('#file-7').val();
+	// 	var coImage = '';
+
+
+	// 	if (error === 1) {
+	// 		// scroll to the top of the page without onload.
+	// 		$(document).scrollTop(0);
+	// 		return false;
+	// 	}
+	// });
+});
+
+
+function ScaleImage(srcwidth, srcheight, targetwidth, targetheight, fLetterBox) {
+	var result = { width: 0, height: 0, fScaleToTargetWidth: true };
+
+	if ((srcwidth <= 0) || (srcheight <= 0) || (targetwidth <= 0) || (targetheight <= 0)) {
+		return result;
+	}
+
+	// scale to the target width
+	var scaleX1 = targetwidth;
+	var scaleY1 = (srcheight * targetwidth) / srcwidth;
+
+	// scale to the target height
+	var scaleX2 = (srcwidth * targetheight) / srcheight;
+	var scaleY2 = targetheight;
+
+	// now figure out which one we should use
+	var fScaleOnWidth = (scaleX2 > targetwidth);
+	if (fScaleOnWidth) {
+		fScaleOnWidth = fLetterBox;
+	}
+	else {
+		fScaleOnWidth = !fLetterBox;
+	}
+
+	if (fScaleOnWidth) {
+		result.width = Math.floor(scaleX1);
+		result.height = Math.floor(scaleY1);
+		result.fScaleToTargetWidth = true;
+	}
+	else {
+		result.width = Math.floor(scaleX2);
+		result.height = Math.floor(scaleY2);
+		result.fScaleToTargetWidth = false;
+	}
+	result.targetleft = Math.floor((targetwidth - result.width) / 2);
+	result.targettop = Math.floor((targetheight - result.height) / 2);
+	return result;
+}
+
+function OnImageLoad() {
+	var img = $('.preview');
+	if (img.length != 0) {
+		// what's the size of this image and it's parent
+		var w = parseInt($(img).css("width").replace('px',''));
+		var h = parseInt($(img).css("height").replace('px',''));
+		var tw = $(img).parent().width();
+		var th = $(img).parent().height();
+		// compute the new size and offsets
+		var result = ScaleImage(w, h, tw, th, true);
+		// adjust the image coordinates and size
+		img.css("width", result.width);
+		img.css('height', result.height);
+		$(img).css("left", result.targetleft);
+		$(img).css("top", result.targettop);
+	}
+}
+
+</script>

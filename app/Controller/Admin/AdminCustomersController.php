@@ -12,24 +12,33 @@ class AdminCustomersController extends AdminAppController {
 	public function index() {
 		$limit = (!empty($this->params->query['limit'])) ? $this->params->query['limit'] : 50;
 		$keyword = (!empty($this->params->query['keyword'])) ? trim($this->params->query['keyword']) : '';
+		$status = !empty($this->request->query['status']) ? trim($this->request->query['status']) : '';
 		$condition = array();
 
 		$service = $this->Service->find('list',array(
 			'fields' => array(
 				'id','name')));
-		$condition = array(
-			array(
-				'Customer.deleted ' => 0
-			),
-			'OR' => array(
-				array('Customer.customer_id LIKE' => '%'. $keyword .'%'),
-				array('Customer.name LIKE' => '%'. $keyword .'%'),
-				array('Customer.email LIKE' => '%'. $keyword .'%'),
-				array('Customer.address LIKE' => '%'. $keyword .'%'),
-				array('Customer.phone_number LIKE' => '%'. $keyword .'%')
-			)
-		) ;
-		
+
+		if ($status == 1 ) { //Active customer list
+			$condition = array( 'Customer.deactivate' => 0,'Customer.deleted ' => 0);
+		} elseif ($status == 2 ) { //Deactivated customer list
+			$condition = array( 'Customer.deactivate' => 1,'Customer.deleted ' => 0);
+		} else {
+			$condition = array(
+				array(
+					'Customer.deleted ' => 0
+				),
+				'OR' => array(
+					array('Customer.customer_id LIKE' => '%'. $keyword .'%'),
+					array('Customer.name LIKE' => '%'. $keyword .'%'),
+					array('Customer.email LIKE' => '%'. $keyword .'%'),
+					array('Customer.address LIKE' => '%'. $keyword .'%'),
+					array('Customer.phone_number LIKE' => '%'. $keyword .'%')
+				)
+			) ;
+		}
+
+				
 		$this->paginate = array(
 			'paramType' => 'querystring',
 			'limit' => $limit,
@@ -199,28 +208,57 @@ class AdminCustomersController extends AdminAppController {
 	}
 
 	public function edit($id) {
-		$main_service = array();
-		$sub_service = array();
-		if (!$id) {
-			$this->Session->setFlash('Enter Customer ID。', "error");
-			$this->redirect(array('action' => 'index'));
+
+		$customer_info = $this->Customer->findById($id);
+
+
+		if (!$this->request->data) {
+			$this->request->data = $customer_info;
 		}
 
-		$data = $this->Customer->findByid($id);
+		if ($this->request->is(array('post', 'put'))) {
+			// remove validate
+			$validateAttrKey = array(
+				'password',
+				'confirm_password'
+			);
 
-		$question = $this->Question->find('list',array(
-			'fields' => array(
-				'id','Ename')));
-
-		$service = $this->Service->find('all');
-
-		foreach ($service as $key => $value) {
-			$main_service[$value['Service']['id']] = $value['Service']['name'] ;
-			foreach ($value['SubService'] as $subkey => $subvalue) {
-				$sub_service[$subvalue['id']] = $subvalue['name'] ;
+			foreach ($validateAttrKey as $key => $value) {
+				$this->Customer->validator()->remove($value);
 			}
+
+			try {
+				$transaction = $this->TransactionManager->begin();
+				$this->request->data['Customer']['id'] = $id;
+
+				if (!empty($this->request->data['Customer']['password_update'])) {
+					$this->request->data['Customer']['password'] = $this->request->data['Customer']['password_update'];
+				}
+
+// debug($this->request->data);
+				$this->Customer->create();
+				if (!$this->Customer->saveAssociated($this->request->data, array('deep' => true))) {
+					// $this->set('error', 'true');
+					throw new Exception('ERROR COULD NOT ADD Customer DATA');
+				}
+				$this->TransactionManager->commit($transaction);
+				$this->Session->setFlash('Successfully edited customer', 'success');
+				$this->redirect(array('action' => 'index'));
+
+			} catch (Exception $e) {
+				$this->log('File : ' . $e->getFile() . ' Line : ' . $e->getLine(), LOG_ERR);
+				$this->log($e->getMessage(), LOG_ERR);
+				$this->TransactionManager->rollback($transaction);
+				$this->Session->setFlash('Couldn\'t edit customer', 'error');
+				return;
+			}
+
+
 		}
-		$this->set(compact('data','question','main_service','sub_service'));
+
+
+		
+		$this->set(compact('customer_info'));
 	}	
 
 	public function delete($id = null) {

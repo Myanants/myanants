@@ -68,13 +68,14 @@
 							<tr>
 								<th class="col-md-1"><?php echo $this->Paginator->sort('Question.customer_id', 'Service ID'); ?></th>
 								<th><?php echo $this->Paginator->sort('Question.name', 'Question name'); ?></th>
+								<th><?php echo $this->Paginator->sort('Question.type', 'Answer type'); ?></th>
+								<th><?php echo $this->Paginator->sort('Question.en_answer', 'Answers'); ?></th>
 								<th class="col-md-2"><?php echo $this->Paginator->sort('Question.modified', 'Updated Date'); ?></th>
 								<th class="col-md-3">Operations</th>
 							</tr>
 						</thead>
 						
 						<tbody>
-<?php //debug($pag); ?>		
 							<?php foreach ($pag as $key => $value): ?>
 								<tr>
 									<td>
@@ -94,6 +95,33 @@
 									</td>
 
 									<td>
+										<?php if(!empty($value['Question']['type'])): ?>
+											<?php if(strlen($value['Question']['type']) > 12): ?>
+												<?php echo mb_substr($value['Question']['type'],0,12,'UTF-8')."..."; ?>
+											<?php else: ?>
+												<?php echo h($value['Question']['type']); ?>
+											<?php endif; ?>
+										<?php endif; ?>
+									</td>
+
+									<td>
+										<?php if(!empty($value['Question']['en_answer'])): ?>
+											<?php 
+												$str = '' ;
+												$expArr = explode('@@', $value['Question']['en_answer'])
+											?>
+											<?php foreach ($expArr as $anskey => $ansvalue) {
+												$str .= $ansvalue.',';
+											} ?>
+											<?php if(strlen($str) > 16): ?>
+												<?php echo mb_substr($str,0,16,'UTF-8')."..."; ?>
+											<?php else: ?>
+												<?php echo h($str); ?>
+											<?php endif; ?>
+										<?php endif; ?>
+									</td>
+
+									<td>
 										<?php if(!empty($value['Question']['modified'])): ?>
 											<?php echo date("d M Y", strtotime($value['Question']['modified'])); ?>
 										<?php endif; ?>
@@ -102,7 +130,11 @@
 									<td>
 										<?php echo $this->Html->link('Browse', array('controller' => 'admin_questions', 'action' => 'browse',h($value['Question']['id'])), array( 'class' => 'btn btn-blue btn-sm')); ?>
 										
-										<?php echo $this->Html->link('Add Answer', array('controller' => 'admin_questions', 'action' => 'addAnswer', h($value['Question']['id'])), array('class' =>'btn btn-orange btn-sm')); ?>
+										<?php if (!empty($value['Question']['en_answer'])) : ?>
+											<?php echo $this->Html->link('Edit Answer', array('controller' => 'admin_questions', 'action' => 'editAnswer', h($value['Question']['id'])), array('class' =>'btn btn-orange btn-sm', 'style' => 'background: slategray;')); ?>
+										<?php else : ?>
+											<?php echo $this->Html->link('Add Answer', array('controller' => 'admin_questions', 'action' => 'addAnswer', h($value['Question']['id'])), array('class' =>'btn btn-orange btn-sm')); ?>											
+										<?php endif; ?>
 
 										<?php echo $this->Html->link('Delete', array('controller' => 'admin_questions', 'action' => 'delete', h($value['Question']['id'])), array('confirm' => "Would you like to delete this company?", 'class' =>'btn btn-royal-blue btn-sm')); ?>
 									</td>

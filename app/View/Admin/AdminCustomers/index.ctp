@@ -71,6 +71,7 @@
 								<th><?php echo $this->Paginator->sort('Customer.customer_id', 'Customer ID'); ?></th>
 								<th><?php echo $this->Paginator->sort('Customer.name', 'Name'); ?></th>
 								<th><?php echo $this->Paginator->sort('Customer.phone_number', 'Phone Number'); ?></th>
+								<th><?php echo $this->Paginator->sort('Customer.address', 'Address'); ?></th>
 								<th><?php echo $this->Paginator->sort('Customer.status', 'Status'); ?></th>
 								<th><?php echo $this->Paginator->sort('Customer.modified', 'Updated Date'); ?></th>
 								<th class="col-md-5 ">Operations</th>
@@ -108,6 +109,16 @@
 									</td>
 
 									<td>
+										<?php if(!empty($value['Customer']['address'])): ?>
+											<?php if(strlen($value['Customer']['address']) > 12): ?>
+												<?php echo mb_substr($value['Customer']['address'],0,12,'UTF-8')."..."; ?>
+											<?php else: ?>
+												<?php echo h($value['Customer']['address']); ?>
+											<?php endif; ?>
+										<?php endif; ?>
+									</td>
+
+									<td>
 										<?php if ($value['Customer']['deactivate'] == 1) : ?>
 											<?php echo "Deactivated"; ?>
 										<?php else: ?>
@@ -136,14 +147,14 @@
 												'options'=> !empty($service) ? $service : array(),
 												'label'=>false,
 												'empty' => 'Service Request',
-												'class' => 'form-control',
+												'class' => 'form-control request',
 												'id' => h($value['Customer']['id'])
 											));
 
 
 										?></div>
 
-										<?php echo $this->Html->link('Delete', array('controller' => 'admin_customers', 'action' => 'delete', h($value['Customer']['id'])), array('confirm' => "Would you like to delete this company?", 'class' =>'btn btn-royal-blue btn-sm')); ?>
+										<?php echo $this->Html->link('Delete', array('controller' => 'admin_customers', 'action' => 'delete', h($value['Customer']['id'])), array('confirm' => "Would you like to delete this customer ?", 'class' =>'btn btn-royal-blue btn-sm')); ?>
 									</td>
 								</tr>
 							<?php endforeach; ?>
@@ -185,7 +196,7 @@
 </div>
 
 <script type="text/javascript">
-	$('select').on('change', function() {
+	$('.request').on('change', function() {
 		location.replace("http://myanants.com/staging/admin/customer/addRequest/"+this.id+"&"+this.value);
 		console.log(this.id);
 	})

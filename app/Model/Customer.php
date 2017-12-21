@@ -89,6 +89,29 @@ class Customer extends AppModel {
 				'rule' => array('sameCheck', 'password'),
 				'message' => 'Password and confirm password must be same !',
 			)
+		),
+		'password_update' => array(
+			'minLength' => array(
+				'rule' => array('minLength', 8),
+				'message' => 'Password must be 8 to 20 digits !',
+				'allowEmpty' => true,
+				'required' => false
+			),
+			'maxLength' => array(
+				'rule' => array('maxLength', 20),
+				'message' => 'Password must be 8 to 20 digits !',
+			)
+		),
+		'confirm_password_update' => array(
+			'notBlank' => array(
+				'rule' => 'notBlank',
+				'message' => 'Please fill Confirm Password !',
+				'allowEmpty' => true
+			),
+			'sameCheck' => array(
+				'rule' => array('sameCheck', 'password'),
+				'message' => 'Password and confirm password must be same !',
+			)
 		)
 	);
 

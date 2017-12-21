@@ -55,35 +55,37 @@
 				<tr>
 					<td class="left">Service Requests</td>
 					<td class="right">
-						<?php foreach ($data['ServiceRequest'] as $key => $value) : ?>
-							<label>
-								<?php echo $main_service[$value['service_id']].' > '.
-										$sub_service[$value['sub_service_id']] ; ?>
-							</label>
-							<br/>
+						<?php if (isset($data['ServiceRequest'])) : ?>							
+							<?php foreach ($data['ServiceRequest'] as $key => $value) : ?>
+								<label>
+									<?php echo $main_service[$value['service_id']].' > '.
+											$sub_service[$value['sub_service_id']] ; ?>
+								</label>
+								<br/>
 
-							<?php $answer = explode('###', $value['answer']); ?>
-							<?php foreach ($answer as $anskey => $ansvalue) : ?>
-								<?php
-									$answer_string = '' ;
-									$temp_answer = explode('/', $ansvalue);
-									$question_id = $temp_answer[0] ;
-									echo $question[$question_id].'<br/>';
-									if (strpos($temp_answer[1], '$$') == true) { //TRUE
-										$anss = explode('$$', $temp_answer[1]) ;
-										foreach ($anss as $k => $val) {
-											$answer_string .= $val.',';
+								<?php $answer = explode('###', $value['answer']); ?>
+								<?php foreach ($answer as $anskey => $ansvalue) : ?>
+									<?php
+										$answer_string = '' ;
+										$temp_answer = explode('/', $ansvalue);
+										$question_id = $temp_answer[0] ;
+										echo $question[$question_id].'<br/>';
+										if (strpos($temp_answer[1], '$$') == true) { //TRUE
+											$anss = explode('$$', $temp_answer[1]) ;
+											foreach ($anss as $k => $val) {
+												$answer_string .= $val.',';
+											}
+											$answer_string = rtrim($answer_string,",");
+											echo $answer_string;
+										} else { //FALSE
+											echo $temp_answer[1];
 										}
-										$answer_string = rtrim($answer_string,",");
-										echo $answer_string;
-									} else { //FALSE
-										echo $temp_answer[1];
-									}
-								?>
+									?>
+									<br/>
+								<?php endforeach; ?>
 								<br/>
 							<?php endforeach; ?>
-							<br/>
-						<?php endforeach; ?>
+						<?php endif; ?>
 					</td>
 				</tr>
 

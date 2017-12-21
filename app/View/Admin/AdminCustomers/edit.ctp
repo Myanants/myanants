@@ -1,119 +1,218 @@
 <div class="x_panel">
 	<div class="x_title">
-		<h2>Company Browse</h2>
+		<h2>Customer Register</h2>
 		<div class="clearfix"></div>
 	</div>
 	<div class="x_content">
-		<table class="table-st">
-			<tbody>
-				<tr>
-					<td class="left">Customer ID</td>
-					<td class="right">
-						<?php echo $data['Customer']['customer_id']; ?>
-					</td>
-				</tr>
+		<br />
+		<?php
+			echo $this->Form->create('Customer', array(
+				'type' => 'file',
+				'class' => 'form-horizontal form-label-left',
+				'inputDefaults' => array(
+					'label' => false,
+					'div' => false
+				),
+				'id' => 'demo-form2',
+				'autocomplete' => 'off'
+			));
+		?>
 
-				<tr>
-					<td class="left">Name</td>
-					<td class="right"><?php echo $data['Customer']['name'] ; ?></td>
-				</tr>
-
-				<tr>
-					<td class="left"> Email </td>
-					<td class="right">
-						<?php if (!empty($data['Customer']['email'])) { ?>
-							<?php echo $data['Customer']['email'] ; ?>
-						<?php } ?>						
-					</td>
-				</tr>
-
-				<tr>
-					<td class="left"> Phone Number </td>
-					<td class="right">
-						<?php echo $data['Customer']['phone_number'] ; ?>
-					</td>
-				</tr>
-
-				<tr>
-					<td class="left">Address</td>
-					<td class="right"> 
-						<?php echo nl2br($data['Customer']['address']) ; ?>						
-					</td>
-				</tr>
-
-				<tr>
-					<td class="left">Status</td>
-					<td class="right">
-					<?php if ($data['Customer']['deactivate'] == 1) : ?>
-						<?php echo "Deactivated"; ?>
-					<?php else :?>
-						<?php echo "Active"; ?>
-					<?php endif ; ?>
-					</td>
-				</tr>
-
-				<tr>
-					<td class="left">Service Requests</td>
-					<td class="right">
-						<?php foreach ($data['ServiceRequest'] as $key => $value) : ?>
-							<label>
-								<?php echo $main_service[$value['service_id']].' > '.
-										$sub_service[$value['sub_service_id']] ; ?>
-							</label>
-							<br/>
-
-							<?php $answer = explode('###', $value['answer']); ?>
-							<?php foreach ($answer as $anskey => $ansvalue) : ?>
-								<?php
-									$answer_string = '' ;
-									$temp_answer = explode('/', $ansvalue);
-									$question_id = $temp_answer[0] ;
-									echo $question[$question_id].'<br/>';
-									if (strpos($temp_answer[1], '$$') == true) { //TRUE
-										$anss = explode('$$', $temp_answer[1]) ;
-										foreach ($anss as $k => $val) {
-											$answer_string .= $val.',';
-										}
-										$answer_string = rtrim($answer_string,",");
-										echo $answer_string;
-									} else { //FALSE
-										echo $temp_answer[1];
-									}
-								?>
-								<br/>
-							<?php endforeach; ?>
-							<br/>
-						<?php endforeach; ?>
-					</td>
-				</tr>
-
-			</tbody>
-		</table>
-		<div class="ln_solid"></div>
-		<div class="form-group">
-			<div class="col-md-6 col-sm-6 col-xs-12 col-md-offset-4">
-				<?php echo $this->Html->link('Back', 'javascript:history.back()', array('class' => 'btn btn-default btn-sm')); ?>
-				<?php echo $this->Html->link('Save', array('controller' => 'admin_customers', 'action' => 'edit', h($data['Customer']['id'])), array('class' =>'btn btn-orange btn-sm')); ?>
+			<div class="form-group">
+				<?php
+					echo $this->Form->label('customer_id', 'Customer ID', array(
+						'class' => 'control-label col-md-3 col-sm-3 col-xs-12'
+					));
+				?>
+				<div class="col-md-6 col-sm-6 col-xs-12">
+					<?php
+						echo $this->Form->input('customer_id', array(
+							'type' => 'text',
+							'label' => false,
+							'class' => 'form-control col-md-7 col-xs-12',
+							'autocomplete' => 'off' ,
+							'placeholder' => '',
+							'disabled' => true
+						));
+					?>
+				</div>
 			</div>
-		</div>
+
+
+			<div class="form-group">
+				<?php
+					echo $this->Form->label('customer_name', 'Name<span class="required">*</span>', array(
+						'class' => 'control-label col-md-3 col-sm-3 col-xs-12'
+					));
+				?>
+				<div class="col-md-6 col-sm-6 col-xs-12">
+					<?php
+						echo $this->Form->input('name', array(
+							'type' => 'text',
+							'label' => false,
+							'class' => 'form-control col-md-7 col-xs-12',
+							'autocomplete' => 'off' ,
+							'placeholder' => '',
+							'maxlength' => '100'
+						));
+					?>
+				</div>
+			</div>
+
+
+			<div class="form-group" style="border-bottom: none; ">
+				<?php
+					echo $this->Form->label('email', 'Email Address', array(
+						'class' => 'control-label col-md-3 col-sm-3 col-xs-12'
+					));
+				?>
+				<div class="col-md-6 col-sm-6 col-xs-6">
+					<?php
+						echo $this->Form->input('email', array(
+							'type' => 'text',
+							'label' => false,
+							'class' => 'form-control col-md-7 col-xs-12',
+							'autocomplete' => 'off' ,
+							'placeholder' => '',
+							'maxlength' => '100'
+						));
+					?>
+				</div>
+			</div>
+
+			<div class="form-group">
+				<?php echo $this->Form->label('address', 'Address<span class="required">*</span>', array('class' => 'control-label col-md-3 col-sm-3 col-xs-12')); ?>
+				<div class="col-md-6 col-sm-6 col-xs-12">
+					<?php echo $this->Form->input('address', array('type' => 'textarea', 'label' => false, 'class' => 'form-control col-md-7 col-xs-12', 'autocomplete' => 'off' , 'placeholder' => '','maxlength' => '3000')); ?>
+				</div>
+			</div>
+
+			<div class="form-group"">
+				<?php
+					echo $this->Form->label('phone_number', 'Phone Number <span class="required">*</span>', array(
+						'class' => 'control-label col-md-3 col-sm-3 col-xs-12'
+					));
+				?>
+				<div class="col-md-6 col-sm-6 col-xs-6">
+					<span class=" error">
+						<?php
+							echo $this->Form->input('phone_number', array(
+								'type' => 'text',
+								'label' => false,
+								'class' => 'form-control col-md-7 col-xs-5',
+								'autocomplete' => 'off' ,
+								'placeholder' => '',
+								'maxlength' => '20'
+							));
+						?>
+					</span>
+				</div>
+			</div>
+
+			<div class="form-group">
+				<?php
+					echo $this->Form->label('service_id', 'Service Type', array(
+						'class' => 'control-label col-md-3 col-sm-3 col-xs-12'
+					));
+				?>
+				<div class="col-md-6 col-sm-6 col-xs-12">
+					<?php 
+						echo $this->Form->input('service_id', array(
+							'type' => 'select',
+							'options'=> !empty($services) ? $services : array(),
+							'label'=>false,
+							'empty' => 'Select',
+							'class' => 'form-control'
+						));
+					?>
+				</div>
+			</div>
+
+			<div class="form-group">
+				<?php
+					echo $this->Form->label('password_update', 'Password', array(
+						'class' => 'control-label col-md-3 col-sm-3 col-xs-12'
+					));
+				?>
+				<div class="col-md-6 col-sm-6 col-xs-12">
+					<?php
+						echo $this->Form->input('password_update', array(
+							'type' => 'password',
+							'label' => false,
+							'class' => 'form-control col-md-7 col-xs-5',
+							'autocomplete' => 'off' ,
+							'placeholder' => '',
+							'maxlength' => '20',
+							'minlength' => '8'
+						));
+					?>
+				</div>
+				<div class="col-md-3 col-sm-6 col-xs-12">
+					<?php echo $this->Form->label('noti', '<span class="required">※ </span>Password must be 8 to 20 digits. ', array('class' => 'control-label','style' => 'text-align: left;')); ?>
+				</div>
+			</div>
+
+			<div class="form-group">
+				<?php
+					echo $this->Form->label('confirm_password_update', 'Confirm Password', array(
+						'class' => 'control-label col-md-3 col-sm-3 col-xs-12'
+					));
+				?>
+				<div class="col-md-6 col-sm-6 col-xs-12">
+					<span class="error">
+						<?php
+							echo $this->Form->input('confirm_password_update', array(
+								'type' => 'password',
+								'label' => false,
+								'class' => 'form-control col-md-7 col-xs-5',
+								'autocomplete' => 'off' ,
+								'placeholder' => '',
+								'maxlength' => '20',
+								'minlength' => '8'
+							));
+						?>
+					</span>
+				</div>
+			</div>
+
+			<div class="ln_solid"></div>
+			<div class="form-group">
+				<div class="col-md-6 col-sm-6 col-xs-12 col-md-offset-3">
+					<?php echo $this->Html->link('Cancel', array('type' => 'reset','controller' => 'admin_customers', 'action' => 'index'), array('onclick' => 'return confirm(" Do you want to cancel?")', 'class' => 'btn btn-gray btn-sm')); ?>
+					<?php echo $this->Form->button('Save', array('type' => 'submit', 'class' => 'btn btn-orange btn-sm')); ?>
+				</div>
+			</div>
+
+		<?php echo $this->Form->end(); ?>
 	</div>
 </div>
 
-<style type="text/css" media="screen">
-	table.table-st {
-		width:100%;
+<style type="text/css">
+	.error, .required{
+		color: red;
 	}
-	table.table-st tr {
+	.form-group {
+		padding-bottom: 10px;
 		border-bottom: 1px solid #D9DEE4;
 	}
-	table.table-st tbody tr td.left{
-		width:93%;
-		padding:10px;
+	.form-group.no-line {
+		border-bottom: none;
 	}
-	table.table-st tbody tr td.right{
-		width:71%;
-		text-align: left;
-		padding:10px;
+	.logo-space{
+		margin-left: -65px;
+		border:none;
+		color:red;
 	}
-
+	.logo-space-before{
+		margin-left: -14px;
+		border:none;
+		color:red;
+	}
+	.space{
+		padding-left: 65px;
+	}
+	.Message {
+		margin-left: 248px;
+		color: red;
+	}
 </style>

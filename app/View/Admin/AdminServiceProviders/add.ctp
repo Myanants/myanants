@@ -181,7 +181,7 @@
 			
 			<div class="form-group">
 				<?php
-					echo $this->Form->label('image', 'Team Photos <span class="required">*</span>', array(
+					echo $this->Form->label('image', 'Team Photos', array(
 						'class' => 'control-label col-md-3 col-sm-3 col-xs-12'
 					));
 				?>
@@ -257,10 +257,32 @@
 			<div class="form-group">
 				<?php echo $this->Form->label('experience', 'Experience<span class="required">*</span>', array('class' => 'control-label col-md-3 col-sm-3 col-xs-12')); ?>
 				<div class="col-md-6 col-sm-6 col-xs-12">
-					<?php echo $this->Form->input('experience', array('type' => 'text', 'label' => false, 'class' => 'form-control col-md-7 col-xs-12', 'autocomplete' => 'off' , 'placeholder' => '','maxlength' => '3000')); ?>
+					<?php 
+						echo $this->Form->input('experience', array(
+							'type' => 'select',
+							'options'=> !empty($experience) ? $experience : array(),
+							'label'=>false,
+							'empty' => 'Select experience',
+							'class' => 'form-control'
+						));
+					?>
 				</div>
 			</div>
 
+			<div class="form-group">
+				<?php echo $this->Form->label('townships', 'Township<span class="required">*</span>', array('class' => 'control-label col-md-3 col-sm-3 col-xs-12')); ?>
+				<div class="col-md-6 col-sm-6 col-xs-12">
+					<?php 
+						echo $this->Form->input('townships', array(
+							'type' => 'select',
+							'options'=> !empty($townships) ? $townships : array(),
+							'label'=>false,
+							'empty' => 'Select township',
+							'class' => 'form-control'
+						));
+					?>
+				</div>
+			</div>
 
 			<div class="form-group">
 				<?php

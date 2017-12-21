@@ -57,6 +57,20 @@ class OptionCommonComponent extends Component {
 		4 => 'ThaKaTa'
 	);
 
+	public $experience = array(
+		1 => '1 year',
+		2 => '2 years',
+		3 => '3 years',
+		4 => '4 years',
+		5 => '5 years',
+		6 => '6 years',
+		7 => '7 years',
+		8 => '8 years',
+		9 => '9 years',
+		10 => '10 years and above'
+	);
+
+
 	public function year() { //upto current year
 		$tmp_year = array();
 		for ($i = 1965; $i <= 2020; $i++) {

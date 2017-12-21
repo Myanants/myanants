@@ -50,14 +50,14 @@
 							<tr>
 								<th><?php echo $this->Paginator->sort('Service.service_id', 'Service ID'); ?></th>
 								<th><?php echo $this->Paginator->sort('Service.name', 'Name'); ?></th>
-								<th><?php echo $this->Paginator->sort('Service.myan_name', 'Myanmar Name'); ?></th>
+								<th><?php echo $this->Paginator->sort('SubService.name', 'Sub Service Name'); ?></th>
 								<th><?php echo $this->Paginator->sort('Service.modified', 'Updated Date'); ?></th>
 								<th>Operations</th>
 							</tr>
 						</thead>
 						
 						<tbody>
-							
+							<?php //debug($pag); ?>
 							<?php foreach ($pag as $key => $value): ?>
 								<tr>
 									<td>
@@ -76,7 +76,7 @@
 										<?php endif; ?>
 									</td>
 
-									<td>
+									<!-- <td>
 										<?php if(!empty($value['Service']['myan_name'])): ?>
 											<?php if(strlen($value['Service']['myan_name']) > 36): ?>
 												<?php echo mb_substr($value['Service']['myan_name'],0,36,'UTF-8')."..."; ?>
@@ -84,6 +84,14 @@
 												<?php echo h($value['Service']['myan_name']); ?>
 											<?php endif; ?>
 										<?php endif; ?>
+									</td> -->
+
+									<td>
+										<?php foreach ($value['SubService'] as $subkey => $subvalue) : ?>
+											<?php if(!empty($subvalue)): ?>
+												<?php echo $subvalue['name'] .','; ?>
+											<?php endif; ?>
+										<?php endforeach; ?>
 									</td>
 
 									<td>

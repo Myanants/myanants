@@ -28,10 +28,11 @@
 					
 					<td class="right">
 						<?php foreach ($data['SubService'] as $key => $value) { ?>
-							<?php echo $key.'.'.$value['name'].' ( '.$value['myan_name'].' ) <br/>' ; ?>
+							<?php $tmpkey = $key+1; ?>
+							<?php echo $tmpkey.'.'.$value['name'].' ( '.$value['myan_name'].' ) <br/>' ; ?>
 							<?php if (!empty($value['text'])) { ?>
 								<div class="col-md-10 text-style">								
-										<?php echo $value['text'].' ( '.$value['myan_text'].')' ; ?>
+									<?php echo $value['text'].' ( '.$value['myan_text'].')' ; ?>
 								</div><br/>
 							<?php } ?>
 						<br/>
@@ -56,7 +57,7 @@
 		<div class="form-group">
 			<div class="col-md-6 col-sm-6 col-xs-12 col-md-offset-4">
 				<?php echo $this->Html->link('Back', 'javascript:history.back()', array('class' => 'btn btn-default btn-sm')); ?>
-				<?php echo $this->Html->link('Edit', array('controller' => 'admin_companys', 'action' => 'edit', h($data['Service']['id'])), array('class' =>'btn btn-orange btn-sm')); ?>
+				<?php echo $this->Html->link('Edit', array('controller' => 'admin_services', 'action' => 'edit', h($data['Service']['id'])), array('class' =>'btn btn-orange btn-sm')); ?>
 			</div>
 		</div>
 	</div>

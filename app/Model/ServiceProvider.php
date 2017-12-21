@@ -9,11 +9,54 @@ class ServiceProvider extends AppModel {
 				'required' => true
 			)
 		),
+		'company_name' => array(
+			'notBlank' => array(
+				'rule' => 'notBlank',
+				'message' => ' Please fill company_name !',
+				'required' => true
+			)
+		),
+		'teammember' => array(
+			'notBlank' => array(
+				'rule' => 'notBlank',
+				'message' => ' Please select team member !',
+				'required' => true
+			)
+		),
+		'business_type' => array(
+			'notBlank' => array(
+				'rule' => 'notBlank',
+				'message' => ' Please fill business type !',
+				'required' => true
+			)
+		),
+		'pricing' => array(
+			'notBlank' => array(
+				'rule' => 'notBlank',
+				'message' => ' Please fill pricing !',
+				'required' => true
+			)
+		),
+		'experience' => array(
+			'notBlank' => array(
+				'rule' => 'notBlank',
+				'message' => ' Please fill experience !',
+				'required' => true
+			)
+		),
+		'townships' => array(
+			'notBlank' => array(
+				'rule' => 'notBlank',
+				'message' => ' Please fill township !',
+				'required' => true
+			)
+		),
 		'email' => array(
 			'notBlank' => array(
 				'rule' => 'notBlank',
 				'message' => 'Please fill email address !',
-				'required' => false,
+				'allowEmpty' => true,
+				'required' => false
 			),
 			'email' => array(
 				'rule' => array('email'),
@@ -65,6 +108,29 @@ class ServiceProvider extends AppModel {
 				'required' => true,
 				'on' => 'create',
 				'message' => 'Please enter confirm password !',
+			),
+			'sameCheck' => array(
+				'rule' => array('sameCheck', 'password'),
+				'message' => 'Password and confirm password must be same !',
+			)
+		),
+		'password_update' => array(
+			'minLength' => array(
+				'rule' => array('minLength', 8),
+				'message' => 'Password must be 8 to 20 digits !',
+				'allowEmpty' => true,
+				'required' => false
+			),
+			'maxLength' => array(
+				'rule' => array('maxLength', 20),
+				'message' => 'Password must be 8 to 20 digits !',
+			)
+		),
+		'confirm_password_update' => array(
+			'notBlank' => array(
+				'rule' => 'notBlank',
+				'message' => 'Please fill Confirm Password !',
+				'allowEmpty' => true
 			),
 			'sameCheck' => array(
 				'rule' => array('sameCheck', 'password'),

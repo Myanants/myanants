@@ -76,6 +76,38 @@ class AdminServicesController extends AdminAppController {
 		}
 	}
 
+	public function edit($id = null) {
+		$service_info = $this->Service->findByid($id);
+
+		if (!$this->request->data) {
+			$this->request->data = $service_info ;
+		}
+
+		$this->set(compact('service_info'));
+
+		if ($this->request->is(array('post', 'put'))) {
+			try {
+				$transaction = $this->TransactionManager->begin();
+				$this->request->data['Service']['id'] = $id;
+				if (!$this->Service->saveAll($this->request->data)) {
+					// $this->set('error', 'true');
+					throw new Exception('ERROR COULD NOT ADD Service DATA');
+				}
+				$this->TransactionManager->commit($transaction);
+				$this->Session->setFlash('Successfully edited Service', 'success');
+				$this->redirect(array('action' => 'index'));
+
+			} catch (Exception $e) {
+				$this->log('File : ' . $e->getFile() . ' Line : ' . $e->getLine(), LOG_ERR);
+				$this->log($e->getMessage(), LOG_ERR);
+				$this->TransactionManager->rollback($transaction);
+				$this->Session->setFlash('Couldn\'t edit Service', 'error');
+				return;
+			}
+		}
+
+	}
+
 	public function browse($id) {
 		if (!$id) {
 			$this->Session->setFlash('Enter Service ID。', "error");

@@ -1,6 +1,6 @@
 <div class="x_panel">
 	<div class="x_title">
-		<h2>Add Answer
+		<h2>Edit Answer
 			<button type="button" class="btn btn-primary" data-toggle="modal" data-target=".bs-example-modal-sm"><?php echo $service_name[$quest['Question']['service_id']]; ?></button>
 		</h2>
 		<div class="clearfix"></div>
@@ -65,47 +65,56 @@
 										?>
 									</div>
 
-									<center>
-										<div class="toclone form-group" style="border-bottom: none;">
-											<p class="name">
+									<?php foreach ($data['en_answer'] as $key => $value) : ?>
 
-												<?php
-													echo $this->Form->input('Question.0.en_answer', array(
-														'type' => 'text',
-														'label' => false,
-														'class' => 'form-control',
-														'style' => 'margin-bottom: 2%;width: 49%;',
-														'placeholder' => 'Enter Answer (English)',
-														'id' => 'en_answer'
-													));
-												?>
-												<?php
-													echo $this->Form->input('Question.0.mm_answer', array(
-														'type' => 'text',
-														'label' => false,
-														'class' => 'form-control',
-														'style' => 'width: 49%;',
-														'placeholder' => 'Enter Answer (Myanmar)' ,
-														'id' => 'mm_answer'
+										<center>
+											<div class="toclone form-group" style="border-bottom: none;" id ='toclone_clone'>
+												<p class="name">
+													<?php 
+														$time = time();
+														// debug($time);
+														$time = $key+$time ;
+													?>
+													<?php
+														echo $this->Form->input('Question.'.$time.'.en_answer', array(
+															'type' => 'text',
+															'label' => false,
+															'class' => 'form-control',
+															'style' => 'margin-bottom: 2%;width: 49%;',
+															'placeholder' => 'Enter Answer (English)',
+															'value' => $value,
+															'id' => 'en_answer'.$key
+														));
+													?>
 
-													));
-												?>
+													<?php
+														echo $this->Form->input('Question.'.$time.'.mm_answer', array(
+															'type' => 'text',
+															'label' => false,
+															'class' => 'form-control',
+															'style' => 'width: 49%;',
+															'placeholder' => 'Enter Answer (Myanmar)' ,
+															'value' => $data['mm_answer'][$key],
+															'id' => 'mm_answer'
 
-												<div class="delete col-md-1 col-md-offset-9" style="margin-top: -44px;">
-													<span class="btn btn-primary"  id="minus">
-														<i class="fa fa-minus" ></i>
-													</span>
-												</div>
+														));
+													?>
 
-												<div class="clone" style="margin-left: 670px;margin-top: -45px;" >
-													<span class="btn btn-primary" id="plus">
-														<i class="fa fa-plus" ></i>
-													</span>
-												</div>
-											</p>
-										</div>
-									</center>
+													<div class="delete col-md-1 col-md-offset-9" style="margin-top: -44px;">
+														<span class="btn btn-primary"  id="minus">
+															<i class="fa fa-minus" ></i>
+														</span>
+													</div>
 
+													<div class="clone" style="margin-left: 670px;margin-top: -45px;" >
+														<span class="btn btn-primary" id="plus">
+															<i class="fa fa-plus" ></i>
+														</span>
+													</div>
+												</p>
+											</div>
+										</center>
+									<?php endforeach; ?>
 								</div>
 
 								<div class="ln_solid"></div>

@@ -77,18 +77,24 @@ class UsersController extends UserAppController {
 			// debug($this->request->data);
 			$auth = $this->Customer->find('first', array(
 				'conditions' => array(
-					'Customer.name' => $this->request->data['Customer']['name'])
+					'Customer.name' => $this->request->data['Customer']['name'],
+					'Customer.deleted' => 0)
 				));
 			if(!empty($auth)){
-				if ($this->Auth->login()) {
-					if ($this->request->data['Customer']['remember_me'] == 1) {
-						unset($this->request->data['Customer']['remember_me']);
-						$this->Cookie->write('user_rememberMe', $this->request->data['Customer'], true, '2 weeks');
-					}
-					$this->redirect(array('controller' => 'users', 'action' => 'index'));
+				if ($auth['Customer']['deactivate'] != 1) {
 
+					if ($this->Auth->login()) {
+						if ($this->request->data['Customer']['remember_me'] == 1) {
+							unset($this->request->data['Customer']['remember_me']);
+							$this->Cookie->write('user_rememberMe', $this->request->data['Customer'], true, '2 weeks');
+						}
+						$this->redirect(array('controller' => 'users', 'action' => 'index'));
+
+					} else {
+						$this->Session->setFlash('Please refill name and password');
+					}
 				} else {
-					$this->Session->setFlash('Please refill name and password');
+					$this->Session->setFlash('Your account is deactivated .Please try again.');
 				}
 			} else {
 				$this->Session->setFlash('Your name is not registered');
