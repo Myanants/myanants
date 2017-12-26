@@ -248,11 +248,14 @@ pre code {
   color: #074f66;
 }
 .promo .social-media {
-  /*background: #0c86ae;*/
-  background: #0d7586;
+  border: 2px solid;
+  /* background: #0c86ae; */
+  /* background: #0d7586; */
   padding: 10px 0;
   margin: 0 auto;
 }
+
+
 .promo .social-media li {
   margin-top: 15px;
 }
@@ -444,7 +447,7 @@ pre code {
 .contact {
   padding: 80px 0;
   /*background: #17baef;*/
-  background: #00CCA9;
+  background: lightgray;
   color: #fff;
 }
 .contact .contact-inner {
@@ -582,8 +585,8 @@ pre code {
 /* ======= Footer ======= */
 .footer {
   padding: 15px 0;
-  background: linear-gradient(to right, #00cc99 0%, #cc00cc 100%);
-  /*background: #042a36;*/
+  /*background: linear-gradient(to right, #00cc99 0%, #cc00cc 100%);*/
+  background: black;
   color: #fff;
 }
 .footer .copyright {

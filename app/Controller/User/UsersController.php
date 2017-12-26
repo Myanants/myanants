@@ -145,22 +145,15 @@ class UsersController extends UserAppController {
 		]);
 
 		$helper = $fb->getRedirectLoginHelper();
-		$accessToken = $helper->getAccessToken();
-
-		// debug($accessToken);
-
-		if (isset($_GET['state'])) {
-			// debug($_GET['state']);
-		}
-
+		
 		try {
 			$accessToken = $helper->getAccessToken();
+			
 		} catch(Facebook\Exceptions\FacebookResponseException $e) {
-			// When Graph returns an error
 			echo 'Graph returned an error: ' . $e->getMessage();
 			exit;
+
 		} catch(Facebook\Exceptions\FacebookSDKException $e) {
-			// When validation fails or other local issues
 			echo 'Facebook SDK returned an error: ' . $e->getMessage();
 			exit;
 		}
@@ -180,44 +173,62 @@ class UsersController extends UserAppController {
 			exit;
 		}
 
-		// Logged in
-		echo '<h3>Access Token</h3>';
-		var_dump($accessToken->getValue());
-
 		// The OAuth 2.0 client handler helps us manage access tokens
 		$oAuth2Client = $fb->getOAuth2Client();
 
 		// Get the access token metadata from /debug_token
 		$tokenMetadata = $oAuth2Client->debugToken($accessToken);
-		echo '<h3>Metadata</h3>';
-		var_dump($tokenMetadata);
-
-		// Validation (these will throw FacebookSDKException's when they fail)
-		$tokenMetadata->validateAppId('1038913562917167'); // Replace {app-id} with your app id
 		
-		// If you know the user ID this access token belongs to, you can validate it here
-		//$tokenMetadata->validateUserId('123');
-		$tokenMetadata->validateExpiration();
+		// Get user’s Facebook ID
+		$userId = $tokenMetadata->getField('customer_id');
+		$response = $fb->get('/me?fields=id,name,email,picture', $accessToken);
+		$userNode = $response->getGraphUser()->AsArray();
 
-		if (! $accessToken->isLongLived()) {
-			// Exchanges a short-lived access token for a long-lived one
-			try {
-				$accessToken = $oAuth2Client->getLongLivedAccessToken($accessToken);
-			} catch (Facebook\Exceptions\FacebookSDKException $e) {
-				echo "<p>Error getting long-lived access token: " . $helper->getMessage() . "</p>\n\n";
-				exit;
+		$userInfo = $this->Customer->findByFbid($userNode['id']);
+
+		if (empty($userInfo) && !empty($userNode)) {
+			$randomID = mt_rand(0000001,9999999);//generate random number of given between range
+			$customerID='C-' .$randomID;
+			$data = array(
+				'Customer' => array(
+					'fbid' => $userNode['id'],
+					'name' => $userNode['name'],
+					'email' => $userNode['email'],
+					'password' => mt_rand(),
+					'customer_id' => $customerID
+				)
+			);
+
+			$check_email_duplicate = $this->Customer->findByEmail($userNode['email']);
+			if (!empty($check_email_duplicate)) {
+				$this->Session->setFlash("Email is already taken.", 'error');
+				$this->redirect(array('controller'=>'users','action' => 'login'));
 			}
 
-			var_dump($accessToken->getValue());
+			if (!$this->Customer->save($data, array('validate' => false))) {
+				throw new Exception("ERROR SAVING DATA OF FACEBOOK LOGIN");
+			}
+
+			$loginInfo = $this->Customer->findByFacebookId($userNode['id']);
+			if (!empty($loginInfo)) {
+				if ($this->Auth->login($loginInfo['Customer'])) {
+					if ($this->Auth->user('deactivate') == 0) {
+						$this->redirect(array('controller'=>'users','action' => 'index'));
+					} else {
+						$this->redirect(array('controller'=>'users','action' => 'login'));
+					}
+				}
+			}
+		} else {
+			if ($this->Auth->login($userInfo['Customer'])) {
+				if ($this->Auth->user('deactivate') == 0) {
+					$this->redirect(array('controller'=>'users','action' => 'index'));
+				} else {
+					$this->redirect(array('controller'=>'users','action' => 'login'));
+				}
+			}
 		}
 
-		$_SESSION['fb_access_token'] = (string) $accessToken;
-		// debug($_SESSION['fb_access_token'] );
-		$this->log($_SESSION['fb_access_token'] );
-
-		// User is logged in with a long-lived access token.
-		// You can redirect them to a members-only page.
-		//header('Location: https://example.com/members.php');
 	}
 
 
