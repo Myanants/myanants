@@ -144,7 +144,7 @@
 									</td>
 
 									<td>
-										<?php echo $this->Html->link('Browse', array('controller' => 'admin_service_providers', 'action' => 'browse',h($value['ServiceProvider']['id'])), array( 'class' => 'btn btn-blue btn-sm')); ?>
+										<?php echo $this->Html->link('View', array('controller' => 'admin_service_providers', 'action' => 'browse',h($value['ServiceProvider']['id'])), array( 'class' => 'btn btn-blue btn-sm')); ?>
 
 										<?php if ($value['ServiceProvider']['deactivate'] == false): ?>
 											<?php echo $this->Html->link('Deactivate', array('controller' => 'admin_service_providers', 'action' => 'approved', h($value['ServiceProvider']['id'])), array('onclick' => 'return confirm(" Do you want to deactivate?")', 'class' => 'btn btn-gray btn-sm','style' => 'width:75px;')); ?>

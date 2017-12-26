@@ -35,7 +35,6 @@
 							'class' => 'form-control col-md-7 col-xs-12',
 							'autocomplete' => 'off' ,
 							'placeholder' => '',
-							'value' => $UserCode,
 							'disabled' => true
 						));
 					?>
@@ -77,9 +76,7 @@
 							'label' => false,
 							'class' => 'form-control col-md-7 col-xs-12',
 							'autocomplete' => 'off' ,
-							'placeholder' => '',
-							'value' => '1960-01-01',
-
+							'placeholder' => ''
 						));
 					?>
 				</div>
@@ -164,36 +161,22 @@
 					));
 				?>
 				<div class="col-md-6 col-sm-6 col-xs-12">
+					<!-- <?php if (!empty($this->request->data['Cleaner']['photo'])) { ?>
+						<div class = "crop">
+							<?php echo $this->Html->image($this->request->data['Cleaner']['photo'], array('alt' => 'story image')); ?>
+						</div>
+					<?php } ?> -->
+
 					<?php
-
 						echo $this->Form->input('photo', array(
-						'type' => 'file',
-						'label' => false
+							'type' => 'file',
+							'label' => false,
+							'id' => 'photo'
 						));
-
 					?>
+					<label class="lbl-photo"><?php echo $this->request->data['Cleaner']['photo']; ?></label>
 				</div>
 				<div id='imageValidate' class="col-md-6 col-sm-6 col-xs-12 Message" style='display: none'>Please Choose The Image</div>
-			</div>
-
-			<div class="form-group">
-				<?php
-					echo $this->Form->label('job_type', 'Job Type and Skill<span class="required">*</span>', array(
-						'class' => 'control-label col-md-3 col-sm-3 col-xs-12'
-					));
-				?>
-				<div class="col-md-6 col-sm-6 col-xs-6">
-					<?php
-						echo $this->Form->input('job_type', array(
-							'type' => 'text',
-							'label' => false,
-							'class' => 'form-control col-md-7 col-xs-12',
-							'autocomplete' => 'off' ,
-							'placeholder' => '',
-							'maxlength' => '100'
-						));
-					?>
-				</div>
 			</div>
 
 			<div class="form-group" style="border-bottom: none;">
@@ -210,6 +193,13 @@
 						'class' => 'control-label col-md-3 col-sm-3 col-xs-12'
 					));
 				?>
+
+				<?php if ($this->request->data['Cleaner']['monday_check'] == 1) {
+					$monday_status = true ;
+				} else {
+					$monday_status = false ;
+				} ?>
+
 				<div class="col-md-3 col-sm-3 col-xs-3">
 					<?php
 						echo $this->Form->input('monday_from', array(
@@ -218,7 +208,8 @@
 							'class' => 'timepicker monday_from form-control col-md-7 col-xs-12',
 							'autocomplete' => 'off' ,
 							'placeholder' => '',
-							'maxlength' => '100'
+							'maxlength' => '100',
+							'disabled' => $monday_status
 						));
 					?>
 				</div>
@@ -230,7 +221,8 @@
 							'class' => 'timepicker monday_to form-control col-md-7 col-xs-12',
 							'autocomplete' => 'off' ,
 							'placeholder' => '',
-							'maxlength' => '100'
+							'maxlength' => '100',
+							'disabled' => $monday_status
 						));
 					?>
 				</div>
@@ -248,6 +240,12 @@
 
 			<div class="form-group" style="border-bottom: none;">
 				<!-- TUESDAY -->
+				<?php if ($this->request->data['Cleaner']['tuesday_check'] == 1) {
+					$status = true ;
+				} else {
+					$status = false ;
+				} ?>
+
 				<?php
 					echo $this->Form->label('tuesday', 'Tuesday', array(
 						'class' => 'control-label col-md-3 col-sm-3 col-xs-12'
@@ -261,7 +259,7 @@
 							'class' => 'timepicker tuesday_from form-control col-md-7 col-xs-12',
 							'autocomplete' => 'off' ,
 							'placeholder' => '',
-							'maxlength' => '100'
+							'disabled' => $status
 						));
 					?>
 				</div>
@@ -273,7 +271,7 @@
 							'class' => 'timepicker tuesday_to form-control col-md-7 col-xs-12',
 							'autocomplete' => 'off' ,
 							'placeholder' => '',
-							'maxlength' => '100'
+							'disabled' => $status
 						));
 					?>
 				</div>
@@ -291,6 +289,12 @@
 
 			<div class="form-group" style="border-bottom: none;">
 				<!-- WEDNESDAY -->
+				<?php if ($this->request->data['Cleaner']['wednesday_check'] == 1) {
+					$wednesday_status = true ;
+				} else {
+					$wednesday_status = false ;
+				} ?>
+
 				<?php
 					echo $this->Form->label('wednesday', 'Wednesday', array(
 						'class' => 'control-label col-md-3 col-sm-3 col-xs-12'
@@ -304,7 +308,7 @@
 							'class' => 'timepicker wednesday_from form-control col-md-7 col-xs-12',
 							'autocomplete' => 'off' ,
 							'placeholder' => '',
-							'maxlength' => '100'
+							'disabled' => $wednesday_status
 						));
 					?>
 				</div>
@@ -316,7 +320,7 @@
 							'class' => 'timepicker wednesday_to form-control col-md-7 col-xs-12',
 							'autocomplete' => 'off' ,
 							'placeholder' => '',
-							'maxlength' => '100'
+							'disabled' => $wednesday_status
 						));
 					?>
 				</div>
@@ -335,6 +339,12 @@
 
 			<div class="form-group" style="border-bottom: none;">
 				<!-- THURSDAY -->
+				<?php if ($this->request->data['Cleaner']['thursday_check'] == 1) {
+					$thursday_status = true ;
+				} else {
+					$thursday_status = false ;
+				} ?>
+
 				<?php
 					echo $this->Form->label('thursday', 'Thursday', array(
 						'class' => 'control-label col-md-3 col-sm-3 col-xs-12'
@@ -348,7 +358,7 @@
 							'class' => 'timepicker thursday_from form-control col-md-7 col-xs-12',
 							'autocomplete' => 'off' ,
 							'placeholder' => '',
-							'maxlength' => '100'
+							'disabled' => $thursday_status
 						));
 					?>
 				</div>
@@ -360,7 +370,7 @@
 							'class' => 'timepicker thursday_to form-control col-md-7 col-xs-12',
 							'autocomplete' => 'off' ,
 							'placeholder' => '',
-							'maxlength' => '100'
+							'disabled' => $thursday_status
 						));
 					?>
 				</div>
@@ -377,6 +387,12 @@
 
 			<div class="form-group" style="border-bottom: none;">
 				<!-- FRIDAY -->
+				<?php if ($this->request->data['Cleaner']['friday_check'] == 1) {
+					$friday_status = true ;
+				} else {
+					$friday_status = false ;
+				} ?>
+
 				<?php
 					echo $this->Form->label('friday', 'Friday', array(
 						'class' => 'control-label col-md-3 col-sm-3 col-xs-12'
@@ -390,7 +406,7 @@
 							'class' => 'timepicker friday_from form-control col-md-7 col-xs-12',
 							'autocomplete' => 'off' ,
 							'placeholder' => '',
-							'maxlength' => '100'
+							'disabled' => $friday_status
 						));
 					?>
 				</div>
@@ -402,7 +418,7 @@
 							'class' => 'timepicker friday_to form-control col-md-7 col-xs-12',
 							'autocomplete' => 'off' ,
 							'placeholder' => '',
-							'maxlength' => '100'
+							'disabled' => $friday_status
 						));
 					?>
 				</div>
@@ -421,6 +437,13 @@
 
 			<div class="form-group" style="border-bottom: none;">
 				<!-- SATURDAY -->
+
+				<?php if ($this->request->data['Cleaner']['saturday_check'] == 1) {
+					$saturday_status = true ;
+				} else {
+					$saturday_status = false ;
+				} ?>
+
 				<?php
 					echo $this->Form->label('saturday', 'Saturday', array(
 						'class' => 'control-label col-md-3 col-sm-3 col-xs-12'
@@ -434,7 +457,7 @@
 							'class' => 'timepicker saturday_from form-control col-md-7 col-xs-12',
 							'autocomplete' => 'off' ,
 							'placeholder' => '',
-							'maxlength' => '100'
+							'disabled' => $saturday_status
 						));
 					?>
 				</div>
@@ -446,7 +469,7 @@
 							'class' => 'timepicker saturday_to form-control col-md-7 col-xs-12',
 							'autocomplete' => 'off' ,
 							'placeholder' => '',
-							'maxlength' => '100'
+							'disabled' => $saturday_status
 						));
 					?>
 				</div>
@@ -465,6 +488,12 @@
 
 			<div class="form-group">
 				<!-- SUNDAY -->
+				<?php if ($this->request->data['Cleaner']['sunday_check'] == 1) {
+					$sunday_status = true ;
+				} else {
+					$sunday_status = false ;
+				} ?>
+
 				<?php
 					echo $this->Form->label('sunday', 'Sunday', array(
 						'class' => 'control-label col-md-3 col-sm-3 col-xs-12'
@@ -478,7 +507,7 @@
 							'class' => 'timepicker sunday_from form-control col-md-7 col-xs-12',
 							'autocomplete' => 'off' ,
 							'placeholder' => '',
-							'maxlength' => '100'
+							'disabled' => $sunday_status
 						));
 					?>
 				</div>
@@ -490,7 +519,7 @@
 							'class' => 'timepicker sunday_to form-control col-md-7 col-xs-12',
 							'autocomplete' => 'off' ,
 							'placeholder' => '',
-							'maxlength' => '100'
+							'disabled' => $sunday_status
 						));
 					?>
 				</div>
@@ -509,13 +538,13 @@
 
 			<div class="form-group">
 				<?php
-					echo $this->Form->label('password', 'Password<span class="required">*</span>', array(
+					echo $this->Form->label('password_update', 'Password', array(
 						'class' => 'control-label col-md-3 col-sm-3 col-xs-12'
 					));
 				?>
 				<div class="col-md-6 col-sm-6 col-xs-12">
 					<?php
-						echo $this->Form->input('password', array(
+						echo $this->Form->input('password_update', array(
 							'type' => 'password',
 							'label' => false,
 							'class' => 'form-control col-md-7 col-xs-5',
@@ -533,14 +562,14 @@
 
 			<div class="form-group">
 				<?php
-					echo $this->Form->label('confirm_password', 'Confirm Password<span class="error">*</span>', array(
+					echo $this->Form->label('confirm_password_update', 'Confirm Password', array(
 						'class' => 'control-label col-md-3 col-sm-3 col-xs-12'
 					));
 				?>
 				<div class="col-md-6 col-sm-6 col-xs-12">
 					<span class="error">
 						<?php
-							echo $this->Form->input('confirm_password', array(
+							echo $this->Form->input('confirm_password_update', array(
 								'type' => 'password',
 								'label' => false,
 								'class' => 'form-control col-md-7 col-xs-5',
@@ -594,6 +623,20 @@
 		margin-left: 248px;
 		color: red;
 	}
+
+	.crop {
+		border: 2px solid gray;
+		width: 300px;
+		height: 209px;
+		overflow: hidden;
+	}
+
+	.crop img {
+		width: 397px;
+		height: 281px;
+		margin: -75px 0 0 -100px;
+	}
+
 </style>
 
 <script type="text/javascript">
@@ -602,104 +645,109 @@
 		$('input.timepicker').timepicker({});
 
 		// Disable and Enable timepicker when check whole day
-		$(".monday_check").change(function() {
-			var ischecked= $(this).is(':checked');
-			if(!ischecked) {
-				$(".monday_from").prop('disabled', false);
-				$(".monday_to").prop('disabled', false);
-			} else {
-				$(".monday_from").attr("disabled", "disabled").off('click');
-				$(".monday_to").attr("disabled", "disabled").off('click');
-				$('.monday_from').val('');
-				$('.monday_to').val('');
-			}
+			$(".monday_check").change(function() {
+				var ischecked= $(this).is(':checked');
+				if(!ischecked) {
+					$(".monday_from").prop('disabled', false);
+					$(".monday_to").prop('disabled', false);
+				} else {
+					$(".monday_from").attr("disabled", "disabled").off('click');
+					$(".monday_to").attr("disabled", "disabled").off('click');
+					$('.monday_from').val('');
+					$('.monday_to').val('');
+				}
 
-		}); 
+			}); 
 
-		$(".tuesday_check").change(function() {
-			var ischecked= $(this).is(':checked');
-			if(!ischecked) {
-				$(".tuesday_from").prop('disabled', false);
-				$(".tuesday_to").prop('disabled', false);
-			} else {
-				$(".tuesday_from").attr("disabled", "disabled").off('click');
-				$(".tuesday_to").attr("disabled", "disabled").off('click');
-				$('.tuesday_from').val('');
-				$('.tuesday_to').val('');
-			}
+			$(".tuesday_check").change(function() {
+				var ischecked= $(this).is(':checked');
+				if(!ischecked) {
+					$(".tuesday_from").prop('disabled', false);
+					$(".tuesday_to").prop('disabled', false);
+				} else {
+					$(".tuesday_from").attr("disabled", "disabled").off('click');
+					$(".tuesday_to").attr("disabled", "disabled").off('click');
+					$('.tuesday_from').val('');
+					$('.tuesday_to').val('');
+				}
 
+			});
+
+			$(".wednesday_check").change(function() {
+				var ischecked= $(this).is(':checked');
+				if(!ischecked) {
+					$(".wednesday_from").prop('disabled', false);
+					$(".wednesday_to").prop('disabled', false);
+				} else {
+					$(".wednesday_from").attr("disabled", "disabled").off('click');
+					$(".wednesday_to").attr("disabled", "disabled").off('click');
+					$('.wednesday_from').val('');
+					$('.wednesday_to').val('');
+
+				}
+
+			});
+
+			$(".thursday_check").change(function() {
+				var ischecked= $(this).is(':checked');
+				if(!ischecked) {
+					$(".thursday_from").prop('disabled', false);
+					$(".thursday_to").prop('disabled', false);
+				} else {
+					$(".thursday_from").attr("disabled", "disabled").off('click');
+					$(".thursday_to").attr("disabled", "disabled").off('click');
+					$('.thursday_from').val('');
+					$('.thursday_to').val('');
+				}
+
+			});
+
+			$(".friday_check").change(function() {
+				var ischecked= $(this).is(':checked');
+				if(!ischecked) {
+					$(".friday_from").prop('disabled', false);
+					$(".friday_to").prop('disabled', false);
+				} else {
+					$(".friday_from").attr("disabled", "disabled").off('click');
+					$(".friday_to").attr("disabled", "disabled").off('click');
+					$('.friday_from').val('');
+					$('.friday_to').val('');
+				}
+
+			});
+			
+			$(".saturday_check").change(function() {
+				var ischecked= $(this).is(':checked');
+				if(!ischecked) {
+					$(".saturday_from").prop('disabled', false);
+					$(".saturday_to").prop('disabled', false);
+				} else {
+					$(".saturday_from").attr("disabled", "disabled").off('click');
+					$(".saturday_to").attr("disabled", "disabled").off('click');
+					$('.saturday_from').val('');
+					$('.saturday_to').val('');
+				}
+
+			});
+			
+			$(".sunday_check").change(function() {
+				var ischecked= $(this).is(':checked');
+				if(!ischecked) {
+					$(".sunday_from").prop('disabled', false);
+					$(".sunday_to").prop('disabled', false);
+				} else {
+					$(".sunday_from").attr("disabled", "disabled").off('click');
+					$(".sunday_to").attr("disabled", "disabled").off('click');
+					$('.sunday_from').val('');
+					$('.sunday_to').val('');
+				}
+
+			});
+
+		$("#photo").change(function() {
+			$(".lbl-photo").attr("style", "display:none");
 		});
-
-		$(".wednesday_check").change(function() {
-			var ischecked= $(this).is(':checked');
-			if(!ischecked) {
-				$(".wednesday_from").prop('disabled', false);
-				$(".wednesday_to").prop('disabled', false);
-			} else {
-				$(".wednesday_from").attr("disabled", "disabled").off('click');
-				$(".wednesday_to").attr("disabled", "disabled").off('click');
-				$('.wednesday_from').val('');
-				$('.wednesday_to').val('');
-
-			}
-
-		});
-
-		$(".thursday_check").change(function() {
-			var ischecked= $(this).is(':checked');
-			if(!ischecked) {
-				$(".thursday_from").prop('disabled', false);
-				$(".thursday_to").prop('disabled', false);
-			} else {
-				$(".thursday_from").attr("disabled", "disabled").off('click');
-				$(".thursday_to").attr("disabled", "disabled").off('click');
-				$('.thursday_from').val('');
-				$('.thursday_to').val('');
-			}
-
-		});
-
-		$(".friday_check").change(function() {
-			var ischecked= $(this).is(':checked');
-			if(!ischecked) {
-				$(".friday_from").prop('disabled', false);
-				$(".friday_to").prop('disabled', false);
-			} else {
-				$(".friday_from").attr("disabled", "disabled").off('click');
-				$(".friday_to").attr("disabled", "disabled").off('click');
-				$('.friday_from').val('');
-				$('.friday_to').val('');
-			}
-
-		});
-		
-		$(".saturday_check").change(function() {
-			var ischecked= $(this).is(':checked');
-			if(!ischecked) {
-				$(".saturday_from").prop('disabled', false);
-				$(".saturday_to").prop('disabled', false);
-			} else {
-				$(".saturday_from").attr("disabled", "disabled").off('click');
-				$(".saturday_to").attr("disabled", "disabled").off('click');
-				$('.saturday_from').val('');
-				$('.saturday_to').val('');
-			}
-
-		});
-		
-		$(".sunday_check").change(function() {
-			var ischecked= $(this).is(':checked');
-			if(!ischecked) {
-				$(".sunday_from").prop('disabled', false);
-				$(".sunday_to").prop('disabled', false);
-			} else {
-				$(".sunday_from").attr("disabled", "disabled").off('click');
-				$(".sunday_to").attr("disabled", "disabled").off('click');
-				$('.sunday_from').val('');
-				$('.sunday_to').val('');
-			}
-
-		});
-
+	
 	});
+
 </script>

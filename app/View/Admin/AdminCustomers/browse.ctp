@@ -1,6 +1,6 @@
 <div class="x_panel">
 	<div class="x_title">
-		<h2>Company Browse</h2>
+		<h2>Company Detail</h2>
 		<div class="clearfix"></div>
 	</div>
 	<div class="x_content">

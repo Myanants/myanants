@@ -1,6 +1,6 @@
 <div class="x_panel">
 	<div class="x_title">
-		<h2>Service Browse</h2>
+		<h2>Service Detail</h2>
 		<div class="clearfix"></div>
 	</div>
 	<div class="x_content">

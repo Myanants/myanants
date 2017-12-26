@@ -133,7 +133,7 @@
 									</td>
 
 									<td>
-										<?php echo $this->Html->link('Browse', array('controller' => 'admin_customers', 'action' => 'browse',h($value['Customer']['id'])), array( 'class' => 'btn btn-blue btn-sm')); ?>
+										<?php echo $this->Html->link('View', array('controller' => 'admin_customers', 'action' => 'browse',h($value['Customer']['id'])), array( 'class' => 'btn btn-blue btn-sm')); ?>
 
 										<?php if ($value['Customer']['deactivate'] == false): ?>
 											<?php echo $this->Html->link('Deactivate', array('controller' => 'admin_customers', 'action' => 'approved', h($value['Customer']['id'])), array('onclick' => 'return confirm(" Do you want to deactivate?")', 'class' => 'btn btn-gray btn-sm','style' => 'width:75px;')); ?>
