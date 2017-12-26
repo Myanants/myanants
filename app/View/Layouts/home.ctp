@@ -100,7 +100,7 @@
 						</li>
 
 						<li class="nav-item" style="background: #cc00cc;">
-							<?php echo $this->Html->link("Freelance Cleaner", array('controller' => 'cleaners', 'action' => 'index')) ;?>
+							<?php echo $this->Html->link("Freelance Cleaner", array('controller' => 'master_cleaners', 'action' => 'login')) ;?>
 						</li>
 
 					</ul><!--//nav-->

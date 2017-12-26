@@ -57,6 +57,19 @@ class OptionCommonComponent extends Component {
 		4 => 'ThaKaTa'
 	);
 
+	public $job_type = array(
+		1 => 'Washing',
+		2 => 'Cleaning',
+		3 => 'Deep Cleaning',
+		4 => 'Ironing'
+	);
+
+	public $skill = array(
+		1 => 'Good',
+		2 => 'Fair',
+		3 => 'Poor'
+	);
+
 	public $experience = array(
 		1 => '1 year',
 		2 => '2 years',

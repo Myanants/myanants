@@ -186,7 +186,7 @@
 					));
 				?>
 				<div class="col-md-6 col-sm-6 col-xs-12">
-<?php //debug($image); ?>
+
 					<?php if (!empty($image)) : ?>
 						<div class="resize-img" style="width: 200px; height: 200px; border: thick solid #666666; overflow: hidden; position: relative;">
 							<?php

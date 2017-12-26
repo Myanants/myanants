@@ -128,7 +128,7 @@
 									</td>
 
 									<td>
-										<?php echo $this->Html->link('Browse', array('controller' => 'admin_questions', 'action' => 'browse',h($value['Question']['id'])), array( 'class' => 'btn btn-blue btn-sm')); ?>
+										<?php echo $this->Html->link('View', array('controller' => 'admin_questions', 'action' => 'browse',h($value['Question']['id'])), array( 'class' => 'btn btn-blue btn-sm')); ?>
 										
 										<?php if (!empty($value['Question']['en_answer'])) : ?>
 											<?php echo $this->Html->link('Edit Answer', array('controller' => 'admin_questions', 'action' => 'editAnswer', h($value['Question']['id'])), array('class' =>'btn btn-orange btn-sm', 'style' => 'background: slategray;')); ?>

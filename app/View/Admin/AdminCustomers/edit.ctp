@@ -1,6 +1,6 @@
 <div class="x_panel">
 	<div class="x_title">
-		<h2>Customer Register</h2>
+		<h2>Customer Edit</h2>
 		<div class="clearfix"></div>
 	</div>
 	<div class="x_content">

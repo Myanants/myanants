@@ -127,8 +127,8 @@
 		</div><!--//container-->
 	</footer><!--//footer-->
 	 
-	<?php echo $this->Html->script('home/jquery-1.11.3.min'); ?>   
 	<?php echo $this->Html->script('home/jquery.easing.1.3'); ?>   
+	<?php echo $this->Html->script('home/jquery-1.11.3.min'); ?>   
 	<?php echo $this->Html->script('home/bootstrap/js/bootstrap.min'); ?>   
 	<?php echo $this->Html->script('home/jquery-scrollTo/jquery.scrollTo.min'); ?>   
 	<?php echo $this->Html->script('home/prism/prism'); ?>   

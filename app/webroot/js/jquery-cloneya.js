@@ -131,63 +131,20 @@
 			/******************** Add Question ***********************/
 
 			
+
 			/************************ Add Answer **********************/
-			if (document.getElementById("en_answer")) {
-				
-					var select3 = "data[Question][8888888][en_answer]";
-					var select4 = "data[Question][8888888][mm_answer]";
+			if (document.getElementById( "en_answer")) {
+				var select3 = "data[Question][8888888][en_answer]";
+				var select4 = "data[Question][8888888][mm_answer]";
 
-					// Replace
-					var en_answer = document.getElementById("en_answer") ;
-					var mm_answer = document.getElementById("mm_answer") ;
+				// Replace
+				var en_answer = document.getElementById( "en_answer") ;
+				var mm_answer = document.getElementById( "mm_answer") ;
 
-					en_answer.setAttribute("name", select3);
-					mm_answer.setAttribute("name", select4);
-			} else {
-
-				var count = $("#toclone_clone p").children().length;
-
-				if (count > 2) {
-					var children = $("#toclone_clone p").children();
-					var j = 1;
-					for (var i = 1; i <= count; i++) {						
-						var ival = j+1;
-						var n = '';
-						n = i.toString();
-						n = n+n+n+n+n+n+ival ;
-
-						var str1 = "data[Question]["+n+"][en_answer]";
-						var str2 = "data[Question]["+n+"][mm_answer]";
-						var key1 = 'select'+j;
-						var key2 = 'select'+ival;
-var name = "Ali";
-var money;
-money = 2000.50;
-
-      
-console.log(key1);
-console.log(key2);
-console.log(str1);
-console.log(str2);
-						j = j+2 ;
-					}
-
-
-// data from database 
-// console.log(children[0]);
-// console.log(children[1]);
-// console.log(children[2]);
-// console.log(children[3]);
-
-					
-
-
-
-				} 
+				en_answer.setAttribute("name", select3);
+				mm_answer.setAttribute("name", select4);
 			}
 			/************************ Add Answer **********************/
-
-
 
 			var $this = this;
 
@@ -205,7 +162,7 @@ console.log(str2);
 			$this.$elem.on('click.' + name, $this.config.cloneThis + '>' + $this.config.cloneButton, function (event) {
 				event.preventDefault();
 				event.stopPropagation();
-				var selected = $("#myselect" ).val() ;
+var selected = $("#myselect" ).val() ;
 
 			/**********************************************************************************
 			 * 
@@ -225,44 +182,44 @@ console.log(str2);
 				/************************ Add Question **********************/
 				
 
-					// Assign
-					var select1 = "data[Question]["+time+"][Ename]";
-					var select2 = "data[Question]["+time+"][Mname]";
-					var select_service = "data[Question]["+time+"][service_id]";
+				// Assign
+				var select1 = "data[Question]["+time+"][Ename]";
+				var select2 = "data[Question]["+time+"][Mname]";
+				var select_service = "data[Question]["+time+"][service_id]";
 
 
-					// Replace
-					if(document.getElementById("Ename")) {
-						var Ename = document.getElementById( "Ename");
-						var Mname = document.getElementById( "Mname");
-						var service_id = document.getElementById( "service_id");
+				// Replace
+				if(document.getElementById("Ename")) {
+					var Ename = document.getElementById( "Ename");
+					var Mname = document.getElementById( "Mname");
+					var service_id = document.getElementById( "service_id");
 
-						
-						Ename.setAttribute("name", select1);
-						Mname.setAttribute("name", select2);
-						service_id.setAttribute("name", select_service);
-						service_id.setAttribute("value", selected);
+					
+					Ename.setAttribute("name", select1);
+					Mname.setAttribute("name", select2);
+					service_id.setAttribute("name", select_service);
+					service_id.setAttribute("value", selected);
 
-					}	
+				}	
 
 				/*****************************************************************************/
 
 
-				/*************************************** Add Answer **************************/
+				/************************ Add Answer **********************/
 
-					// Assign
-					var select3 = "data[Question]["+time+"][en_answer]";
-					var select4 = "data[Question]["+time+"][mm_answer]";
+				// Assign
+				var select3 = "data[Question]["+time+"][en_answer]";
+				var select4 = "data[Question]["+time+"][mm_answer]";
 
-					// Replace
-					if(document.getElementById("en_answer")) {
-						var en_answer = document.getElementById("en_answer");
-						var mm_answer = document.getElementById("mm_answer");
+				// Replace
+				if(document.getElementById("en_answer")) {
+					var en_answer = document.getElementById( "en_answer");
+					var mm_answer = document.getElementById( "mm_answer");
+					en_answer.setAttribute("name", select3);
+					mm_answer.setAttribute("name", select4);
 
-						en_answer.setAttribute("name", select3);
-						mm_answer.setAttribute("name", select4);
-					}
-					
+				}	
+				
 				/*****************************************************************************/
 
 				
