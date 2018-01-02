@@ -66,11 +66,14 @@
 					</button><!--//nav-toggle-->
 				</div><!--//navbar-header-->            
 				<div class="navbar-collapse collapse" id="navbar-collapse">
-					<ul class="nav navbar-nav">
+					<ul class="nav navbar-nav">						
 						<li class="nav-item">
 							<a href="tel:09961868686">
 								<img src='app/webroot/img/phone-icon.png' class="img-responsive phone-icon-sm" />
 							</a>
+						</li>
+						<li class="nav-item">
+							<a href="http://myanants.com/blog">BLOG</a>
 						</li>
 						<li class="nav-item">
 							<?php if(empty($user_id)) : ?>

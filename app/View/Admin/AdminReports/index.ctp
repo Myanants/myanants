@@ -129,6 +129,24 @@ array('escape' =>false,'style' => 'font-size: 20px;')
 								</td>
 							<?php endfor; ?>
 						</tr>
+
+						<tr>
+							<th><p style='padding: 10px;width: 173px;'>Registered Cleaners</p></th>
+							<?php for ($req = 1; $req <= 31; $req++) : ?>
+								<?php $num_length = strlen((string)$req); ?>
+								<?php if ($num_length == 1) : ?>
+									<?php $req = '0'.$req ; ?>
+								<?php else: ?>
+									<?php $req = (string)$req; ?>
+								<?php endif; ?>
+								<td>
+									<p>
+										<?php echo !empty($cleaner_info[$req]) ? $cleaner_info[$req] : '' ?>
+									</p>
+								</td>
+							<?php endfor; ?>
+						</tr>
+
 					</tbody>
 				</table>
 			</td>
@@ -167,6 +185,12 @@ array('escape' =>false,'style' => 'font-size: 20px;')
 							<th><p style='padding: 10px;width: 173px;'>Requested Services</p></th>
 							<td><p><?php echo $previous_request['total']; ?></p></td>
 							<td><p><?php echo $request_info['total']; ?></p></td>
+						</tr>
+
+						<tr>
+							<th><p style='padding: 10px;width: 173px;'>Registered Cleaners</p></th>
+							<td><p><?php echo $previous_cleaner['total']; ?></p></td>
+							<td><p><?php echo $cleaner_info['total']; ?></p></td>
 						</tr>
 
 					</tbody>

@@ -1,6 +1,5 @@
-<!-- <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/timepicker/1.3.5/jquery.timepicker.min.css">
-<script src="//cdnjs.cloudflare.com/ajax/libs/timepicker/1.3.5/jquery.timepicker.min.js"></script> -->
-
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/timepicker/1.3.5/jquery.timepicker.min.css">
+<script src="//cdnjs.cloudflare.com/ajax/libs/timepicker/1.3.5/jquery.timepicker.min.js"></script>
 <section>
 	<div class="container">
 		<div class="signupbox mainbox col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2 ">
@@ -565,7 +564,7 @@
 	
 </style>
 
-<!-- <script type="text/javascript">
+<script type="text/javascript">
 	$(document).ready(function(){
 
 		$('input.timepicker').timepicker({});
@@ -671,4 +670,4 @@
 		});
 
 	});
-</script> -->
+</script>

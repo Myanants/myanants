@@ -132,7 +132,6 @@ class UsersController extends UserAppController {
 
 	}
 
-
 	public function fbcallback() {
 		// disable auto render view
 		$this->autoRender = false;

@@ -4,7 +4,7 @@ App::uses('AdminAppController', 'Controller');
 
 class AdminReportsController extends AdminAppController {
 	public $components = array('OptionCommon');
-	public $uses = array('Customer','ServiceRequest','ServiceProvider','TransactionManager');
+	public $uses = array('Customer','ServiceRequest','Cleaner','ServiceProvider','TransactionManager');
 
 	public function beforeFilter(){
 		parent::beforeFilter();
@@ -29,12 +29,17 @@ class AdminReportsController extends AdminAppController {
 		$service_provider_info = $this->calc_service_provider($limit);
 		$previous_service_provider = $this->calc_service_provider(date('Y-m', strtotime($limit." -1 month")));
 
+		// Registered Cleaner
+		$cleaner = $this->Cleaner->find('all');
+		$cleaner_info = $this->calc_cleaner($limit);
+		$previous_cleaner = $this->calc_cleaner(date('Y-m', strtotime($limit." -1 month")));
+
 		// Service Request
 		$request = $this->ServiceProvider->find('all');
 		$request_info = $this->calc_request($limit);
 		$previous_request = $this->calc_request(date('Y-m', strtotime($limit." -1 month")));
 
-		$this->set(compact('month','today','limit','customer_info','customer','previous_customer','service_provider_info','service_provider','previous_service_provider','request_info','request','previous_request'));
+		$this->set(compact('month','today','limit','customer_info','customer','previous_customer','service_provider_info','service_provider','previous_service_provider','cleaner_info','cleaner','previous_cleaner','request_info','request','previous_request'));
 	}
 
 	private function calc_customer($newlimit){ //Registered Customer (detail)
@@ -99,6 +104,38 @@ class AdminReportsController extends AdminAppController {
 		}
 		$service_provider_count['total'] = $ctotal_count;
 		return $service_provider_count;
+	}
+
+	private function calc_cleaner($newlimit){ //Registered service provider (detail)
+		$cleaner = $this->Cleaner->find('all',array(
+			'conditions' => array(
+				'Cleaner.created LIKE' => $newlimit.'%'),
+			'fields' => array(
+				'Cleaner.created')));
+
+		for ($day=1; $day <=31 ; $day++) {
+			$num_length = strlen((string)$day);
+			if ($num_length == 1) {
+				$day = '0'.$day ;
+				$cleaner_count[$day] = 0 ;
+			} else {
+				$day = (string)$day;
+				$cleaner_count[$day] = 0;
+			}
+		}
+		foreach ($cleaner as $occkey => $occvalue) {
+			$occval = explode(' ', $occvalue['Cleaner']['created']);
+			$occex = explode('-', $occval[0]);
+			$cleaner_count[$occex[2]]++ ;
+
+		}
+
+		$ctotal_count = 0 ;
+		foreach ($cleaner_count as $key => $value) {
+			$ctotal_count += $value;
+		}
+		$cleaner_count['total'] = $ctotal_count;
+		return $cleaner_count;
 	}
 
 	private function calc_request($newlimit){ //Service Request (detail)
