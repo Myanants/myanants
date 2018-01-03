@@ -27,6 +27,24 @@
 <body data-spy="scroll">
 	<?php $user_id = AuthComponent::user('id'); ?>
 
+	<script>
+		window.fbAsyncInit = function() {
+			FB.init({
+			appId      : '1038913562917167',
+			xfbml      : true,
+			version    : 'v2.6'
+			});
+		};
+
+	(function(d, s, id){
+		var js, fjs = d.getElementsByTagName(s)[0];
+			if (d.getElementById(id)) {return;}
+			js = d.createElement(s); js.id = id;
+			js.src = "//connect.facebook.net/en_US/sdk.js";
+			fjs.parentNode.insertBefore(js, fjs);
+		}(document, 'script', 'facebook-jssdk'));      
+	</script>
+
 	<!---//Facebook button code-->
 	<div id="fb-root"></div>
 	<!-- <script>(function(d, s, id) {
@@ -72,9 +90,11 @@
 								<img src='app/webroot/img/phone-icon.png' class="img-responsive phone-icon-sm" />
 							</a>
 						</li>
+
 						<li class="nav-item">
 							<a href="http://myanants.com/blog">BLOG</a>
 						</li>
+						
 						<li class="nav-item">
 							<?php if(empty($user_id)) : ?>
 								<?php echo $this->Html->link("LOGIN", array('controller' => 'users', 'action' => 'login')) ;?>
@@ -228,12 +248,22 @@
 				</div><!--//item-->
 
 				<div class="clearfix visible-md"></div>    
-				             
+       
 			</div><!--//row-->            
 		</div><!--//container-->
 	</section><!--//about-->
-	
-		
+	<!-- <div class="fb-page" 
+         data-href="https://www.facebook.com/1933436260231903/" 
+         data-tabs="messages" 
+         data-width="400" 
+         data-height="300" 
+         data-small-header="true">
+      <div class="fb-xfbml-parse-ignore">
+        <blockquote></blockquote>
+      </div>
+    </div> -->
+    
+
 	<!-- ******CONTACT****** --> 
 	<section id="contact" class="contact section has-pattern">
 		<div class="container">
@@ -272,3 +302,30 @@
 	// 	location.replace("http://myanants.com/staging"+this.value+"/users/index");
 	// })
 </script>
+
+<script type="text/javascript">
+	$('body').append('<div id="backToTop" messenger_app_id="1038913562917167" page_id="1933436260231903"><img src= "img/messenger.png" /></div>');
+	// $(window).scroll(function () {
+	// 	if ($(this).scrollTop() <= 150) {
+	// 		$('#backToTop').fadeOut();
+	// 	} else {
+	// 		$('#backToTop').fadeIn();
+	// 	}
+	// });
+	// $('#backToTop').click(function(){
+	// 	$("html, body").animate({ scrollTop: 0 }, 600);
+	// 	return false;
+	// });
+</script>
+<style type="text/css">
+	#backToTop{
+		position: fixed;
+		top:84%;
+		right:3%;
+		bottom: 0;
+		cursor: pointer;
+		display: block;
+		color: #fff;
+	}
+
+</style>
