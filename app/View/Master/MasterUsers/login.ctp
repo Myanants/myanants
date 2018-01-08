@@ -3,10 +3,7 @@
 	<div class="signupbox mainbox col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2 ">
 		<div class="sub_box" >
 
-			<!-- <div class="Utitle" >
-				<h2 class="hidden-sm hidden-xs">Sign In With MyanAnts Account</h2>
-				<h3 class="hidden-lg hidden-md">Sign In With MyanAnts Account</h3>
-			</div> -->
+			
 
 			<div class="hidden-sm hidden-xs col-md-3" style="margin-top: -8%;margin-bottom: -1%;width: 100%;padding-left: 32%;">        
 				<h1 class="logo pull-left">
@@ -16,7 +13,6 @@
 				</h1><!--//logo-->
 			</div>
 
-
 			<div class="hidden-md hidden-lg col-md-3" style="margin-top: -8%;padding-left: 22%;">
 				<h1 class="logo pull-left">
 					<a class="scrollto" href="http://myanants.com/staging">
@@ -25,6 +21,11 @@
 				</h1><!--//logo-->
 			</div>
 
+			<div class="Utitle col-md-offset-1" >
+				<h2 class="hidden-sm hidden-xs">Sign In For Service Provider</h2>
+				<h3 class="hidden-lg hidden-md">Sign In For Service Provider</h3>
+			</div>
+			
 
 			<div class="panel-body" >
 				<?php echo $this->Form->create('ServiceProvider', array('url' => array('controller' => 'master_users', 'action' => 'login'), 'label' => false,'class'=>'form-horizontal')); ?>
@@ -90,7 +91,7 @@
 					</div>
 				</div> -->
 
-				<div class="form-group" >
+				<!-- <div class="form-group" >
 					<div class="col-md-10  col-md-offset-1 hidden-xs hidden-sm">
 						<?php
 						echo $this->Html->link($this->Html->image('facebook-login.jpg', array('style' => 'border-radius: 5px;width:100%;')), array('controller' => 'master_users', 'action'=>'facebookLogin'),
@@ -101,7 +102,7 @@
 					echo $this->Html->link($this->Html->image('facebook-login.jpg', array('style' => 'border-radius: 3px;width:100%')), array('controller' => 'master_users', 'action'=>'facebookLogin'),
 							array( 'escape' => false)); ?>
 					</div>
-				</div>
+				</div> -->
 				<div class="form-group">
 					<div class="col-md-8 col-md-offset-1 col-sm-8  col-xs-10 ">
 						Don't have an Account? <?php echo $this->Html->link("Register Now!", array('controller' => 'master_users', 'action' => 'add'),array( 'label' => false,'target' =>'_blank','style' => 'color: #0000ff;')); ?>

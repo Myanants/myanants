@@ -199,11 +199,17 @@ pre code {
   margin-right: 0;
 }
 /* ======= Promo Section ======= */
-.promo {
+/*.promo {
   background: linear-gradient(to right, #00cc99 0%, #cc00cc 100%);
-  /*background: #17baef;*/
   color: #fff;
   padding-top: 150px;
+}*/
+
+.promo {
+    background: linear-gradient(to right, #00cc99 0%, #cc00cc 100%);
+    /* background: #17baef; */
+    color: #fff;
+    padding-top: 18%;
 }
 .promo .title {
   font-size: 76px;

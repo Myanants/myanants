@@ -7,7 +7,7 @@ App::import('Vendor', 'facebook', array('file' => 'facebook'. DS . 'graph-sdk' .
 
 class MasterUsersController extends MasterAppController {
 
-	public $components = array('RequestHandler', 'Security');
+	public $components = array('RequestHandler', 'Security','OptionCommon');
 	public $uses = array('ServiceProvider', 'TransactionManager');
 	
 	public function beforeFilter() {
@@ -23,6 +23,8 @@ class MasterUsersController extends MasterAppController {
 
 
 	public function add () {
+		$experience = $this->OptionCommon->experience;
+		$townships = $this->OptionCommon->townships;
 
 		$lastServiceProviderID = $this->ServiceProvider->find('first',array('order' => array('id' => 'DESC'),'fields' => 'service_provider_id'));
 
@@ -39,7 +41,7 @@ class MasterUsersController extends MasterAppController {
 		
 		$error = false;
 
-		$this->set(compact('UserCode'));
+		$this->set(compact('UserCode','experience','townships'));
 
 		if ($this->request->is(array('post', 'put'))) {
 
@@ -48,15 +50,33 @@ class MasterUsersController extends MasterAppController {
 
 				$this->request->data['ServiceProvider']['service_provider_id'] = $UserCode;
 				$this->request->data['ServiceProvider']['deactivate'] = 0;
-	
+				
+				// validate the upload file.
+				if (!empty($this->request->data['ServiceProvider']['image']['name'])) {
+					$tmpName = $this->request->data['ServiceProvider']['image']['tmp_name'];
+					$name = $this->request->data['ServiceProvider']['image']['name'];
+					unset($this->request->data['ServiceProvider']['image']);
 
+					move_uploaded_file($tmpName, WWW_ROOT . '/img/' . $name);
+					$this->request->data['ServiceProvider']['image'] = $name;
+
+				} else {
+					unset($this->request->data['ServiceProvider']['image']);
+				}
+
+
+				// TOWNSHIPS 
+				$this->request->data['ServiceProvider']['experience'] = $experience[$this->request->data['ServiceProvider']['experience']] ;
+				$this->request->data['ServiceProvider']['townships'] = $townships[$this->request->data['ServiceProvider']['townships']] ;
+
+// debug($this->request->data);
 				// save to the database
 				if (!$this->ServiceProvider->save($this->request->data)) {
 					throw new Exception('ERROR COULD NOT ADD Tag');
 				}
 
 				$this->TransactionManager->commit($transaction);
-				$this->redirect(array('action' => 'index'));
+				$this->redirect(array('action' => 'login'));
 
 			} catch (Exception $e) {
 				$this->log('File : ' . $e->getFile() . ' Line : ' . $e->getLine(), LOG_ERR);
