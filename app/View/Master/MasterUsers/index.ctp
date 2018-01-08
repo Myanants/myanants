@@ -45,7 +45,7 @@
 			<div class="hidden-sm hidden-xs col-md-3" style="margin-top: -3%;margin-bottom: -1%;">        
 				<h1>
 					<a href="http://myanants.com/staging">
-						<img src='/app/webroot/img/mm.png' class="logoimg" />
+						<img src='app/webroot/img/mm.png' class="logoimg" />
 					</a>
 				</h1><!--//logo-->
 			</div>    
@@ -53,7 +53,7 @@
 			<div class="hidden-md hidden-lg col-md-3" style="margin-top: -3%;margin-bottom: -1%;">        
 				<h1 class="logo pull-left">
 					<a class="scrollto" href="http://myanants.com/staging">
-						<img src='/app/webroot/img/mm.png' class="logoimg" />
+						<img src='app/webroot/img/mm.png' class="logoimg" />
 					</a>
 				</h1><!--//logo-->
 			</div>
@@ -71,7 +71,7 @@
 					<ul class="nav navbar-nav">
 						<li class="nav-item">
 							<a href="tel:09961868686">
-								<img src='/app/webroot/img/phone-icon.png' class="img-responsive phone-icon-sm" />
+								<img src='app/webroot/img/phone-icon.png' class="img-responsive phone-icon-sm" />
 							</a>
 						</li>
 						<li class="nav-item">
