@@ -22,6 +22,7 @@ class MasterCleanersController extends MasterCleanerAppController {
 
 
 	public function add () {
+		$this->layout = 'mastercleaner' ;
 		$townships = $this->OptionCommon->townships;
 		$job_type = $this->OptionCommon->job_type;
 		$skill = $this->OptionCommon->skill;
@@ -50,7 +51,38 @@ class MasterCleanersController extends MasterCleanerAppController {
 
 				$this->request->data['Cleaner']['cleaner_id'] = $UserCode;
 				$this->request->data['Cleaner']['deactivate'] = 0;
-	
+
+				// validate the upload file.
+				if (!empty($this->request->data['Cleaner']['photo']['name'])) {
+					$tmpName = $this->request->data['Cleaner']['photo']['tmp_name'];
+					$name = $this->request->data['Cleaner']['photo']['name'];
+					unset($this->request->data['Cleaner']['photo']);
+
+					move_uploaded_file($tmpName, WWW_ROOT . '/img/' . $name);
+					$this->request->data['Cleaner']['photo'] = $name;
+
+				} else {
+					unset($this->request->data['Cleaner']['photo']);
+				}
+
+				/****** Calculation age from birthday
+				***** object oriented
+				*********************************/
+				$birth_date = $this->request->data['Cleaner']['date_of_birth'] ;
+				unset($this->request->data['Cleaner']['date_of_birth']);
+				$tmp = $birth_date['year'].'-'.$birth_date['month'].'-'.$birth_date['day'] ;
+				$cal_age = date_diff(date_create($tmp), date_create('today'))->y ;
+				
+				$this->request->data['Cleaner']['date_of_birth'] = $tmp ;
+				$this->request->data['Cleaner']['age'] = $cal_age ;
+				$tmp = '' ;
+				foreach ($job_type as $cleaning_key => $cleaning_value) {
+					if (!empty($this->request->data['Cleaner'][$cleaning_value])) {
+						$tmp .= $cleaning_value.'-'.$this->request->data['Cleaner'][$cleaning_value.'skill'].'@@';
+					}		
+				}
+				$job_type = rtrim($tmp,"@@");
+				$this->request->data['Cleaner']['job_type'] = $job_type;
 
 				// save to the database
 				if (!$this->Cleaner->save($this->request->data)) {
@@ -58,7 +90,7 @@ class MasterCleanersController extends MasterCleanerAppController {
 				}
 
 				$this->TransactionManager->commit($transaction);
-				$this->redirect(array('action' => 'index'));
+				$this->redirect(array('action' => 'login'));
 
 			} catch (Exception $e) {
 				$this->log('File : ' . $e->getFile() . ' Line : ' . $e->getLine(), LOG_ERR);

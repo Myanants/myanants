@@ -13,7 +13,7 @@
 				<div class="hidden-sm hidden-xs col-md-3" style="margin-top: -6%;margin-bottom: -1%;width: 100%;padding-left: 32%;">        
 					<h1 class="logo pull-left">
 						<a class="scrollto" href="http://myanants.com/staging">
-							<img src='http://myanants.com/staging/img/colorant.png' class="logoimg" />
+							<img src='http://myanants.com/staging/img/colorant.png' style="width: 50%;" />
 						</a>
 					</h1><!--//logo-->
 				</div>
@@ -30,7 +30,7 @@
 
 				<div class="panel-body" >
 					<?php 
-						echo $this->Form->create('MasterCleaner', array(
+						echo $this->Form->create('Cleaner', array(
 							'type' => 'file',
 							'class' => 'form-horizontal form-label-left',
 							'inputDefaults' => array(
@@ -189,8 +189,7 @@
 										'label' => 'From',
 										'class' => 'timepicker monday_from form-control col-md-7 col-xs-12',
 										'autocomplete' => 'off' ,
-										'placeholder' => '',
-										'maxlength' => '100'
+										'placeholder' => ''
 									));
 								?>
 							</div>
@@ -201,8 +200,7 @@
 										'label' => 'To',
 										'class' => 'timepicker monday_to form-control col-md-7 col-xs-12',
 										'autocomplete' => 'off' ,
-										'placeholder' => '',
-										'maxlength' => '100'
+										'placeholder' => ''
 									));
 								?>
 							</div>
@@ -232,8 +230,7 @@
 										'label' => 'From',
 										'class' => 'timepicker tuesday_from form-control col-md-7 col-xs-12',
 										'autocomplete' => 'off' ,
-										'placeholder' => '',
-										'maxlength' => '100'
+										'placeholder' => ''
 									));
 								?>
 							</div>
@@ -244,8 +241,7 @@
 										'label' => 'To',
 										'class' => 'timepicker tuesday_to form-control col-md-7 col-xs-12',
 										'autocomplete' => 'off' ,
-										'placeholder' => '',
-										'maxlength' => '100'
+										'placeholder' => ''
 									));
 								?>
 							</div>
@@ -275,8 +271,7 @@
 										'label' => 'From',
 										'class' => 'timepicker wednesday_from form-control col-md-7 col-xs-12',
 										'autocomplete' => 'off' ,
-										'placeholder' => '',
-										'maxlength' => '100'
+										'placeholder' => ''
 									));
 								?>
 							</div>
@@ -287,8 +282,7 @@
 										'label' => 'To',
 										'class' => 'timepicker wednesday_to form-control col-md-7 col-xs-12',
 										'autocomplete' => 'off' ,
-										'placeholder' => '',
-										'maxlength' => '100'
+										'placeholder' => ''
 									));
 								?>
 							</div>
@@ -319,8 +313,7 @@
 										'label' => 'From',
 										'class' => 'timepicker thursday_from form-control col-md-7 col-xs-12',
 										'autocomplete' => 'off' ,
-										'placeholder' => '',
-										'maxlength' => '100'
+										'placeholder' => ''
 									));
 								?>
 							</div>
@@ -331,8 +324,7 @@
 										'label' => 'To',
 										'class' => 'timepicker thursday_to form-control col-md-7 col-xs-12',
 										'autocomplete' => 'off' ,
-										'placeholder' => '',
-										'maxlength' => '100'
+										'placeholder' => ''
 									));
 								?>
 							</div>
@@ -361,8 +353,7 @@
 										'label' => 'From',
 										'class' => 'timepicker friday_from form-control col-md-7 col-xs-12',
 										'autocomplete' => 'off' ,
-										'placeholder' => '',
-										'maxlength' => '100'
+										'placeholder' => ''
 									));
 								?>
 							</div>
@@ -373,8 +364,7 @@
 										'label' => 'To',
 										'class' => 'timepicker friday_to form-control col-md-7 col-xs-12',
 										'autocomplete' => 'off' ,
-										'placeholder' => '',
-										'maxlength' => '100'
+										'placeholder' => ''
 									));
 								?>
 							</div>
@@ -405,8 +395,7 @@
 										'label' => 'From',
 										'class' => 'timepicker saturday_from form-control col-md-7 col-xs-12',
 										'autocomplete' => 'off' ,
-										'placeholder' => '',
-										'maxlength' => '100'
+										'placeholder' => ''
 									));
 								?>
 							</div>
@@ -417,8 +406,7 @@
 										'label' => 'To',
 										'class' => 'timepicker saturday_to form-control col-md-7 col-xs-12',
 										'autocomplete' => 'off' ,
-										'placeholder' => '',
-										'maxlength' => '100'
+										'placeholder' => ''
 									));
 								?>
 							</div>
@@ -449,8 +437,7 @@
 										'label' => 'From',
 										'class' => 'timepicker sunday_from form-control col-md-7 col-xs-12',
 										'autocomplete' => 'off' ,
-										'placeholder' => '',
-										'maxlength' => '100'
+										'placeholder' => ''
 									));	
 								?>
 							</div>
@@ -461,8 +448,7 @@
 										'label' => 'To',
 										'class' => 'timepicker sunday_to form-control col-md-7 col-xs-12',
 										'autocomplete' => 'off' ,
-										'placeholder' => '',
-										'maxlength' => '100'
+										'placeholder' => ''
 									));
 								?>
 							</div>
@@ -561,7 +547,9 @@
 		color: red;
 		padding-left: 0%;
 	}
-	
+	.logoimg {
+		width: 50%;
+	}
 </style>
 
 <script type="text/javascript">
