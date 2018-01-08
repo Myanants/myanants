@@ -208,7 +208,7 @@ class UsersController extends UserAppController {
 				throw new Exception("ERROR SAVING DATA OF FACEBOOK LOGIN");
 			}
 
-			$loginInfo = $this->Customer->findByFacebookId($userNode['id']);
+			$loginInfo = $this->Customer->findByFbid($userNode['id']);
 			if (!empty($loginInfo)) {
 				if ($this->Auth->login($loginInfo['Customer'])) {
 					if ($this->Auth->user('deactivate') == 0) {

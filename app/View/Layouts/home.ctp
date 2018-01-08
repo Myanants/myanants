@@ -25,7 +25,17 @@
 </head> 
 
 <body data-spy="scroll">
-	<?php $user_id = AuthComponent::user('id'); ?>
+	<?php $user_id = AuthComponent::user('id'); 
+		// if (isset(AuthComponent::user('id'))) {
+		// 	$user_id = AuthComponent::user('id'); 
+		// }
+	?>
+
+	<?php 
+		// if (isset(AuthComponent::user('customer_id'))) {
+			$customer_id = AuthComponent::user('customer_id'); 
+		// }
+	?>
 
 	<script>
 		window.fbAsyncInit = function() {
@@ -118,13 +128,16 @@
 							?>	
 						</li>
 
-						<li class="nav-item" style="background: #cc00cc;">
-							<?php echo $this->Html->link("Service Provider", array('controller' => 'master_users', 'action' => 'index')) ;?>
-						</li>
+						<?php if (empty($customer_id)) : ?>
+							<li class="nav-item" style="background: #cc00cc;">
+								<?php echo $this->Html->link("Service Provider", array('controller' => 'master_users', 'action' => 'index')) ;?>
+							</li>
 
-						<li class="nav-item" style="background: #cc00cc;">
-							<?php echo $this->Html->link("Freelance Cleaner", array('controller' => 'master_cleaners', 'action' => 'login')) ;?>
-						</li>
+							<li class="nav-item" style="background: #cc00cc;">
+								<?php echo $this->Html->link("Freelance Cleaner", array('controller' => 'master_cleaners', 'action' => 'login')) ;?>
+							</li>
+						<?php endif; ?>
+						
 
 					</ul><!--//nav-->
 				</div><!--//navabr-collapse-->
@@ -304,7 +317,24 @@
 </script>
 
 <script type="text/javascript">
-	$('body').append('<div id="backToTop" messenger_app_id="1038913562917167" page_id="1933436260231903"><img src= "img/messenger.png" /></div>');
+	$('body').append('<a href="https://m.me/1933436260231903"><div id="backToTop" messenger_app_id="1038913562917167" page_id="1933436260231903"><img src= "img/messenger.png" /></div></a>');
+
+	   window.fbAsyncInit = function() {
+        FB.init({
+          appId      : '1038913562917167',
+          xfbml      : true,
+          version    : 'v2.6'
+        });
+      };
+
+      (function(d, s, id){
+        var js, fjs = d.getElementsByTagName(s)[0];
+        if (d.getElementById(id)) {return;}
+        js = d.createElement(s); js.id = id;
+        js.src = "//connect.facebook.net/en_US/sdk.js";
+        fjs.parentNode.insertBefore(js, fjs);
+      }(document, 'script', 'facebook-jssdk'));
+
 	// $(window).scroll(function () {
 	// 	if ($(this).scrollTop() <= 150) {
 	// 		$('#backToTop').fadeOut();
