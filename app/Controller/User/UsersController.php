@@ -55,6 +55,8 @@ class UsersController extends UserAppController {
 					throw new Exception("ERROR OCCUR DURING REGISTER OF USER INFORMATION");
 				}
 
+				$this->login();
+
 				$this->TransactionManager->commit($transaction);
 
 				$this->redirect(array('controller'=>'users','action' => 'login'));
@@ -84,10 +86,10 @@ class UsersController extends UserAppController {
 				if ($auth['Customer']['deactivate'] != 1) {
 
 					if ($this->Auth->login()) {
-						if ($this->request->data['Customer']['remember_me'] == 1) {
-							unset($this->request->data['Customer']['remember_me']);
-							$this->Cookie->write('user_rememberMe', $this->request->data['Customer'], true, '2 weeks');
-						}
+						// if ($this->request->data['Customer']['remember_me'] == 1) {
+						// 	unset($this->request->data['Customer']['remember_me']);
+						// 	$this->Cookie->write('user_rememberMe', $this->request->data['Customer'], true, '2 weeks');
+						// }
 						$this->redirect(array('controller' => 'users', 'action' => 'index'));
 
 					} else {
@@ -108,7 +110,8 @@ class UsersController extends UserAppController {
 
 	public function logout() {
 		$this->Session->destroy();
-		$this->redirect($this->Auth->logout());
+		$this->Auth->logout();
+		$this->redirect(array('controller'=>'users','action' => 'add'));
 	}
 
 	public function facebookLogin() {

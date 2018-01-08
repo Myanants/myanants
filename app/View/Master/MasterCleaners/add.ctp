@@ -508,7 +508,7 @@
 						</div>
 					</div>
 
-					<div class="form-group" >
+					<!-- <div class="form-group" >
 						<div class="col-md-10  col-md-offset-1 hidden-xs hidden-sm">
 							<?php
 							echo $this->Html->link($this->Html->image('facebook-login.jpg', array('style' => 'border-radius: 5px;width:100%;')), array('controller' => 'master_users', 'action'=>'facebookLogin'),
@@ -519,10 +519,10 @@
 						echo $this->Html->link($this->Html->image('facebook-login.jpg', array('style' => 'border-radius: 3px;width:100%')), array('controller' => 'master_users', 'action'=>'facebookLogin'),
 								array( 'escape' => false)); ?>
 						</div>
-					</div>
+					</div> -->
 					<div class="form-group">
 						<div class="col-md-8 col-md-offset-1 col-sm-8  col-xs-10 ">
-							You have an Account? <?php echo $this->Html->link("Login Now!", array('controller' => 'master_users', 'action' => 'login'),array( 'label' => false,'target' =>'_blank','style' => 'color: #0000ff;')); ?>
+							You have an Account? <?php echo $this->Html->link("Login Now!", array('controller' => 'master_cleaners', 'action' => 'login'),array( 'label' => false,'target' =>'_blank','style' => 'color: #0000ff;')); ?>
 						</div>
 					</div>
 					<?php echo $this->Form->end(); ?>

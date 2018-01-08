@@ -31,6 +31,7 @@
 
 	Router::connect('/admin',array('controller' => 'admin_users', 'action' => 'login'));
 	Router::connect('/admin/login',array('controller' => 'admin_users', 'action' => 'login'));
+	Router::connect('/admin/logout',array('controller' => 'admin_users', 'action' => 'logout'));
 	Router::connect('/admin/customer',array('controller' => 'admin_customers', 'action' => 'index'));
 	Router::connect('/admin/customer/:action/*',array('controller' => 'admin_customers'));
 	Router::connect('/admin/service/:action/*',array('controller' => 'admin_services'));

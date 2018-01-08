@@ -159,7 +159,7 @@
 									</a>
 									<ul class="dropdown-menu dropdown-usermenu pull-right">
 										<li>
-											<?php echo $this->Html->link('<i class="fa fa-sign-out pull-right"></i> Log Out', array('controller' => 'adminusers', 'action' => 'logout'), array('escape' => false)); ?>
+											<?php echo $this->Html->link('<i class="fa fa-sign-out pull-right"></i> Log Out', array('controller' => 'admin_users', 'action' => 'logout'), array('escape' => false)); ?>
 									</ul>
 								</li>
 							</ul>

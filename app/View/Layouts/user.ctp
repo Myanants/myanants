@@ -69,18 +69,23 @@
 								<img src='/staging/app/webroot/img/phone-icon.png' class="img-responsive phone-icon-sm" />
 							</a>
 						</li>
+
 						<li class="nav-item">
+							<a href="http://myanants.com/staging/">SERVICE REQUEST</a>
+						</li>
+
+						<!-- <li class="nav-item">
 							<?php if(empty($user_id)) : ?>
 								<?php echo $this->Html->link("LOGIN", array('controller' => 'users', 'action' => 'login')) ;?>
 							<?php else: ?>
 								<?php echo $this->Html->link("LOGOUT", array('controller' => 'users', 'action' => 'logout')) ;?>
 							<?php endif; ?>
-						</li>
-						<li class="nav-item">
+						</li> -->
+						<!-- <li class="nav-item">
 							<?php if(empty($user_id)) : ?>
 								<?php echo $this->Html->link("REGISTER", array('controller' => 'users', 'action' => 'add')) ;?>
 							<?php endif; ?>
-						</li>
+						</li> -->
 
 						<li class="nav-item">
 							<?php
