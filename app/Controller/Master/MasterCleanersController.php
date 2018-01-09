@@ -37,7 +37,7 @@ class MasterCleanersController extends MasterCleanerAppController {
 			$num = 1;
 			$spId = str_pad($num, 6, '0', STR_PAD_LEFT);
 		}
-		$prefix = 'SP-';
+		$prefix = 'FC-';
 		$UserCode = $prefix.$spId;
 		
 		$error = false;
@@ -58,7 +58,7 @@ class MasterCleanersController extends MasterCleanerAppController {
 					$name = $this->request->data['Cleaner']['photo']['name'];
 					unset($this->request->data['Cleaner']['photo']);
 
-					move_uploaded_file($tmpName, WWW_ROOT . '/img/' . $name);
+					move_uploaded_file($tmpName, WWW_ROOT . 'img/' . $name);
 					$this->request->data['Cleaner']['photo'] = $name;
 
 				} else {
@@ -116,7 +116,7 @@ class MasterCleanersController extends MasterCleanerAppController {
 			$num = 1;
 			$spId = str_pad($num, 6, '0', STR_PAD_LEFT);
 		}
-		$prefix = 'SP-';
+		$prefix = 'FC-';
 		$UserCode = $prefix.$spId;
 		
 		$error = false;
