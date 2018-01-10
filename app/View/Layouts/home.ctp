@@ -111,7 +111,7 @@
 						<img src='<?php echo $profile_image["url"]; ?>'/>
 						<li class="nav-item">
 							<?php if(empty($user_id)) : ?>
-								<?php echo $this->Html->link("LOGIN", array('controller' => 'users', 'action' => 'add')) ;?>
+								<?php echo $this->Html->link("LOGIN", array('controller' => 'users', 'action' => 'login')) ;?>
 							<?php else: ?>
 								<?php echo $this->Html->link("LOGOUT", array('controller' => 'users', 'action' => 'logout')) ;?>
 							<?php endif; ?>

@@ -3,7 +3,7 @@
 	<div id="signupbox" class="login_box mainbox col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2 ">
 		<div class="sub_box" >
 
-			<div class="Utitle" >
+			<div>
 				<h2 class="hidden-sm hidden-xs">Sign In With MyanAnts Account</h2>
 				<h3 class="hidden-lg hidden-md">Sign In With MyanAnts Account</h3>
 			</div>
@@ -55,14 +55,20 @@
 				</div> -->
 
 				<div class="form-group">
-					<div class="col-md-10 col-md-offset-1 hidden-xs hidden-sm">
-						<?php echo $this->Form->button('Login', array('class'=>'btn btn-info btn-md btn-block','type'=>'submit')); ?>
+					<div class="col-md-5 col-md-offset-1 hidden-xs hidden-sm" style="padding-right: 2px;">
+						<?php echo $this->Html->link("Sign Up", array('controller' => 'users', 'action' => 'add'),array( 'label' => false,'target' =>'_blank','class' => 'btn btn-info btn-md btn-block','style' => 'background: lightseagreen;')); ?>
+					</div>
+					<div class="col-md-5 hidden-xs hidden-sm" style="padding-left: 2px;">
+						<?php echo $this->Form->button('Sign In', array('class'=>'btn btn-info btn-md btn-block','type'=>'submit')); ?>
 					</div>
 				</div>
 
-				<div class="form-group">
-					<div class="col-md-10 col-md-offset-1 hidden-lg hidden-md">
-						<?php echo $this->Form->button('Login', array('class'=>'btn btn-info btn-sm btn-block','type'=>'submit','style'=>'width:100%;')); ?>
+			 	<div class="form-group">
+					<div class="col-md-1 hidden-lg hidden-md" style="width: 50%;float: left;padding-right: 2px;">
+						<?php echo $this->Html->link("Sign Up", array('controller' => 'users', 'action' => 'add'),array( 'label' => false,'target' =>'_blank','class' => 'btn btn-info btn-md btn-block','style' => 'background: lightseagreen;')); ?>
+					</div>
+					<div class="col-md-1 hidden-lg hidden-md" style="width: 50%;float: right;padding-left: 2px;">
+						<?php echo $this->Form->button('Sign In', array('class'=>'btn btn-info btn-sm btn-block','type'=>'submit')); ?>
 					</div>
 				</div>
 

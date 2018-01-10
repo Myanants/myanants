@@ -1,6 +1,5 @@
 <?php
 
-
 App::uses('MasterAppController', 'Controller');
 App::uses('CakeEmail', 'Network/Email');
 App::import('Vendor', 'facebook', array('file' => 'facebook'. DS . 'graph-sdk' . DS . 'src' . DS . 'Facebook' . DS . 'autoload.php'));
@@ -73,10 +72,16 @@ class MasterUsersController extends MasterAppController {
 				// save to the database
 				if (!$this->ServiceProvider->save($this->request->data)) {
 					throw new Exception('ERROR COULD NOT ADD Tag');
+				} else {
+					$this->log("saved in DB -----------------");
+					if ($this->Auth->login()) {
+						$this->log("logined ---------------------");
+						// $this->redirect(array('controller' => 'users', 'action' => 'index'));
+					}
 				}
 
 				$this->TransactionManager->commit($transaction);
-				$this->redirect(array('action' => 'login'));
+				$this->redirect(array('controller' => 'master_users', 'action' => 'index'));
 
 			} catch (Exception $e) {
 				$this->log('File : ' . $e->getFile() . ' Line : ' . $e->getLine(), LOG_ERR);

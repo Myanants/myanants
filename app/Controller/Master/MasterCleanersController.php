@@ -87,10 +87,16 @@ class MasterCleanersController extends MasterCleanerAppController {
 				// save to the database
 				if (!$this->Cleaner->save($this->request->data)) {
 					throw new Exception('ERROR COULD NOT ADD Tag');
+				} else {
+					$this->log("saved in DB -----------------");
+					if ($this->Auth->login()) {
+						$this->log("logined ---------------------");
+						// $this->redirect(array('controller' => 'users', 'action' => 'index'));
+					}
 				}
 
 				$this->TransactionManager->commit($transaction);
-				$this->redirect(array('action' => 'login'));
+				$this->redirect(array('action' => 'index'));
 
 			} catch (Exception $e) {
 				$this->log('File : ' . $e->getFile() . ' Line : ' . $e->getLine(), LOG_ERR);

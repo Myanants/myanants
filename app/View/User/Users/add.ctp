@@ -4,8 +4,8 @@
 		<div class="sub_box" >
 
 			<div class="Utitle" >
-				<center><h2 class="hidden-sm hidden-xs">Sign In with your MyanAnts Account</h2></center>
-				<center><h3 class="hidden-lg hidden-md">Sign In with your MyanAnts Account</h3></center>
+				<center><h2 class="hidden-sm hidden-xs">Sign Up</h2></center>
+				<center><h3 class="hidden-lg hidden-md">Sign Up</h3></center>
 			</div>
 
 			<div class="panel-body" >
@@ -73,13 +73,13 @@
 
 				<div class="form-group">
 					<div class="col-md-10 col-md-offset-1 hidden-xs hidden-sm">
-						<?php echo $this->Form->button('Log In', array('class'=>'btn btn-info btn-md btn-block','type'=>'submit')); ?>
+						<?php echo $this->Form->button('Submit', array('class'=>'btn btn-info btn-md btn-block','type'=>'submit')); ?>
 					</div>
 				</div>
 
 				<div class="form-group">
 					<div class="col-md-10 col-md-offset-1 hidden-lg hidden-md">
-						<?php echo $this->Form->button('Log In', array('class'=>'btn btn-info btn-sm btn-block','type'=>'submit','style'=>'width:100%;')); ?>
+						<?php echo $this->Form->button('Submit', array('class'=>'btn btn-info btn-sm btn-block','type'=>'submit','style'=>'width:100%;')); ?>
 					</div>
 				</div>
 

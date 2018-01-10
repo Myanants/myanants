@@ -49,13 +49,16 @@ class UsersController extends UserAppController {
 				$data['Customer']['deactivate'] = 0;
 
 				// save to the database
-				$this->Customer->create();
-
-				if(!$this->Customer->save($data, array('deep' => true))) {
+				// $this->Customer->create();
+				if(!$this->Customer->save($data)) {
 					throw new Exception("ERROR OCCUR DURING REGISTER OF USER INFORMATION");
+				} else {
+					$this->log("saved in DB -----------------");
+					if ($this->Auth->login()) {
+						$this->log("logined ---------------------");
+						// $this->redirect(array('controller' => 'users', 'action' => 'index'));
+					}
 				}
-
-				$this->login();
 
 				$this->TransactionManager->commit($transaction);
 
@@ -111,7 +114,7 @@ class UsersController extends UserAppController {
 	public function logout() {
 		$this->Session->destroy();
 		$this->Auth->logout();
-		$this->redirect(array('controller'=>'users','action' => 'add'));
+		$this->redirect(array('controller'=>'users','action' => 'index'));
 	}
 
 	public function facebookLogin() {
