@@ -5,19 +5,12 @@
 		<div class="signupbox mainbox col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2 ">
 			<div class="sub_box" >
 
-				<!-- <div class="Utitle" >
-					<center><h2 class="hidden-sm hidden-xs">Sign Up</h2></center>
-					<center><h3 class="hidden-lg hidden-md">Sign Up</h3></center>
-				</div> -->
-
-				<div class="hidden-sm hidden-xs col-md-3" style="margin-top: -6%;margin-bottom: -1%;width: 100%;padding-left: 32%;">        
-					<h1 class="logo pull-left">
+				<div class="hidden-sm hidden-xs col-md-3" style="margin-top: -6%;margin-bottom: -1%;width: 100%;padding-left: 32%;">    <h1 class="logo pull-left">
 						<a class="scrollto" href="http://myanants.com/staging">
 							<img src='http://myanants.com/staging/img/colorant.png' style="width: 50%;" />
 						</a>
 					</h1><!--//logo-->
 				</div>
-
 
 				<div class="hidden-md hidden-lg col-md-3" style="margin-top: -8%;padding-left: 22%;">
 					<h1 class="logo pull-left" style="margin-bottom: -8%;">
@@ -25,6 +18,11 @@
 							<img src='http://myanants.com/staging/img/colorant.png' class="logoimg" style="width: 65%;" />
 						</a>
 					</h1><!--//logo-->
+				</div>
+
+				<div class="col-md-offset-2">
+					<h2 class="hidden-sm hidden-xs">Freelance Cleaner Register</h2>
+					<h3 class="hidden-lg hidden-md">Freelance Cleaner Register</h3>
 				</div>
 
 

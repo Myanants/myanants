@@ -105,6 +105,10 @@
 							<a href="http://myanants.com/blog">BLOG</a>
 						</li>
 						
+						<?php
+							$profile_image = $this->Session->read('profile_image');
+						?>
+						<img src='<?php echo $profile_image["url"]; ?>'/>
 						<li class="nav-item">
 							<?php if(empty($user_id)) : ?>
 								<?php echo $this->Html->link("LOGIN", array('controller' => 'users', 'action' => 'add')) ;?>

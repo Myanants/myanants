@@ -13,4 +13,4 @@ Thank you for using MyanAnts all the time. This mail has been sent automatically
 
 Please click on the following URL and proceed to reset password.
 
-<?php echo Router::url(array('member' => true, 'controller' => 'adminusers', 'action' => 'remind', $token), true); ?>
+<?php echo Router::url(array('member' => true, 'controller' => 'admin_users', 'action' => 'remind', $token), true); ?>

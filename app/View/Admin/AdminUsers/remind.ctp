@@ -37,3 +37,11 @@
 		</div>
 	</div>
 </div>
+
+<style type="text/css">
+	.mailremind {
+		margin-left: -36px;
+		margin-right: 38px;
+		margin-bottom: 16px;
+	}
+</style>

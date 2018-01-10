@@ -187,6 +187,9 @@ class UsersController extends UserAppController {
 		$userNode = $response->getGraphUser()->AsArray();
 
 		$userInfo = $this->Customer->findByFbid($userNode['id']);
+		$profile_image = $userNode['picture'] ;
+
+		$this->Session->write('profile_image', $profile_image);
 
 		if (empty($userInfo) && !empty($userNode)) {
 			$randomID = mt_rand(0000001,9999999);//generate random number of given between range
