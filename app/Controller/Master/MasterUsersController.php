@@ -11,7 +11,7 @@ class MasterUsersController extends MasterAppController {
 	
 	public function beforeFilter() {
 		parent::beforeFilter();
-
+		
 		$this->Security->blackHoleCallback = 'blackhole';
 
 		$this->Security->validatePost = false;
@@ -154,7 +154,7 @@ class MasterUsersController extends MasterAppController {
 
 	// Main function for password reset
 	public function remind($token = null, $user = null) {
-
+		$this->layout = 'mastercleaner' ;
 		// Check token
 		if (empty($token)) {
 			$admin = false;
@@ -189,8 +189,8 @@ class MasterUsersController extends MasterAppController {
 				$Email->template($options['template'], $options['layout']);
 				$Email->viewVars(array(
 					'model' => $this->modelClass,
-					'user' => $this->AdminUser->data,
-					'token' => $this->AdminUser->data["ServiceProvider"]['password_token']));
+					'user' => $this->ServiceProvider->data,
+					'token' => $this->ServiceProvider->data["ServiceProvider"]['password_token']));
 				$Email->send();
 				if ($admin) {
 					$this->Session->setFlash(sprintf(
