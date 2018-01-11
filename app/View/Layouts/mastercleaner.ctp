@@ -1,6 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
 	<head>
+		<?php echo $this->Html->charset(); ?>
+		<?php echo $this->Html->meta(null, null, array('name' => 'viewport', 'content' => 'width=device-width, initial-scale=1')); ?>
+		<?php echo $this->Html->meta(array('http-equiv '=>'X-UA-Compatible','content'=>'IE=edge'))?>
+		<?php echo $this->fetch('meta'); ?>
+		<!-- ========== Title ========== -->
+		<title><?php echo 'MyanAnts | We Connect Service Providers' ?></title>
+
 		<!-- ========== CSS ========== -->
 		<?php echo $this->Html->css('custom.min'); ?>
 		<?php echo $this->Html->css('bootstrap.min'); ?>

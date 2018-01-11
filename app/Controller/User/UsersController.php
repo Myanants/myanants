@@ -12,7 +12,7 @@ class UsersController extends UserAppController {
 
 	public function beforeFilter() {
 		parent::beforeFilter();
-
+		$this->layout = 'mastercleaner';
 		$this->Security->blackHoleCallback = 'blackhole';
 
 		$this->Security->validatePost = false;
@@ -347,6 +347,20 @@ class UsersController extends UserAppController {
 			$this->Session->setFlash("The URL is incorrect or expired.");
 			$this->redirect(array('action' => 'remind'));
 		}
+
+		// remove validate
+		$validateAttrKey = array(
+			'name',
+			'phone_number',
+			'address',
+			'capital'
+		);
+
+		foreach ($validateAttrKey as $key => $value) {
+			$this->Customer->validator()->remove($value);
+		}
+
+
 
 		if (!empty($this->request->data) && $this->{$this->modelClass}->resetPassword(Set::merge($usersuser, $this->request->data))) {
 			$this->Session->setFlash("Password is changed");
