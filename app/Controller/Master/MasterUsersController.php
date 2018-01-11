@@ -127,7 +127,7 @@ class MasterUsersController extends MasterAppController {
 						}
 
 					} else {
-						$this->Session->setFlash('Please refill name and password');
+						$this->Session->setFlash('Your name or password is invalid.Please refill name and password.');
 					}
 				} else {
 					$this->Session->setFlash('Your account is deactivated .you can not log in!');

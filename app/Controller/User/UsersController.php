@@ -89,14 +89,14 @@ class UsersController extends UserAppController {
 				if ($auth['Customer']['deactivate'] != 1) {
 
 					if ($this->Auth->login()) {
-						// if ($this->request->data['Customer']['remember_me'] == 1) {
-						// 	unset($this->request->data['Customer']['remember_me']);
-						// 	$this->Cookie->write('user_rememberMe', $this->request->data['Customer'], true, '2 weeks');
-						// }
+						if ($this->request->data['Customer']['remember_me'] == 1) {
+							unset($this->request->data['Customer']['remember_me']);
+							$this->Cookie->write('user_rememberMe', $this->request->data['Customer'], true, '2 weeks');
+						}
 						$this->redirect(array('controller' => 'users', 'action' => 'index'));
 
 					} else {
-						$this->Session->setFlash('Please refill name and password');
+						$this->Session->setFlash('Your name or password is invalid.Please refill name and password');
 					}
 				} else {
 					$this->Session->setFlash('Your account is deactivated .Please try again.');

@@ -45,11 +45,11 @@
 
 	Router::connect('/master',array('controller' => 'master_users', 'action' => 'index'));
 	Router::connect('/master/login',array('controller' => 'master_users', 'action' => 'login'));
-	Router::connect('/masterusers/:action/*',array('controller' => 'master_users'));
+	Router::connect('/masteruser/:action/*',array('controller' => 'master_users'));
 
 	Router::connect('/master/cleaner',array('controller' => 'master_cleaners', 'action' => 'index'));
 	Router::connect('/master/cleaner/login',array('controller' => 'master_cleaners', 'action' => 'login'));
-	// Router::connect('/mastercleaners/:action/*',array('controller' => 'master_cleaners'));
+	Router::connect('/master/cleaner/:action/*',array('controller' => 'master_cleaners'));
 
 	Router::connect('/',array('controller' => 'users', 'action' => 'index'));
 	Router::connect('/user/index',array('controller' => 'users', 'action' => 'index'));

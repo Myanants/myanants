@@ -5,7 +5,7 @@
 
 			<div class="hidden-sm hidden-xs col-md-3" style="margin-top: -6%;margin-bottom: -1%;width: 100%;padding-left: 32%;">
 				<h1 class="logo pull-left">
-					<a class="scrollto" href="http://myanants.com/staging">
+					<a href="http://myanants.com/staging">
 						<img src='http://myanants.com/staging/img/colorant.png' style="width: 50%;" />
 					</a>
 				</h1><!--//logo-->
@@ -13,7 +13,7 @@
 
 			<div class="hidden-md hidden-lg col-md-3" style="margin-top: -8%;padding-left: 22%;">
 				<h1 class="logo pull-left" style="margin-bottom: -8%;">
-					<a class="scrollto" href="http://myanants.com/staging">
+					<a href="http://myanants.com/staging">
 						<img src='http://myanants.com/staging/img/colorant.png' class="logoimg" style="width: 65%;" />
 					</a>
 				</h1><!--//logo-->

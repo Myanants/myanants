@@ -87,6 +87,14 @@
 					<div class="form-group" ></div>
 					<div class="form-group" >
 						<div class="col-md-10 col-md-offset-1 ">
+							<label>Email Address</label>
+							<?php echo $this->Form->input('email', array( 'class' => 'form-control', 'placeholder' => 'email', 'autofocus' => true, 'autocomplete' => 'off','label' => false)); ?>
+						</div>
+					</div>
+
+					<div class="form-group" ></div>
+					<div class="form-group" >
+						<div class="col-md-10 col-md-offset-1 ">
 							<label>Address</label>
 							<?php echo $this->Form->input('address', array('type' => 'textarea' , 'class' => 'form-control', 'placeholder' => 'address', 'autofocus' => true, 'autocomplete' => 'off','label' => false)); ?>
 						</div>
@@ -534,7 +542,9 @@
 		color: red;
 		padding-left: 9%;
 	}
-
+	.error-message {
+		color: red;
+	}
 	.signupbox {
 		margin-top: 2%;
 	}
