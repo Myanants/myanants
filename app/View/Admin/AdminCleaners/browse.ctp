@@ -51,6 +51,13 @@
 				</tr>
 
 				<tr>
+					<td class="left">Email Address</td>
+					<td class="right"> 
+						<?php echo $data['Cleaner']['email'] ; ?>						
+					</td>
+				</tr>
+
+				<tr>
 					<td class="left"> Township </td>
 					<td class="right">
 						<?php echo $townships[$data['Cleaner']['township']] ; ?>

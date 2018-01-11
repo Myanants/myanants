@@ -78,7 +78,7 @@
 
 			<div class="hidden-md hidden-lg col-md-3" style="margin-top: -3%;margin-bottom: -1%;">        
 				<h1 class="logo pull-left">
-					<a class="scrollto" href="http://myanants.com/staging">
+					<a href="http://myanants.com/staging">
 						<img src='app/webroot/img/mm.png' class="logoimg" />
 					</a>
 				</h1><!--//logo-->
@@ -108,7 +108,7 @@
 						<?php
 							$profile_image = $this->Session->read('profile_image');
 						?>
-						<img src='<?php echo $profile_image["url"]; ?>'/>
+
 						<li class="nav-item">
 							<?php if(empty($user_id)) : ?>
 								<?php echo $this->Html->link("LOGIN", array('controller' => 'users', 'action' => 'login')) ;?>
@@ -132,11 +132,18 @@
 							?>	
 						</li>
 
+						<li>
+							<?php if (!empty($profile_image)) { ?>
+								<img src='<?php echo $profile_image["url"]; ?>'/>
+							<?php } elseif (!empty($user_id) || !empty($customer_id)) { ?>
+								<img src='app/webroot/img/sample-user.png'/ style="width: 62%;">
+							<?php } ?>
+						</li>
+
 						<?php if (empty($customer_id)) : ?>
 							<li class="nav-item" style="background: #cc00cc;">
 								<?php echo $this->Html->link("Service Provider", array('controller' => 'master_users', 'action' => 'index')) ;?>
 							</li>
-
 							<li class="nav-item" style="background: #cc00cc;">
 								<?php echo $this->Html->link("Freelance Cleaner", array('controller' => 'master_cleaners', 'action' => 'login')) ;?>
 							</li>

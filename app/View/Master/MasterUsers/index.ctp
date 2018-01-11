@@ -74,6 +74,7 @@
 								<img src='app/webroot/img/phone-icon.png' class="img-responsive phone-icon-sm" />
 							</a>
 						</li>
+
 						<li class="nav-item">
 							<?php if(empty($service_provider_id)) : ?>
 								<?php echo $this->Html->link("LOGIN", array('controller' => 'master_users', 'action' => 'login')) ;?>
@@ -97,6 +98,12 @@
 							?>	
 						</li>
 
+						<li>
+							<?php if (!empty($service_provider_id)) { ?>
+								<img src='app/webroot/img/sample-user.png'/ style="width: 62%;">
+							<?php } ?>
+						</li>
+						
 						<!-- <li class="nav-item" style="    background: cornflowerblue;">
 							<?php echo $this->Html->link("Service Provider", array('controller' => 'master_master_users', 'action' => 'login')) ;?>
 						</li> -->

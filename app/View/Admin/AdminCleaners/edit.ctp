@@ -111,6 +111,13 @@
 				</div>
 			</div>
 
+			<div class="form-group" style="border-bottom: none;">
+				<?php echo $this->Form->label('email', 'Email Address', array('class' => 'control-label col-md-3 col-sm-3 col-xs-12')); ?>
+				<div class="col-md-6 col-sm-6 col-xs-12">
+					<?php echo $this->Form->input('email', array('type' => 'text', 'label' => false, 'class' => 'form-control col-md-7 col-xs-12', 'autocomplete' => 'off' , 'placeholder' => '')); ?>
+				</div>
+			</div>
+
 			<div class="form-group" >
 				<?php
 					echo $this->Form->label('township', 'Township <span class="required">*</span>', array(
