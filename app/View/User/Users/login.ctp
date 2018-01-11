@@ -72,6 +72,10 @@
 					</div>
 				</div>
 
+				<p class="form-group" style="margin-left: 8%;">
+					<?php echo $this->Html->link("Click here if you forgot your password", array('controller' => 'users', 'action' => 'remind'),array( 'label' => false,'style' => 'color: blue;')); ?>
+				</p>
+
 				<!-- <div class="form-group">
 					<div class="col-md-6 col-md-offset-1 col-sm-8  col-xs-10 ">
 						With your social media account

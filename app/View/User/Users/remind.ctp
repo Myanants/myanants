@@ -1,36 +1,47 @@
-<div class="container">
-	<div id="signupbox"  class="login_box mainbox col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2 ">
-		<div class="sub_box"  >
-			<div class="Utitle" >
-				<h2>Password Reset</h2>
-			</div>
-
-			<div class="panel-body" >
-				<?php echo $this->Form->create('User', array('label' => false,'class'=>'form-horizontal')); ?>
-				<font color='red'><b><?php echo $this->Session->flash(); ?></b></font>
-
-				<div class="form-group" ></div>
-				<div class="form-group" >
-					<div class="col-md-10 col-md-offset-1 ">
-						<?php echo $this->Form->input('email', array( 'class' => 'form-control', 'placeholder' => 'email', 'autofocus' => true, 'autocomplete' => 'off','label' => false,'type'=>'text')); ?>
+<div>
+	<a class="hiddenanchor" id="signup"></a>
+	<div class="login_wrapper">
+		<div class="animate form login_form">
+			<section class="login_content">
+				<?php echo $this->Form->create('Customer', array('url' => array('controller' => 'users','action' => 'remind', $token),'class' => 'login-form','label' => false,'type' => 'post','inputDefaults' => array('label' => false, 'div' => false, 'class' => 'form-control'))); ?>
+				<div class="inner">
+					<p>
+						<?php echo $this->Form->label('password', 'Password:'); ?>
+						<?php echo $this->Form->input('password', array('label' => false, 'autocomplete' => 'off' , 'placeholder' => 'Password must be 8 to 20 digits')); ?>
+					</p>
+					<p>
+						<?php echo $this->Form->label('confirm_password', 'Confirm Password:'); ?>
+						<?php echo $this->Form->input('confirm_password', array('type' => 'password','label' => false, 'autocomplete' => 'off' , 'placeholder' => 'Password must be 8 to 20 digits' )); ?>
+					</p>
+					<div class="action mailremind">
+						<?php echo $this->Form->submit('Save', array('class' => 'btn btn-md btn-success btn-block')); ?>
+						<div class="clear"> </div>
 					</div>
-				</div>
-
-				<div class="form-group" ></div>
-				<div class="form-group">
-					<div class="col-md-10 col-md-offset-1">
-						<?php echo $this->Form->submit('Send', array('class' => 'btn btn-success','style'=>'width:100%;')); ?>
+					<p>
+						<?php echo $this->Html->link("Click here for login", array('controller' => 'users',
+						'action' => 'login')); ?>
+					</p>
+					<div class="clearfix"></div>
+					<div class="separator">
+						<div class="clearfix"></div>
+						<br />
+						<div>
+							<h1><i><img src="/img/logo/myanants-black.png" style="width: 50%;margin-top: -36%;margin-bottom: -32%;"></i></h1>
+							<p>Copyright © MyanAnts All rights reserved. </p>
+						</div>
 					</div>
+					<div class="clearfix"></div>
 				</div>
-
-				<div class="form-group">
-					<div class="col-xs-10 col-md-offset-4 col-xs-10 col-xs-offset-3">
-						<?php echo $this->Html->link("Click here for login", "/user/login"); ?>
-					</div>
-				</div>
-
 				<?php echo $this->Form->end(); ?>
-			</div>
+			</section>
 		</div>
 	</div>
 </div>
+
+<style type="text/css">
+	.mailremind {
+		margin-left: -36px;
+		margin-right: 38px;
+		margin-bottom: 16px;
+	}
+</style>
