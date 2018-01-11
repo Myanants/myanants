@@ -66,12 +66,6 @@
 					</div>
 				</div>
 
-				<!-- <div class="form-group">
-					<div class="col-md-10 col-md-offset-1">
-						<?php echo $this->Html->link("Click here if you forgot your password", array('controller' => 'master_users', 'action' => 'remind'),array( 'label' => false,'target' =>'_blank','style' => 'color: #0000ff;')); ?>
-					</div>
-				</div> -->
-
 				<div class="form-group">
 					<div class="col-md-5 col-md-offset-1 hidden-xs hidden-sm" style="padding-right: 2px;">
 						<?php echo $this->Html->link("Sign Up", array('controller' => 'master_users', 'action' => 'add'),array( 'label' => false,'target' =>'_blank','class' => 'btn btn-info btn-md btn-block','style' => 'background: lightseagreen;')); ?>
@@ -112,11 +106,11 @@
 							array( 'escape' => false)); ?>
 					</div>
 				</div> -->
-				<div class="form-group">
+				<!-- <div class="form-group">
 					<div class="col-md-8 col-md-offset-1 col-sm-8  col-xs-10 ">
 						Don't have an Account? <?php echo $this->Html->link("Register Now!", array('controller' => 'master_users', 'action' => 'add'),array( 'label' => false,'target' =>'_blank','style' => 'color: #0000ff;')); ?>
 					</div>
-				</div>
+				</div> -->
 				<?php echo $this->Form->end(); ?>
 			</div>
 		</div>

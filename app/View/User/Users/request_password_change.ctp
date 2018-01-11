@@ -13,7 +13,7 @@
 						<?php echo $this->Form->submit('Send', array('class' => 'btn btn-md btn-success btn-block')); ?>
 						<div class="clear"> </div>
 					</div>
-					<p> <?php echo $this->Html->link("Click here for login", "/admin/login"); ?> </p>
+					<p> <?php echo $this->Html->link("Click here for login", "/user/login"); ?> </p>
 					<div class="clearfix" style="padding-bottom: 9px;"></div>
 					<div class="separator">
 						<div class="clearfix"></div>

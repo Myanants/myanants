@@ -88,6 +88,10 @@
 					</div>
 				</div>
 
+				<p class="form-group" style="margin-left: 8%;">
+					<?php echo $this->Html->link("Click here if you forgot your password", array('controller' => 'master_cleaners', 'action' => 'remind'),array( 'label' => false,'style' => 'color: blue;')); ?>
+				</p>
+
 				<!-- <div class="form-group">
 					<div class="col-md-6 col-md-offset-1 col-sm-8  col-xs-10 ">
 						With your social media account
@@ -106,11 +110,11 @@
 							array( 'escape' => false)); ?>
 					</div>
 				</div> -->
-				<div class="form-group">
+				<!-- <div class="form-group">
 					<div class="col-md-8 col-md-offset-1 col-sm-8  col-xs-10 ">
 						Don't have an Account? <?php echo $this->Html->link("Register Now!", array('controller' => 'master_cleaners', 'action' => 'add'),array( 'label' => false,'target' =>'_blank','style' => 'color: #0000ff;')); ?>
 					</div>
-				</div>
+				</div> -->
 				<?php echo $this->Form->end(); ?>
 			</div>
 		</div>

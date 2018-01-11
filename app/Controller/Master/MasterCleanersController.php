@@ -331,4 +331,88 @@ class MasterCleanersController extends MasterCleanerAppController {
 	public function index() {
 
 	}
+
+	// Main function for password reset
+	public function remind($token = null, $user = null) {
+		$this->layout = 'mastercleaner' ;
+		// Check token
+		if (empty($token)) {
+			$admin = false;
+			if ($user) {
+				$this->request->data = $user;
+				$admin = true;
+			}
+			$this->_sendPasswordReset($admin);
+		} else {
+			$this->_resetPassword($token);
+		}
+	}
+
+	// Send Password Reset
+	protected function _sendPasswordReset($admin = null, $options = array()) {
+		$defaults = array(
+			'from' => 'passwordreset@myanants.net',
+			'subject' => "[MyanAnts] Password reset procedure of login account",
+			'template' => 'mastercleaner_password_reset_request',
+			'emailFormat' => CakeEmail::MESSAGE_TEXT,
+			'layout' => 'default'
+		);
+		$options = array_merge($defaults, $options);
+		if (!empty($this->request->data)) {
+			$user = $this->{$this->modelClass}->passwordReset($this->request->data);
+			if (!empty($user)) {
+				$Email = $this->_getMailInstance();
+				$Email->to($user["Cleaner"]['email']);
+				$Email->from($options['from']);
+				$Email->emailFormat($options['emailFormat']);
+				$Email->subject($options['subject']);
+				$Email->template($options['template'], $options['layout']);
+				$Email->viewVars(array(
+					'model' => $this->modelClass,
+					'user' => $this->Cleaner->data,
+					'token' => $this->Cleaner->data["Cleaner"]['password_token']));
+				$Email->send();
+				if ($admin) {
+					$this->Session->setFlash(sprintf(
+							__d('Cleaners', '%s has been sent an email with instruction to reset their password.'),
+							$user["Cleaner"]['email']));
+					$this->redirect(array('action' => 'login'));
+				} else {
+					$this->Session->setFlash("MyanAnts sent an email to change your password.
+						Please change your password within 1 hour according to the message.");
+					$this->redirect(array('action' => 'login'));
+				}
+			} else {
+				$this->Session->setFlash("This email address is not currently in use");
+				$this->redirect($this->referer('/'));
+			}
+		}
+		$this->render('request_password_change');
+	}
+
+	// Reset Password
+	protected function _resetPassword($token) {
+		$user = $this->{$this->modelClass}->checkPasswordToken($token);
+		if (empty($user)) {
+			$this->Session->setFlash("The URL is incorrect or expired.");
+			$this->redirect(array('action' => 'remind'));
+		}
+
+		if (!empty($this->request->data) && $this->{$this->modelClass}->resetPassword(Set::merge($user, $this->request->data))) {
+			$this->Session->setFlash("Password is changed");
+			$this->redirect($this->Auth->loginAction);
+		}
+		$this->set('token', $token);
+	}
+
+	// Mail Instance
+	protected function _getMailInstance() {
+		$emailConfig = Configure::read('Cleaners.emailConfig');
+		if ($emailConfig) {
+			return new CakeEmail($emailConfig);
+		} else {
+			return new CakeEmail('default');
+		}
+	}
+
 }

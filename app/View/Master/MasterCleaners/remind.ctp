@@ -3,7 +3,7 @@
 	<div class="login_wrapper">
 		<div class="animate form login_form">
 			<section class="login_content">
-				<?php echo $this->Form->create('ServiceProvider', array('url' => array('controller' => 'master_users','action' => 'remind', $token),'class' => 'login-form','label' => false,'type' => 'post','inputDefaults' => array('label' => false, 'div' => false, 'class' => 'form-control'))); ?>
+				<?php echo $this->Form->create('Cleaner', array('url' => array('controller' => 'master_cleaners','action' => 'remind', $token),'class' => 'login-form','label' => false,'type' => 'post','inputDefaults' => array('label' => false, 'div' => false, 'class' => 'form-control'))); ?>
 				<div class="inner">
 					<p>
 						<?php echo $this->Form->label('password', 'Password:'); ?>
@@ -18,7 +18,7 @@
 						<div class="clear"> </div>
 					</div>
 					<p>
-						<?php echo $this->Html->link("Click here for login", array('controller' => 'master_users',
+						<?php echo $this->Html->link("Click here for login", array('controller' => 'master_cleaners',
 						'action' => 'login')); ?>
 					</p>
 					<div class="clearfix"></div>
