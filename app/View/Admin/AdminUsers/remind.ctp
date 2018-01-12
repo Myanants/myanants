@@ -26,7 +26,7 @@
 						<div class="clearfix"></div>
 						<br />
 						<div>
-							<h1><i><img src="/img/logo/myanants-black.png" style="width: 50%;margin-top: -36%;margin-bottom: -32%;"></i></h1>
+							<h1><i><img src="http://myanants.com/staging/img/logo/myanants-black.png" style="width: 50%;margin-top: -36%;margin-bottom: -32%;"></i></h1>
 							<p>Copyright © MyanAnts All rights reserved. </p>
 						</div>
 					</div>
