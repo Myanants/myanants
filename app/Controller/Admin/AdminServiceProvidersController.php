@@ -39,7 +39,7 @@ class AdminServiceProvidersController extends AdminAppController {
 		$this->paginate = array(
 			'paramType' => 'querystring',
 			'limit' => $limit,
-			'order' => array('id' => 'ASC'),
+			'order' => array('id' => 'DESC'),
 			'conditions' => $condition
 		);
 		$pag = $this->paginate('ServiceProvider');
