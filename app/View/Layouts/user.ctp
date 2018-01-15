@@ -18,6 +18,8 @@
 	<?php echo $this->Html->css('home/prism/prism'); ?>
 	<?php echo $this->Html->css('styles'); ?>
 	<?php echo $this->Html->css('mobile'); ?>
+
+	<?php echo $this->Html->script('jquery.min'); ?>
 </head> 
 
 <body data-spy="scroll">
@@ -133,11 +135,19 @@
 	</footer><!--//footer-->
 	 
 	<?php echo $this->Html->script('home/jquery.easing.1.3'); ?>   
-	<?php echo $this->Html->script('home/jquery-1.11.3.min'); ?>   
+	<?php //echo $this->Html->script('home/jquery-1.11.3.min'); ?>   
 	<?php echo $this->Html->script('home/bootstrap/js/bootstrap.min'); ?>   
 	<?php echo $this->Html->script('home/jquery-scrollTo/jquery.scrollTo.min'); ?>   
 	<?php echo $this->Html->script('home/prism/prism'); ?>   
-	<?php echo $this->Html->script('home/main'); ?>   
+	<?php echo $this->Html->script('home/main'); ?>
+
+	<?php echo $this->Html->script('https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js'); ?>
+	<?php echo $this->Html->script('fastclick'); ?>
+	<?php echo $this->Html->script('nprogress'); ?>
+	<?php echo $this->Html->script('custom'); ?>
+	<?php echo $this->Html->script('message'); ?>
+	<?php echo $this->Html->script('logo'); ?>
+	
 </body>
 </html> 
 

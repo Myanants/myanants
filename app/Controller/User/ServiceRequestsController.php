@@ -43,6 +43,8 @@ class ServiceRequestsController extends UserAppController {
 
 		if ($this->request->is(array('post', 'put'))) {
 			try {
+
+// $this->log($this->request->data);
 				$transaction = $this->TransactionManager->begin();
 				
 				$sub_service_id = $this->request->data['ServiceRequest']['sub_service_id'];
@@ -72,6 +74,7 @@ class ServiceRequestsController extends UserAppController {
 						$UserCode = $prefix.$CompanyID;
 						$data['Customer']['customer_id'] = $UserCode;
 						$data['Customer']['deactivate'] = 0;
+						$data['Customer']['address'] = $this->request->data['ServiceRequest']['township'] ;
 
 						// remove validate
 						$validateAttrKey = array(
@@ -87,17 +90,24 @@ class ServiceRequestsController extends UserAppController {
 						if(!$this->Customer->save($data)) {
 							throw new Exception("ERROR OCCUR DURING REGISTER OF USER INFORMATION");
 						}
-						$customerID = $this->Customer->find('first',array('order' => array('Customer.id' => 'DESC'),'fields' => 'id'));
-						$customerid = $customerID['Customer']['id'] ;
+						$cID = $this->Customer->find('first',array('order' => array('Customer.id' => 'DESC'),'fields' => 'customer_id'));
+						
+						$customerid = $cID['Customer']['customer_id'] ;
 					} else {
-						$customerid = $existData['Customer']['id'] ;
+						$customerid = $existData['Customer']['customer_id'] ;
 					}
 				} else {
-					$customerid = $this->Auth->user('id');
+					$customerid = $this->Auth->user('customer_id');
 				}
+
+
+				$request_datetime = $this->request->data['ServiceRequest']['request_datetime'];
+				$township = $this->request->data['ServiceRequest']['township'];
 
 				unset($this->request->data['ServiceRequest']['name']);
 				unset($this->request->data['ServiceRequest']['phone_number']);
+				unset($this->request->data['ServiceRequest']['request_datetime']);
+				unset($this->request->data['ServiceRequest']['township']);
 
 
 				foreach ($this->request->data['ServiceRequest'] as $key => $value) {
@@ -122,11 +132,17 @@ class ServiceRequestsController extends UserAppController {
 				$this->request->data['ServiceRequest']['sub_service_id'] = $sub_service_id ;						
 				$this->request->data['ServiceRequest']['service_request_id'] = $RequestCode;
 				$this->request->data['ServiceRequest']['customer_id'] = $customerid;
+				$this->request->data['ServiceRequest']['request_datetime'] = $request_datetime;
+				$this->request->data['ServiceRequest']['township'] = $township;
 				
-
 				$allInfo = $this->request->data ;
 				// save to the database 
 				$this->ServiceRequest->create();
+
+				$originalDate = $this->request->data['ServiceRequest']['request_datetime'];
+				$newDate = date("Y-m-d H:m", strtotime($originalDate));
+				
+				$this->request->data['ServiceRequest']['request_datetime'] = $newDate;
 
 				if(!$this->ServiceRequest->save($this->request->data)) {
 					throw new Exception("ERROR OCCUR DURING REGISTER OF USER INFORMATION");
@@ -238,7 +254,7 @@ class ServiceRequestsController extends UserAppController {
 
 				$this->TransactionManager->commit($transaction);
 
-				$this->redirect(array('controller'=>'users','action' => 'index'));
+				// $this->redirect(array('controller'=>'users','action' => 'index'));
 
 			} catch (Exception $e) {
 				$this->log('File : ' . $e->getFile() . ' Line : ' . $e->getLine(), LOG_ERR);

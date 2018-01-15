@@ -1,3 +1,6 @@
+<?php echo $this->Html->css('DateTimePicker'); ?>
+<?php echo $this->Html->script('DateTimePicker'); ?>
+
 <section>
 <div class="container">
 	<div class="request-box col-md-8 col-md-offset-2 col-sm-8 col-sm-offset-2">
@@ -102,6 +105,23 @@
 
 				<?php endforeach; ?>
 
+				<div class="form-group" >	
+					<div class="col-md-10 col-md-offset-1 ">
+						<label>
+							When do you need the service ?
+						</label>
+						<?php
+							echo $this->Form->input('request_datetime', array(
+								'type' => 'text',
+								'label'=>false,
+								'data-field' => 'datetime',
+								'class' => 'form-control'
+							));
+						?>
+						<div id="dtBox"></div>
+					</div>
+				</div>
+
 				<?php if (empty(AuthComponent::user('id'))) : ?>
 					
 					<div class="form-group" >	
@@ -199,4 +219,30 @@
 		color: red;
 		padding-left: 0%;
 	}
+
+	p
+	{
+		margin-left: 20px;
+	}
+
+	input
+	{
+		width: 200px;
+		padding: 10px;
+		margin-left: 20px;
+		margin-bottom: 20px;
+	}
 </style>
+
+<script type="text/javascript">
+
+	$(document).ready(function()
+	{
+		$("#dtBox").DateTimePicker({
+
+		minuteInterval: 5
+
+		});
+	});
+
+</script>
