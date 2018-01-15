@@ -102,7 +102,11 @@ class ServiceRequestsController extends UserAppController {
 
 
 				$request_datetime = $this->request->data['ServiceRequest']['request_datetime'];
-				$township = $this->request->data['ServiceRequest']['township'];
+
+				if (isset($this->request->data['ServiceRequest']['township'])) {
+					$township = $this->request->data['ServiceRequest']['township'];
+				}
+				
 
 				unset($this->request->data['ServiceRequest']['name']);
 				unset($this->request->data['ServiceRequest']['phone_number']);
@@ -133,7 +137,10 @@ class ServiceRequestsController extends UserAppController {
 				$this->request->data['ServiceRequest']['service_request_id'] = $RequestCode;
 				$this->request->data['ServiceRequest']['customer_id'] = $customerid;
 				$this->request->data['ServiceRequest']['request_datetime'] = $request_datetime;
-				$this->request->data['ServiceRequest']['township'] = $township;
+
+				if (isset($township)) {
+					$this->request->data['ServiceRequest']['township'] = $township;
+				}
 				
 				$allInfo = $this->request->data ;
 				// save to the database 
@@ -224,6 +231,7 @@ class ServiceRequestsController extends UserAppController {
 				$this->Session->write('mainService', $main_service[$id]);
 				$this->Session->write('subService', $sub_service[$sub_service_id]);
 				$this->Session->write('emailContent', $string);
+				$this->Session->write('request_datetime', $this->request->data['ServiceRequest']['request_datetime']);
 
 				$admin_defaults = array(
 					'to' => 'myothandarkhaing18@gmail.com' ,
@@ -238,7 +246,7 @@ class ServiceRequestsController extends UserAppController {
 				$admin_options = array_merge($admin_defaults, $admin_options);
 
 				$AdminEmail = $this->_getMailInstance();
-				$AdminEmail->to('myothandarkhaing18@gmail.com');
+				$AdminEmail->to('myothandarkhaing.myanants@gmail.com');
 				$AdminEmail->from($admin_options['from']);
 				$AdminEmail->emailFormat($admin_options['emailFormat']);
 				$AdminEmail->subject($admin_options['subject']);

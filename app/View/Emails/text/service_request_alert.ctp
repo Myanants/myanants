@@ -12,6 +12,7 @@
 <?php
 	$mainService = $this->Session->read('mainService');
 	$subService = $this->Session->read('subService');
+	$request_datetime = $this->Session->read('request_datetime');
 
 	if (AuthComponent::user('customer_id')) {
 		echo "Customer ID : ".AuthComponent::user('customer_id')."\n";
@@ -28,7 +29,10 @@
 	if (AuthComponent::user('address')) {
 		echo "Customer Address : ".AuthComponent::user('address')."\n\n";
 	}
+
+	
 	echo "*".$mainService. " > " .$subService."*"."\n\n";
+	
 	$content = $this->Session->read('emailContent');
 	$tmp = '' ;
 	$contentStr = explode('###', $content);
@@ -40,4 +44,9 @@
 		$tmp = $tmp."\n";
 	}
 	echo $tmp;
+
+	if (isset($request_datetime)) {
+		echo "Requst date and time : ". $request_datetime ."\n\n";
+	}
+	
 ?>
