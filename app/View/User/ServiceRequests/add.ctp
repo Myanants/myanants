@@ -7,13 +7,13 @@
 		<div class="sub_box" >
 
 			<div class="Utitle" >
-				<center>
-					<h3 class="hidden-sm hidden-xs">
+				<center class="hidden-sm hidden-xs">
+					<h3>
 						<?php echo $service['Service']['name']; ?>
 					</h3>
 				</center>
-				<center>
-					<h4 class="hidden-lg hidden-md">
+				<center class="hidden-lg hidden-md" style='margin-top: 33%;'>
+					<h4>
 						<?php echo $service['Service']['name']; ?>
 					</h4>
 				</center>
@@ -71,10 +71,18 @@
 									$answer = explode('@@', $string);
 									$chkValue = array();
 									foreach ($answer as $key => $value) { 
-										$chkValue[$value] = $value;										
-									} ?>
+										$chkValue[$value] = $value; ?>
+										<div class="form-check">
+											<label>
+												<input type="checkbox" name="<?php echo $questionId; ?>" value="<?php echo $value; ?>" > <span class="label-text">
+													<?php echo $value; ?>
+												</span>
+											</label>
+										</div>
 
-									<?php echo $this->Form->input($questionId, array(
+									<?php } ?>
+
+									<!-- <?php echo $this->Form->input($questionId, array(
 											'type' => 'select',
 											'multiple' => 'checkbox',
 											'label' => false,
@@ -83,7 +91,7 @@
 											'required' => false
 										));
 
-										?>
+										?> -->
 									
 								<?php } elseif ($value['Question']['type'] == 'radio') { ?>
 									<?php
@@ -92,10 +100,18 @@
 									?>
 									<div>
 										<?php foreach ($answer as $key => $value) : ?>
-											<label class="radio-inline">
+											<!-- <label class="radio-inline">
 												<input type="radio" name="<?php echo 'data[ServiceRequest]['.$questionId.']'; ?>" value = "<?php echo $value; ?>" > 
 												<?php echo $value; ?>
-											</label>
+											</label> -->
+											<div class="form-check">
+												<label>
+													<input type="radio" name="<?php echo 'data[ServiceRequest]['.$questionId.']'; ?>" value = "<?php echo $value; ?>" > <span class="label-text">
+														<?php echo $value; ?>
+															
+														</span>
+												</label>
+											</div>
 										<?php endforeach; ?>
 									</div>
 
@@ -105,11 +121,10 @@
 
 				<?php endforeach; ?>
 
-				<div class="form-group" >	
+				<div class="form-group" ></div>
+				<div class="form-group" >
 					<div class="col-md-10 col-md-offset-1 ">
-						<label>
-							When do you need the service ?
-						</label>
+						<label>When do you need the service ?</label>
 						<?php
 							echo $this->Form->input('request_datetime', array(
 								'type' => 'text',
@@ -139,6 +154,7 @@
 						</div>
 					</div>
 
+
 					<div class="form-group" >
 						<div class="col-md-10 col-md-offset-1 ">
 							<label>
@@ -153,6 +169,7 @@
 							?>
 						</div>
 					</div>
+
 					<div class="form-group" >
 						<div class="col-md-10 col-md-offset-1 ">
 							<label>
@@ -220,28 +237,94 @@
 		padding-left: 0%;
 	}
 
-	p
-	{
+	p {
 		margin-left: 20px;
 	}
 
-	input
-	{
+	input {
 		width: 200px;
 		padding: 10px;
-		margin-left: 20px;
+		/*margin-left: 20px;*/
 		margin-bottom: 20px;
 	}
+
+	@import url("https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css");
+
+	input[type="checkbox"], input[type="radio"]{
+		position: absolute;
+		right: 9000px;
+	}
+
+	/*Check box*/
+	input[type="checkbox"] + .label-text:before{
+		content: "\f096";
+		font-family: "FontAwesome";
+		speak: none;
+		font-style: normal;
+		font-weight: normal;
+		font-variant: normal;
+		text-transform: none;
+		line-height: 1;
+		-webkit-font-smoothing:antialiased;
+		width: 1em;
+		display: inline-block;
+		margin-right: 5px;
+	}
+
+	input[type="checkbox"]:checked + .label-text:before{
+		content: "\f14a";
+		color: #2980b9;
+		animation: effect 250ms ease-in;
+	}
+
+	input[type="checkbox"]:disabled + .label-text{
+		color: #aaa;
+	}
+
+	input[type="checkbox"]:disabled + .label-text:before{
+		content: "\f0c8";
+		color: #ccc;
+	}
+
+	/*Radio box*/
+
+	input[type="radio"] + .label-text:before{
+		content: "\f10c";
+		font-family: "FontAwesome";
+		speak: none;
+		font-style: normal;
+		font-weight: normal;
+		font-variant: normal;
+		text-transform: none;
+		line-height: 1;
+		-webkit-font-smoothing:antialiased;
+		width: 1em;
+		display: inline-block;
+		margin-right: 5px;
+	}
+
+	input[type="radio"]:checked + .label-text:before{
+		content: "\f192";
+		color: #8e44ad;
+		animation: effect 250ms ease-in;
+	}
+
+	input[type="radio"]:disabled + .label-text{
+		color: #aaa;
+	}
+
+	input[type="radio"]:disabled + .label-text:before{
+		content: "\f111";
+		color: #ccc;
+	}
+
 </style>
 
 <script type="text/javascript">
 
-	$(document).ready(function()
-	{
+	$(document).ready(function() {
 		$("#dtBox").DateTimePicker({
-
-		minuteInterval: 5
-
+			minuteInterval: 5
 		});
 	});
 
