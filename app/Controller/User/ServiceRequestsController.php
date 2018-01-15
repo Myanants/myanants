@@ -90,14 +90,14 @@ class ServiceRequestsController extends UserAppController {
 						if(!$this->Customer->save($data)) {
 							throw new Exception("ERROR OCCUR DURING REGISTER OF USER INFORMATION");
 						}
-						$cID = $this->Customer->find('first',array('order' => array('Customer.id' => 'DESC'),'fields' => 'customer_id'));
+						$cID = $this->Customer->find('first',array('order' => array('Customer.id' => 'DESC'),'fields' => 'id'));
 						
-						$customerid = $cID['Customer']['customer_id'] ;
+						$customerid = $cID['Customer']['id'] ;
 					} else {
-						$customerid = $existData['Customer']['customer_id'] ;
+						$customerid = $existData['Customer']['id'] ;
 					}
 				} else {
-					$customerid = $this->Auth->user('customer_id');
+					$customerid = $this->Auth->user('id');
 				}
 
 
@@ -254,7 +254,7 @@ class ServiceRequestsController extends UserAppController {
 
 				$this->TransactionManager->commit($transaction);
 
-				// $this->redirect(array('controller'=>'users','action' => 'index'));
+				$this->redirect(array('controller'=>'users','action' => 'index'));
 
 			} catch (Exception $e) {
 				$this->log('File : ' . $e->getFile() . ' Line : ' . $e->getLine(), LOG_ERR);
