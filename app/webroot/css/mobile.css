@@ -26,8 +26,8 @@
 @media screen and (max-width: 600px) {
 /*for login page*/
 	.login_box{
-		margin-top:80px;
-		margin-bottom:40px;
+		margin-top: 22px;
+		/*margin-bottom:40px;*/
 	}
 	.promo {
 		background: linear-gradient(to right, #00cc99 0%, #cc00cc 100%);

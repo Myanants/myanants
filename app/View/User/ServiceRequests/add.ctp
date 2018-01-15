@@ -12,8 +12,8 @@
 						<?php echo $service['Service']['name']; ?>
 					</h3>
 				</center>
-				<center class="hidden-lg hidden-md" style='margin-top: 33%;'>
-					<h4>
+				<center class="hidden-lg hidden-md">
+					<h4 style="margin-bottom: -2%;margin-top: 10%;">
 						<?php echo $service['Service']['name']; ?>
 					</h4>
 				</center>
@@ -228,7 +228,7 @@
 	}
 
 	.request-box {
-		margin-top: 8%;
+		margin-top: 2%;
 	}
 	/*---------- mobile -----------*/
 	@media screen and (max-width: 768px) and (max-width: 992px) {

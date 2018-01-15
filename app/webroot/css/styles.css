@@ -102,7 +102,7 @@ pre code {
   background: linear-gradient(to right, #00cc99 0%, #cc00cc 100%);
   /*background: #17baef;*/
   color: #fff;
-  position: fixed;
+  /*position: fixed;*/
   width: 100%;
 }
 .header.navbar-fixed-top {
@@ -673,7 +673,7 @@ pre code {
 
 /*@media screen and (min-width: 600px) {*/
 .login_box{
-      margin-top:8%;
+      margin-top:2%;
     }
 /*}*/
 
