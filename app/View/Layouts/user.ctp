@@ -42,7 +42,7 @@
 			<div class="hidden-sm hidden-xs col-md-3" style="margin-top: -3%;margin-bottom: -1%;">        
 				<h1>
 					<a href="http://myanants.com/staging">
-						<img src='app/webroot/img/mm.png' class="logoimg" />
+						<img src='http://myanants.com/staging/img/mm.png' class="logoimg" />
 					</a>
 				</h1><!--//logo-->
 			</div>    
@@ -50,7 +50,7 @@
 			<div class="hidden-md hidden-lg col-md-3" style="margin-top: -3%;margin-bottom: -1%;">        
 				<h1 class="logo pull-left">
 					<a href="http://myanants.com/staging">
-						<img src='app/webroot/img/mm.png' class="logoimg" />
+						<img src='http://myanants.com/staging/img/mm.png' class="logoimg" />
 					</a>
 				</h1><!--//logo-->
 			</div>
