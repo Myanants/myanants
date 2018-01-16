@@ -4,8 +4,12 @@
 		<div class="sub_box" >
 
 			<div class="Utitle" >
-				<center><h2 class="hidden-sm hidden-xs">Sign Up</h2></center>
-				<center><h3 class="hidden-lg hidden-md">Sign Up</h3></center>
+				<center><h2 class="hidden-sm hidden-xs">
+					<?php echo __('Sign Up'); ?>
+				</h2></center>
+				<center><h3 class="hidden-lg hidden-md">
+					<?php echo __('Sign Up'); ?>
+				</h3></center>
 			</div>
 
 			<div class="panel-body" >
@@ -26,7 +30,9 @@
 				<div class="form-group" ></div>
 				<div class="form-group" >
 					<div class="col-md-10 col-md-offset-1 ">
-						<label>User Name</label>
+						<label>
+							<?php echo __('User Name'); ?>
+						</label>
 						<?php echo $this->Form->input('name', array( 'class' => 'form-control', 'placeholder' => 'User Name', 'autofocus' => true, 'autocomplete' => 'off','label' => false)); ?>
 					</div>
 				</div>
@@ -34,7 +40,9 @@
 				<div class="form-group" ></div>
 				<div class="form-group" >
 					<div class="col-md-10 col-md-offset-1 ">
-						<label>Phone Number</label>
+						<label>
+							<?php echo __('Phone number'); ?>
+						</label>
 						<?php echo $this->Form->input('phone_number', array( 'class' => 'form-control', 'placeholder' => 'Phone Number', 'autofocus' => true, 'autocomplete' => 'off','label' => false)); ?>
 					</div>
 				</div>
@@ -42,7 +50,9 @@
 				<div class="form-group" ></div>
 				<div class="form-group" >
 					<div class="col-md-10 col-md-offset-1 ">
-						<label>Email</label>
+						<label>
+							<?php echo __('Email'); ?>
+						</label>
 						<?php echo $this->Form->input('email', array( 'class' => 'form-control', 'placeholder' => 'Email Address', 'autofocus' => true, 'autocomplete' => 'off','label' => false)); ?>
 					</div>
 				</div>
@@ -50,7 +60,9 @@
 				<div class="form-group" ></div>
 				<div class="form-group" >
 					<div class="col-md-10 col-md-offset-1 ">
-						<label>Address</label>
+						<label>
+							<?php echo __('Address'); ?>
+						</label>
 						<?php echo $this->Form->input('address', array( 'class' => 'form-control', 'placeholder' => 'Address', 'autofocus' => true, 'autocomplete' => 'off','label' => false)); ?>
 					</div>
 				</div>
@@ -58,7 +70,9 @@
 				<div class="form-group" ></div>
 				<div class="form-group">
 					<div class="col-md-10 col-md-offset-1">
-						<label>Password</label>
+						<label>
+							<?php echo __('Password'); ?>
+						</label>
 						<?php echo $this->Form->input('password', array('placeholder' => 'password', 'autocomplete' => 'off','label' => false,'type'=>'password', 'class' => 'form-control')); ?>
 					</div>
 				</div>
@@ -66,7 +80,9 @@
 				<div class="form-group" ></div>
 				<div class="form-group">
 					<div class="col-md-10 col-md-offset-1">
-						<label>Confirm Password</label>
+						<label>
+							<?php echo __('Confirm Password'); ?>
+						</label>
 						<?php echo $this->Form->input('confirm_password', array('placeholder' => 'Confirm Password', 'autocomplete' => 'off','label' => false,'type'=>'password', 'class' => 'form-control')); ?>
 					</div>
 				</div>

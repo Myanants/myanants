@@ -51,10 +51,16 @@ class OptionCommonComponent extends Component {
 	);
 
 	public $townships = array(
-		1 => 'Yangon',
-		2 => 'Yankin',
-		3 => 'KyoutMyoung',
-		4 => 'ThaKaTa'
+		1 => 'Tamwe',
+		2 => 'San Chaung',
+		3 => 'Mayangone',
+		4 => 'Thingangyun',
+		5 => 'Thaketa',
+		6 => 'Hlaing',
+		7 => 'Pazundaung',
+		8 => 'Botahtaung',
+		9 => 'North Okkalapa',
+		10 => 'Latha'
 	);
 
 	public $job_type = array(

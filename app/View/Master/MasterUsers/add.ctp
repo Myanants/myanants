@@ -20,11 +20,15 @@
 			</div>
 
 			<div class="Utitle" >
-				<center><h2 class="hidden-sm hidden-xs">Service Provider Register</h2></center>
-				<center><h3 class="hidden-lg hidden-md">Service Provider Register</h3></center>
+				<center><h2 class="hidden-sm hidden-xs">
+					<?php echo __('Service Provider Register'); ?>
+				</h2></center>
+				<center><h3 class="hidden-lg hidden-md">
+					<?php echo __('Service Provider Register'); ?>
+				</h3></center>
 			</div>
 
-			<div class="panel-body" >
+			<div class="panel-body">
 				<?php 
 					echo $this->Form->create('ServiceProvider', array(
 						'type' => 'file',
@@ -42,7 +46,9 @@
 				<div class="form-group" ></div>
 				<div class="form-group" >
 					<div class="col-md-10 col-md-offset-1 ">
-						<label>Service Provider ID</label>
+						<label>
+							<?php echo __('Service Provider ID'); ?>
+						</label>
 						<?php //echo $this->Form->input('id', array( 'class' => 'form-control', 'placeholder' => '', 'autofocus' => true, 'autocomplete' => 'off','label' => false,'value' => $UserCode,'disabled' => true)); ?>
 
 						<?php
@@ -63,7 +69,10 @@
 				<div class="form-group" ></div>
 				<div class="form-group" >
 					<div class="col-md-10 col-md-offset-1 ">
-						<label>Name<span class="required" style="color: red;">*</span></label>
+						<label>
+							<?php echo __('Name'); ?>
+							<span class="required" style="color: red;">*</span>
+						</label>
 						<?php echo $this->Form->input('name', array( 'class' => 'form-control', 'placeholder' => 'User Name', 'autofocus' => true, 'autocomplete' => 'off','label' => false)); ?>
 					</div>
 				</div>
@@ -71,7 +80,10 @@
 				<div class="form-group" ></div>
 				<div class="form-group" >
 					<div class="col-md-10 col-md-offset-1 ">
-						<label>Company Name<span class="required" style="color:red;">*</span></label>
+						<label>
+							<?php echo __('Company Name'); ?>
+							<span class="required" style="color:red;">*</span>
+						</label>
 						<?php echo $this->Form->input('company_name', array( 'class' => 'form-control', 'placeholder' => 'Company name', 'autofocus' => true, 'autocomplete' => 'off','label' => false)); ?>
 					</div>
 				</div>
@@ -79,7 +91,10 @@
 				<div class="form-group" ></div>
 				<div class="form-group" >
 					<div class="col-md-10 col-md-offset-1 ">
-						<label>Phone Number<span class="required" style="color:red;">*</span></label>
+						<label>
+							<?php echo __('Phone Number'); ?>
+							<span class="required" style="color:red;">*</span>
+						</label>
 						<?php echo $this->Form->input('phone', array( 'class' => 'form-control', 'placeholder' => 'Phone Number', 'autofocus' => true, 'autocomplete' => 'off','label' => false)); ?>
 					</div>
 				</div>
@@ -87,7 +102,9 @@
 				<div class="form-group" ></div>
 				<div class="form-group" >
 					<div class="col-md-10 col-md-offset-1 ">
-						<label>Email</label>
+						<label>
+							<?php echo __('Email'); ?>
+						</label>
 						<?php echo $this->Form->input('email', array( 'class' => 'form-control', 'placeholder' => 'Email Address', 'autofocus' => true, 'autocomplete' => 'off','label' => false)); ?>
 					</div>
 				</div>
@@ -95,7 +112,10 @@
 				<div class="form-group" ></div>
 				<div class="form-group" >
 					<div class="col-md-10 col-md-offset-1 ">
-						<label>Address<span class="required" style="color:red;">*</span></label>
+						<label>
+							<?php echo __('Address'); ?>
+							<span class="required" style="color:red;">*</span>
+						</label>
 						<?php echo $this->Form->input('address', array( 'class' => 'form-control', 'placeholder' => 'Address', 'autofocus' => true, 'autocomplete' => 'off','label' => false)); ?>
 					</div>
 				</div>
@@ -103,7 +123,9 @@
 				<div class="form-group" ></div>
 				<div class="form-group" >
 					<div class="col-md-10 col-md-offset-1 ">
-						<label>NIRC</label>
+						<label>
+							<?php echo __('NIRC'); ?>
+						</label>
 						<?php echo $this->Form->input('nirc', array( 'class' => 'form-control', 'placeholder' => 'nirc', 'autofocus' => true, 'autocomplete' => 'off','label' => false)); ?>
 					</div>
 				</div>
@@ -111,7 +133,10 @@
 				<div class="form-group" ></div>
 				<div class="form-group" >
 					<div class="col-md-10 col-md-offset-1 ">
-						<label>Number of team member<span class="required" style="color:red;">*</span></label>
+						<label>
+							<?php echo __('Number of team member'); ?>
+							<span class="required" style="color:red;">*</span>
+						</label>
 						<?php //echo $this->Form->input('teammember', array( 'class' => 'form-control', 'placeholder' => 'teammember', 'autofocus' => true, 'autocomplete' => 'off','label' => false)); ?>
 						<?php
 							$member = array();
@@ -133,7 +158,9 @@
 				<div class="form-group" ></div>
 				<div class="form-group" >
 					<div class="col-md-10 col-md-offset-1 ">
-						<label>Business Summary</label>
+						<label>
+							<?php echo __('Business Summary'); ?>
+						</label>
 						<?php echo $this->Form->input('business_summary', array('type' => 'textarea' ,'class' => 'form-control', 'placeholder' => 'business summary', 'autofocus' => true, 'autocomplete' => 'off','label' => false)); ?>
 					</div>
 				</div>
@@ -141,7 +168,9 @@
 				<div class="form-group" ></div>
 				<div class="form-group" >
 					<div class="col-md-10 col-md-offset-1 ">
-						<label>Legal</label>						
+						<label>
+							<?php echo __('Legal'); ?>
+						</label>						
 					</div>
 					<div class="col-md-10 col-md-offset-1">
 						<input type="radio" name="data[ServiceProvider][legal]" value="0" checked="checked" > No &nbsp;&nbsp;&nbsp;&nbsp; <input type="radio" name="data[ServiceProvider][legal]" value="1" > Yes 
@@ -151,7 +180,10 @@
 				<div class="form-group" ></div>
 				<div class="form-group" >
 					<div class="col-md-10 col-md-offset-1 ">
-						<label>Category<span class="required" style="color:red;">*</span></label>
+						<label>
+							<?php echo __('Category'); ?>
+							<span class="required" style="color:red;">*</span>
+						</label>
 						<?php echo $this->Form->input('business_type', array( 'class' => 'form-control', 'placeholder' => 'business type', 'autofocus' => true, 'autocomplete' => 'off','label' => false)); ?>
 					</div>
 				</div>
@@ -159,7 +191,9 @@
 				<div class="form-group" ></div>
 				<div class="form-group" >
 					<div class="col-md-10 col-md-offset-1 ">
-						<label>Prefer Location</label>
+						<label>
+							<?php echo __('Prefer Location'); ?>
+						</label>
 						<?php echo $this->Form->input('prefer_location', array( 'class' => 'form-control', 'placeholder' => 'prefer location', 'autofocus' => true, 'autocomplete' => 'off','label' => false)); ?>
 					</div>
 				</div>
@@ -167,7 +201,9 @@
 				<div class="form-group" ></div>
 				<div class="form-group" >
 					<div class="col-md-10 col-md-offset-1 ">
-						<label>Team Photo</label>
+						<label>
+							<?php echo __('Team Photo'); ?>
+						</label>
 						<div class="col-md-10" style="padding-left: 1%;">
 							<?php
 								echo $this->Form->input('photo', array(
@@ -183,7 +219,10 @@
 				<div class="form-group" ></div>
 				<div class="form-group" >
 					<div class="col-md-10 col-md-offset-1 ">
-						<label>Pricing<span class="required" style="color:red;">*</span></label>
+						<label>
+							<?php echo __('Pricing'); ?>
+							<span class="required" style="color:red;">*</span>
+						</label>
 						<?php echo $this->Form->input('pricing', array('type' => 'textarea' , 'class' => 'form-control', 'placeholder' => 'pricing', 'autofocus' => true, 'autocomplete' => 'off','label' => false)); ?>
 					</div>
 				</div>
@@ -191,7 +230,10 @@
 				<div class="form-group" ></div>
 				<div class="form-group" >
 					<div class="col-md-10 col-md-offset-1 ">
-						<label>Experience<span class="required" style="color:red;">*</span></label>
+						<label>
+							<?php echo __('Experience'); ?>
+							<span class="required" style="color:red;">*</span>
+						</label>
 						<?php 
 							echo $this->Form->input('experience', array(
 								'type' => 'select',
@@ -207,7 +249,10 @@
 				<div class="form-group" ></div>
 				<div class="form-group" >
 					<div class="col-md-10 col-md-offset-1 ">
-						<label>Township<span class="required" style="color:red;">*</span></label>
+						<label>
+							<?php echo __('Township'); ?>
+							<span class="required" style="color:red;">*</span>
+						</label>
 						<?php 
 							echo $this->Form->input('townships', array(
 								'type' => 'select',
@@ -223,7 +268,10 @@
 				<div class="form-group" ></div>
 				<div class="form-group">
 					<div class="col-md-10 col-md-offset-1">
-						<label>Password<span class="required" style="color:red;">*</span></label>
+						<label>
+							<?php echo __('Password'); ?>
+							<span class="required" style="color:red;">*</span>
+						</label>
 						<?php echo $this->Form->input('password', array('placeholder' => 'Password', 'autocomplete' => 'off','label' => false,'type'=>'password', 'class' => 'form-control')); ?>
 					</div>
 				</div>
@@ -231,7 +279,10 @@
 				<div class="form-group" ></div>
 				<div class="form-group">
 					<div class="col-md-10 col-md-offset-1">
-						<label>Confirm Password<span class="required" style="color:red;">*</span></label>
+						<label>
+							<?php echo __('Confirm Password'); ?>
+							<span class="required" style="color:red;">*</span>
+						</label>
 						<?php echo $this->Form->input('confirm_password', array('placeholder' => 'Confirm Password', 'autocomplete' => 'off','label' => false,'type'=>'password', 'class' => 'form-control')); ?>
 					</div>
 				</div>

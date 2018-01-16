@@ -3,9 +3,13 @@
 	<div id="signupbox" class="login_box mainbox col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2 ">
 		<div class="sub_box" >
 
-			<div>
-				<h2 class="hidden-sm hidden-xs">Sign In With MyanAnts Account</h2>
-				<h3 class="hidden-lg hidden-md">Sign In With MyanAnts Account</h3>
+			<div style="    margin-left: 11%;">
+				<h2 class="hidden-sm hidden-xs">
+					<?php echo __('Sign In With MyanAnts Account'); ?>
+				</h2>
+				<h3 class="hidden-lg hidden-md">
+					<?php echo __('Sign In With MyanAnts Account'); ?>
+				</h3>
 			</div>
 
 			<div class="panel-body" >
@@ -15,7 +19,9 @@
 				<div class="form-group" ></div>
 				<div class="form-group" >
 					<div class="col-md-10 col-md-offset-1 ">
-						<label>User Name</label>
+						<label>
+							<?php echo __('User Name'); ?>
+						</label>
 						<?php if ($name) : ?>
 							<?php echo $this->Form->input('name', array( 'class' => 'form-control', 'placeholder' => 'User name', 'autofocus' => true, 'autocomplete' => 'off','label' => false,'value'=> $name)); ?>
 						<?php else : ?>
@@ -27,7 +33,9 @@
 				<div class="form-group" ></div>
 				<div class="form-group">
 					<div class="col-md-10 col-md-offset-1">
-						<label>Password</label>
+						<label>
+							<?php echo __('Password'); ?>
+						</label>
 						<?php if ($password): ?>
 							<?php echo $this->Form->input('password', array('value' => $password, 'placeholder' => 'password', 'autocomplete' => 'off','label' => false,'type'=>'password', 'class' => 'form-control')); ?>
 						<?php else: ?>
@@ -44,15 +52,10 @@
 					<?php  else:?>
 						<?php echo $this->Form->checkbox('remember_me' ); ?>
 					<?php endif;?>
-						<?php echo $this->Form->label('remember_me', 'Do you remember');?>
+						<?php //echo $this->Form->label('remember_me', 'Do you remember');?>
+						<label name='remember_me'><?php echo __('Do you remember'); ?></label>
 					</div>
 				</div>
-
-				<!-- <div class="form-group">
-					<div class="col-md-10 col-md-offset-1">
-						<?php echo $this->Html->link("Click here if you forgot your password", array('controller' => 'users', 'action' => 'remind'),array( 'label' => false,'target' =>'_blank','style' => 'color: #0000ff;')); ?>
-					</div>
-				</div> -->
 
 				<div class="form-group">
 					<div class="col-md-5 col-md-offset-1 hidden-xs hidden-sm" style="padding-right: 2px;">

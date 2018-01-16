@@ -21,8 +21,12 @@
 			
 
 			<div class="Utitle col-md-offset-1" >
-				<h2 class="hidden-sm hidden-xs">Sign In For Service Provider</h2>
-				<h3 class="hidden-lg hidden-md">Sign In For Service Provider</h3>
+				<h2 class="hidden-sm hidden-xs">
+					<?php echo __('Sign In For Service Provider'); ?>
+				</h2>
+				<h3 class="hidden-lg hidden-md">
+					<?php echo __('Sign In For Service Provider'); ?>
+				</h3>
 			</div>
 			
 
@@ -30,10 +34,13 @@
 				<?php echo $this->Form->create('ServiceProvider', array('url' => array('controller' => 'master_users', 'action' => 'login'), 'label' => false,'class'=>'form-horizontal')); ?>
 				<?php echo $this->Session->flash(); ?>
 
-				<div class="form-group" ></div>
-				<div class="form-group" >
+				<div class="form-group"></div>
+
+				<div class="form-group">
 					<div class="col-md-10 col-md-offset-1 ">
-						<label>User Name</label>
+						<label>
+							<?php echo __('User Name'); ?>
+						</label>
 						<?php if ($name) : ?>
 							<?php echo $this->Form->input('name', array( 'class' => 'form-control', 'placeholder' => 'User name', 'autofocus' => true, 'autocomplete' => 'off','label' => false,'value'=> $name)); ?>
 						<?php else : ?>
@@ -45,7 +52,9 @@
 				<div class="form-group" ></div>
 				<div class="form-group">
 					<div class="col-md-10 col-md-offset-1">
-						<label>Password</label>
+						<label>
+							<?php echo __('Password'); ?>
+						</label>
 						<?php if ($password): ?>
 							<?php echo $this->Form->input('password', array('value' => $password, 'placeholder' => 'password', 'autocomplete' => 'off','label' => false,'type'=>'password', 'class' => 'form-control')); ?>
 						<?php else: ?>
@@ -62,7 +71,8 @@
 					<?php  else:?>
 						<?php echo $this->Form->checkbox('remember_me' ); ?>
 					<?php endif;?>
-						<?php echo $this->Form->label('remember_me', 'Do you remember');?>
+						<label name='remember_me'><?php echo __('Do you remember'); ?></label>
+						<?php //echo $this->Form->label('remember_me', 'Do you remember');?>
 					</div>
 				</div>
 

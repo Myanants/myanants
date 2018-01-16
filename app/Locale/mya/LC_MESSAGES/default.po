@@ -8,8 +8,6 @@ msgstr "အြန္လိုင္း(သို႔မဟုတ္)ဖုန္�
 msgid "REGISTER"
 msgstr "အြန္လိုင္း(သို႔မဟုတ္)ဖုန္းျဖင့္ၾကိဳတင္စာရင္းေပးႏိုင္ျခင္း"
 
-
-
 msgid "Customers can book anytime via www.myanants.com or call 09 06 186 8686 or 09 95 200 4939 at your convenient time.We connect you to the most reliable service providers."
 msgstr "www.myanants.com ၀က္ဆိုဒ္မွ တဆင့္ေသာ္လည္းေကာင္း၊ ၀၉ ၉၆ ၁၈၆ ၈၆၈၆/၀၉ ၉၅ ၂၀၀ ၄၉၃၉ သို႔ေခၚဆို၍ေသာ္လည္းေကာင္း ၾကိဳတင္စာရင္းေပးႏိုင္ပါသည္။က်ြႏုပ္တို႔သည္ သင့္ကိုအျပည့္အ၀စိတ္ခ်ယံုၾကည္ရေသာ ၀န္ေဆာင္မွုလုပ္ငန္းမ်ားႏွင့္ ခ်ိတ္ဆက္ေပးေနပါသည္။"
 
@@ -30,7 +28,6 @@ msgstr " အလုပ္ၿပီးဆံုးမွသာ ေငြေပး�
 
 msgid "Make the payment only after work is completed."
 msgstr "အလုပ္အားလံုးၿပီးစီးသြားမွသာ ေငြေပးေခ်ရပါမည္။"
-
 
 msgid "Air Conditioner Maintenance"
 msgstr "အဲကြန္းျပဳျပင္ထိန္းသိမ္းမႈ"
@@ -55,3 +52,226 @@ msgstr "ဘာ၀န္ေဆာင္မွဳပဲလိုလို MyanAnts
 
 msgid "Sign Up"
 msgstr "မွတ္ပံုတင္မည္"
+
+msgid "Sign In With MyanAnts Account"
+msgstr "ၿမန္အံ့အေကာင့္ျဖင့္၀င္ပါ"
+
+msgid "What kind of service do you need for your AC? (servicing, filling gas, not cold, water dripping, reinstallation, installation, etc)"
+msgstr "အဲကြန္းကဘာ service လုပ္ခ်င္တာလဲ (servicing, gas ျဖည့္, မေအး, ေရယို,ေနရာေရႊ႕, ….)"
+
+msgid "How many AC units do you want to service?"
+msgstr "အဲကြန္းဘယ္ႏွစ္လံုး service လုပ္ခ်င္တာပါလဲ။"
+
+msgid "1"
+msgstr "၁လံုး"
+
+msgid "2"
+msgstr "၂လံုး"
+
+msgid "3"
+msgstr "၃လံုး"
+
+msgid "4 or more"
+msgstr "၄လံုးႏွင့္အထက္"
+
+msgid "What horsepower will your aircon be?"
+msgstr "ျမင္းေကာင္ေရအားဘယ္ေလာက္ရွိလဲ။"
+
+msgid "1HP"
+msgstr "၁ေကာင္အား"
+
+msgid "1.5HP"
+msgstr "၁ေကာင္ခြဲအား"
+
+msgid "2HP"
+msgstr "၂ေကာင္အား"
+
+msgid "2.5HP"
+msgstr "၂ေကာင္ခြဲအား"
+
+msgid "3HP"
+msgstr "၃ေကာင္အား"
+
+msgid "Others"
+msgstr "အျခား"
+
+msgid "When do you need the service ?"
+msgstr "ဘယ္ေန႔ ဘယ္အခ်ိန္ေလာက္လိုခ်င္တာလဲ။"
+
+msgid "Your Name"
+msgstr "နာမည္"
+
+msgid "Name"
+msgstr "နာမည္"
+
+msgid "Your Phone Number"
+msgstr "ဖုန္းနံပါတ္"
+
+msgid "Phone Number"
+msgstr "ဖုန္းနံပါတ္"
+
+msgid "Your Township"
+msgstr "ျမို့နယ္"
+
+msgid "What electrical & Plumbing problems do you have?"
+msgstr "ဘာ service လုပ္ခ်င္တာပါလဲ။"
+
+msgid "Photos upload"
+msgstr "serviceလုပ္ခ်င္တဲ့အရာရဲ႕ဓာတ္ပံုတင္ ေပးပါ။"
+
+msgid "What type of property do you have?"
+msgstr "သန္႔ရွင္းေရးလုပ္မွာတိုက္ခန္းလား လံုးခ်င္းလား ကြန္ဒိုလား ရံုးခန္းလား။"
+
+msgid "Single/ Double-Storey House"
+msgstr ""
+
+msgid "Flat/Apartment"
+msgstr ""
+
+msgid "Condo"
+msgstr ""
+
+msgid "Commercial"
+msgstr ""
+
+msgid "What kind of cleaning do you want?"
+msgstr "ဘယ္လိုသန္႔ရွင္းေရးမ်ိဳးလုပ္ခ်င္ပါသလဲ။"
+
+msgid "Normal cleaning"
+msgstr "ရိုးရိုးအိမ္သန္႔ရွင္းေရးလုပ္ခ်င္တာလား။"
+
+msgid "deep cleaning"
+msgstr "ေသခ်ာေျပာင္လက္ေနေအာင္တိုက္ခြ်တ္ေဆးေၾကာခ်င္တာလား။"
+
+msgid "What packages do you prefer?"
+msgstr "ဘယ္လိုသန္႔ရွင္းေရး Package လိုခ်င္ပါလဲ။"
+
+msgid "Premium package (13000-50000 Ks for 1 professional/trained cleaner)"
+msgstr "၁၃၀၀၀က်ပ္ မွ ၅၀၀၀၀က်ပ္ထိ (Professional  ျဖစ္ျပီးအေတြ႕အၾကံဳရွိတဲ့ ပံုမွန္အိမ္သန္႔ရွင္းေရးသမားတစ္ေယာက္အတြက္)"
+
+msgid "Budget package (7000-21000 Ks 1 or 2 cleaner)"
+msgstr "၇၀၀၀ က်ပ္ မွ ၂၁၀၀၀က်ပ္အထိ ( Training မဆင္းထားေသာ ပံုမွန္အိမ္သန္႔ရွင္းေရးသမား တစ္ေယာက္ <သို႕>ႏွစ္ေယာက္အတြက္)"
+
+msgid "Deep cleaning package (30000 Above)"
+msgstr "၃၀၀၀၀က်ပ္ႏွင့္အထက္ (ေသခ်ာေျပာင္လက္ေနေအာင္တိုက္ခြ်တ္ေဆးေၾကာဖို႔အတြက္)"
+
+msgid "How many hour package do you want? "
+msgstr "ဘယ္ႏွနာရီသန္႔ရွင္းေရးလုပ္ခ်င္ပါလဲ။"
+
+msgid "2 hours(normal cleaning)"
+msgstr "၂နာရီ(ရိုးရိုးအိမ္သန္႔ရွင္းေရး)"
+
+msgid "3 hours(normal cleaning)"
+msgstr "၃နာရီ (ရိုးရိုးအိမ္သန္႔ရွင္းေရး)"
+
+msgid "4 hours(normal cleaning)"
+msgstr "၄နာရီ (ရိုးရိုးအိမ္သန္႔ရွင္းေရး)"
+
+msgid "5 hours & above (normal cleaning)"
+msgstr "၅နာရီ ႏွင့္အထက္(ရိုးရိုးအိမ္သန္႔ရွင္းေရး)"
+
+msgid "Unlimited time(deep cleaning)"
+msgstr "အခ်ိန္ကန္႔သတ္ခ်က္မရွိ (ေသခ်ာေျပာင္လက္ေနေအာင္တိုက္ခြ်တ္ေဆးေၾကာဖို႔အတြက္)"
+
+msgid "How many cleaners do you want to serve your cleaning needs?"
+msgstr "လူဘယ္ႏွေယာက္လိုခ်င္ပါလဲ။"
+
+msgid "1"
+msgstr "၁ေယာက္"
+
+msgid "2"
+msgstr "၂ေယာက္"
+
+msgid "3"
+msgstr "၃ေယာက္"
+
+msgid "4 or more"
+msgstr "၄ေယာက္ႏွင့္အထက္"
+
+msgid "Photos upload"
+msgstr "သန္႔ရွင္းေရးလုပ္ခ်င္တဲ့ေနရာေတြရဲ႔ ဓာတ္ပံုတင္ေပးပါ။"
+
+msgid "Any other details about service"
+msgstr "Serviceယူဖို႔အတြက္အေသးစိတ္ေျပာခ်င္တာရွိပါသလား။"
+
+
+msgid "User Name"
+msgstr "အေကာင့္နာမည္"
+
+msgid "Phone number"
+msgstr "ဖုန္းနံပါတ္"
+
+msgid "Email Address"
+msgstr "အီးေမးလ္လိပ္စာ"
+
+msgid "Email"
+msgstr "အီးေမးလ္လိပ္စာ"
+
+msgid "Address"
+msgstr "ေနရပ္လိပ္စာ"
+
+msgid "Password"
+msgstr "စကား၀ွက္"
+
+msgid "Confirm Password"
+msgstr "စကား၀ွက္ထပ္မံရိုက္ထည့္ပါ"
+
+msgid "Do you remember"
+msgstr "စကား၀ွက္မွတ္ထားမွာလား"
+
+msgid "Sign Up"
+msgstr "မွတ္ပံုတင္မယ္"
+
+msgid "Click here if you forgot your password"
+msgstr "မွတ္ပံုတင္မယ္"
+
+msgid "Service Provider"
+msgstr "၀န္ေဆာင္မွုေပးသူ"
+
+msgid "Sign In For Service Provider"
+msgstr "၀န္ေဆာင္မွုေပးသူနာမည္နဲ့၀င္ပါ"
+
+msgid "Service Provider Register"
+msgstr "၀န္ေဆာင္မွုေပးသူအျဖစ္မွတ္ပံုတင္မည္"
+
+msgid "Service Provider ID"
+msgstr "၀န္ေဆာင္မွုေပးသူ ID"
+
+msgid "Company Name"
+msgstr ""
+
+msgid "NIRC"
+msgstr "မွတ္ပံုတင္"
+
+msgid "Number of team member"
+msgstr ""
+
+msgid "Business Summary"
+msgstr ""
+
+msgid "Legal"
+msgstr ""
+
+msgid "Category"
+msgstr ""
+
+msgid "Prefer Location"
+msgstr ""
+
+msgid "Team Photo"
+msgstr ""
+
+msgid "Pricing"
+msgstr ""
+
+msgid "Experience"
+msgstr ""
+
+msgid "Township"
+msgstr "ျမို့နယ္"
+
+msgid "You have an Account?"
+msgstr "မွတ္ပံုတင္မယ္"
+
+msgid "Login Now!"
+msgstr "အေကာင့္၀င္မည္"
