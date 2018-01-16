@@ -11,15 +11,14 @@
 	<link rel="shortcut icon" href="favicon.ico">  
 
 	<link href='http://fonts.googleapis.com/css?family=Lato:300,400,300italic,400italic' rel='stylesheet' type='text/css'>
-	<link href='http://fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>	
+	<link href='http://fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
 
-	<?php echo $this->Html->css('home/bootstrap/css/bootstrap.min'); ?>
-	<?php echo $this->Html->css('home/font-awesome/css/font-awesome'); ?>
-	<?php echo $this->Html->css('home/prism/prism'); ?>
-	<?php echo $this->Html->css('styles'); ?>
-	<?php echo $this->Html->css('mobile'); ?>
+	<?php echo $this->Html->css('/app/webroot/css/home/bootstrap/css/bootstrap.min.css'); ?>
+	<?php echo $this->Html->css('/app/webroot/css/home/font-awesome/css/font-awesome'); ?>
+	<?php echo $this->Html->css('/app/webroot/css/home/prism/prism.css'); ?>
+	<?php echo $this->Html->css('/app/webroot/css/styles.css'); ?>
+	<?php echo $this->Html->css('/app/webroot/css/mobile.css'); ?>
 
-	<?php echo $this->Html->script('jquery.min'); ?>
 </head> 
 
 <body data-spy="scroll">
@@ -38,19 +37,20 @@
 	<?php $user_id = AuthComponent::user('id'); ?>
 	<!-- ******HEADER****** --> 
 	<header id="header" class="header">  
-		<div class="container">            
+		<div class="container">
+			
 			<div class="hidden-sm hidden-xs col-md-3" style="margin-top: -3%;margin-bottom: -1%;">        
 				<h1>
 					<a href="http://myanants.com/staging">
-						<img src='http://myanants.com/staging/img/mm.png' class="logoimg" />
+						<img src='app/webroot/img/mm.png' class="logoimg" />
 					</a>
 				</h1><!--//logo-->
 			</div>    
 
 			<div class="hidden-md hidden-lg col-md-3" style="margin-top: -3%;margin-bottom: -1%;">        
 				<h1 class="logo pull-left">
-					<a class="scrollto" href="http://myanants.com/staging">
-						<img src='http://myanants.com/staging/img/mm.png' class="logoimg" />
+					<a href="http://myanants.com/staging">
+						<img src='app/webroot/img/mm.png' class="logoimg" />
 					</a>
 				</h1><!--//logo-->
 			</div>
@@ -63,7 +63,7 @@
 						<span class="icon-bar"></span>
 						<span class="icon-bar"></span>
 					</button><!--//nav-toggle-->
-				</div><!--//navbar-header-->            
+				</div><!--//navbar-header-->
 				<div class="navbar-collapse collapse" id="navbar-collapse">
 					<ul class="nav navbar-nav">
 						<li class="nav-item">
@@ -134,19 +134,12 @@
 		</div><!--//container-->
 	</footer><!--//footer-->
 	 
-	<?php echo $this->Html->script('home/jquery.easing.1.3'); ?>   
-	<?php //echo $this->Html->script('home/jquery-1.11.3.min'); ?>   
-	<?php echo $this->Html->script('home/bootstrap/js/bootstrap.min'); ?>   
-	<?php echo $this->Html->script('home/jquery-scrollTo/jquery.scrollTo.min'); ?>   
-	<?php echo $this->Html->script('home/prism/prism'); ?>   
-	<?php echo $this->Html->script('home/main'); ?>
-
-	<?php echo $this->Html->script('https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js'); ?>
-	<?php echo $this->Html->script('fastclick'); ?>
-	<?php echo $this->Html->script('nprogress'); ?>
-	<?php echo $this->Html->script('custom'); ?>
-	<?php echo $this->Html->script('message'); ?>
-	<?php echo $this->Html->script('logo'); ?>
+	<?php echo $this->Html->script('/app/webroot/js/home/jquery-1.11.3.min.js'); ?>   
+	<?php echo $this->Html->script('/app/webroot/js/home/jquery.easing.1.3.js'); ?>   
+	<?php echo $this->Html->script('/app/webroot/js/home/bootstrap/js/bootstrap.min.js'); ?>   
+	<?php echo $this->Html->script('/app/webroot/js/home/jquery-scrollTo/jquery.scrollTo.min.js'); ?>   
+	<?php echo $this->Html->script('/app/webroot/js/home/prism/prism.js'); ?>   
+	<?php echo $this->Html->script('/app/webroot/js/home/main.js'); ?>   
 	
 </body>
 </html> 
