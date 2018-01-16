@@ -156,6 +156,22 @@
 			</ul>
 		</div><!--//container-->
 
+		<div class="social-media">
+			<div class="social-media-inner container text-center">
+				<ul class="list-inline">
+
+					<li class="twitter-follow">
+						<a href="https://www.facebook.com/MyanAnts/" class="twitter-follow-button" data-show-count="false">
+						Facebook</a>
+					</li><!--//twitter-follow-->
+
+					<li class="twitter-tweet">
+						<a href="https://www.linkedin.com/company/13391896/" class="twitter-share-button" data-via="3rdwave_themes" data-hashtags="bootstrap">LinkedIn</a>
+					</li><!--//twitter-tweet-->
+				</ul>
+			</div>
+		</div>
+
 	</section>
 	
 	<!-- ******CONTACT****** --> 
@@ -196,3 +212,11 @@
 	// 	location.replace("http://myanants.com/staging"+this.value+"/master_users/index");
 	// })
 </script>
+
+<style type="text/css">
+	.promo {
+		background: linear-gradient(to right, #00cc99 0%, #cc00cc 100%);
+		color: #fff;
+		padding-top: 7%;
+	}
+</style>

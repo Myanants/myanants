@@ -141,10 +141,10 @@
 						</li>
 
 						<?php if (empty($customer_id)) : ?>
-							<li class="nav-item" style="background: #cc00cc;">
+							<li class="nav-item" style="border-style: outset;">
 								<?php echo $this->Html->link("Service Provider", array('controller' => 'master_users', 'action' => 'index')) ;?>
 							</li>
-							<li class="nav-item" style="background: #cc00cc;">
+							<li class="nav-item" style="border-style: outset;">
 								<?php echo $this->Html->link("Freelance Cleaner", array('controller' => 'master_cleaners', 'action' => 'login')) ;?>
 							</li>
 						<?php endif; ?>
@@ -369,4 +369,9 @@
 		color: #fff;
 	}
 
+	.promo {
+		background: linear-gradient(to right, #00cc99 0%, #cc00cc 100%);
+		color: #fff;
+		padding-top: 5%;
+	}
 </style>
