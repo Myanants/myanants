@@ -46,7 +46,7 @@
 				<div class="col-md-3 left_col">
 					<div class="left_col scroll-view">
 						<div class="navbar nav_title" style="border: 0;margin-left: 70px;margin-left: -11px;">
-							<?php echo $this->Html->link('<img src= "../img/logo/myanants-white.png" alt="MyanAnts" style = "width: 76%;height: 59%;margin-top: 24%;" >', array('controller' => 'admin', 'action' => 'customer/index'), array('class' => 'site_title', 'escape' => false,'style' => 'padding-left:-1px; width: 100%; height:112px;margin-top: -57px;')) ?>
+							<?php echo $this->Html->link('<img src= "http://myanants.com/staging/img/logo/myanants-white.png" alt="MyanAnts" style = "width: 76%;height: 59%;margin-top: 24%;" >', array('controller' => 'admin', 'action' => 'customer/index'), array('class' => 'site_title', 'escape' => false,'style' => 'padding-left:-1px; width: 100%; height:112px;margin-top: -57px;')) ?>
 						</div>
 						<br />
 						<?php $string = Router::reverse($this->params); ?>

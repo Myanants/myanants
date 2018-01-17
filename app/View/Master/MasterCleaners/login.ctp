@@ -60,7 +60,7 @@
 					<?php  else:?>
 						<?php echo $this->Form->checkbox('remember_me' ); ?>
 					<?php endif;?>
-						<?php echo $this->Form->label('remember_me', 'Do you remember');?>
+						<?php echo $this->Form->label('remember_me', 'save password');?>
 					</div>
 				</div>
 

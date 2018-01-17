@@ -216,7 +216,7 @@ msgstr "စကား၀ွက္"
 msgid "Confirm Password"
 msgstr "စကား၀ွက္ထပ္မံရိုက္ထည့္ပါ"
 
-msgid "Do you remember"
+msgid "save password"
 msgstr "စကား၀ွက္မွတ္ထားမွာလား"
 
 msgid "Sign Up"

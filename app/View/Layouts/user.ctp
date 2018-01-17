@@ -68,7 +68,7 @@
 					<ul class="nav navbar-nav">
 						<li class="nav-item">
 							<a href="tel:09961868686">
-								<img src='/staging/app/webroot/img/phone-icon.png' class="img-responsive phone-icon-sm" />
+								<img src='http://myanants.com/staging/img/phone-icon.png' class="img-responsive phone-icon-sm" />
 							</a>
 						</li>
 

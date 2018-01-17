@@ -53,7 +53,7 @@
 						<?php echo $this->Form->checkbox('remember_me' ); ?>
 					<?php endif;?>
 						<?php //echo $this->Form->label('remember_me', 'Do you remember');?>
-						<label name='remember_me'><?php echo __('Do you remember'); ?></label>
+						<label name='remember_me'><?php echo __('save password'); ?></label>
 					</div>
 				</div>
 

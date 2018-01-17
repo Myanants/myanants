@@ -189,7 +189,7 @@
 </html>
 
 <script type="text/javascript">
-	$('body').append('<div id="backToTop"><img src="/img/up-arrow.png"</div>');
+	$('body').append('<div id="backToTop"><img src="http://myanants.com/staging/img/up-arrow.png"</div>');
 	$(window).scroll(function () {
 		if ($(this).scrollTop() <= 200) {
 			$('#backToTop').fadeOut();

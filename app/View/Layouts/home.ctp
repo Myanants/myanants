@@ -71,7 +71,7 @@
 			<div class="hidden-sm hidden-xs col-md-3" style="margin-top: -3%;margin-bottom: -1%;">        
 				<h1>
 					<a href="http://myanants.com/staging">
-						<img src='app/webroot/img/mm.png' class="logoimg" />
+						<img src='http://myanants.com/staging/img/mm.png' class="logoimg" />
 					</a>
 				</h1><!--//logo-->
 			</div>    
@@ -79,7 +79,7 @@
 			<div class="hidden-md hidden-lg col-md-3" style="margin-top: -3%;margin-bottom: -1%;">        
 				<h1 class="logo pull-left">
 					<a href="http://myanants.com/staging">
-						<img src='app/webroot/img/mm.png' class="logoimg" />
+						<img src='http://myanants.com/staging/img/mm.png' class="logoimg" />
 					</a>
 				</h1><!--//logo-->
 			</div>
@@ -97,7 +97,7 @@
 					<ul class="nav navbar-nav">						
 						<li class="nav-item">
 							<a href="tel:09961868686">
-								<img src='app/webroot/img/phone-icon.png' class="img-responsive phone-icon-sm" />
+								<img src='http://myanants.com/staging/img/phone-icon.png' class="img-responsive phone-icon-sm" />
 							</a>
 						</li>
 
@@ -136,7 +136,7 @@
 							<?php if (!empty($profile_image)) { ?>
 								<img src='<?php echo $profile_image["url"]; ?>'/>
 							<?php } elseif (!empty($user_id) || !empty($customer_id)) { ?>
-								<img src='app/webroot/img/sample-user.png'/ style="width: 62%;">
+								<img src='http://myanants.com/staging/img/sample-user.png'/ style="width: 62%;">
 							<?php } ?>
 						</li>
 
@@ -178,7 +178,7 @@
 
 
 				<a class="hidden-lg hidden-md btn btn-cta-primary" href="tel:09961868686" target="_blank">
-					<center><img src='app/webroot/img/phone-icon.png' class="img-responsive phone-icon-sm" /></center>
+					<center><img src='http://myanants.com/staging/img/phone-icon.png' class="img-responsive phone-icon-sm" /></center>
 				</a>
 			</div>
 
@@ -328,7 +328,7 @@
 </script>
 
 <script type="text/javascript">
-	$('body').append('<a href="https://m.me/1933436260231903"><div id="backToTop" messenger_app_id="1038913562917167" page_id="1933436260231903"><img src= "img/messenger.png" /></div></a>');
+	$('body').append('<a href="https://m.me/1933436260231903"><div id="backToTop" messenger_app_id="1038913562917167" page_id="1933436260231903"><img src= "http://myanants.com/staging/img/messenger.png" /></div></a>');
 
 	   window.fbAsyncInit = function() {
         FB.init({

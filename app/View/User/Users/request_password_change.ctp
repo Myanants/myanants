@@ -20,7 +20,7 @@
 						<br />
 						<div>
 							<h1><i>
-								<a href = "http://myanants.com/staging/"><img src="../img/logo/myanants-black.png" style="width: 50%;margin-top: -36%;margin-bottom: -32%;"></a>
+								<a href = "http://myanants.com/staging/"><img src="http://myanants.com/staging/img/logo/myanants-black.png" style="width: 50%;margin-top: -36%;margin-bottom: -32%;"></a>
 							</i></h1>
 							<p>Copyright © MyanAnts All rights reserved. </p>
 						</div>
