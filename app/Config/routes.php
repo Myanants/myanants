@@ -65,6 +65,8 @@
 	Router::connect('/user/serviceprovider',array('controller' => 'users', 'action' => 'spindex'));
 	
 	Router::connect('/servicerequest/:action/*',array('controller' => 'service_requests'));
+	Router::connect('/mya/servicerequest/:action/*',array('controller' => 'service_requests'));
+	Router::connect('/eng/servicerequest/:action/*',array('controller' => 'service_requests'));
 
 
 	Router::connect('/:language/:controller/:action/*', array(), array('language' => '[a-z]{3}'));

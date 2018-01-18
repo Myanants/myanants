@@ -90,16 +90,17 @@
 							<?php endif; ?>
 						</li> -->
 
+						<?php $current = $this->here; ?>
 						<li class="nav-item">
-							<?php
-
-								if ($this->Session->read('Config.language') == 'mya') {
-									echo $this->Html->link('English', array('language'=>'eng'));
-								} elseif($this->Session->read('Config.language') == 'eng') {
-									echo $this->Html->link('ျမန္မာ', array('language'=>'mya'));
-								}
-
-							?>	
+							<?php if ($this->Session->read('Config.language') == 'mya') { ?>
+								<?php $url = '/eng'.$current ; ?>
+								<a href= '<?php echo $url; ?>' >English</a>
+								<!-- echo $this->Html->link('English', array('language'=>'eng')); -->
+							<?php } elseif($this->Session->read('Config.language') == 'eng') { ?>
+								<!-- echo $this->Html->link('ျမန္မာ', array('language'=>'mya')); -->								
+								<?php $url = '/mya'.$current ; ?>
+								<a href= '<?php echo $url; ?>' >ျမန္မာ</a>
+							<?php } ?>	
 						</li>
 
 					</ul><!--//nav-->

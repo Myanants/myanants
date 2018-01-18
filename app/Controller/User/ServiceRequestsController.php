@@ -4,9 +4,27 @@ App::uses('CakeEmail', 'Network/Email');
 App::uses('UserAppController', 'Controller');
 
 class ServiceRequestsController extends UserAppController {
-	public $components = array('RequestHandler','OptionCommon');
+	public $components = array('RequestHandler','OptionCommon','Session', 'Cookie');
 	public $uses = array('Customer','Service','Question','SubService','ServiceRequest','TransactionManager');
 	
+	function beforeFilter() {
+        $this->_setLanguage();
+        $this->Auth->allow('login','index','add','facebookLogin', 'fbcallback', 'logout', 'activate');
+    }
+
+    function _setLanguage() {
+
+        if ($this->Cookie->read('lang') && !$this->Session->check('Config.language')) {
+            $this->Session->write('Config.language', $this->Cookie->read('lang'));
+        }
+        else if (isset($this->params['language']) && ($this->params['language']
+                 !=  $this->Session->read('Config.language'))) {
+
+            $this->Session->write('Config.language', $this->params['language']);
+            $this->Cookie->write('lang', $this->params['language'], false, '20 days');
+        }
+    }
+
 	public function add($id = null){
 		$this->layout = 'user';
 
