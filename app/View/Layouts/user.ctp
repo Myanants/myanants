@@ -19,6 +19,7 @@
 	<?php echo $this->Html->css('/app/webroot/css/styles.css'); ?>
 	<?php echo $this->Html->css('/app/webroot/css/mobile.css'); ?>
 
+	<?php echo $this->Html->script('jquery.min'); ?>
 </head> 
 
 <body data-spy="scroll">
@@ -134,13 +135,25 @@
 		</div><!--//container-->
 	</footer><!--//footer-->
 	 
-	<?php echo $this->Html->script('/app/webroot/js/home/jquery-1.11.3.min.js'); ?>   
+	<?php echo $this->Html->script('home/jquery.easing.1.3'); ?>
+	<?php echo $this->Html->script('home/bootstrap/js/bootstrap.min'); ?>   
+	<?php echo $this->Html->script('home/jquery-scrollTo/jquery.scrollTo.min'); ?>   
+	<?php echo $this->Html->script('home/prism/prism'); ?>   
+	<?php echo $this->Html->script('home/main'); ?>	
+	<?php echo $this->Html->script('https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js'); ?>
+	<?php echo $this->Html->script('fastclick'); ?>
+	<?php echo $this->Html->script('nprogress'); ?>
+	<?php echo $this->Html->script('custom'); ?>
+	<?php echo $this->Html->script('message'); ?>
+	<?php echo $this->Html->script('logo'); ?>
+
+<!-- 	<?php echo $this->Html->script('/app/webroot/js/home/jquery-1.11.3.min.js'); ?>   
 	<?php echo $this->Html->script('/app/webroot/js/home/jquery.easing.1.3.js'); ?>   
 	<?php echo $this->Html->script('/app/webroot/js/home/bootstrap/js/bootstrap.min.js'); ?>   
 	<?php echo $this->Html->script('/app/webroot/js/home/jquery-scrollTo/jquery.scrollTo.min.js'); ?>   
 	<?php echo $this->Html->script('/app/webroot/js/home/prism/prism.js'); ?>   
 	<?php echo $this->Html->script('/app/webroot/js/home/main.js'); ?>   
-	
+	 -->
 </body>
 </html> 
 
