@@ -4,11 +4,12 @@
 		<div class="docs-inner">
 
 			<?php echo $this->Html->link('Back', 'javascript:history.back()', array('class' => 'custom-link')); ?>
+			<?php $customer_id =AuthComponent::user('customer_id');?>
 
 			<h2 class="title text-center">Your Informations</h2>
 			<div class="block1">
 				<p class="col-md-12 text-center btn btn-cta-primary">
-					Your ID : C-000004
+					Your ID : <?php echo $customer_id; ?>
 				</p>
 			</div><!--//block-->
 
