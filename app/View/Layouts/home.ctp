@@ -97,7 +97,7 @@
 					<ul class="nav navbar-nav">						
 						<li class="nav-item">
 							<a href="tel:09961868686">
-								<img src='http://myanants.com/staging/img/phone-icon.png' class="img-responsive phone-icon-sm" />
+								<img src='http://myanants.com/staging/img/phone-icon.png' class="pc-phone img-responsive phone-icon-sm" />
 							</a>
 						</li>
 
@@ -132,11 +132,16 @@
 							?>	
 						</li>
 
-						<li>
+						<li class="nav-item">
 							<?php if (!empty($profile_image)) { ?>
-								<img src='<?php echo $profile_image["url"]; ?>'/>
+								<a href="/user/profile">
+									<img src='<?php echo $profile_image["url"]; ?>'/>
+								</a>
+								
 							<?php } elseif (!empty($user_id) || !empty($customer_id)) { ?>
-								<img src='http://myanants.com/staging/img/sample-user.png'/ style="width: 62%;">
+								<a href="/user/profile">
+									<img src='http://myanants.com/staging/img/sample-user.png' class='pc-profile'>
+								</a>
 							<?php } ?>
 						</li>
 
@@ -373,5 +378,19 @@
 		background: linear-gradient(to right, #00cc99 0%, #cc00cc 100%);
 		color: #fff;
 		padding-top: 5%;
+	}
+	.pc-profile {
+		width: 62%;
+		margin-top: -22%;
+	}
+	.pc-phone {
+		margin-top: -4px;
+	}
+
+	@media screen and (max-width: 768px) and (max-width: 992px) {
+		.pc-profile {
+			width: 11%;
+			margin-top: 0px;
+		}
 	}
 </style>
