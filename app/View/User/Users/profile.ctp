@@ -2,6 +2,9 @@
 <section id="docs" class="docs section">
 	<div class="container">
 		<div class="docs-inner">
+
+			<?php echo $this->Html->link('Back', 'javascript:history.back()', array('class' => 'custom-link')); ?>
+
 			<h2 class="title text-center">Your Informations</h2>
 			<div class="block1">
 				<p class="col-md-12 text-center btn btn-cta-primary">
@@ -43,6 +46,9 @@
 				</p> -->
 			</div><!--//block-->
 
+		
+		<?php echo $this->Html->link('Back', 'javascript:history.back()', array('class' => 'custom-link')); ?>
+
 		</div><!--//docs-inner-->
 	</div><!--//container-->
 </section><!--//features-->
@@ -68,5 +74,9 @@
 	}
 	.block1 {
 		margin-bottom : 80px;
+	}
+	.custom-link {
+		color: blue;
+		float: right;
 	}
 </style>
