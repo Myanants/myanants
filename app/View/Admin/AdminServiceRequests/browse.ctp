@@ -45,13 +45,7 @@
 				
 			</tbody>
 		</table>
-		<!-- <div class="ln_solid"></div>
-		<div class="form-group">
-			<div class="col-md-6 col-sm-6 col-xs-12 col-md-offset-4">
-				<?php echo $this->Html->link('Back', 'javascript:history.back()', array('class' => 'btn btn-default btn-sm')); ?>
-				<?php echo $this->Html->link('Edit', array('controller' => 'admin_companys', 'action' => 'edit', h($data['Customer']['id'])), array('class' =>'btn btn-orange btn-sm')); ?>
-			</div>
-		</div> -->
+		
 	</div>
 
 	<h4><label>Service Request Informations</label></h4>
@@ -99,6 +93,14 @@
 
 			</tbody>
 		</table>
+
+		<div class="ln_solid"></div>
+		<div class="form-group">
+			<div class="col-md-6 col-sm-6 col-xs-12 col-md-offset-4">
+				<?php echo $this->Html->link('Back', 'javascript:history.back()', array('class' => 'btn btn-default btn-sm')); ?>
+				<?php //echo $this->Html->link('Edit', array('controller' => 'admin_companys', 'action' => 'edit', h($data['Customer']['id'])), array('class' =>'btn btn-orange btn-sm')); ?>
+			</div>
+		</div>
 	</div>
 
 </div>

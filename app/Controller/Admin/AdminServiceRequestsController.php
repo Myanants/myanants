@@ -71,7 +71,8 @@ class AdminServiceRequestsController extends AdminAppController {
 	public function ajaxStatus() {
 		$this->autoRender = false;
 		if ($this->request->is('ajax')) {		
-
+$this->log('###################################');
+$this->log($this->request->data);
 			if ($this->request->data[0] == 'opt1') {
 				$status = 1;
 			} elseif ($this->request->data[0] == 'opt2') {

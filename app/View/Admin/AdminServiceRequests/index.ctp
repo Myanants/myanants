@@ -52,7 +52,7 @@
 								<th><?php echo $this->Paginator->sort('ServiceRequest.customer_name', 'Customer Name'); ?></th>
 								<!-- <th><?php echo $this->Paginator->sort('ServiceRequest.phone_number', 'Phone Number'); ?></th> -->
 								<th><?php echo $this->Paginator->sort('ServiceRequest.type', 'Service Name'); ?></th>
-								<th><?php echo $this->Paginator->sort('ServiceRequest.status', 'Status'); ?></th>
+								<th class="col-md-2"><?php echo $this->Paginator->sort('ServiceRequest.status', 'Status'); ?></th>
 								<th><?php echo $this->Paginator->sort('ServiceRequest.modified', 'Request Time'); ?></th>
 								<th style="width: 26%;">Operations</th>
 							</tr>
@@ -182,7 +182,7 @@
 
 		$.ajax({
 
-			url: "/admin/servicerequest/ajaxStatus",
+			url: "../servicerequest/ajaxStatus",
 			type: "POST",
 			data:{ data : selectedValue , id : id },
 			dataType: "json",
