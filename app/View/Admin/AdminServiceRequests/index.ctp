@@ -1,4 +1,4 @@
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+<!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script> -->
 <div class="row">
 	<div class="col-md-20col-sm-8 col-xs-20" >
 		<div class="x_panel">
@@ -24,6 +24,27 @@
 						?>
 					</div>
 					<div class="col-md-10">
+
+						<div class="col-md-4">
+							<?php if (!empty($this->params->query['status'])): ?>
+								<?php $deact_act = trim($this->params->query['status']); ?>
+							<?php else: ?>
+								<?php $deact_act = ''; ?>
+							<?php endif; ?>
+
+							<?php echo $this->Form->input('status', array(
+										'label' => false,
+										'default'=> $deact_act ,
+										'options' =>array('1'=>'Customer Cancel','2'=>'S_Provider Cancel', '3' => 'Not Confirmed','4' => 'No Status'),
+										'onChange' => 'this.form.submit();',
+										'empty' => 'Please select the status',
+										'class' => 'form-control col-md-7 col-xs-12'
+									)
+								);
+							echo $this->Form->end();
+							?>
+						</div>
+
 						<div class="search-box sbox">
 							<?php echo $this->Form->create('ServiceRequest', array('type' => 'get', 'url' => array('controller' => 'admin_service_requests', 'action' => 'index'), 'class' => 'search-box-form', 'InputDefaults' => array('label' => false, 'div' => false))); ?>
 								<div class="input-group">
@@ -123,7 +144,7 @@
 												'type' => 'select',
 												'options' => $langs,
 												'empty' => 'Status',
-												'class' => 'col-md-5 btn-sm',
+												'class' => 'status col-md-5 btn-sm',
 												'label' => false,
 												'style' => 'margin-right: 7px;',
 												'id' => $value['ServiceRequest']['id']
@@ -175,7 +196,7 @@
 </div>
 
 <script type="text/javascript">
-	$('select').on('change', function() {
+	$('.status').on('change', function() {
 		var status = $(this).parent().parent().prev().prev().children();
 		var selectedValue = this.value ;
 		var id = this.id ;

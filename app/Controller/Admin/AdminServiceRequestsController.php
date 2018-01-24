@@ -12,28 +12,39 @@ class AdminServiceRequestsController extends AdminAppController {
 	public function index() {
 		$limit = (!empty($this->params->query['limit'])) ? $this->params->query['limit'] : 50;
 		$keyword = (!empty($this->params->query['keyword'])) ? trim($this->params->query['keyword']) : '';
+		$status = !empty($this->request->query['status']) ? trim($this->request->query['status']) : '';
 		$condition = array();
-
-	
-		// $condition = array(
-		// 	array(
-		// 		'ServiceRequest.deleted ' => 0
-		// 	),
-		// 	'OR' => array(
-		// 		array('ServiceRequest.id LIKE' => '%'. $keyword .'%'),
-		// 		array('ServiceRequest.name LIKE' => '%'. $keyword .'%'),
-		// 		array('ServiceRequest.myan_name LIKE' => '%'. $keyword .'%'),
-		// 	)
-		// ) ;
 		
+		if ($status == 1 ) { // Canceled from customer
+			$condition = array( 'ServiceRequest.status' => 1,'ServiceRequest.deleted ' => 0);
+		} elseif ($status == 2 ) { // Canceled from service provider
+			$condition = array( 'ServiceRequest.status' => 2,'ServiceRequest.deleted ' => 0);
+		} elseif ($status == 3) { // Not Confirmed
+			$condition = array( 'ServiceRequest.status' => 3,'ServiceRequest.deleted ' => 0);
+		} elseif ($status == 4) {
+			$condition = array( 'ServiceRequest.status' => 0,'ServiceRequest.deleted ' => 0);
+		} else {
+			$condition = array(
+				array(
+					'Customer.deleted ' => 0
+				),
+				'OR' => array(
+					array('Customer.customer_id LIKE' => '%'. $keyword .'%'),
+					array('Customer.name LIKE' => '%'. $keyword .'%'),
+					array('ServiceRequest.service_request_id LIKE' => '%'. $keyword .'%'),
+					array('Service.name LIKE' => '%'. $keyword .'%'),
+				)
+			) ;
+		}
+
 		$this->paginate = array(
 			'paramType' => 'querystring',
 			'limit' => $limit,
 			'order' => array('id' => 'DESC'),
-			// 'conditions' => $condition
+			'conditions' => $condition
 		);
 		$pag = $this->paginate('ServiceRequest');
-		$this->set(compact('pag','limit'));
+		$this->set(compact('pag','limit','status'));
 	}
 
 
