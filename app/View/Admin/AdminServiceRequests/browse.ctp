@@ -42,18 +42,7 @@
 						<?php echo nl2br($data['Customer']['address']) ; ?>						
 					</td>
 				</tr>
-
-				<tr>
-					<td class="left">Status</td>
-					<td class="right">
-					<?php if ($data['Customer']['deactivate'] == 1) : ?>
-						<?php echo "Deactivated"; ?>
-					<?php else :?>
-						<?php echo "Active"; ?>
-					<?php endif ; ?>
-					</td>
-				</tr>
-
+				
 			</tbody>
 		</table>
 		<!-- <div class="ln_solid"></div>
@@ -74,6 +63,37 @@
 					<td class="left">Service Name</td>
 					<td class="right"> 
 						<?php echo $data['Service']['name']; ?>						
+					</td>
+				</tr>
+
+				<tr>
+					<td class="left">Service Rrequest ID</td>
+					<td class="right"> 
+						<?php echo $data['ServiceRequest']['service_request_id']; ?>						
+					</td>
+				</tr>
+
+				<tr>
+					<td class="left">Status</td>
+					<td class="right">
+						<?php
+							if ($data['ServiceRequest']['status'] == 1) {
+								echo "Canceled from Customer";
+							} elseif ($data['ServiceRequest']['status'] == 2) {
+								echo "Canceled from Service Provider";
+							} elseif ($data['ServiceRequest']['status'] == 3) {
+								echo "Not Confirmed Yet";
+							} elseif ($data['ServiceRequest']['status'] == 4) {
+								echo "";
+							}
+						?>
+					</td>
+				</tr>
+
+				<tr>
+					<td class="left">Request Time</td>
+					<td class="right">
+						<?php echo $data['ServiceRequest']['request_datetime']; ?>	
 					</td>
 				</tr>
 

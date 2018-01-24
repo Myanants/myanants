@@ -114,9 +114,9 @@ class AdminSubServicesController extends AdminAppController {
 
 	public function edit_answer($id = null) {
 
-		$sub_service = $this->SubService->findById($id);
+		$service = $this->Service->findById($id);
 	
-		$this->set(compact('sub_service'));
+		$this->set(compact('service'));
 	}
 
 

@@ -1,3 +1,4 @@
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
 <div class="row">
 	<div class="col-md-20col-sm-8 col-xs-20" >
 		<div class="x_panel">
@@ -41,19 +42,19 @@
 
 					</div>
 				</div>
-<?php //debug($pag); ?>
+
 				<?php if (!empty($pag)) : ?>
 					<table class="table table-bordered">
 						<thead>
 							<tr>
-								<th><?php echo $this->Paginator->sort('ServiceRequest.service_request_id', 'Service Request ID'); ?></th>
+								<th><?php echo $this->Paginator->sort('ServiceRequest.service_request_id', 'Request ID'); ?></th>
 								<th><?php echo $this->Paginator->sort('ServiceRequest.customer_id', 'Customer ID'); ?></th>
 								<th><?php echo $this->Paginator->sort('ServiceRequest.customer_name', 'Customer Name'); ?></th>
-								<th><?php echo $this->Paginator->sort('ServiceRequest.phone_number', 'Phone Number'); ?></th>
+								<!-- <th><?php echo $this->Paginator->sort('ServiceRequest.phone_number', 'Phone Number'); ?></th> -->
 								<th><?php echo $this->Paginator->sort('ServiceRequest.type', 'Service Name'); ?></th>
 								<th><?php echo $this->Paginator->sort('ServiceRequest.status', 'Status'); ?></th>
 								<th><?php echo $this->Paginator->sort('ServiceRequest.modified', 'Request Time'); ?></th>
-								<th>Operations</th>
+								<th style="width: 26%;">Operations</th>
 							</tr>
 						</thead>
 						
@@ -83,11 +84,11 @@
 										<?php endif; ?>
 									</td>
 
-									<td>
+									<!-- <td>
 										<?php if(!empty($value['Customer']['phone_number'])): ?>
 											<?php echo h($value['Customer']['phone_number']); ?>
 										<?php endif; ?>
-									</td>
+									</td> -->
 
 									<td>
 										<?php if(!empty($value['Service']['name'])): ?>
@@ -96,9 +97,15 @@
 									</td>
 
 									<td>
-										<?php //if(!empty($value['ServiceRequest']['service_id'])): ?>
-											<?php echo 'status'; ?>
-										<?php //endif; ?>
+										<?php if ($value['ServiceRequest']['status'] == 1) { ?>
+											<label class="col-md-11 btn-blue lbl-status" style="background : blue;">Customer Cancel</label>
+										<?php } elseif ($value['ServiceRequest']['status'] == 2) { ?>
+											<label class="col-md-11 btn-blue lbl-status" style="background : red ;">S_Provider Cancel</label>	
+										<?php } elseif ($value['ServiceRequest']['status'] == 3) { ?>
+											<label class="col-md-11 btn-blue lbl-status" style="background : green ;">Not Confirmed</label>	
+										<?php } else { ?>
+											<label class=""></label>
+										<?php } ?>
 									</td>
 
 									<td>
@@ -107,11 +114,24 @@
 										<?php endif; ?>
 									</td>
 
-									<td>
-										
-										<?php echo $this->Html->link('Status', array('controller' => 'admin_service_requests', 'action' => 'browse',h($value['ServiceRequest']['id'])), array( 'class' => 'btn btn-blue btn-sm')); ?>
+									<td style="width: 26%;">
+										<?php
 
-										<?php echo $this->Html->link('Browse', array('controller' => 'admin_service_requests', 'action' => 'browse',h($value['ServiceRequest']['id'])), array( 'class' => 'btn btn-blue btn-sm')); ?>
+											$langs = array('opt1' => 'Customer Cancel', 'opt2' => 'S_Provider Cancel', 'opt3' => 'Not Confirmed','opt4' => 'Remove Status');
+
+											echo $this->Form->input('status', array(
+												'type' => 'select',
+												'options' => $langs,
+												'empty' => 'Status',
+												'class' => 'col-md-5 btn-sm',
+												'label' => false,
+												'style' => 'margin-right: 7px;',
+												'id' => $value['ServiceRequest']['id']
+												)
+											);
+										?>
+
+										<?php echo $this->Html->link('View', array('controller' => 'admin_service_requests', 'action' => 'browse',h($value['ServiceRequest']['id'])), array( 'class' => 'btn btn-blue btn-sm')); ?>
 
 										<?php echo $this->Html->link('Delete', array('controller' => 'admin_service_requests', 'action' => 'delete', h($value['ServiceRequest']['id'])), array('confirm' => "Would you like to delete this service?", 'class' =>'btn btn-royal-blue btn-sm')); ?>
 									</td>
@@ -153,3 +173,54 @@
 		</div>
 	</div>
 </div>
+
+<script type="text/javascript">
+	$('select').on('change', function() {
+		var status = $(this).parent().parent().prev().prev().children();
+		var selectedValue = this.value ;
+		var id = this.id ;
+
+		$.ajax({
+
+			url: "/admin/servicerequest/ajaxStatus",
+			type: "POST",
+			data:{ data : selectedValue , id : id },
+			dataType: "json",
+			success : function(response){
+				console.log("Ajax Success");
+			},
+			error: function(){}
+
+		});
+
+
+		if (this.value == 'opt1') { // Cancel from Customer
+			status.attr('style','background : blue;');
+			status.attr('class','col-md-11 btn-blue lbl-status');
+			status.text('Customer Cancel');			
+		} else if (this.value == 'opt2') { // Cancel from Service Provider
+			status.attr('style','background : red;');
+			status.attr('class','col-md-11 btn-blue lbl-status');
+			status.text('S_Provider Cancel');
+		} else if (this.value == 'opt3') { // Not confirmed
+			status.attr('style','background : green;');
+			status.attr('class','col-md-11 btn-blue lbl-status');
+			status.text('Not Confirmed');
+		} else if (this.value == 'opt4') {
+			status.attr('style','');
+			status.attr('class','');
+			status.text('');
+		}
+		
+	});
+</script>
+
+<style type="text/css">
+	.lbl-status {
+		padding-left: 7px;
+		padding-right: 7px;
+		padding-top: 4px;
+		padding-bottom: 4px;
+		border-radius: 2px;
+	}
+</style>

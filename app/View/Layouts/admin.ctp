@@ -119,9 +119,9 @@
 										<!-- 	<li>
 												<?php echo $this->Html->link('Question Add', array('controller' => 'admin_sub_services', 'action' => 'add_answer')); ?>
 											</li> -->
-											<li>
+											<!-- <li>
 												<?php echo $this->Html->link('Question Setting', array('controller' => 'admin_sub_services', 'action' => 'form')); ?>
-											</li>
+											</li> -->
 											
 										</ul>
 									</li>

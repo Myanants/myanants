@@ -103,7 +103,7 @@
 									<td>
 										<?php echo $this->Html->link('Add Question', array('controller' => 'admin_questions', 'action' => 'add',h($value['Service']['id'])), array( 'class' => 'btn btn-blue btn-sm')); ?>
 
-										<?php echo $this->Html->link('Browse', array('controller' => 'admin_services', 'action' => 'browse',h($value['Service']['id'])), array( 'class' => 'btn btn-blue btn-sm')); ?>
+										<?php echo $this->Html->link('View', array('controller' => 'admin_services', 'action' => 'browse',h($value['Service']['id'])), array( 'class' => 'btn btn-blue btn-sm')); ?>
 
 										<?php echo $this->Html->link('Delete', array('controller' => 'admin_services', 'action' => 'delete', h($value['Service']['id'])), array('confirm' => "Would you like to delete this service?", 'class' =>'btn btn-royal-blue btn-sm')); ?>
 									</td>

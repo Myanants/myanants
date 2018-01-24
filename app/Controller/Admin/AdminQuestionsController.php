@@ -167,7 +167,7 @@ class AdminQuestionsController extends AdminAppController {
 		$this->set(compact('services','type','quest','service_name','data'));
 
 
-		debug($this->request->data);
+		// debug($this->request->data);
 
 		$eAnswer = '';
 		$mAnswer = '';
@@ -206,5 +206,11 @@ class AdminQuestionsController extends AdminAppController {
 			}
 		}
 		
+	}
+
+	public function browse($id = null) {
+		$data = $this->Question->findById($id);
+		// debug($data);
+		$this->set(compact('data'));
 	}
 }

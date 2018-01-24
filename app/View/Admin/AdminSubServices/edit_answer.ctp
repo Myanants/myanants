@@ -1,4 +1,4 @@
-
+<?php //debug($service); ?>
 <?php echo $this->Html->script('https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js'); ?>
 
 <div class="x_panel">

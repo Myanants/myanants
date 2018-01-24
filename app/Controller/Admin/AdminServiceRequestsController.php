@@ -67,4 +67,25 @@ class AdminServiceRequestsController extends AdminAppController {
 		}
 		$this->redirect(array('action' => 'index'));
 	}
+
+	public function ajaxStatus() {
+		$this->autoRender = false;
+		if ($this->request->is('ajax')) {		
+
+			if ($this->request->data[0] == 'opt1') {
+				$status = 1;
+			} elseif ($this->request->data[0] == 'opt2') {
+				$status = 2;
+			} elseif ($this->request->data[0] == 'opt3') {
+				$status = 3;
+			} elseif ($this->request->data[0] == 'opt4') {
+				$status = 0;
+			}
+
+			$this->ServiceRequest->id = $this->request->data['id'];
+			if (!$this->ServiceRequest->saveField('status', $status)) {
+				throw new Exception('ERROR COULD NOT DELETE Service');
+			}
+		}
+	}
 }
