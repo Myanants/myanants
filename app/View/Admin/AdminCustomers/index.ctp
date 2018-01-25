@@ -23,7 +23,7 @@
 						?>
 					</div>
 					<div class="col-md-10">
-						<div class="col-md-4">
+						<div class="col-md-3">
 							<?php if (!empty($this->params->query['status'])): ?>
 								<?php $deact_act = trim($this->params->query['status']); ?>
 							<?php else: ?>
@@ -35,7 +35,27 @@
 										'default'=> $deact_act ,
 										'options' =>array('1'=>'active','2'=>'deactivated'),
 										'onChange' => 'this.form.submit();',
-										'empty' => 'Please select the status',
+										'empty' => 'Please select status',
+										'class' => 'form-control col-md-7 col-xs-12',
+									)
+								);
+							// echo $this->Form->end();
+							?>
+						</div>
+
+						<div class="col-md-3">
+							<?php if (!empty($this->params->query['tsp'])): ?>
+								<?php $tsp = trim($this->params->query['tsp']); ?>
+							<?php else: ?>
+								<?php $tsp = ''; ?>
+							<?php endif; ?>
+
+							<?php echo $this->Form->input('tsp', array(
+										'label' => false,
+										'default'=> $tsp ,
+										'options' => $townships,
+										'onChange' => 'this.form.submit();',
+										'empty' => 'Please select township',
 										'class' => 'form-control col-md-7 col-xs-12',
 									)
 								);
@@ -71,7 +91,7 @@
 								<th><?php echo $this->Paginator->sort('Customer.customer_id', 'Customer ID'); ?></th>
 								<th><?php echo $this->Paginator->sort('Customer.name', 'Name'); ?></th>
 								<th><?php echo $this->Paginator->sort('Customer.phone_number', 'Phone Number'); ?></th>
-								<th><?php echo $this->Paginator->sort('Customer.address', 'Address'); ?></th>
+								<th><?php echo $this->Paginator->sort('Customer.township', 'Township'); ?></th>
 								<th><?php echo $this->Paginator->sort('Customer.status', 'Status'); ?></th>
 								<th><?php echo $this->Paginator->sort('Customer.modified', 'Updated Date'); ?></th>
 								<th class="col-md-5 ">Operations</th>
@@ -109,12 +129,8 @@
 									</td>
 
 									<td>
-										<?php if(!empty($value['Customer']['address'])): ?>
-											<?php if(strlen($value['Customer']['address']) > 12): ?>
-												<?php echo mb_substr($value['Customer']['address'],0,12,'UTF-8')."..."; ?>
-											<?php else: ?>
-												<?php echo h($value['Customer']['address']); ?>
-											<?php endif; ?>
+										<?php if(!empty($value['Customer']['township'])): ?>
+											<?php echo $townships[$value['Customer']['township']]; ?>
 										<?php endif; ?>
 									</td>
 

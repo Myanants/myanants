@@ -87,6 +87,21 @@
 				</div>
 			</div>
 
+			<div class="form-group">
+				<?php echo $this->Form->label('township', 'Township<span class="required">*</span>', array('class' => 'control-label col-md-3 col-sm-3 col-xs-12')); ?>
+				<div class="col-md-6 col-sm-6 col-xs-12">
+					<?php 
+						echo $this->Form->input('township', array(
+								'type' => 'select',
+								'label' => false,
+								'options' => $townships,
+								'class' => 'form-control col-md-7 col-xs-5',
+								'empty' => 'Please select your township'
+							));
+					?>
+				</div>
+			</div>
+
 			<div class="form-group"">
 				<?php
 					echo $this->Form->label('phone_number', 'Phone Number <span class="required">*</span>', array(

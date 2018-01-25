@@ -68,6 +68,24 @@
 				</div>
 
 				<div class="form-group" ></div>
+				<div class="form-group" >
+					<div class="col-md-10 col-md-offset-1 ">
+						<label>
+							<?php echo __('Township'); ?>
+						</label>
+						<?php 
+							echo $this->Form->input('township', array(
+								'type' => 'select',
+								'label' => false,
+								'options' => $townships,
+								'class' => 'form-control col-md-7 col-xs-5',
+								'empty' => 'Please select your township'
+							));
+						?>
+					</div>
+				</div>
+
+				<div class="form-group" ></div>
 				<div class="form-group">
 					<div class="col-md-10 col-md-offset-1">
 						<label>

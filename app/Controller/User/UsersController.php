@@ -5,7 +5,7 @@ App::uses('CakeEmail', 'Network/Email');
 App::import('Vendor', 'facebook', array('file' => 'facebook'. DS . 'graph-sdk' . DS . 'src' . DS . 'Facebook' . DS . 'autoload.php'));
 
 class UsersController extends UserAppController {
-	public $components = array('RequestHandler', 'Security');
+	public $components = array('RequestHandler', 'Security','OptionCommon');
 	public $uses = array('Customer','ServiceRequest','SubService','ServiceProvider','Question','TransactionManager');
 	
 	// private $key = "Qb2KFqy7Amf5VMu4Jt8Cg0Dce1OGsj9HSah6Lir3";
@@ -23,7 +23,9 @@ class UsersController extends UserAppController {
 
 	public function add(){
 		$this->layout = 'user';
+		$townships = $this->OptionCommon->townships ;
 
+		$this->set(Compact('townships'));
 		if ($this->request->is(array('post', 'put'))) {
 
 			$lastcustomerID = $this->Customer->find('first',array('order' => array('id' => 'DESC'),'fields' => 'customer_id'));

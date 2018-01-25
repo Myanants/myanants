@@ -42,6 +42,13 @@
 				</tr>
 
 				<tr>
+					<td class="left">Township</td>
+					<td class="right"> 
+						<?php echo $townships[$data['Customer']['township']] ; ?>						
+					</td>
+				</tr>
+
+				<tr>
 					<td class="left">Status</td>
 					<td class="right">
 					<?php if ($data['Customer']['deactivate'] == 1) : ?>

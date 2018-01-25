@@ -1,7 +1,7 @@
 <?php
 App::uses('AdminAppController', 'Controller');
 class AdminCustomersController extends AdminAppController {
-	public $components = array('RequestHandler');
+	public $components = array('RequestHandler','OptionCommon');
 	public $uses = array('Customer','Service','SubService','Question','ServiceRequest','TransactionManager');
 
 	public function beforeFilter(){
@@ -13,16 +13,31 @@ class AdminCustomersController extends AdminAppController {
 		$limit = (!empty($this->params->query['limit'])) ? $this->params->query['limit'] : 50;
 		$keyword = (!empty($this->params->query['keyword'])) ? trim($this->params->query['keyword']) : '';
 		$status = !empty($this->request->query['status']) ? trim($this->request->query['status']) : '';
+		$tsp = !empty($this->request->query['tsp']) ? trim($this->request->query['tsp']) : '';
+		$townships = $this->OptionCommon->townships ;
+
 		$condition = array();
 
 		$service = $this->Service->find('list',array(
 			'fields' => array(
 				'id','name')));
+		
+		if (!empty($status) && !empty($tsp)) {
+			if ($status == 1) {
+				$condition = array( 'Customer.deactivate' => 0,'Customer.deleted ' => 0,'Customer.township' => $tsp);
+			} elseif ($status == 2) {
+				$condition = array( 'Customer.deactivate' => 1,'Customer.deleted ' => 0,'Customer.township' => $tsp);
+			}
 
-		if ($status == 1 ) { //Active customer list
-			$condition = array( 'Customer.deactivate' => 0,'Customer.deleted ' => 0);
-		} elseif ($status == 2 ) { //Deactivated customer list
-			$condition = array( 'Customer.deactivate' => 1,'Customer.deleted ' => 0);
+		} elseif (!empty($status)) {
+			if ($status == 1 ) { //Active customer list
+				$condition = array( 'Customer.deactivate' => 0,'Customer.deleted ' => 0);
+			} elseif ($status == 2 ) { //Deactivated customer list
+				$condition = array( 'Customer.deactivate' => 1,'Customer.deleted ' => 0);
+			}
+
+		} elseif (!empty($tsp)) {
+			$condition = array('Customer.deleted ' => 0,'Customer.township' => $tsp);
 		} else {
 			$condition = array(
 				array(
@@ -32,13 +47,13 @@ class AdminCustomersController extends AdminAppController {
 					array('Customer.customer_id LIKE' => '%'. $keyword .'%'),
 					array('Customer.name LIKE' => '%'. $keyword .'%'),
 					array('Customer.email LIKE' => '%'. $keyword .'%'),
-					array('Customer.address LIKE' => '%'. $keyword .'%'),
+					array('Customer.township LIKE' => '%'. $keyword .'%'),
 					array('Customer.phone_number LIKE' => '%'. $keyword .'%')
 				)
 			) ;
 		}
 
-				
+
 		$this->paginate = array(
 			'paramType' => 'querystring',
 			'limit' => $limit,
@@ -46,11 +61,11 @@ class AdminCustomersController extends AdminAppController {
 			'conditions' => $condition
 		);
 		$pag = $this->paginate('Customer');
-		$this->set(compact('pag','limit','service'));
+		$this->set(compact('pag','limit','service','townships'));
 	}
 
 	public function add() {
-
+		$townships = $this->OptionCommon->townships ;
 		$lastcustomerID = $this->Customer->find('first',array('order' => array('id' => 'DESC'),'fields' => 'customer_id'));
 
 		if (!empty($lastcustomerID['Customer']['customer_id'])) {
@@ -69,7 +84,7 @@ class AdminCustomersController extends AdminAppController {
 
 		$error = false;
 
-		$this->set(compact('UserCode','services'));
+		$this->set(compact('UserCode','services','townships'));
 
 		if ($this->request->is(array('post', 'put'))) {
 
@@ -183,6 +198,8 @@ class AdminCustomersController extends AdminAppController {
 	}
 
 	public function browse($id) {
+		$townships = $this->OptionCommon->townships ;
+
 		$main_service = array();
 		$sub_service = array();
 		if (!$id) {
@@ -204,13 +221,12 @@ class AdminCustomersController extends AdminAppController {
 				$sub_service[$subvalue['id']] = $subvalue['name'] ;
 			}
 		}
-		$this->set(compact('data','question','main_service','sub_service'));
+		$this->set(compact('data','question','main_service','sub_service','townships'));
 	}
 
 	public function edit($id) {
-
+		$townships = $this->OptionCommon->townships ;		
 		$customer_info = $this->Customer->findById($id);
-
 
 		if (!$this->request->data) {
 			$this->request->data = $customer_info;
@@ -235,7 +251,6 @@ class AdminCustomersController extends AdminAppController {
 					$this->request->data['Customer']['password'] = $this->request->data['Customer']['password_update'];
 				}
 
-// debug($this->request->data);
 				$this->Customer->create();
 				if (!$this->Customer->saveAssociated($this->request->data, array('deep' => true))) {
 					// $this->set('error', 'true');
@@ -255,10 +270,8 @@ class AdminCustomersController extends AdminAppController {
 
 
 		}
-
-
 		
-		$this->set(compact('customer_info'));
+		$this->set(compact('customer_info','townships'));
 	}	
 
 	public function delete($id = null) {

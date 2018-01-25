@@ -26,7 +26,7 @@ class AdminServiceRequestsController extends AdminAppController {
 		} else {
 			$condition = array(
 				array(
-					'Customer.deleted ' => 0
+					'ServiceRequest.deleted ' => 0
 				),
 				'OR' => array(
 					array('Customer.customer_id LIKE' => '%'. $keyword .'%'),
@@ -60,14 +60,14 @@ class AdminServiceRequestsController extends AdminAppController {
 		try {
 			$transaction = $this->TransactionManager->begin();
 			if (empty($id)) {
-				throw new Exception('ERROR Service ID NOT EXISTS');
+				throw new Exception('ERROR ServiceRequest ID NOT EXISTS');
 			}
-			$this->Service->id = $id;
-			if (!$this->Service->exists()) {
-				throw new Exception('ERROR Service NOT EXISTS');
+			$this->ServiceRequest->id = $id;
+			if (!$this->ServiceRequest->exists()) {
+				throw new Exception('ERROR ServiceRequest NOT EXISTS');
 			}
-			if (!$this->Service->save(array('Service' => array('deleted' => 1, 'deleted_date' => date('Y-m-d H:i:s'))), array('validate' => false))) {
-				throw new Exception('ERROR COULD NOT DELETE Service');
+			if (!$this->ServiceRequest->save(array('ServiceRequest' => array('deleted' => 1, 'deleted_date' => date('Y-m-d H:i:s'))), array('validate' => false))) {
+				throw new Exception('ERROR COULD NOT DELETE ServiceRequest');
 			}
 			$this->TransactionManager->commit($transaction);
 		} catch (Exception $e) {
@@ -81,9 +81,7 @@ class AdminServiceRequestsController extends AdminAppController {
 
 	public function ajaxStatus() {
 		$this->autoRender = false;
-		if ($this->request->is('ajax')) {		
-$this->log('###################################');
-$this->log($this->request->data);
+		if ($this->request->is('ajax')) {
 			if ($this->request->data[0] == 'opt1') {
 				$status = 1;
 			} elseif ($this->request->data[0] == 'opt2') {

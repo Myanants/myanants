@@ -154,7 +154,7 @@
 
 										<?php echo $this->Html->link('View', array('controller' => 'admin_service_requests', 'action' => 'browse',h($value['ServiceRequest']['id'])), array( 'class' => 'btn btn-blue btn-sm')); ?>
 
-										<?php echo $this->Html->link('Delete', array('controller' => 'admin_service_requests', 'action' => 'delete', h($value['ServiceRequest']['id'])), array('confirm' => "Would you like to delete this service?", 'class' =>'btn btn-royal-blue btn-sm')); ?>
+										<?php echo $this->Html->link('Delete', array('controller' => 'admin_service_requests', 'action' => 'delete', h($value['ServiceRequest']['id'])), array('confirm' => "Would you like to delete this service request?", 'class' =>'btn btn-royal-blue btn-sm')); ?>
 									</td>
 								</tr>
 							<?php endforeach; ?>
