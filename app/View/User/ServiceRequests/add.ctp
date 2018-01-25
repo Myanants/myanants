@@ -1,6 +1,6 @@
 <?php echo $this->Html->css('DateTimePicker'); ?>
 <?php echo $this->Html->script('DateTimePicker'); ?>
-
+<?php $user_id = $this->Session->read('authId'); ?>
 <section>
 <div class="container">
 	<div class="request-box col-md-8 col-md-offset-2 col-sm-8 col-sm-offset-2">
@@ -137,7 +137,7 @@
 					</div>
 				</div>
 
-				<?php if (empty(AuthComponent::user('id'))) : ?>
+				<?php if (empty($user_id)) : ?>
 					
 					<div class="form-group" >	
 						<div class="col-md-10 col-md-offset-1 ">
@@ -153,7 +153,6 @@
 							?>
 						</div>
 					</div>
-
 
 					<div class="form-group" >
 						<div class="col-md-10 col-md-offset-1 ">

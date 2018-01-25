@@ -53,10 +53,9 @@ class UsersController extends UserAppController {
 				if(!$this->Customer->save($data)) {
 					throw new Exception("ERROR OCCUR DURING REGISTER OF USER INFORMATION");
 				} else {
-					$this->log("saved in DB -----------------");
 					if ($this->Auth->login()) {
 						$this->log("logined ---------------------");
-						// $this->redirect(array('controller' => 'users', 'action' => 'index'));
+						$this->Session->write('authId', $this->Auth->user('id'));
 					}
 				}
 
@@ -93,6 +92,7 @@ class UsersController extends UserAppController {
 							unset($this->request->data['Customer']['remember_me']);
 							$this->Cookie->write('user_rememberMe', $this->request->data['Customer'], true, '2 weeks');
 						}
+						$this->Session->write('authId', $this->Auth->user('id'));
 						$this->redirect(array('controller' => 'users', 'action' => 'index'));
 
 					} else {

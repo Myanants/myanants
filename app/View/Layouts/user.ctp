@@ -33,9 +33,9 @@
 	  js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.0";
 	  fjs.parentNode.insertBefore(js, fjs);
 	}(document, 'script', 'facebook-jssdk'));</script>
-	
 
-	<?php $user_id = AuthComponent::user('id'); ?>
+	<?php $user_id = $this->Session->read('authId'); ?>
+
 	<!-- ******HEADER****** --> 
 	<header id="header" class="header">  
 		<div class="container">
@@ -77,13 +77,13 @@
 							<a href="http://myanants.com/staging/">SERVICE REQUEST</a>
 						</li>
 
-						<!-- <li class="nav-item">
+						<li class="nav-item">
 							<?php if(empty($user_id)) : ?>
 								<?php echo $this->Html->link("LOGIN", array('controller' => 'users', 'action' => 'login')) ;?>
 							<?php else: ?>
 								<?php echo $this->Html->link("LOGOUT", array('controller' => 'users', 'action' => 'logout')) ;?>
 							<?php endif; ?>
-						</li> -->
+						</li>
 						<!-- <li class="nav-item">
 							<?php if(empty($user_id)) : ?>
 								<?php echo $this->Html->link("REGISTER", array('controller' => 'users', 'action' => 'add')) ;?>

@@ -50,7 +50,7 @@ class UserAppController extends AppController {
 		$this->Cookie->httpOnly = true;
 		$this->Cookie->type('rijndael');
 		$this->set('LoginedUser', $this->Auth->user());
-		$this->Auth->allow('add','registration_success','employer_success','remind','index','fbcallback','facebookLogin');
+		$this->Auth->allow('add','remind','index','fbcallback','facebookLogin');
 
     }
 
@@ -66,13 +66,9 @@ class UserAppController extends AppController {
 
         if ($this->Cookie->read('lang') && !$this->Session->check('Config.language')) {
             $this->Session->write('Config.language', $this->Cookie->read('lang'));
-            $this->log("if");
         } else if (isset($this->params['language']) && ($this->params['language'] !=  $this->Session->read('Config.language'))) {
-
             $this->Session->write('Config.language', $this->params['language']);
             $this->Cookie->write('lang', $this->params['language'], false, '20 days');
-            $this->log("else");
-
         }
     }
 

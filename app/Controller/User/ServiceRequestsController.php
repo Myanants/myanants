@@ -4,12 +4,12 @@ App::uses('CakeEmail', 'Network/Email');
 App::uses('UserAppController', 'Controller');
 
 class ServiceRequestsController extends UserAppController {
-	public $components = array('RequestHandler','OptionCommon','Session', 'Cookie');
+	public $components = array('RequestHandler','OptionCommon');
 	public $uses = array('Customer','Service','Question','SubService','ServiceRequest','TransactionManager');
 	
 	function beforeFilter() {
         $this->_setLanguage();
-        $this->Auth->allow('login','index','add','facebookLogin', 'fbcallback', 'logout', 'activate');
+        $this->Auth->allow('login','index','add','logout');
     }
 
     function _setLanguage() {
@@ -24,6 +24,10 @@ class ServiceRequestsController extends UserAppController {
             $this->Cookie->write('lang', $this->params['language'], false, '20 days');
         }
     }
+
+    public function index() {
+		$this->layout = 'user';
+	}
 
 	public function add($id = null){
 		$this->layout = 'user';
@@ -61,15 +65,14 @@ class ServiceRequestsController extends UserAppController {
 
 		if ($this->request->is(array('post', 'put'))) {
 			try {
-
-// $this->log($this->request->data);
+				$user_id = $this->Session->read('authId');
 				$transaction = $this->TransactionManager->begin();
 				
 				$sub_service_id = $this->request->data['ServiceRequest']['sub_service_id'];
 				unset($this->request->data['ServiceRequest']['sub_service_id']);
 
 				// // For not logined customer, save customer data
-				if (empty($this->Auth->user('id'))) {
+				if (empty($user_id)) {
 
 					$input_phone = $this->request->data['ServiceRequest']['phone_number'] ;
 					$existData = $this->Customer->findByPhoneNumber($input_phone);
@@ -115,7 +118,7 @@ class ServiceRequestsController extends UserAppController {
 						$customerid = $existData['Customer']['id'] ;
 					}
 				} else {
-					$customerid = $this->Auth->user('id');
+					$customerid = $user_id;
 				}
 
 
