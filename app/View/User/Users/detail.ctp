@@ -124,7 +124,7 @@
 		background-color: lightgray ;
 	}
 	.block1 {
-		margin-bottom : 80px;
+		margin-bottom: 12%;
 	}
 	.speech-bubble {
 		padding-top: 16px;

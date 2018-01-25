@@ -195,15 +195,29 @@ class UsersController extends UserAppController {
 		$this->Session->write('profile_image', $profile_image);
 
 		if (empty($userInfo) && !empty($userNode)) {
-			$randomID = mt_rand(0000001,9999999);//generate random number of given between range
-			$customerID='C-' .$randomID;
+			// $randomID = mt_rand(0000001,9999999);//generate random number of given between range
+			// $customerID='C-' .$randomID;
+
+			$lastcustomerID = $this->Customer->find('first',array('order' => array('id' => 'DESC'),'fields' => 'customer_id'));
+
+			if (!empty($lastcustomerID['Customer']['customer_id'])) {
+				$temp = substr($lastcustomerID['Customer']['customer_id'], 2);
+				$num = $temp+1;
+				$CompanyID = str_pad($num, 6, '0', STR_PAD_LEFT);
+			} else {
+				$num = 1;
+				$CompanyID = str_pad($num, 6, '0', STR_PAD_LEFT);
+			}
+			$prefix = 'C-';
+			$UserCode = $prefix.$CompanyID;
+
 			$data = array(
 				'Customer' => array(
 					'fbid' => $userNode['id'],
 					'name' => $userNode['name'],
 					'email' => $userNode['email'],
 					'password' => mt_rand(),
-					'customer_id' => $customerID
+					'customer_id' => $UserCode
 				)
 			);
 
@@ -217,9 +231,14 @@ class UsersController extends UserAppController {
 				throw new Exception("ERROR SAVING DATA OF FACEBOOK LOGIN");
 			}
 
+			$this->Session->write('authId', $this->Auth->user('id'));
+
 			$loginInfo = $this->Customer->findByFbid($userNode['id']);
 			if (!empty($loginInfo)) {
 				if ($this->Auth->login($loginInfo['Customer'])) {
+
+					$this->Session->write('authId', $this->Auth->user('id'));
+
 					if ($this->Auth->user('deactivate') == 0) {
 						$this->redirect(array('controller'=>'users','action' => 'index'));
 					} else {
@@ -229,6 +248,8 @@ class UsersController extends UserAppController {
 			}
 		} else {
 			if ($this->Auth->login($userInfo['Customer'])) {
+				$this->Session->write('authId', $this->Auth->user('id'));
+
 				if ($this->Auth->user('deactivate') == 0) {
 					$this->redirect(array('controller'=>'users','action' => 'index'));
 				} else {
