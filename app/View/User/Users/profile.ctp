@@ -8,7 +8,7 @@
 
 			<h2 class="title text-center">Your Informations</h2>
 			<div class="block1">
-				<p class="col-md-12 text-center btn btn-cta-primary">
+				<p class="col-md-12 text-center btn-cta-primary" style="background: #335b98;padding-top: 10px;padding-bottom: 10px;border-radius: 5px;">
 					Your ID : <?php echo $customer_id; ?>
 				</p>
 			</div><!--//block-->
