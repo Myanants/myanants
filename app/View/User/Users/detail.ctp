@@ -72,53 +72,56 @@
 			<div class="block1">
 				<div class="list-group">
 					<h3 class="title text-center">Service Provider Details</h3>
-					<?php //debug($spInfo); ?>
-					
-					<div class="list-group">
-						<div class="col-md-3">
-							<?php echo 'Service Provider Name'; ?>
+					<?php if (!empty($spInfo)) { ?>
+											
+						<div class="list-group">
+							<div class="col-md-3">
+								<?php echo 'Service Provider Name'; ?>
+							</div>
+							<div class="col-md-9">
+								<?php echo $spInfo['ServiceProvider']['name']; ?>
+							</div>
 						</div>
-						<div class="col-md-9">
-							<?php echo $spInfo['ServiceProvider']['name']; ?>
-						</div>
-					</div>
 
-					<div class="list-group">
-						<div class="col-md-3">
-							<?php echo 'Business Summary'; ?>
+						<div class="list-group">
+							<div class="col-md-3">
+								<?php echo 'Business Summary'; ?>
+							</div>
+							<div class="col-md-9">
+								<?php echo $spInfo['ServiceProvider']['business_summary']; ?>
+							</div>
 						</div>
-						<div class="col-md-9">
-							<?php echo $spInfo['ServiceProvider']['business_summary']; ?>
+			
+						<div class="list-group">
+							<div class="col-md-3">
+								<?php echo 'Business Type'; ?>
+							</div>
+							<div class="col-md-9">
+								<?php echo $spInfo['ServiceProvider']['business_type']; ?>
+							</div>
 						</div>
-					</div>
-		
-					<div class="list-group">
-						<div class="col-md-3">
-							<?php echo 'Business Type'; ?>
-						</div>
-						<div class="col-md-9">
-							<?php echo $spInfo['ServiceProvider']['business_type']; ?>
-						</div>
-					</div>
 
-					<div class="list-group">
-						<div class="col-md-3">
-							<?php echo 'Pricing'; ?>
+						<div class="list-group">
+							<div class="col-md-3">
+								<?php echo 'Pricing'; ?>
+							</div>
+							<div class="col-md-9">
+								<?php echo $spInfo['ServiceProvider']['pricing']; ?>
+							</div>
 						</div>
-						<div class="col-md-9">
-							<?php echo $spInfo['ServiceProvider']['pricing']; ?>
-						</div>
-					</div>
 
-					<div class="list-group">
-						<div class="col-md-3">
-							<?php echo 'Team Member'; ?>
+						<div class="list-group">
+							<div class="col-md-3">
+								<?php echo 'Team Member'; ?>
+							</div>
+							<div class="col-md-9">
+								<?php echo $spInfo['ServiceProvider']['teammember']; ?>
+							</div>
 						</div>
-						<div class="col-md-9">
-							<?php echo $spInfo['ServiceProvider']['teammember']; ?>
-						</div>
-					</div>
 
+						<?php } else { ?>
+							<?php echo "EMPTY"; ?>
+						<?php } ?>
 				</div>
 
 

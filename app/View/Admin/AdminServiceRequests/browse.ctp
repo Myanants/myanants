@@ -7,10 +7,15 @@
 				<div class="col-md-10">
 					<div class="col-md-5">
 						<?php
-
+						if (!empty($data['ServiceRequest']['service_provider_id'])) {
+							$spId = $data['ServiceRequest']['service_provider_id'] ;
+						} else {
+							$spId = '' ;
+						}
 						echo $this->Form->input('sProvider', array(
 									'label' => false,
 									'options' => $sProvider,
+									'value' => $spId, 
 									'empty' => 'Please select service provider',
 									'class' => 'sProvider form-control col-md-7 col-xs-12',
 									'id' => $data['ServiceRequest']['id']

@@ -298,8 +298,12 @@ class UsersController extends UserAppController {
 				'fields' => array(
 					'id' ,'Ename')));
 
-
-			$spInfo = $this->ServiceProvider->findById($request['ServiceRequest']['service_provider_id']);
+			if (!empty($request['ServiceRequest']['service_provider_id'])) {
+				$spInfo = $this->ServiceProvider->findById($request['ServiceRequest']['service_provider_id']);
+			} else {
+				$spInfo = null ;
+			}
+			
 		}
 		$this->set(Compact('request','customer_id','sub_service','question','spInfo'));
 	}
