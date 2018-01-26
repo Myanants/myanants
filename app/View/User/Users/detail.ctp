@@ -2,7 +2,7 @@
 <section id="docs" class="docs section">
 
 	<div class="container">
-		<div class="docs-inner" style="height: 655px;">
+		<div class="docs-inner" style="height: 1000px;">
 			<?php echo $this->Html->link('Back', 'javascript:history.back()', array('class' => 'custom-link')); ?>
 			
 			<h3 class="title text-center">Service Request Details</h3>
