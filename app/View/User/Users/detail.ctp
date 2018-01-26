@@ -2,7 +2,7 @@
 <section id="docs" class="docs section">
 
 	<div class="container">
-		<div class="docs-inner">
+		<div class="docs-inner" style="height: 655px;">
 			<?php echo $this->Html->link('Back', 'javascript:history.back()', array('class' => 'custom-link')); ?>
 			
 			<h3 class="title text-center">Service Request Details</h3>
@@ -72,22 +72,50 @@
 			<div class="block1">
 				<div class="list-group">
 					<h3 class="title text-center">Service Provider Details</h3>
+					<?php //debug($spInfo); ?>
 					
 					<div class="list-group">
 						<div class="col-md-3">
 							<?php echo 'Service Provider Name'; ?>
 						</div>
 						<div class="col-md-9">
-							<?php echo 'U Kyaw Kyaw'; ?>
+							<?php echo $spInfo['ServiceProvider']['name']; ?>
 						</div>
 					</div>
 
 					<div class="list-group">
 						<div class="col-md-3">
-							<?php echo 'Company Name'; ?>
+							<?php echo 'Business Summary'; ?>
 						</div>
 						<div class="col-md-9">
-							<?php echo 'Pintrest'; ?>
+							<?php echo $spInfo['ServiceProvider']['business_summary']; ?>
+						</div>
+					</div>
+		
+					<div class="list-group">
+						<div class="col-md-3">
+							<?php echo 'Business Type'; ?>
+						</div>
+						<div class="col-md-9">
+							<?php echo $spInfo['ServiceProvider']['business_type']; ?>
+						</div>
+					</div>
+
+					<div class="list-group">
+						<div class="col-md-3">
+							<?php echo 'Pricing'; ?>
+						</div>
+						<div class="col-md-9">
+							<?php echo $spInfo['ServiceProvider']['pricing']; ?>
+						</div>
+					</div>
+
+					<div class="list-group">
+						<div class="col-md-3">
+							<?php echo 'Team Member'; ?>
+						</div>
+						<div class="col-md-9">
+							<?php echo $spInfo['ServiceProvider']['teammember']; ?>
 						</div>
 					</div>
 

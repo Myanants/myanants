@@ -299,9 +299,9 @@ class UsersController extends UserAppController {
 					'id' ,'Ename')));
 
 
-			// $this->log($request);
+			$spInfo = $this->ServiceProvider->findById($request['ServiceRequest']['service_provider_id']);
 		}
-		$this->set(Compact('request','customer_id','sub_service','question'));
+		$this->set(Compact('request','customer_id','sub_service','question','spInfo'));
 	}
 
 	// Main function for password reset
