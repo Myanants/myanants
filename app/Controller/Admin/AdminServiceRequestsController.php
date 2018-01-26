@@ -2,7 +2,7 @@
 App::uses('AdminAppController', 'Controller');
 class AdminServiceRequestsController extends AdminAppController {
 	public $components = array('RequestHandler');
-	public $uses = array('Customer','ServiceRequest','TransactionManager');
+	public $uses = array('Customer','Question','SubService','ServiceProvider','ServiceRequest','TransactionManager');
 
 	public function beforeFilter(){
 		parent::beforeFilter();
@@ -22,7 +22,7 @@ class AdminServiceRequestsController extends AdminAppController {
 		} elseif ($status == 3) { // Not Confirmed
 			$condition = array( 'ServiceRequest.status' => 3,'ServiceRequest.deleted ' => 0);
 		} elseif ($status == 4) {
-			$condition = array( 'ServiceRequest.status' => 0,'ServiceRequest.deleted ' => 0);
+			$condition = array( 'ServiceRequest.status' => 4,'ServiceRequest.deleted ' => 0);
 		} else {
 			$condition = array(
 				array(
@@ -47,14 +47,30 @@ class AdminServiceRequestsController extends AdminAppController {
 		$this->set(compact('pag','limit','status'));
 	}
 
-
 	public function browse($id= null) {
 
 		$data = $this->ServiceRequest->findById($id);
-		// debug($data);
-		$this->set(Compact('data'));
-	}
+		$question = $this->Question->find('list',array(
+					'fields' => array(
+					'id','Ename')));
+	
+		$request = $this->ServiceRequest->findById($id);
 
+		$sProvider = $this->ServiceProvider->find('list',array(
+			'id' ,'name'));
+
+		$sub_service = $this->SubService->find('list',array(
+			'fields' => array(
+				'id' ,'name')));
+
+		$question = $this->Question->find('list',array(
+			'fields' => array(
+				'id' ,'Ename')));
+
+
+		$this->set(Compact('data','request','sub_service','question','sProvider'));
+
+	}
 
 	public function delete($id = null) {
 		try {
@@ -89,12 +105,40 @@ class AdminServiceRequestsController extends AdminAppController {
 			} elseif ($this->request->data[0] == 'opt3') {
 				$status = 3;
 			} elseif ($this->request->data[0] == 'opt4') {
-				$status = 0;
+				$status = 4;
 			}
 
 			$this->ServiceRequest->id = $this->request->data['id'];
 			if (!$this->ServiceRequest->saveField('status', $status)) {
 				throw new Exception('ERROR COULD NOT DELETE Service');
+			}
+		}
+	}
+
+	public function ajaxProvider() {
+		$this->autoRender = false;
+		if ($this->request->is('ajax')) {
+			if (!empty($this->request->data[0])) {
+				$data['ServiceRequest'] = array(
+							'service_provider_id' => $this->request->data['0'],
+							'status' => 3,
+							'id' => $this->request->data['id']
+						);
+				
+				if ($this->ServiceRequest->saveMany($data)) {
+					throw new Exception('ERROR COULD NOT DELETE Service');
+				};
+
+			} else {
+				$data['ServiceRequest'] = array(
+							'service_provider_id' => null,
+							'status' => 4,
+							'id' => $this->request->data['id']
+						);
+				
+				if ($this->ServiceRequest->saveMany($data)) {
+					throw new Exception('ERROR COULD NOT DELETE Service');
+				};
 			}
 		}
 	}

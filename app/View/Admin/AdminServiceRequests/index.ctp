@@ -35,7 +35,7 @@
 							<?php echo $this->Form->input('status', array(
 										'label' => false,
 										'default'=> $deact_act ,
-										'options' =>array('1'=>'Customer Cancel','2'=>'S_Provider Cancel', '3' => 'Not Confirmed','4' => 'No Status'),
+										'options' =>array('1'=>'Customer Cancel','2'=>'S_Provider Cancel', '3' => 'Confirmed','4' => 'Not Confirmed'),
 										'onChange' => 'this.form.submit();',
 										'empty' => 'Please select the status',
 										'class' => 'form-control col-md-7 col-xs-12'
@@ -120,12 +120,16 @@
 									<td>
 										<?php if ($value['ServiceRequest']['status'] == 1) { ?>
 											<label class="col-md-11 btn-blue lbl-status" style="background : blue;">Customer Cancel</label>
+
 										<?php } elseif ($value['ServiceRequest']['status'] == 2) { ?>
-											<label class="col-md-11 btn-blue lbl-status" style="background : red ;">S_Provider Cancel</label>	
+											<label class="col-md-11 btn-blue lbl-status" style="background : red ;">S_Provider Cancel</label>
+
 										<?php } elseif ($value['ServiceRequest']['status'] == 3) { ?>
-											<label class="col-md-11 btn-blue lbl-status" style="background : green ;">Not Confirmed</label>	
-										<?php } else { ?>
-											<label class=""></label>
+											<label class="col-md-11 btn-blue lbl-status" style="background : green ;">Confirmed</label>	
+
+										<?php } elseif ($value['ServiceRequest']['status'] == 4) { ?>
+											<label class="col-md-11 btn-blue lbl-status" style="background : black ;">Not Confirmed</label>
+
 										<?php } ?>
 									</td>
 
@@ -138,7 +142,7 @@
 									<td style="width: 26%;">
 										<?php
 
-											$langs = array('opt1' => 'Customer Cancel', 'opt2' => 'S_Provider Cancel', 'opt3' => 'Not Confirmed','opt4' => 'Remove Status');
+											$langs = array('opt1' => 'Customer Cancel', 'opt2' => 'S_Provider Cancel', 'opt3' => 'Confirmed','opt4' => 'Not Confirmed');
 
 											echo $this->Form->input('status', array(
 												'type' => 'select',
@@ -226,11 +230,11 @@
 		} else if (this.value == 'opt3') { // Not confirmed
 			status.attr('style','background : green;');
 			status.attr('class','col-md-11 btn-blue lbl-status');
-			status.text('Not Confirmed');
+			status.text('Confirmed');
 		} else if (this.value == 'opt4') {
-			status.attr('style','');
-			status.attr('class','');
-			status.text('');
+			status.attr('style','background : green;');
+			status.attr('class','col-md-11 btn-blue lbl-status');
+			status.text('Not Confirmed');
 		}
 		
 	});

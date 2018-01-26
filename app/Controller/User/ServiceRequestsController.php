@@ -64,6 +64,7 @@ class ServiceRequestsController extends UserAppController {
 		$this->set(compact('serviceName','id','question','service','townships'));
 
 		if ($this->request->is(array('post', 'put'))) {
+
 			try {
 				$user_id = $this->Session->read('authId');
 				$transaction = $this->TransactionManager->begin();
@@ -133,7 +134,6 @@ class ServiceRequestsController extends UserAppController {
 				unset($this->request->data['ServiceRequest']['phone_number']);
 				unset($this->request->data['ServiceRequest']['request_datetime']);
 				unset($this->request->data['ServiceRequest']['township']);
-
 
 				foreach ($this->request->data['ServiceRequest'] as $key => $value) {
 					$tempString = '' ;

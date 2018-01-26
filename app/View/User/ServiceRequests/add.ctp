@@ -74,25 +74,13 @@
 										$chkValue[$value] = $value; ?>
 										<div class="form-check">
 											<label>
-												<input type="checkbox" name="<?php echo $questionId; ?>" value="<?php echo $value; ?>" > <span class="label-text">
+												<input type="checkbox" name= "<?php echo 'data[ServiceRequest]['.$questionId.']['.$key.']' ?>" value="<?php echo $value; ?>" > <span class="label-text">
 													<?php echo $value; ?>
 												</span>
 											</label>
 										</div>
 
 									<?php } ?>
-
-									<!-- <?php echo $this->Form->input($questionId, array(
-											'type' => 'select',
-											'multiple' => 'checkbox',
-											'label' => false,
-											'class' => 'multiple-chb',
-											'options' => $chkValue,
-											'required' => false
-										));
-
-										?> -->
-									
 								<?php } elseif ($value['Question']['type'] == 'radio') { ?>
 									<?php
 										$string = rtrim($value['Question']['en_answer'],"@@");
