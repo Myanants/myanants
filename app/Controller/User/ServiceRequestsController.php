@@ -255,7 +255,7 @@ class ServiceRequestsController extends UserAppController {
 				$this->Session->write('request_datetime', $this->request->data['ServiceRequest']['request_datetime']);
 
 				$admin_defaults = array(
-					'to' => 'myothandarkhaing18@gmail.com' ,
+					'to' => 'myothandarkhaing.myanants@gmail.com' ,
 					'from' => 'info@myanants.com',
 					'subject' => 'Service Request Alert from Customer',
 					'template' => 'service_request_alert',
