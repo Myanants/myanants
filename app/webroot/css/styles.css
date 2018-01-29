@@ -452,10 +452,13 @@ pre code {
 }
 /* ======= Contact Section ======= */
 .contact {
-  padding: 80px 0;
-  /*background: #17baef;*/
+/*  padding: 80px 0;
   background: lightgray;
+  color: #fff;*/
+  padding: 80px 0;
+  background: black;
   color: #fff;
+  border-bottom-style: solid;
 }
 .contact .contact-inner {
   max-width: 760px;

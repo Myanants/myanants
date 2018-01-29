@@ -128,10 +128,8 @@ class AdminServiceProvidersController extends AdminAppController {
 
 		$sp_info = $this->ServiceProvider->findById($id);
 
-
 		$sp_info['ServiceProvider']['experience'] = array_search($sp_info['ServiceProvider']['experience'], $experience);
-		$sp_info['ServiceProvider']['townships'] = array_search($sp_info['ServiceProvider']['townships'], $townships);
-		  
+		$sp_info['ServiceProvider']['townships'] = array_search($sp_info['ServiceProvider']['townships'], $townships);		  
 
 		if (!$this->request->data) {
 			$this->request->data = $sp_info;

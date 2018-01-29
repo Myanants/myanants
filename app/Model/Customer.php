@@ -2,17 +2,6 @@
 App::uses('BlowfishPasswordHasher', 'Controller/Component/Auth');
 class Customer extends AppModel {
 
-	// public $hasMany = array (
-	// 	'ServiceRequest'
-	// );
-
-	// public $belongsTo = array(
- //        'Service' => array(
- //            'className' => 'Service',
- //            'foreignKey' => 'service_id'
- //        )
- //    );
-
 	public $validate = array(
 		'name' => array(
 			'notBlank' => array(

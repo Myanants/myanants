@@ -101,9 +101,10 @@ class AdminCleanersController extends AdminAppController {
 				}
 
 
-				/****** Calculation age from birthday
-				***** object oriented
-				*********************************/
+				/*********************** Calculation age from birthday
+				********************* object oriented
+				************************************************************/
+				
 				$birth_date = $this->request->data['Cleaner']['date_of_birth'] ;
 				unset($this->request->data['Cleaner']['date_of_birth']);
 				$tmp = $birth_date['year'].'-'.$birth_date['month'].'-'.$birth_date['day'] ;
@@ -161,7 +162,7 @@ class AdminCleanersController extends AdminAppController {
 			$jobArr = explode('@@', $this->request->data['Cleaner']['job_type']) ;
 			foreach ($jobArr as $jkey => $jvalue) {
 				$type = explode('-', $jvalue) ;
-				if ($type[1] != null) {
+				if (isset($type[1]) && $type[1] != null) {
 					$arr[$type[0]] = $type[1];
 				}
 			}

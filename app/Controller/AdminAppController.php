@@ -30,7 +30,7 @@ class AdminAppController extends AppController {
 				)
 			),
 			'authorize' => array(
-				'Controller',
+				'Controller'
 			)
 		 ),
 		'Cookie'

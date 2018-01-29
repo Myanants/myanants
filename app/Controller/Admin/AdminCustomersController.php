@@ -50,7 +50,7 @@ class AdminCustomersController extends AdminAppController {
 					array('Customer.township LIKE' => '%'. $keyword .'%'),
 					array('Customer.phone_number LIKE' => '%'. $keyword .'%')
 				)
-			) ;
+			);
 		}
 
 

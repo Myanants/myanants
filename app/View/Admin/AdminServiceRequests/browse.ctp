@@ -16,7 +16,7 @@
 									'label' => false,
 									'options' => $sProvider,
 									'value' => $spId, 
-									'empty' => 'Please select service provider',
+									'empty' => 'Add service provider',
 									'class' => 'sProvider form-control col-md-7 col-xs-12',
 									'id' => $data['ServiceRequest']['id']
 								)

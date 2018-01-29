@@ -2,10 +2,6 @@
 App::uses('BlowfishPasswordHasher', 'Controller/Component/Auth');
 class ServiceRequest extends AppModel {
 
-	// public $hasOne = array (
-	// 	'Customer'
-	// );
-
 	public $belongsTo = array(
 		'Customer' => array(
 			'className' => 'Customer',
@@ -13,9 +9,8 @@ class ServiceRequest extends AppModel {
 		),
 		'Service' => array(
 			'className' => 'Service',
-			'foreignKey' => 'service_id')
+			'foreignKey' => 'service_id'
+		)
 	);
-
-
 
 }

@@ -35,8 +35,7 @@ class MasterCleanerAppController extends AppController {
 			)
 		),
 		'Cookie'
-	);
-	
+	);	
 
 	function beforeFilter() {
 		$this->layout = 'login_master';

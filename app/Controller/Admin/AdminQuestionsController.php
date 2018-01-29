@@ -13,28 +13,11 @@ class AdminQuestionsController extends AdminAppController {
 
 		$limit = (!empty($this->params->query['limit'])) ? $this->params->query['limit'] : 50;
 		$keyword = (!empty($this->params->query['keyword'])) ? trim($this->params->query['keyword']) : '';
-		$condition = array();
-
-
-	
-		// $condition = array(
-		// 	array(
-		// 		'Customer.deleted ' => 0
-		// 	),
-		// 	'OR' => array(
-		// 		array('Customer.customer_id LIKE' => '%'. $keyword .'%'),
-		// 		array('Customer.name LIKE' => '%'. $keyword .'%'),
-		// 		array('Customer.email LIKE' => '%'. $keyword .'%'),
-		// 		array('Customer.address LIKE' => '%'. $keyword .'%'),
-		// 		array('Customer.phone_number LIKE' => '%'. $keyword .'%')
-		// 	)
-		// ) ;
 		
 		$this->paginate = array(
 			'paramType' => 'querystring',
 			'limit' => $limit,
-			'order' => array('id' => 'ASC'),
-			// 'conditions' => $condition
+			'order' => array('id' => 'ASC')
 		);
 		$pag = $this->paginate('Question');
 		$this->set(compact('pag','limit'));
@@ -166,12 +149,8 @@ class AdminQuestionsController extends AdminAppController {
 
 		$this->set(compact('services','type','quest','service_name','data'));
 
-
-		// debug($this->request->data);
-
 		$eAnswer = '';
 		$mAnswer = '';
-
 
 		if ($this->request->is(array('post', 'put'))) {
 			$tooltype = $type[$this->request->data['Question']['type']];
@@ -210,7 +189,6 @@ class AdminQuestionsController extends AdminAppController {
 
 	public function browse($id = null) {
 		$data = $this->Question->findById($id);
-		// debug($data);
 		$this->set(compact('data'));
 	}
 }
