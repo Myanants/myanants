@@ -3,6 +3,7 @@
 		<h2>Question Detail</h2>
 		<div class="clearfix"></div>
 	</div>
+	<?php //debug($data); ?>
 	<div class="x_content">
 		<h4><label>Question Informations</label></h4>
 		<table class="table-st">
@@ -10,6 +11,44 @@
 				<tr>
 					<td class="left">Name</td>
 					<td class="right"><?php echo $data['Question']['Ename'] ; ?></td>
+				</tr>
+
+				<tr>
+					<td class="left">Answer</td>
+					<td class="right">
+
+						<?php if ($data['Question']['type'] == 'text') { ?>
+							<input type="text" name="text" disabled="true" />
+
+						<?php } elseif ($data['Question']['type'] == 'check') { ?>
+							<?php
+								$check_option = explode('@@', $data['Question']['en_answer']) ;
+								echo $this->Form->input('checkbox', array(
+									'type'=>'select',
+									'multiple'=>'checkbox',
+									'options'=> $check_option,
+									'label' => false,
+									'div' => false,
+									'disabled' => 'disabled'
+									)
+								);
+							?>
+
+						<?php } elseif ($data['Question']['type'] == 'radio') { ?>
+							<?php
+								$radio_option = explode('@@', $data['Question']['en_answer']) ;
+							?>
+
+							<?php foreach ($radio_option as $radiokey => $radiovalue) { ?>
+								<div class="radio">
+									<label>
+										<input type='radio' name='firstquestion' class="firstquestion" disabled="disabled"><?php echo $radiovalue; ?>
+									</label>
+								</div>
+							<?php } ?>
+
+						<?php } ?>
+					</td>
 				</tr>
 
 				<tr>
