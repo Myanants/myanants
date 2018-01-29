@@ -175,7 +175,7 @@ class ServiceRequestsController extends UserAppController {
 				if(!$this->ServiceRequest->save($this->request->data)) {
 					throw new Exception("ERROR OCCUR DURING REGISTER OF USER INFORMATION");
 				}
-
+				
 				if (!empty($this->Auth->user('email'))) {
 					$user_mail = $this->Auth->user('email') ;
 
@@ -283,7 +283,7 @@ class ServiceRequestsController extends UserAppController {
 
 				$this->TransactionManager->commit($transaction);
 
-				$this->redirect(array('controller'=>'users','action' => 'index'));
+				$this->redirect(array('controller'=>'users','action' => 'index'))->with('success_message', 'Thank you for your service request.');
 
 			} catch (Exception $e) {
 				$this->log('File : ' . $e->getFile() . ' Line : ' . $e->getLine(), LOG_ERR);

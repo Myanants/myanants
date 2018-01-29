@@ -36,7 +36,7 @@ msgid "Electrical and Wiring"
 msgstr "မီးႏွင့္၀ါယာျပဳျပင္မႈ"
 
 msgid "Cleaning Services"
-msgstr "အိမ္သန္႔ရွင္းေရး၀န္ေဆာင္မႈ"
+msgstr "သန္႔ရွင္းေရး၀န္ေဆာင္မႈ"
 
 msgid "Other Services"
 msgstr "အၿခား၀န္ေဆာင္မွုမ်ား"

@@ -175,10 +175,10 @@
 
 				<?php echo $this->Html->link(__('Air Conditioner Maintenance'), array('controller' => 'service_requests', 'action' => 'add','1'),array('class' => 'btn btn-cta-primary' )) ;?>
 
-				<?php echo $this->Html->link(__('Cleaning Services'), array('controller' => 'service_requests', 'action' => 'add','2'),array('class' => 'btn btn-cta-primary' )) ;?>
+				<?php echo $this->Html->link(__('Electrical and Wiring'), array('controller' => 'service_requests', 'action' => 'add','2'),array('class' => 'btn btn-cta-primary' )) ;?>
 
-				<?php echo $this->Html->link(__('Electrical and Wiring'), array('controller' => 'service_requests', 'action' => 'add','3'),array('class' => 'btn btn-cta-primary' )) ;?>
-
+				<?php echo $this->Html->link(__('Cleaning Services'), array('controller' => 'service_requests', 'action' => 'add','3'),array('class' => 'btn btn-cta-primary' )) ;?>
+				
 				<?php echo $this->Html->link(__('Other Services'), array('controller' => 'service_requests', 'action' => 'add','4'),array('class' => 'btn btn-cta-primary' )) ;?>
 
 
