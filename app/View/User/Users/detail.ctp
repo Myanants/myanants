@@ -2,7 +2,8 @@
 <section id="docs" class="docs section">
 
 	<div class="container">
-		<div class="docs-inner" style="height: 1000px;">
+		<div class="docs-inner inner-container">
+
 			<?php echo $this->Html->link('Back', 'javascript:history.back()', array('class' => 'custom-link')); ?>
 			
 			<h3 class="title text-center">Service Request Details</h3>
@@ -29,6 +30,15 @@
 						</div>
 					</div>
 
+					<div class="list-group">
+						<div class="col-md-3">
+							<?php echo 'Service Request Datetime'; ?>
+						</div>
+						<div class="col-md-9">
+							<?php echo $request['ServiceRequest']['request_datetime']; ?>
+						</div>
+					</div>
+
 				<?php endif; ?>
 
 			</div><!--//block-->
@@ -38,7 +48,7 @@
 				<div class="speech-bubble">
 					<?php $ans_array = explode('###', $request['ServiceRequest']['answer']) ; ?>
 					<?php foreach ($ans_array as $anskey => $ansvalue) : ?>
-						<div class="list-group">
+						<div class="list-group" style="line-height: 0.9;">
 							<?php
 								$answer_string = '' ;
 								$temp_answer = explode('/', $ansvalue);
@@ -88,7 +98,7 @@
 								<?php echo 'Business Summary'; ?>
 							</div>
 							<div class="col-md-9">
-								<?php echo $spInfo['ServiceProvider']['business_summary']; ?>
+								<?php echo nl2br($spInfo['ServiceProvider']['business_summary']); ?>
 							</div>
 						</div>
 			
@@ -106,7 +116,7 @@
 								<?php echo 'Pricing'; ?>
 							</div>
 							<div class="col-md-9">
-								<?php echo $spInfo['ServiceProvider']['pricing']; ?>
+								<?php echo nl2br($spInfo['ServiceProvider']['pricing']); ?>
 							</div>
 						</div>
 
@@ -120,7 +130,7 @@
 						</div>
 
 						<?php } else { ?>
-							<?php echo "EMPTY"; ?>
+							<label> <?php echo "EMPTY"; ?> </label>
 						<?php } ?>
 				</div>
 
@@ -155,7 +165,7 @@
 		background-color: lightgray ;
 	}
 	.block1 {
-		margin-bottom: 12%;
+		margin-bottom: 17%;
 	}
 	.speech-bubble {
 		padding-top: 16px;
@@ -186,5 +196,17 @@
 	.custom-link {
 		color: blue;
 		float: right;
+	}
+
+	.inner-container {
+		height: 1100px;
+	}
+
+	/*---------- mobile -----------*/
+	@media screen and (max-width: 768px) and (max-width: 992px) {
+		.inner-container {
+			height: auto;
+		}
+
 	}
 </style>

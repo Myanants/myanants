@@ -62,7 +62,7 @@ class UsersController extends UserAppController {
 				}
 
 				$this->TransactionManager->commit($transaction);
-
+				$this->Session->setFlash('Your account registration is successful and already logined .', 'success');
 				$this->redirect(array('controller'=>'users','action' => 'login'));
 
 			} catch (Exception $e) {
@@ -95,6 +95,7 @@ class UsersController extends UserAppController {
 							$this->Cookie->write('user_rememberMe', $this->request->data['Customer'], true, '2 weeks');
 						}
 						$this->Session->write('authId', $this->Auth->user('id'));
+						$this->Session->setFlash('You have been logined .', 'success');
 						$this->redirect(array('controller' => 'users', 'action' => 'index'));
 
 					} else {

@@ -25,6 +25,7 @@
 </head> 
 
 <body data-spy="scroll">
+
 	<?php $user_id = AuthComponent::user('id'); 
 		// if (isset(AuthComponent::user('id'))) {
 		// 	$user_id = AuthComponent::user('id'); 
@@ -66,6 +67,7 @@
 	}(document, 'script', 'facebook-jssdk'));</script> -->
 	
 	<!-- ******HEADER****** --> 
+
 	<header id="header" class="header">  
 		<div class="container">            
 			<div class="hidden-sm hidden-xs col-md-3" style="margin-top: -3%;margin-bottom: -1%;">        
@@ -160,9 +162,12 @@
 			</nav><!--//main-nav-->
 		</div>
 	</header><!--//header-->
-	
+	<div class="col-md-12">
+		<?php echo $this->Session->flash(); ?>
+	</div>
 	<!-- ******PROMO****** -->
 	<section id="promo" class="promo section offset-header">
+
 		<div class="container text-center">
 			<!-- <h2 class="hidden-sm hidden-xs title">Myan<span class="highlight">Ants</span></h2> -->
 			<p class="hidden-sm hidden-xs intro">

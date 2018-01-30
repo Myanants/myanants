@@ -38,7 +38,7 @@
 	  js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.0";
 	  fjs.parentNode.insertBefore(js, fjs);
 	}(document, 'script', 'facebook-jssdk'));</script> -->
-	
+
 	<!-- ******HEADER****** --> 
 	<header id="header" class="header">  
 		<div class="container">            
@@ -113,6 +113,10 @@
 			</nav><!--//main-nav-->
 		</div>
 	</header><!--//header-->
+	
+	<div class="col-md-12">
+		<?php echo $this->Session->flash(); ?>
+	</div>
 	
 	<section id="promo" class="promo section offset-header">
 		<div class="container text-center">

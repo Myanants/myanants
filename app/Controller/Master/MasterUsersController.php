@@ -81,6 +81,8 @@ class MasterUsersController extends MasterAppController {
 				}
 
 				$this->TransactionManager->commit($transaction);
+				$this->Session->setFlash('Your account registration is successful and already logined .', 'success');
+
 				$this->redirect(array('controller' => 'master_users', 'action' => 'index'));
 
 			} catch (Exception $e) {
@@ -119,13 +121,15 @@ class MasterUsersController extends MasterAppController {
 							$this->request->data['ServiceProvider']['password'] = $this->request->data['ServiceProvider']['password'];
 							$this->Cookie->write('rememberMe', $this->request->data['ServiceProvider'], true, '2 weeks');
 						}
-						$type=AuthComponent::user('type');
-						if($type==true){
-							$this->redirect(array('controller' => 'master_users', 'action' => 'index'));
-						}else{
-							$this->redirect(array('controller' => 'master_users', 'action' => 'index'));
-						}
+						$type = AuthComponent::user('type');
+						// if($type==true){
+						// 	$this->redirect(array('controller' => 'master_users', 'action' => 'index'));
+						// }else{
+						// 	$this->redirect(array('controller' => 'master_users', 'action' => 'index'));
+						// }
 
+						$this->Session->setFlash('You have been logined .', 'success');
+						$this->redirect(array('controller' => 'master_users', 'action' => 'index'));
 					} else {
 						$this->Session->setFlash('Your name or password is invalid.Please refill name and password.');
 					}

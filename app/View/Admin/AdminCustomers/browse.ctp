@@ -43,8 +43,10 @@
 
 				<tr>
 					<td class="left">Township</td>
-					<td class="right"> 
-						<?php echo $townships[$data['Customer']['township']] ; ?>						
+					<td class="right">
+						<?php if (!empty($data['Customer']['township'])) { ?>
+							<?php echo $townships[$data['Customer']['township']] ; ?>
+						<?php } ?>											
 					</td>
 				</tr>
 
@@ -62,6 +64,7 @@
 				<tr>
 					<td class="left">Service Requests</td>
 					<td class="right">
+						<?php //debug($data); ?>
 						<?php if (isset($data['ServiceRequest'])) : ?>							
 							<?php foreach ($data['ServiceRequest'] as $key => $value) : ?>
 								<label>

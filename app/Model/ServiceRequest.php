@@ -12,5 +12,4 @@ class ServiceRequest extends AppModel {
 			'foreignKey' => 'service_id'
 		)
 	);
-
 }

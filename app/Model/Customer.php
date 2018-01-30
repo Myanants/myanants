@@ -2,6 +2,10 @@
 App::uses('BlowfishPasswordHasher', 'Controller/Component/Auth');
 class Customer extends AppModel {
 
+	public $hasMany = array (
+		'ServiceRequest'
+	);
+
 	public $validate = array(
 		'name' => array(
 			'notBlank' => array(

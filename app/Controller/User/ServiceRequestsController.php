@@ -283,8 +283,8 @@ class ServiceRequestsController extends UserAppController {
 
 				$this->TransactionManager->commit($transaction);
 
-				$this->redirect(array('controller'=>'users','action' => 'index'))->with('success_message', 'Thank you for your service request.');
-
+				$this->Session->setFlash('Thank you for your service request.', 'success');
+				$this->redirect(array('controller'=>'users','action' => 'index'));
 			} catch (Exception $e) {
 				$this->log('File : ' . $e->getFile() . ' Line : ' . $e->getLine(), LOG_ERR);
 				$this->log($e->getMessage(), LOG_ERR);

@@ -1,3 +1,7 @@
+<div class="col-md-12">
+	<?php echo $this->Session->flash(); ?>
+</div>
+
 <section>
 <div class="container">
 	<div id="signupbox" class="login_box mainbox col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2 ">
