@@ -16,8 +16,7 @@ class ServiceRequestsController extends UserAppController {
 
         if ($this->Cookie->read('lang') && !$this->Session->check('Config.language')) {
             $this->Session->write('Config.language', $this->Cookie->read('lang'));
-        }
-        else if (isset($this->params['language']) && ($this->params['language']
+        } else if (isset($this->params['language']) && ($this->params['language']
                  !=  $this->Session->read('Config.language'))) {
 
             $this->Session->write('Config.language', $this->params['language']);
@@ -72,7 +71,7 @@ class ServiceRequestsController extends UserAppController {
 				$sub_service_id = $this->request->data['ServiceRequest']['sub_service_id'];
 				unset($this->request->data['ServiceRequest']['sub_service_id']);
 
-				// // For not logined customer, save customer data
+				// For not logined customer, save customer data
 				if (empty($user_id)) {
 
 					$input_phone = $this->request->data['ServiceRequest']['phone_number'] ;
@@ -103,7 +102,6 @@ class ServiceRequestsController extends UserAppController {
 							'email','address','password','confirm_password'
 						);
 
-
 						foreach ($validateAttrKey as $key => $value) {
 							$this->Customer->validator()->remove($value);
 						}
@@ -112,6 +110,7 @@ class ServiceRequestsController extends UserAppController {
 						if(!$this->Customer->save($data)) {
 							throw new Exception("ERROR OCCUR DURING REGISTER OF USER INFORMATION");
 						}
+
 						$cID = $this->Customer->find('first',array('order' => array('Customer.id' => 'DESC'),'fields' => 'id'));
 						
 						$customerid = $cID['Customer']['id'] ;
@@ -129,7 +128,6 @@ class ServiceRequestsController extends UserAppController {
 					$township = $this->request->data['ServiceRequest']['township'];
 				}
 				
-
 				unset($this->request->data['ServiceRequest']['name']);
 				unset($this->request->data['ServiceRequest']['phone_number']);
 				unset($this->request->data['ServiceRequest']['request_datetime']);
@@ -164,14 +162,12 @@ class ServiceRequestsController extends UserAppController {
 				}
 				
 				$allInfo = $this->request->data ;
-				// save to the database 
-				$this->ServiceRequest->create();
 
 				$originalDate = $this->request->data['ServiceRequest']['request_datetime'];
-				$newDate = date("Y-m-d H:m", strtotime($originalDate));
-				
+				$newDate = date("Y-m-d H:m", strtotime($originalDate));				
 				$this->request->data['ServiceRequest']['request_datetime'] = $newDate;
 
+				$this->ServiceRequest->create();
 				if(!$this->ServiceRequest->save($this->request->data)) {
 					throw new Exception("ERROR OCCUR DURING REGISTER OF USER INFORMATION");
 				}
@@ -198,11 +194,6 @@ class ServiceRequestsController extends UserAppController {
 					$Email->emailFormat($options['emailFormat']);
 					$Email->subject($options['subject']);
 					$Email->template($options['template']);
-					// $Email->layout($options['layout']);
-					// $Email->viewVars(array(
-					// 	'model' => $this->modelClass));
-
-					// $Email->send();
 					$Email->send();
 
 				}
@@ -272,12 +263,11 @@ class ServiceRequestsController extends UserAppController {
 				$AdminEmail->emailFormat($admin_options['emailFormat']);
 				$AdminEmail->subject($admin_options['subject']);
 				$AdminEmail->template($admin_options['template']);
-				// $AdminEmail->send();
+				
 				if ($AdminEmail->send()) {
 					$this->log("sent");
-				}else{
+				} else {
 					$this->log("not sent");
-
 				}
 				/******************* Mail Send to Admin **************************/
 

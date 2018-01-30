@@ -15,7 +15,6 @@ class AdminServiceProvidersController extends AdminAppController {
 		$status = !empty($this->request->query['status']) ? trim($this->request->query['status']) : '';
 		$condition = array();
 
-
 		if ($status == 1 ) { //Active ServiceProvider list
 			$condition = array( 'ServiceProvider.deactivate' => 0,'ServiceProvider.deleted ' => 0);
 		} elseif ($status == 2 ) { //Deactivated ServiceProvider list
@@ -34,7 +33,6 @@ class AdminServiceProvidersController extends AdminAppController {
 				)
 			);
 		}
-
 			
 		$this->paginate = array(
 			'paramType' => 'querystring',
@@ -42,6 +40,7 @@ class AdminServiceProvidersController extends AdminAppController {
 			'order' => array('id' => 'DESC'),
 			'conditions' => $condition
 		);
+
 		$pag = $this->paginate('ServiceProvider');
 		$this->set(compact('pag','limit'));
 	}
@@ -87,13 +86,11 @@ class AdminServiceProvidersController extends AdminAppController {
 					unset($this->request->data['ServiceProvider']['image']);
 				}
 
-
 				// TOWNSHIPS 
 				$this->request->data['ServiceProvider']['experience'] = $experience[$this->request->data['ServiceProvider']['experience']] ;
 				$this->request->data['ServiceProvider']['townships'] = $townships[$this->request->data['ServiceProvider']['townships']] ;
 
 				// save to the database
-				// $this->ServiceProvider->create();
 				if (!$this->ServiceProvider->save($this->request->data)) {
 					throw new Exception('ERROR COULD NOT ADD Tag');
 				}
@@ -169,7 +166,6 @@ class AdminServiceProvidersController extends AdminAppController {
 				}
 
 				if (!$this->ServiceProvider->saveAll($this->request->data)) {
-					// $this->set('error', 'true');
 					throw new Exception('ERROR COULD NOT ADD ServiceProvider DATA');
 				}
 				$this->TransactionManager->commit($transaction);
@@ -204,6 +200,7 @@ class AdminServiceProvidersController extends AdminAppController {
 				throw new Exception('ERROR COULD NOT DELETE ServiceProvider');
 			}
 			$this->TransactionManager->commit($transaction);
+			
 		} catch (Exception $e) {
 			$this->log('File : ' . $e->getFile() . ' Line : ' . $e->getLine(), LOG_ERR);
 			$this->log($e->getMessage(), LOG_ERR);

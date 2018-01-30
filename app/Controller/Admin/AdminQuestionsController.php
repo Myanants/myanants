@@ -19,9 +19,9 @@ class AdminQuestionsController extends AdminAppController {
 			'limit' => $limit,
 			'order' => array('id' => 'ASC')
 		);
+
 		$pag = $this->paginate('Question');
 		$this->set(compact('pag','limit'));
-
 	}
 
 	public function add($id=null) {
@@ -51,7 +51,6 @@ class AdminQuestionsController extends AdminAppController {
 				if (!$this->Question->saveMany($data, array('deep' => true))) {
 					throw new Exception('ERROR COULD NOT ADD Tag');
 				}
-
 
 				$this->TransactionManager->commit($transaction);
 				$this->redirect(array('action' => 'index'));

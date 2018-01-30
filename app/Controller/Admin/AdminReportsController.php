@@ -91,17 +91,19 @@ class AdminReportsController extends AdminAppController {
 				$service_provider_count[$day] = 0;
 			}
 		}
+
 		foreach ($service_provider as $occkey => $occvalue) {
 			$occval = explode(' ', $occvalue['ServiceProvider']['created']);
 			$occex = explode('-', $occval[0]);
 			$service_provider_count[$occex[2]]++ ;
 
 		}
-
 		$ctotal_count = 0 ;
+
 		foreach ($service_provider_count as $key => $value) {
 			$ctotal_count += $value;
 		}
+		
 		$service_provider_count['total'] = $ctotal_count;
 		return $service_provider_count;
 	}

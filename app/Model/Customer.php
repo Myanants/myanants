@@ -130,7 +130,6 @@ class Customer extends AppModel {
 			$token = $this->generateToken();
 			$user[$this->alias]['password_token'] = $token;
 			$user[$this->alias]['password_token_expires'] = date('Y-m-d H:i:s', $sixtyMins);
-			// $user[$this->alias]['id'] = $user['Customer']['id'];
 			$user = $this->save($user, false);
 			$this->data = $user;
 			return $user;

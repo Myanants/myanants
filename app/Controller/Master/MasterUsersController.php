@@ -68,15 +68,12 @@ class MasterUsersController extends MasterAppController {
 				$this->request->data['ServiceProvider']['experience'] = $experience[$this->request->data['ServiceProvider']['experience']] ;
 				$this->request->data['ServiceProvider']['townships'] = $townships[$this->request->data['ServiceProvider']['townships']] ;
 
-// debug($this->request->data);
 				// save to the database
 				if (!$this->ServiceProvider->save($this->request->data)) {
 					throw new Exception('ERROR COULD NOT ADD Tag');
 				} else {
-					$this->log("saved in DB -----------------");
 					if ($this->Auth->login()) {
 						$this->log("logined ---------------------");
-						// $this->redirect(array('controller' => 'users', 'action' => 'index'));
 					}
 				}
 
@@ -122,11 +119,6 @@ class MasterUsersController extends MasterAppController {
 							$this->Cookie->write('rememberMe', $this->request->data['ServiceProvider'], true, '2 weeks');
 						}
 						$type = AuthComponent::user('type');
-						// if($type==true){
-						// 	$this->redirect(array('controller' => 'master_users', 'action' => 'index'));
-						// }else{
-						// 	$this->redirect(array('controller' => 'master_users', 'action' => 'index'));
-						// }
 
 						$this->Session->setFlash('You have been logined .', 'success');
 						$this->redirect(array('controller' => 'master_users', 'action' => 'index'));

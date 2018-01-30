@@ -22,25 +22,6 @@ class AdminSubServicesController extends AdminAppController {
 				$transaction = $this->TransactionManager->begin();
 
 				$arr = array();
-// 				$i = 0 ;
-// 				foreach ($this->request->data['Question'] as $key => $value) {
-// // debug($this->request->data['Question']);
-
-// 					$arr[$i] = $value;
-// 					if (!empty($value['service_id'])) {
-// 						$this->Session->write('service_id', $value['service_id']);
-						
-// 					} 
-// 					$i++;
-// 				}
-
-// 				$serId = $this->Session->read('service_id');
-
-// 				for ($k=0; $k <$i ; $k++) { 
-// 					$arr[$k]['service_id'] = $serId;
-// 				}
-
-				// $this->request->data['Question'] = $arr ;
 
 				$this->SubService->create();
 				if (!$this->SubService->save($this->request->data)) {
@@ -113,9 +94,7 @@ class AdminSubServicesController extends AdminAppController {
 	}
 
 	public function edit_answer($id = null) {
-
-		$service = $this->Service->findById($id);
-	
+		$service = $this->Service->findById($id);	
 		$this->set(compact('service'));
 	}
 
@@ -125,7 +104,7 @@ class AdminSubServicesController extends AdminAppController {
 		
 		$myArray = array();
 		if ($this->request->is('ajax')) {
-// get values here 
+			// get values here 
 			if ($this->request->data) {
 				
 				$quest = $this->Question->find('all',array(
@@ -134,32 +113,15 @@ class AdminSubServicesController extends AdminAppController {
 					'recursive' => -1
 				));
 
-
 				unset($this->request->data['id']);
-
-
-				// foreach ($this->request->data as $k => $v) {
-				// 	foreach ($quest as $key => $value) {
-
-				// 		if ($v == $value['Question']['id'] ) {
-				// 			$myArray[$k][$value['Question']['id']] = $value ;
-
-				// 		}
-						
-				// 	}
-			
-				// }
 
 				$keyArray = array();
 				foreach ($this->request->data as $key => $value) {
 					$keyArray[$value] =  $value ;
 				}
 
-
 				try {
 					$transaction = $this->TransactionManager->begin();
-					
-					
 
 					$this->TransactionManager->commit($transaction);
 					$this->redirect(array('action' => 'form'));
@@ -171,7 +133,7 @@ class AdminSubServicesController extends AdminAppController {
 				}
 
 			}
-	}
+		}
 
 	}
 
@@ -181,16 +143,15 @@ class AdminSubServicesController extends AdminAppController {
 		$name = array();
 		$keys = array();
 		$temp = array();
-		foreach ($services as $key => $value) {
-			
+
+		foreach ($services as $key => $value) {			
 			$service_name[$value['Service']['id']] = $value['Service']['service_id'].'@@'.$value['Service']['name'].'@@'.$value['Service']['myan_name'];
 		}
-// debug($service_name);
+
 		foreach ($service_name as $key => $value) {
 			$name[$key] = explode('@@', $value);
 			$keys[$key] = $name[$key][0];
 		}
-
 
 		$sub_services = $this->SubService->find('all');
 		foreach ($keys as $k => $v) {
@@ -204,7 +165,6 @@ class AdminSubServicesController extends AdminAppController {
 
 		}
 
-// debug($temp);
 		$this->set(compact('services','sub_services','service_name','temp'));
 	}
 

@@ -8,8 +8,6 @@ class UsersController extends UserAppController {
 	public $components = array('RequestHandler', 'Security','OptionCommon');
 	public $uses = array('Customer','ServiceRequest','SubService','ServiceProvider','Question','TransactionManager');
 	
-	// private $key = "Qb2KFqy7Amf5VMu4Jt8Cg0Dce1OGsj9HSah6Lir3";
-
 	public function beforeFilter() {
 		parent::beforeFilter();
 		$this->layout = 'mastercleaner';
@@ -51,12 +49,10 @@ class UsersController extends UserAppController {
 				$data['Customer']['deactivate'] = 0;
 
 				// save to the database
-				// $this->Customer->create();
 				if(!$this->Customer->save($data)) {
 					throw new Exception("ERROR OCCUR DURING REGISTER OF USER INFORMATION");
 				} else {
 					if ($this->Auth->login()) {
-						$this->log("logined ---------------------");
 						$this->Session->write('authId', $this->Auth->user('id'));
 					}
 				}
@@ -80,7 +76,6 @@ class UsersController extends UserAppController {
 			$this->redirect(array('controller' => 'users', 'action' => 'index'));
 		}
 		if ($this->request->is('post')) {
-			// debug($this->request->data);
 			$auth = $this->Customer->find('first', array(
 				'conditions' => array(
 					'Customer.name' => $this->request->data['Customer']['name'],
@@ -198,8 +193,6 @@ class UsersController extends UserAppController {
 		$this->Session->write('profile_image', $profile_image);
 
 		if (empty($userInfo) && !empty($userNode)) {
-			// $randomID = mt_rand(0000001,9999999);//generate random number of given between range
-			// $customerID='C-' .$randomID;
 
 			$lastcustomerID = $this->Customer->find('first',array('order' => array('id' => 'DESC'),'fields' => 'customer_id'));
 
@@ -270,17 +263,14 @@ class UsersController extends UserAppController {
 
 	public function profile() {
 		$this->layout = 'user';
-		// debug($this->Auth->user());
 		if (!empty($this->Auth->user('id'))) {
 			$customer_id = $this->Auth->user('id') ;
 			$request = $this->ServiceRequest->find('all',array(
-					'conditions' => array(
-						'ServiceRequest.customer_id' => $customer_id
-					),
-					'order' => array('ServiceRequest.modified' => 'DESC')
-					));
-			// debug($request);
-
+						'conditions' => array(
+							'ServiceRequest.customer_id' => $customer_id
+						),
+						'order' => array('ServiceRequest.modified' => 'DESC')
+						));
 		}
 		$this->set(Compact('request','customer_id'));
 	}
@@ -387,8 +377,6 @@ class UsersController extends UserAppController {
 		foreach ($validateAttrKey as $key => $value) {
 			$this->Customer->validator()->remove($value);
 		}
-
-
 
 		if (!empty($this->request->data) && $this->{$this->modelClass}->resetPassword(Set::merge($usersuser, $this->request->data))) {
 			$this->Session->setFlash("Password is changed");

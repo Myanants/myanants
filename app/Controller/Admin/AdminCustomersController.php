@@ -253,7 +253,6 @@ class AdminCustomersController extends AdminAppController {
 
 				$this->Customer->create();
 				if (!$this->Customer->saveAssociated($this->request->data, array('deep' => true))) {
-					// $this->set('error', 'true');
 					throw new Exception('ERROR COULD NOT ADD Customer DATA');
 				}
 				$this->TransactionManager->commit($transaction);
@@ -267,7 +266,6 @@ class AdminCustomersController extends AdminAppController {
 				$this->Session->setFlash('Couldn\'t edit customer', 'error');
 				return;
 			}
-
 
 		}
 		

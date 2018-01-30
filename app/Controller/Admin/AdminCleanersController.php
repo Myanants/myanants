@@ -41,7 +41,6 @@ class AdminCleanersController extends AdminAppController {
 					'OR' => array(
 						array('Cleaner.cleaner_id LIKE' => '%'. $keyword .'%'),
 						array('Cleaner.name LIKE' => '%'. $keyword .'%'),
-						// array('Cleaner.company_name LIKE' => '%'. $keyword .'%'),
 						array('Cleaner.phone LIKE' => '%'. $keyword .'%')
 					)
 				);
@@ -238,7 +237,6 @@ class AdminCleanersController extends AdminAppController {
 				}
 				$job_type = rtrim($tmp,"@@");
 				$this->request->data['Cleaner']['job_type'] = $job_type;
-
 
 				$this->request->data['Cleaner']['id'] = $id ;
 

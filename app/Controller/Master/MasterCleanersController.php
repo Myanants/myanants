@@ -88,10 +88,8 @@ class MasterCleanersController extends MasterCleanerAppController {
 				if (!$this->Cleaner->save($this->request->data)) {
 					throw new Exception('ERROR COULD NOT ADD Tag');
 				} else {
-					$this->log("saved in DB -----------------");
 					if ($this->Auth->login()) {
 						$this->log("logined ---------------------");
-						// $this->redirect(array('controller' => 'users', 'action' => 'index'));
 					}
 				}
 
@@ -181,9 +179,9 @@ class MasterCleanersController extends MasterCleanerAppController {
 							$this->Cookie->write('rememberMe', $this->request->data['Cleaner'], true, '2 weeks');
 						}
 						$type=AuthComponent::user('type');
-						if($type==true){
+						if ($type==true) {
 							$this->redirect(array('controller' => 'master_cleaners', 'action' => 'index'));
-						}else{
+						} else {
 							$this->redirect(array('controller' => 'master_cleaners', 'action' => 'index'));
 						}
 

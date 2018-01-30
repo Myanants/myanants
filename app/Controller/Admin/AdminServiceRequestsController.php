@@ -75,16 +75,20 @@ class AdminServiceRequestsController extends AdminAppController {
 	public function delete($id = null) {
 		try {
 			$transaction = $this->TransactionManager->begin();
+
 			if (empty($id)) {
 				throw new Exception('ERROR ServiceRequest ID NOT EXISTS');
 			}
+
 			$this->ServiceRequest->id = $id;
 			if (!$this->ServiceRequest->exists()) {
 				throw new Exception('ERROR ServiceRequest NOT EXISTS');
 			}
+
 			if (!$this->ServiceRequest->save(array('ServiceRequest' => array('deleted' => 1, 'deleted_date' => date('Y-m-d H:i:s'))), array('validate' => false))) {
 				throw new Exception('ERROR COULD NOT DELETE ServiceRequest');
 			}
+
 			$this->TransactionManager->commit($transaction);
 		} catch (Exception $e) {
 			$this->log('File : ' . $e->getFile() . ' Line : ' . $e->getLine(), LOG_ERR);
@@ -92,6 +96,7 @@ class AdminServiceRequestsController extends AdminAppController {
 			$this->TransactionManager->rollback($transaction);
 			$this->redirect(array('action' => 'index'));
 		}
+		
 		$this->redirect(array('action' => 'index'));
 	}
 
@@ -110,7 +115,7 @@ class AdminServiceRequestsController extends AdminAppController {
 
 			$this->ServiceRequest->id = $this->request->data['id'];
 			if (!$this->ServiceRequest->saveField('status', $status)) {
-				throw new Exception('ERROR COULD NOT DELETE Service');
+				throw new Exception("Data cann't be saved.");
 			}
 		}
 	}
@@ -126,7 +131,7 @@ class AdminServiceRequestsController extends AdminAppController {
 						);
 				
 				if ($this->ServiceRequest->saveMany($data)) {
-					throw new Exception('ERROR COULD NOT DELETE Service');
+					throw new Exception("Data cann't be saved.");
 				};
 
 			} else {
@@ -137,7 +142,7 @@ class AdminServiceRequestsController extends AdminAppController {
 						);
 				
 				if ($this->ServiceRequest->saveMany($data)) {
-					throw new Exception('ERROR COULD NOT DELETE Service');
+					throw new Exception("Data cann't be saved. ");
 				};
 			}
 		}

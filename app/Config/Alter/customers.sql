@@ -5,6 +5,7 @@ CREATE TABLE `customers` (
   `name` varchar(255) COLLATE utf8_bin NOT NULL,
   `email` varchar(255) COLLATE utf8_bin DEFAULT NULL,
   `phone_number` varchar(255) COLLATE utf8_bin NOT NULL,
+  `township` tinyint(2) DEFAULT NULL,
   `address` varchar(255) COLLATE utf8_bin DEFAULT NULL,
   `type` varchar(255) COLLATE utf8_bin DEFAULT NULL,
   `fbid` varchar(255) COLLATE utf8_bin DEFAULT NULL,
@@ -12,11 +13,11 @@ CREATE TABLE `customers` (
   `fbemail` varchar(255) COLLATE utf8_bin DEFAULT NULL,
   `password` varchar(255) COLLATE utf8_bin DEFAULT NULL,
   `email_token_expires` date DEFAULT NULL,
-  `password_token` varchar(255) COLLATE utf8_bin NOT NULL,
+  `password_token` varchar(255) COLLATE utf8_bin DEFAULT NULL,
   `deactivate` tinyint(2) NOT NULL,
   `created` datetime DEFAULT NULL,
   `modified` datetime DEFAULT NULL,
   `deleted` tinyint(1) NOT NULL DEFAULT '0',
   `deleted_date` datetime DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8 COLLATE=utf8_bin;

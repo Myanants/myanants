@@ -13,7 +13,6 @@ class AdminServicesController extends AdminAppController {
 		$limit = (!empty($this->params->query['limit'])) ? $this->params->query['limit'] : 50;
 		$keyword = (!empty($this->params->query['keyword'])) ? trim($this->params->query['keyword']) : '';
 		$condition = array();
-
 	
 		$condition = array(
 			array(
@@ -24,7 +23,7 @@ class AdminServicesController extends AdminAppController {
 				array('Service.name LIKE' => '%'. $keyword .'%'),
 				array('Service.myan_name LIKE' => '%'. $keyword .'%'),
 			)
-		) ;
+		);
 		
 		$this->paginate = array(
 			'paramType' => 'querystring',
@@ -52,9 +51,7 @@ class AdminServicesController extends AdminAppController {
 		$UserCode = $prefix.$serviceID;
 		$this->set(compact('UserCode'));
 
-
 		if ($this->request->is(array('post', 'put'))) {
-
 			try {
 				$transaction = $this->TransactionManager->begin();
 
@@ -89,8 +86,7 @@ class AdminServicesController extends AdminAppController {
 			try {
 				$transaction = $this->TransactionManager->begin();
 				$this->request->data['Service']['id'] = $id;
-				if (!$this->Service->saveAll($this->request->data)) {
-					// $this->set('error', 'true');
+				if (!$this->Service->saveAll($this->request->data)) {					
 					throw new Exception('ERROR COULD NOT ADD Service DATA');
 				}
 				$this->TransactionManager->commit($transaction);
@@ -113,8 +109,6 @@ class AdminServicesController extends AdminAppController {
 			$this->Session->setFlash('Enter Service ID。', "error");
 			$this->redirect(array('action' => 'index'));
 		}
-
-
 		$data = $this->Service->findByid($id);
 
 		$this->set(compact('data','services'));
@@ -140,12 +134,6 @@ class AdminServicesController extends AdminAppController {
 					$data['Question'][$i]['service_id'] = $service_id ;
 					$i++ ;
 				}
-
-				debug($data);
-				// $this->Question->create();
-				// if (!$this->Question->saveMany($data)) {
-				// 	throw new Exception('ERROR COULD NOT ADD Tag');
-				// }
 
 				if (!$this->Question->saveAll($data)) {
 					throw new Exception('ERROR COULD NOT ADD Tag');
