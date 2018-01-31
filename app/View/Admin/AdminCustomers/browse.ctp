@@ -64,10 +64,10 @@
 				<tr>
 					<td class="left">Service Requests</td>
 					<td class="right">
-						<?php //debug($data); ?>
-						<?php if (isset($data['ServiceRequest'])) : ?>							
+
+						<?php if (isset($data['ServiceRequest'])) : ?>
 							<?php foreach ($data['ServiceRequest'] as $key => $value) : ?>
-								<label>
+								<label style="color: cornflowerblue;">
 									<?php echo $main_service[$value['service_id']].' > '.
 											$sub_service[$value['sub_service_id']] ; ?>
 								</label>
@@ -78,8 +78,8 @@
 									<?php
 										$answer_string = '' ;
 										$temp_answer = explode('/', $ansvalue);
-										$question_id = $temp_answer[0] ;
-										echo $question[$question_id].'<br/>';
+										$question_id = $temp_answer[0] ; ?>
+										<label><?php echo $question[$question_id].'</label><br/>';
 										if (strpos($temp_answer[1], '$$') == true) { //TRUE
 											$anss = explode('$$', $temp_answer[1]) ;
 											foreach ($anss as $k => $val) {

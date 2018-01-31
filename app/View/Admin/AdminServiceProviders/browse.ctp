@@ -60,7 +60,7 @@
 					<td class="left">Business Summary</td>
 					<td class="right"> 
 						<?php if (!empty($data['ServiceProvider']['business_summary'])) { ?>
-							<?php echo $data['ServiceProvider']['business_summary'] ; ?>
+							<?php echo nl2br($data['ServiceProvider']['business_summary']) ; ?>
 						<?php } ?>					
 					</td>
 				</tr>
@@ -107,7 +107,7 @@
 				<tr>
 					<td class="left">Pricing</td>
 					<td class="right"> 
-						<?php echo $data['ServiceProvider']['pricing'] ; ?>
+						<?php echo nl2br($data['ServiceProvider']['pricing']) ; ?>
 					</td>
 				</tr>
 
