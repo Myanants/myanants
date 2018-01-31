@@ -17,7 +17,7 @@
 					<td class="right">
 
 						<?php if ($data['Question']['type'] == 'text') { ?>
-							<input type="text" name="text" disabled="true" />
+							<input type="text" name="text" disabled="true" placeholder="textbox" />
 
 						<?php } elseif ($data['Question']['type'] == 'check') { ?>
 							<?php
