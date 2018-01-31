@@ -129,11 +129,7 @@
 							array( 'escape' => false)); ?>
 					</div>
 				</div>
-				<!-- <div class="form-group">
-					<div class="col-md-8 col-md-offset-1 col-sm-8  col-xs-10 ">
-						You have an Account? <?php echo $this->Html->link("Login Now!", array('controller' => 'users', 'action' => 'login'),array( 'label' => false,'target' =>'_blank','style' => 'color: #0000ff;')); ?>
-					</div>
-				</div> -->
+				
 				<?php echo $this->Form->end(); ?>
 			</div>
 		</div>

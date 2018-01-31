@@ -39,7 +39,7 @@ class MasterCleanerAppController extends AppController {
 
 	function beforeFilter() {
 		$this->layout = 'login_master';
-        // $this->_setLanguage();
+        
 		AuthComponent::$sessionKey = 'Auth.mastercleaners';
 		if(in_array($this->params['controller'],array('master_cleaners'))){
 			$this->Auth->allow('remind');

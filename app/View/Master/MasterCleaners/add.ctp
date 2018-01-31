@@ -129,7 +129,6 @@
 					<div class="form-group" >
 						<div class="col-md-10 col-md-offset-1 ">
 							<label>Photo</label>
-							<?php //echo $this->Form->input('photo', array('class' => 'form-control', 'placeholder' => 'photo', 'autofocus' => true, 'autocomplete' => 'off','label' => false)); ?>
 							<?php
 								echo $this->Form->input('photo', array(
 									'type' => 'file',
@@ -142,7 +141,6 @@
 					<div class="form-group" ></div>
 					<div class="form-group" >
 						<div class="col-md-14 col-md-offset-1">
-							<!-- <label>Job Type and Skill</label> -->
 							<?php foreach ($job_type as $key => $value) { ?>
 			 					<div class="form-group col-md-9 col-md-offset-2" style="border-bottom: none;margin-top: -1%;">
 									<div class="col-md-6 col-sm-6 col-xs-6">

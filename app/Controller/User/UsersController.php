@@ -12,10 +12,8 @@ class UsersController extends UserAppController {
 		parent::beforeFilter();
 		$this->layout = 'mastercleaner';
 		$this->Security->blackHoleCallback = 'blackhole';
-
 		$this->Security->validatePost = false;
-		$this->Security->csrfCheck = false;    
-
+		$this->Security->csrfCheck = false;
 		$this->Auth->allow('login','index','add','facebookLogin', 'fbcallback', 'logout', 'activate');
 	}
 
@@ -41,7 +39,6 @@ class UsersController extends UserAppController {
 
 			$data = $this->request->data;
 
-
 			try {
 				$transaction = $this->TransactionManager->begin();
 				
@@ -49,7 +46,7 @@ class UsersController extends UserAppController {
 				$data['Customer']['deactivate'] = 0;
 
 				// save to the database
-				if(!$this->Customer->save($data)) {
+				if (!$this->Customer->save($data)) {
 					throw new Exception("ERROR OCCUR DURING REGISTER OF USER INFORMATION");
 				} else {
 					if ($this->Auth->login()) {
@@ -81,6 +78,7 @@ class UsersController extends UserAppController {
 					'Customer.name' => $this->request->data['Customer']['name'],
 					'Customer.deleted' => 0)
 				));
+
 			if(!empty($auth)){
 				if ($auth['Customer']['deactivate'] != 1) {
 
@@ -139,7 +137,6 @@ class UsersController extends UserAppController {
 	public function fbcallback() {
 		// disable auto render view
 		$this->autoRender = false;
-
 
 		$fb = new Facebook\Facebook([
 			'app_id' => '1038913562917167',

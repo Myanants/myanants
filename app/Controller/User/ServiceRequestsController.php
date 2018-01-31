@@ -13,7 +13,6 @@ class ServiceRequestsController extends UserAppController {
     }
 
     function _setLanguage() {
-
         if ($this->Cookie->read('lang') && !$this->Session->check('Config.language')) {
             $this->Session->write('Config.language', $this->Cookie->read('lang'));
         } else if (isset($this->params['language']) && ($this->params['language']
@@ -91,6 +90,7 @@ class ServiceRequestsController extends UserAppController {
 							$num = 1;
 							$CompanyID = str_pad($num, 6, '0', STR_PAD_LEFT);
 						}
+
 						$prefix = 'C-';
 						$UserCode = $prefix.$CompanyID;
 						$data['Customer']['customer_id'] = $UserCode;
@@ -120,7 +120,6 @@ class ServiceRequestsController extends UserAppController {
 				} else {
 					$customerid = $user_id;
 				}
-
 
 				$request_datetime = $this->request->data['ServiceRequest']['request_datetime'];
 
@@ -195,17 +194,13 @@ class ServiceRequestsController extends UserAppController {
 					$Email->subject($options['subject']);
 					$Email->template($options['template']);
 					$Email->send();
-
 				}
-
 
 				/******************* Mail Send to Admin **************************/
 
 				$main_service = array();
 				$sub_service = array();
-				$question = $this->Question->find('list',array(
-					'fields' => array(
-					'id','Ename')));
+				$question = $this->Question->find('list',array('fields' => array('id','Ename')));
 
 				$service = $this->Service->find('all');
 
@@ -228,8 +223,7 @@ class ServiceRequestsController extends UserAppController {
 						foreach ($ans as $anskey => $ansvalue) {
 							$ansstring .= $ansvalue.'<br/>';
 						}
-						$string .= $question[$tmpArr[0]].'<br/>'.$ansstring.'###';
-					
+						$string .= $question[$tmpArr[0]].'<br/>'.$ansstring.'###';					
 
 					} else {
 						$tmpArr = explode('/', $pairvalue);

@@ -63,7 +63,6 @@ class MasterUsersController extends MasterAppController {
 					unset($this->request->data['ServiceProvider']['image']);
 				}
 
-
 				// TOWNSHIPS 
 				$this->request->data['ServiceProvider']['experience'] = $experience[$this->request->data['ServiceProvider']['experience']] ;
 				$this->request->data['ServiceProvider']['townships'] = $townships[$this->request->data['ServiceProvider']['townships']] ;
@@ -145,7 +144,7 @@ class MasterUsersController extends MasterAppController {
 	}
 
 	public function index() {
-		// $this->layout = 'master' ;
+		// index.ctp
 	}
 
 	public function profile() {

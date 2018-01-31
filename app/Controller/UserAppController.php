@@ -3,7 +3,9 @@ session_start();
 App::uses('BlowfishPasswordHasher', 'Controller/Component/Auth');
 class UserAppController extends AppController {
 	protected $_mergeParent = 'UserAppController';
+
 	public $layouts = array('desktop', 'mobile');
+
 	public $components = array(
 		'Session',
 		'DebugKit.Toolbar',
@@ -35,8 +37,7 @@ class UserAppController extends AppController {
 			)
 		),
 		'Cookie'
-	);
-	
+	);	
 
 	function beforeFilter() {
         $this->_setLanguage();
@@ -63,7 +64,6 @@ class UserAppController extends AppController {
 
 
     function _setLanguage() {
-
         if ($this->Cookie->read('lang') && !$this->Session->check('Config.language')) {
             $this->Session->write('Config.language', $this->Cookie->read('lang'));
         } else if (isset($this->params['language']) && ($this->params['language'] !=  $this->Session->read('Config.language'))) {

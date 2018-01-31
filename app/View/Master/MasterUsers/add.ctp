@@ -49,8 +49,6 @@
 						<label>
 							<?php echo __('Service Provider ID'); ?>
 						</label>
-						<?php //echo $this->Form->input('id', array( 'class' => 'form-control', 'placeholder' => '', 'autofocus' => true, 'autocomplete' => 'off','label' => false,'value' => $UserCode,'disabled' => true)); ?>
-
 						<?php
 							echo $this->Form->input('id', array(
 								'type' => 'text',
@@ -137,7 +135,6 @@
 							<?php echo __('Number of team member'); ?>
 							<span class="required" style="color:red;">*</span>
 						</label>
-						<?php //echo $this->Form->input('teammember', array( 'class' => 'form-control', 'placeholder' => 'teammember', 'autofocus' => true, 'autocomplete' => 'off','label' => false)); ?>
 						<?php
 							$member = array();
 							for ($i= 1; $i <= 30 ; $i++) { 

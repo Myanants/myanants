@@ -11,12 +11,9 @@ class MasterCleanersController extends MasterCleanerAppController {
 	
 	public function beforeFilter() {
 		parent::beforeFilter();
-
 		$this->Security->blackHoleCallback = 'blackhole';
-
 		$this->Security->validatePost = false;
-		$this->Security->csrfCheck = false;
- 
+		$this->Security->csrfCheck = false; 
 		$this->Auth->allow('login','index','add','facebookLogin', 'fbcallback', 'logout', 'activate');
 	}
 
@@ -133,8 +130,7 @@ class MasterCleanersController extends MasterCleanerAppController {
 				$transaction = $this->TransactionManager->begin();
 
 				$this->request->data['Cleaner']['cleaner_id'] = $UserCode;
-				$this->request->data['Cleaner']['deactivate'] = 0;
-	
+				$this->request->data['Cleaner']['deactivate'] = 0;	
 
 				// save to the database
 				if (!$this->Cleaner->save($this->request->data)) {

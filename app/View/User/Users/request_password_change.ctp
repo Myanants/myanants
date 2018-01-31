@@ -17,7 +17,7 @@
 					<div class="clearfix" style="padding-bottom: 9px;"></div>
 					<div class="separator">
 						<div class="clearfix"></div>
-						<br />
+						<br/>
 						<div>
 							<h1><i>
 								<a href = "http://myanants.com/staging/"><img src="http://myanants.com/staging/img/logo/myanants-black.png" style="width: 50%;margin-top: -36%;margin-bottom: -32%;"></a>

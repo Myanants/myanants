@@ -36,10 +36,10 @@
 		<?php echo $this->Html->script('select2.min'); ?>
 		<?php echo $this->Html->script('datatables.min') ?>
 		<?php echo $this->Html->script('datatable'); ?>
-		<?php echo $this->Html->script('jquery-cloneya'); ?>
-	
+		<?php echo $this->Html->script('jquery-cloneya'); ?>	
 		
 	</head>
+
 	<body class="nav-md">
 		<div class="container body">
 			<div class="main_container">
@@ -48,7 +48,7 @@
 						<div class="navbar nav_title" style="border: 0;margin-left: 70px;margin-left: -11px;">
 							<?php echo $this->Html->link('<img src= "http://myanants.com/staging/img/logo/myanants-white.png" alt="MyanAnts" style = "width: 76%;height: 59%;margin-top: 24%;" >', array('controller' => 'admin', 'action' => 'customer/index'), array('class' => 'site_title', 'escape' => false,'style' => 'padding-left:-1px; width: 100%; height:112px;margin-top: -57px;')) ?>
 						</div>
-						<br />
+						<br/>
 						<?php $string = Router::reverse($this->params); ?>
 						<!-- sidebar menu -->
 						<div id="sidebar-menu" class="main_menu_side hidden-print main_menu">
@@ -95,21 +95,6 @@
 
 										</ul>
 									</li>
-
-									
-
-									<!-- <li><a><i class="fa fa-building-o"></i> <?php echo "Service Request"?> <span class="fa fa-chevron-down"></span></a>
-										<ul class="nav child_menu">
-											<li>
-										
-												<?php echo $this->Html->link('Service Request List', array('controller' => 'admin_service_requests', 'action' => 'index')); ?>
-											</li>
-											<li>
-												<?php echo $this->Html->link('Service Request Add', array('controller' => 'admin_service_requests', 'action' => 'add')); ?>
-											</li>
-										</ul>
-									</li> -->
-
 
 									<li><a><i class="fa fa-cogs"></i> <?php echo "Question"?> <span class="fa fa-chevron-down"></span></a>
 										<ul class="nav child_menu">
@@ -187,7 +172,6 @@
 			</div>
 		</div>
 		<!-- jQuery -->
-		<?php //echo $this->Html->script('https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js'); ?>
 		<?php echo $this->Html->script('https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js'); ?>
 
 		<?php echo $this->Html->script('fastclick'); ?>

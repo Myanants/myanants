@@ -9,8 +9,6 @@
 			<h3 class="title text-center">Service Request Details</h3>
 
 			<div class="block1">
-				<!-- <h3 class="sub-title text-center">Service Requests</h3> -->
-				<?php //debug($request); ?>
 				<?php if (!empty($request)) : ?>
 					<div class="list-group">
 						<div class="col-md-3">
@@ -134,10 +132,6 @@
 						<?php } ?>
 				</div>
 
-
-				<!-- <p class="text-center">
-					<a class="btn btn-cta-primary" href="https://github.com/xriley/devAid-Theme" target="_blank">More Detail</a>
-				</p> -->
 			</div><!--//block-->
 
 			<?php echo $this->Html->link('Back', 'javascript:history.back()', array('class' => 'custom-link')); ?>

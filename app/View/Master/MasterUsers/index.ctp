@@ -28,7 +28,7 @@
 <body data-spy="scroll">
 	<?php $user_id = AuthComponent::user('id'); ?>
 	<?php $service_provider_id = AuthComponent::user('service_provider_id'); ?>
-	<?php //debug(AuthComponent::user('id')); ?>
+	
 	<!---//Facebook button code-->
 	<div id="fb-root"></div>
 	<!-- <script>(function(d, s, id) {

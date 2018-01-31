@@ -1,6 +1,7 @@
 <?php echo $this->Html->css('DateTimePicker'); ?>
 <?php echo $this->Html->script('DateTimePicker'); ?>
 <?php $user_id = $this->Session->read('authId'); ?>
+
 <section>
 <div class="container">
 	<div class="request-box col-md-8 col-md-offset-2 col-sm-8 col-sm-offset-2">
@@ -37,7 +38,6 @@
 				<div class="form-group" ></div>
 				<div class="form-group" >
 					<div class="col-md-10 col-md-offset-1 ">
-						<!-- <label>What type of Service ?</label> -->
 						<?php
 							echo $this->Form->input('sub_service_id', array(
 								'type' => 'select',
@@ -88,10 +88,6 @@
 									?>
 									<div>
 										<?php foreach ($answer as $key => $value) : ?>
-											<!-- <label class="radio-inline">
-												<input type="radio" name="<?php echo 'data[ServiceRequest]['.$questionId.']'; ?>" value = "<?php echo $value; ?>" > 
-												<?php echo $value; ?>
-											</label> -->
 											<div class="form-check">
 												<label>
 													<input type="radio" name="<?php echo 'data[ServiceRequest]['.$questionId.']'; ?>" value = "<?php echo $value; ?>" > <span class="label-text">

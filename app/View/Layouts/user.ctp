@@ -137,14 +137,6 @@
 	<?php echo $this->Html->script('custom'); ?>
 	<?php echo $this->Html->script('message'); ?>
 	<?php echo $this->Html->script('logo'); ?>
-
-<!-- 	<?php echo $this->Html->script('/app/webroot/js/home/jquery-1.11.3.min.js'); ?>   
-	<?php echo $this->Html->script('/app/webroot/js/home/jquery.easing.1.3.js'); ?>   
-	<?php echo $this->Html->script('/app/webroot/js/home/bootstrap/js/bootstrap.min.js'); ?>   
-	<?php echo $this->Html->script('/app/webroot/js/home/jquery-scrollTo/jquery.scrollTo.min.js'); ?>   
-	<?php echo $this->Html->script('/app/webroot/js/home/prism/prism.js'); ?>   
-	<?php echo $this->Html->script('/app/webroot/js/home/main.js'); ?>   
-	 -->
 </body>
 </html> 
 

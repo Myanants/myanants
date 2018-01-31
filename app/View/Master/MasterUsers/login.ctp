@@ -72,7 +72,6 @@
 						<?php echo $this->Form->checkbox('remember_me' ); ?>
 					<?php endif;?>
 						<label name='remember_me'><?php echo __('save password'); ?></label>
-						<?php //echo $this->Form->label('remember_me', 'Do you remember');?>
 					</div>
 				</div>
 
@@ -97,12 +96,6 @@
 				<p class="form-group" style="margin-left: 8%;">
 					<?php echo $this->Html->link("Click here if you forgot your password", array('controller' => 'master_users', 'action' => 'remind'),array( 'label' => false,'style' => 'color: blue;')); ?>
 				</p>
-
-				<!-- <div class="form-group">
-					<div class="col-md-6 col-md-offset-1 col-sm-8  col-xs-10 ">
-						With your social media account
-					</div>
-				</div> -->
 
 				<!-- <div class="form-group" >
 					<div class="col-md-10  col-md-offset-1 hidden-xs hidden-sm">

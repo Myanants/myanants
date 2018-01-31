@@ -42,13 +42,11 @@
 	Router::connect('/admin/report/:action/*',array('controller' => 'admin_reports'));
 	Router::connect('/admin/cleaner/:action/*',array('controller' => 'admin_cleaners'));
 
-
 	Router::connect('/master',array('controller' => 'master_users', 'action' => 'index'));
 	Router::connect('/master/login',array('controller' => 'master_users', 'action' => 'login'));
 	Router::connect('/master/profile',array('controller' => 'master_users', 'action' => 'profile'));
 	Router::connect('/master/detail/*',array('controller' => 'master_users', 'action' => 'detail'));
 	Router::connect('/masteruser/:action/*',array('controller' => 'master_users'));
-
 	Router::connect('/master/cleaner',array('controller' => 'master_cleaners', 'action' => 'index'));
 	Router::connect('/master/cleaner/login',array('controller' => 'master_cleaners', 'action' => 'login'));
 	Router::connect('/master/cleaner/:action/*',array('controller' => 'master_cleaners'));
@@ -61,7 +59,6 @@
 	Router::connect('/user/fbcallback', array('controller' => 'users', 'action' => 'fbcallback'));
 	Router::connect('/user/register', array('controller' => 'users', 'action' => 'add'));
 	Router::connect('/user/logout',array('controller' => 'users', 'action' => 'logout'));
-
 	Router::connect('/user/profile',array('controller' => 'users', 'action' => 'profile'));
 	Router::connect('/user/detail/*',array('controller' => 'users', 'action' => 'detail'));
 	Router::connect('/user/serviceprovider',array('controller' => 'users', 'action' => 'spindex'));

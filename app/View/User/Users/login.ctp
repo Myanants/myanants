@@ -83,12 +83,6 @@
 					<?php echo $this->Html->link("Click here if you forgot your password", array('controller' => 'users', 'action' => 'remind'),array( 'label' => false,'style' => 'color: blue;')); ?>
 				</p>
 
-				<!-- <div class="form-group">
-					<div class="col-md-6 col-md-offset-1 col-sm-8  col-xs-10 ">
-						With your social media account
-					</div>
-				</div> -->
-
 				<div class="form-group" >
 					<div class="col-md-10  col-md-offset-1 hidden-xs hidden-sm">
 						<?php
@@ -101,11 +95,6 @@
 							array( 'escape' => false)); ?>
 					</div>
 				</div>
-				<!-- <div class="form-group">
-					<div class="col-md-8 col-md-offset-1 col-sm-8  col-xs-10 ">
-						Don't have an Account? <?php echo $this->Html->link("Register Now!", array('controller' => 'users', 'action' => 'add'),array( 'label' => false,'target' =>'_blank','style' => 'color: #0000ff;')); ?>
-					</div>
-				</div> -->
 				<?php echo $this->Form->end(); ?>
 			</div>
 		</div>

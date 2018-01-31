@@ -13,17 +13,11 @@
 				</p>
 			</div><!--//block-->
 
-
 			<div class="block1">
-				<!-- <h3 class="sub-title text-center">Service Requests</h3> -->
-				
-
 				<div class="list-group list-group-item request-data request-header">
-					<!-- <a href="#" class="list-group-item request-data"> -->
-						<div class="col-md-3">Service Request ID</div>
-						<div class="col-md-3">Requested Date</div>
-						<div class="col-md-3">Service Name</div>
-					<!-- </a> -->
+					<div class="col-md-3">Service Request ID</div>
+					<div class="col-md-3">Requested Date</div>
+					<div class="col-md-3">Service Name</div>
 				</div>
 
 				<div class="list-group">
@@ -41,10 +35,7 @@
 						</a>
 					<?php endforeach; ?>
 				</div>
-
-				<!-- <p class="text-center">
-					<a class="btn btn-cta-primary" href="https://github.com/xriley/devAid-Theme" target="_blank">More Detail</a>
-				</p> -->
+				
 			</div><!--//block-->
 
 		
