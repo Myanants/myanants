@@ -8,7 +8,7 @@
 		<table class="table-st">
 			<tbody>
 				<tr>
-					<td class="left">Name</td>
+					<td class="left">Question</td>
 					<td class="right"><?php echo $data['Question']['Ename'] ; ?></td>
 				</tr>
 
