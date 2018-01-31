@@ -140,7 +140,7 @@ class AdminServicesController extends AdminAppController {
 				}
 
 				$this->TransactionManager->commit($transaction);
-				// $this->redirect(array('action' => 'index'));
+				$this->redirect(array('action' => 'index'));
 
 			} catch (Exception $e) {
 				$this->log('File : ' . $e->getFile() . ' Line : ' . $e->getLine(), LOG_ERR);

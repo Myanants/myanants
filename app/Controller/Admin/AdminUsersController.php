@@ -19,7 +19,7 @@ class AdminUsersController extends AdminAppController {
 				'conditions' => array(
 					'name' => $this->request->data['AdminUser']['name'])
 				));
-			if(!empty($auth)){
+			if (!empty($auth)) {
 				if ($this->Auth->login()) {
 					if ($this->request->data['AdminUser']['remember_me'] == 1) {
 						unset($this->request->data['AdminUser']['remember_me']);

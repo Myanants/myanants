@@ -156,7 +156,6 @@ class AdminSubServicesController extends AdminAppController {
 		$sub_services = $this->SubService->find('all');
 		foreach ($keys as $k => $v) {
 			foreach ($sub_services as $skey => $svalue) {
-				// debug($value);
 				if ($k == $svalue['Service']['id'] ) {
 					$temp[$k][$skey] = $svalue ;
 				}
