@@ -7,7 +7,7 @@ App::import('Vendor', 'facebook', array('file' => 'facebook'. DS . 'graph-sdk' .
 class MasterUsersController extends MasterAppController {
 
 	public $components = array('RequestHandler', 'Security','OptionCommon');
-	public $uses = array('ServiceProvider', 'TransactionManager');
+	public $uses = array('ServiceProvider','ServiceRequest','SubService','Question', 'TransactionManager');
 	
 	public function beforeFilter() {
 		parent::beforeFilter();
@@ -145,7 +145,45 @@ class MasterUsersController extends MasterAppController {
 	}
 
 	public function index() {
+		// $this->layout = 'master' ;
+	}
 
+	public function profile() {
+		$this->layout = 'user';
+		if (!empty($this->Auth->user('id'))) {
+			$service_provider_id = $this->Auth->user('id') ;
+			$request = $this->ServiceRequest->find('all',array(
+						'conditions' => array(
+							'ServiceRequest.service_provider_id' => $service_provider_id
+						),
+						'order' => array('ServiceRequest.modified' => 'DESC')
+						));
+		}
+		$this->set(Compact('request','service_provider_id'));
+	}
+
+	public function detail($id = null) {
+		$this->layout = 'user';
+		if (!empty($this->Auth->user('id'))) {
+			$service_provider_id = $this->Auth->user('id') ;
+			$request = $this->ServiceRequest->findById($id);
+
+			$sub_service = $this->SubService->find('list',array(
+				'fields' => array(
+					'id' ,'name')));
+
+			$question = $this->Question->find('list',array(
+				'fields' => array(
+					'id' ,'Ename')));
+
+			if (!empty($request['ServiceRequest']['service_provider_id'])) {
+				$spInfo = $this->ServiceProvider->findById($request['ServiceRequest']['service_provider_id']);
+			} else {
+				$spInfo = null ;
+			}
+			
+		}
+		$this->set(Compact('request','service_provider_id','sub_service','question','spInfo'));
 	}
 
 	// Main function for password reset

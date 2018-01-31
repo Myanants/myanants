@@ -98,15 +98,13 @@
 							?>	
 						</li>
 
-						<li>
+						<li class="nav-item">
 							<?php if (!empty($service_provider_id)) { ?>
-								<img src='http://myanants.com/staging/img/sample-user.png'/ style="width: 62%;">
+								<a href="http://myanants.com/staging/master/profile">
+									<img src='http://myanants.com/staging/img/sample-user.png'  class="profile" />
+								</a>
 							<?php } ?>
 						</li>
-						
-						<!-- <li class="nav-item" style="    background: cornflowerblue;">
-							<?php echo $this->Html->link("Service Provider", array('controller' => 'master_master_users', 'action' => 'login')) ;?>
-						</li> -->
 
 					</ul><!--//nav-->
 				</div><!--//navabr-collapse-->
@@ -222,5 +220,20 @@
 		background: linear-gradient(to right, #00cc99 0%, #cc00cc 100%);
 		color: #fff;
 		padding-top: 7%;
+	}
+	.profile {
+		width: 50%;
+		margin-top: -6%;
+	}
+	.phone {
+		margin-top: -4px;
+	}
+	
+	@media screen and (max-width: 768px) and (max-width: 992px) {
+		.profile {
+			width: 11%;
+			margin-top: 0px;
+		}
+		
 	}
 </style>

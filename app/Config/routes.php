@@ -45,6 +45,8 @@
 
 	Router::connect('/master',array('controller' => 'master_users', 'action' => 'index'));
 	Router::connect('/master/login',array('controller' => 'master_users', 'action' => 'login'));
+	Router::connect('/master/profile',array('controller' => 'master_users', 'action' => 'profile'));
+	Router::connect('/master/detail/*',array('controller' => 'master_users', 'action' => 'detail'));
 	Router::connect('/masteruser/:action/*',array('controller' => 'master_users'));
 
 	Router::connect('/master/cleaner',array('controller' => 'master_cleaners', 'action' => 'index'));

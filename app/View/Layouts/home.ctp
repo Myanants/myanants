@@ -137,7 +137,7 @@
 						<li class="nav-item">
 							<?php if (!empty($profile_image)) { ?>
 								<a href="http://myanants.com/staging/user/profile" class="fbprofile">
-									<img src='<?php echo $profile_image["url"]; ?>'/>
+									<img src='<?php echo $profile_image["url"]; ?>' />
 								</a>
 								
 							<?php } elseif (!empty($user_id) || !empty($customer_id)) { ?>
